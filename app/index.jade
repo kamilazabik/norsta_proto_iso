@@ -1,0 +1,46 @@
+//doctype html
+//html.no-js(lang='')
+//  include jade/includes/head
+//  body
+//    //if lt IE 10
+//      p.browserupgrade
+//         You are using an
+//        strong outdated
+//          browser. Please
+//        a(href='http://browsehappy.com/') upgrade your browser
+//          to improve your experience.
+//    #main-page.container-fluid
+//      include jade/includes/nav-top
+//      #wrapper.toggled-2
+//        #sidebar-wrapper.tree
+//          include jade/includes/sidebar
+//        #page-content-wrapper
+//          #content.container-fluid.xyz
+//            include jade/main-page
+//    .footer
+//      include jade/includes/footer
+//    include jade/includes/scripts
+
+extends jade/layouts/_default
+
+block content
+    //if lt IE 10
+      p.browserupgrade
+         You are using an
+        strong outdated
+          browser. Please
+        a(href='http://browsehappy.com/') upgrade your browser
+          to improve your experience.
+    #main-page.container-fluid
+      include jade/includes/nav-top
+      #wrapper.toggled-2
+        #sidebar-wrapper.tree
+          include jade/includes/sidebar
+        #page-content-wrapper
+          #content.container-fluid.xyz
+            include jade/main-page
+    //block footer
+    //  p Argevide
+      //include jade/includes/footer
+    //include jade/includes/scripts
+

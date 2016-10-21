@@ -1,0 +1,329 @@
+//.col-md-6.col-md-offset-0
+  //  .col-md-12.col-md-offset-0
+  //    //#panel.panel.panel-default
+  //      a(href='#')
+  //        .panel-body
+  //          | Dokumentacja Systemu HSEQ
+  //  //.col-md-11.col-md-offset-1
+  //  //  #list-of-claims.list-group.hidden
+  //  //    a.list-group-item(href='#') Dokumentacja Systemu Zarządzania
+  //  //    a.list-group-item(href='#') Polityka HSEQ
+  //  //    a.list-group-item(href='#') Planowanie HSEQ
+  //  //    a.list-group-item(href='#') Wdrożenie i Funkcjonowanie HSEQ
+  //  //    a.list-group-item(href='#') Ocena Wyników HSEQ
+  //  //    a.list-group-item(href='#') Analiza i Doskonalenie HSEQ
+  //  //    a.list-group-item(href='#') Przegląd Zarządzania HSEQ
+  //.col-md-6.col-md-offset-0
+  //  .col-md-12.col-md-offset-0
+  //    //.panel.panel-primary
+  //    //  .panel-heading
+  //    //    h3.panel-title Szczegóły
+  //    //  .panel-body Panel content
+  //    //  .panel-body Panel content
+  //    //  .panel-body Panel content
+//.col-md-3.right.right-panels
+  .col-md-6.col-md-offset-0
+    .col-md-12.col-md-offset-0
+      .panel.panel-primary
+        .panel-heading
+          h3.panel-title Szczegóły
+        .panel-body Panel content
+        .panel-body Panel content
+        .panel-body Panel content
+
+
+ // function ratingEnable() {
+  //   var barRating = $('#example-movie');
+  //   $(barRating).barrating('show', {
+  //     theme: 'bars-movie'
+  //   });
+  //
+  //   $(barRating).barrating('set', '2');
+  //
+  //   // console.log(barRating);
+  //
+  //   function build() {
+  //     var minVal = 3;
+  //     $('.up').on('click', function () {
+  //       var maxVal = $('.form-control').val();
+  //       console.log(maxVal);
+  //       $('#example-movie').append($("<option>").attr('value', maxVal).text(maxVal));
+  //       var $w = $('<div />', {'class': 'br-widget'});
+  //
+  //       // for (var i = minVal; i <= maxVal; i++) {
+  //       //
+  //       //   // var $w = $('<div />', { 'class': 'br-widget' });
+  //       // }
+  //
+  //     });
+  //   }
+  //     function buildWidget() {
+  //       var $w = $('<div />', {'class': 'br-widget'});
+  //       // console.log($w);
+  //
+  //       // create A elements that will replace OPTIONs
+  //       $('#example-movie').find('option').each(function () {
+  //         var val, text, html, $a;
+  //
+  //
+  //
+  //
+  //         $('.up').on('click', function () {
+  //           val = $(this).val();
+  //           console.log(val);
+  //           // create ratings - but only if val is defined
+  //           if (val) {
+  //             text = $(this).text();
+  //             html = $(this).data('html');
+  //             if (html) {
+  //               text = html;
+  //             }
+  //
+  //             $a = $('<a />', {
+  //               'href': '#',
+  //               'data-rating-value': val,
+  //               'data-rating-text': text,
+  //               'html': text
+  //             });
+  //
+  //             $w.append($a);
+  //             // $w.append($('<div />').text('dupa'));
+  //             // $('div.br-widget').append($('<div />').text('dupa'));
+  //             $('div.br-widget').append($a);
+  //           }
+  //         })
+  //       });
+  //     }
+  //   buildWidget();
+  //
+  //
+  //   build();
+  // }
+  //
+  // ratingEnable();
+  //
+  // $(function(){
+  //
+  //   // var minVal = 1;
+  //   // var maxVal = 10;
+  //   // var barElements = $('#example-movie');
+  //
+  //
+  //   $('.spinner .btn:first-of-type').on('click', function() {
+  //     // var maxVal = $('.form-control').val();
+  //     // console.log(maxVal);
+  //     // $('select').append($("<option>").attr('value', maxVal).text(maxVal + 'fff'));
+  //     var btn = $(this);
+  //     var input = btn.closest('.spinner').find('input');
+  //     if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {
+  //       input.val(parseInt(input.val(), 10) + 1);
+  //     } else {
+  //       btn.next("disabled", true);
+  //     }
+  //   });
+  //   $('.spinner .btn:last-of-type').on('click', function() {
+  //     var btn = $(this);
+  //     var input = btn.closest('.spinner').find('input');
+  //     if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {
+  //       input.val(parseInt(input.val(), 10) - 1);
+  //     } else {
+  //       btn.prev("disabled", true);
+  //     }
+  //   });
+  //
+  // });
+
+
+  //   $('.claim-hseq-3').click(function(e) {
+  //     e.preventDefault();
+  //     $('#content').load('./jade/main-panel.html', function(){
+  //       $('#content').append('<div id="panel-content" />');
+  //       $('#panel-content').load('./jade/1-panel-content.html', function(){
+  //       });
+  //     });
+  //     $('#main-panel').addClass('fixed');
+  //   });
+  //
+  //   $('.claim-hseq-4').click(function(e) {
+  //     e.preventDefault();
+  //   $('#content').load('./jade/main-panel.html', function(){
+  //       $('#content').append('<div id="panel-content" />');
+  //       $('#panel-content').load('./jade/4-panel-content.html', function(){
+  //     });
+  //   });
+  // });
+  //
+  //   $('.claim-hseq-4-1').click(function(e) {
+  //     e.preventDefault();
+  //     $('#content').load('./jade/main-panel.html', function(){
+  //       $('#content').append('<div id="panel-content" />');
+  //       $('#panel-content').load('./jade/4.1-panel-content.html', function(){
+  //       });
+  //     });
+  //   });
+  //
+  //   $('.claim-hseq-4-1-1').click(function(e) {
+  //     e.preventDefault();
+  //     $('#content').load('./jade/main-panel.html', function(){
+  //       $('#content').append('<div id="panel-content" />');
+  //       $('#panel-content').load('./jade/4-1-1-panel-content.html', function(){
+  //       });
+  //     });
+  //   });
+
+    // $('.claim-hseq-4-1-1-1').click(function(e) {
+    //   e.preventDefault();
+    //   $('#content').load('./jade/main-panel.html', function(){
+    //     $('#content').append('<div id="panel-content" />');
+    //     $('#panel-content').load('./jade/4-1-1-1-panel-content.html', function(){
+    //     });
+    //   });
+    // });
+
+    // $('.claim-hseq-4-1-1-3').click(function(e) {
+    //   e.preventDefault();
+    //   $('#content').load('./jade/main-panel.html', function(){
+    //     $('#content').append('<div id="panel-content" />');
+    //     $('#panel-content').load('./jade/4-1-1-3-panel-content.html', function(){
+    //     });
+    //   });
+    // });
+    //
+    // $('.claim-hseq-4-1-2').click(function(e) {
+    //   e.preventDefault();
+    //   $('#content').load('./jade/main-panel.html', function(){
+    //     $('#content').append('<div id="panel-content" />');
+    //     $('#panel-content').load('./jade/4-1-2-panel-content.html', function(){
+    //     });
+    //   });
+    // });
+    //
+    // $('.claim-hseq-4-1-3').click(function(e) {
+    //   e.preventDefault();
+    //   $('#content').load('./jade/main-panel.html', function(){
+    //     $('#content').append('<div id="panel-content" />');
+    //     $('#panel-content').load('./jade/4-1-3-panel-content.html', function(){
+    //     });
+    //   });
+    // });
+    //
+    // $('.claim-hseq-4-1-4').click(function(e) {
+    //   e.preventDefault();
+    //   $('#content').load('./jade/main-panel.html', function(){
+    //     $('#content').append('<div id="panel-content" />');
+    //     $('#panel-content').load('./jade/4-1-4-panel-content.html', function(){
+    //     });
+    //   });
+    // });
+
+
+
+
+
+    // Google Analytics: change UA-XXXXX-X to be your site's ID.
+    //script.
+    //    (function (b, o, i, l, e, r) {
+    //        b.GoogleAnalyticsObject = l;
+    //        b[l] || (b[l] =
+    //                function () {
+    //                    (b[l].q = b[l].q || []).push(arguments)
+    //                });
+    //        b[l].l = +new Date;
+    //        e = o.createElement(i);
+    //        r = o.getElementsByTagName(i)[0];
+    //        e.src = 'https://www.google-analytics.com/analytics.js';
+    //        r.parentNode.insertBefore(e, r)
+    //    }(window, document, 'script', 'ga'));
+    //    ga('create', 'UA-XXXXX-X');ga('send', 'pageview');
+
+
+
+doctype html
+html(lang="en")
+  head
+    title norsta-proto
+    meta(charset='UTF-8')
+    meta(content='', name='description')
+    meta(content='', name='author')
+    meta(content='3 days', name='revisit-after')
+
+    // build:css /styles/main.css
+    link(href='/styles/main.css', rel='stylesheet')
+    // endbuild
+
+  body(class=page)
+    header
+      //h1 Ahoi, norsta-proto!
+
+    block content
+
+    // Footer
+    footer
+
+
+    // build:js /scripts/main.js
+
+    script(src='/bower_components/jquery/dist/jquery.js')
+
+    script(src='/scripts/main.js')
+    script(src='/scripts/sidebar.js')
+    // endbuild
+
+
+
+
+    // $('#menu-projects').click(function(e) {
+    //     e.preventDefault();
+    //
+    //   // $('script[src="scripts/main.js"]').remove()
+    //   // $.ajax({
+    //   //   method: "GET",
+    //   //   url: "scripts/main.js",
+    //   //   dataType: "script"
+    //   // });
+    //
+    //   $.ajax({
+    //     method: "GET",
+    //     url: "./jade/main-panel.html",
+    //   });
+    //
+    //   // $('#content').load('./jade/main-panel.html', function(){
+    //   //   $('#content').append('<div id="panel-content" />');
+    //   //
+    //   //   // console.log($('script[src="scripts/main.js"]').length)
+    //   //   //
+    //   //   // if ($('script[src="scripts/main.js"]').length == 0) {
+    //   //   //   console.log($('script[src="scripts/main.js"]').length)
+    //   //   //   //script exists
+    //   //   //
+    //   //   //   console.log("jjjjjjjjjjjjjjjjjjjj")
+    //   //
+    //   //   //   $.getScript("scripts/main.js", function (data, textStatus, jqxhr) {
+    //   //   //     // console.log(data); // Data returned
+    //   //   //     console.log(textStatus); // Success
+    //   //   //     console.log(jqxhr.status); // 200
+    //   //   //     console.log("Load was performed.");
+    //   //   //   })
+    //   //   // }
+    //   //   $('#panel-content').load('./jade/0-panel-content.html', function(){
+    //   //   });
+    //   // });
+    // });
+
+
+     // $.ajax({
+              //   url: "./jade/main-panel.html",
+              //   success: function(result){
+              //   $("#content").html(result);
+              //   $('#content').append('<div id="panel-content" />');
+              //
+              //     // eval("<script type='text/javascript' src='scripts/main.js'></script>");
+              //     $.ajax({
+              //       url: "./jade/" + numberClass + "-panel-content.html",
+              //       success: function(result){
+              //         $("#panel-content").html(result);
+              //         $.ajax({
+              //           url: "scripts/main.js",
+              //         });
+              //       }});
+              // }});
