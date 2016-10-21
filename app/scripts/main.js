@@ -158,7 +158,7 @@ console.log('AAAAAAAAAAAAAAAAAAAAAAAAAA')
 
 var slidersMemo;
 var relationships = {};
-relationships['rangeslider0'] = {parent: '', children: '1,2,3,4,5,6,7'};
+relationships['rangeslider0'] = {parent: '', children: '5,6,7,8,9,10,11,12,13,14,15,16,17,18'};
 relationships['rangeslider4'] = {parent: '0', children: '41,42,43,44,45,46,47,48'};
 relationships['rangeslider41'] = {parent: '4', children: '411,412,413,414,415,416,417,418,419'};
 relationships['rangeslider42'] = {parent: '4'};
