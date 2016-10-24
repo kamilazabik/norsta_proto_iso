@@ -24,7 +24,7 @@ $(document).ready( function(){
         var label = $('.label-claim');
         e.preventDefault();
         title.text(link);
-        label.text(numberClass.join('.'));
+        label.text('A' + numberClass.join('.'));
         var panel = $('.panel-hseq' + numberClass.join('-'));
         // console.log(panel)
         panel.addClass('panel-shadow')
@@ -34,20 +34,46 @@ $(document).ready( function(){
 
   var arr = [];
 
-
   $(function loadPage(){
     var links = $('[class^=\'claim\']');
+
+
     links.each(function(i){
       var className = $(this);
       var numberClass = className.attr('class').split(' ')[0].replace('claim-hseq','');
 
       $(className).on('click', function (e) {
+        console.log($(this).parent());
+
+        var allTitles = $('[class^=\'title-hseq\']');
+
+        allTitles.each(function(index,value){
+          if(!panelTitle) {
+            panelTitle = {}
+          }
+          index  =value.className;
+          panelTitle[index] = value.textContent
+        });
+
+        var allRangeSlider = $('.slider')
+        console.log(allRangeSlider)
+
+        allRangeSlider.each(function(index,value){
+          if(!sliderTitle) {
+            sliderTitle = {}
+          }
+          index  = value.name;
+          sliderTitle[index] = value
+        });
+
+        console.log(sliderTitle)
+
+
 
         e.preventDefault();
         $('#content').load('./jade/main-panel.html', function(){
           $('#content').append('<div id="panel-content" />');
-          $('#panel-content').load('./jade/' + numberClass + '-panel-content.html', function(){
-
+          $('#panel-content').load('./jade/pages/' + numberClass + '-panel-content.html', function(){
 
             var src = $('#script');
             if(arr.length == 0){
@@ -57,9 +83,31 @@ $(document).ready( function(){
               arr.push(src);
             }
 
+console.log(numberClass);
+
+            if(numberClass > 0){
+              var oneTitle = panelTitle['title-hseq' + numberClass];
+              console.log(oneTitle)
+            }
+
+            var pie = $('.panel-heading .pie').attr('data-name','rangeslider' + numberClass);
+            console.log(pie);
+            $('.panel-hseq').removeClass('panel-hseq').addClass('panel-hseq' + numberClass);
+            $('.title-hseq').removeClass('title-hseq').addClass('title-hseq' + numberClass).text(oneTitle);
+            $('h6.numberValue').removeClass('numberValue').addClass('numberValue' + numberClass);
+            $('span.numberValueBig').removeClass('numberValue').addClass('numberValue' + numberClass);
+            $('.numberValue-per').removeClass('numberValue-per').addClass('numberValue-per' + numberClass);
+            $('.lab-hseq').text('A' + numberClass)
+            $('.panel-heading .col-md-2.bar').append(sliderTitle['rangeslider' + numberClass])
+
+            // var classNamePanels = $('[class*=\'panel-hseq\']');
+            // console.log(classNamePanels);
+
+            console.log(sliderTitle['rangeslider' + numberClass])
+
             loadTitle();
             var titleClaim = $('.title-hseq' + numberClass);
-            // console.log(titleClaim)
+            console.log(titleClaim.text());
             var titlePanel = $('.title-claim');
             var label = $('.label-claim');
             titlePanel.text(titleClaim.text());
@@ -153,13 +201,19 @@ function applyFilter(filterGroup, filterName, filterValue) {
 }
 
 
-console.log('AAAAAAAAAAAAAAAAAAAAAAAAAA')
+
+var panelTitle;
+var sliderTitle;
+
+
+
 
 
 var slidersMemo;
 var relationships = {};
 relationships['rangeslider0'] = {parent: '', children: '5,6,7,8,9,10,11,12,13,14,15,16,17,18'};
 relationships['rangeslider4'] = {parent: '0', children: '41,42,43,44,45,46,47,48'};
+relationships['rangeslider5'] = {parent: '0', children: ''};
 relationships['rangeslider41'] = {parent: '4', children: '411,412,413,414,415,416,417,418,419'};
 relationships['rangeslider42'] = {parent: '4'};
 relationships['rangeslider43'] = {parent: '4'};

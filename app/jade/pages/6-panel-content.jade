@@ -1,32 +1,35 @@
-.col-md-9.col-sm-12.pull-left.padding-content
-  .panel.panel-default.panels-title
-    .panel-heading
-      .row.panel-hseq5.panels.box-under-header
-        .col-md-1.pull-left.number
-          h4 5
-        .col-md-5.col-sm-5.pull-left.title
-          h4.title-hseq5 Ocena Wyników HSEQ
-        .col-md-3.assessment
-          .row
-            .col-md-4
-              .pie.pull-left(data-name='rangeslider5') 60%
-            .col-md-4
-              h6 Wynik
-              h6 Oceniono
-            .col-md-4
-              h6.text-left.numberValue5 0/725
-              h6.text-left.numberValue-per5 0%
-        .col-md-2.bar
-          span.numberValue5.numberValue 0/725
-          input.slider(value='0', min='0', max='725', step='1', name='rangeslider5', data-children='51,52,53,54,55,56', type='range', disabled, data-parent='0' )
-        .col-md-1-2.box-under-header.button-expand-three
-          button.claim-hseq0.btn.btn-primary.btn-sm.custom-btn.up(type='button') Do góry
-          button.claim-hseq4.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
-            i.fa.fa-angle-double-left(aria-hidden='true')
-          button.claim-hseq6.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
-            i.fa.fa-angle-double-right(aria-hidden='true')
-    .panel-body.panel-content.panels
-      .col-md-12.filter-group
+extends ../layouts/_panels
+
+
+//.col-md-9.col-sm-12.pull-left.padding-content
+//  .panel.panel-default.panels-title
+//    .panel-heading
+//      .row.panel-hseq6.box-under-header.panels
+//        .col-md-1.pull-left.number
+//          h4 6
+//        .col-md-5.col-sm-5.pull-left.title
+//          h4.title-hseq6 Analiza i Doskonalenie HSEQ
+//        .col-md-3.assessment
+//          .row
+//            .col-md-4
+//              .pie.pull-left(data-name='rangeslider') 60%
+//            .col-md-4
+//              h6 Wynik
+//              h6 Oceniono
+//            .col-md-4
+//              h6.text-left.numberValue6 0/186
+//              h6.text-left.numberValue-per6 0%
+//        .col-md-2.bar
+//          span.numberValue6.numberValue 0/186
+//          input.slider(value='0', min='0', max='186', step='1', name='rangeslider6', data-children='61,62,63,64,65', type='range', disabled, data-parent='0' )
+//        .col-md-1-2.box-under-header.button-expand-three
+//          button.claim-hseq0.btn.btn-primary.btn-sm.custom-btn.up(type='button') Do góry
+//          button.claim-hseq5.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
+//            i.fa.fa-angle-double-left(aria-hidden='true')
+//          button.claim-hseq7.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
+//            i.fa.fa-angle-double-right(aria-hidden='true')
+//    .panel-body.panel-content.panels
+//      .col-md-12.filter-group
     //.col-md-12.panels.filter-group.padding-content
     //  .row.panel-hseq3-1.hseq(data-hseq="")
     //    .col-md-1.box-under-header-sx.pull-left.number
@@ -198,5 +201,4 @@
     //      button.claim-hseq4-7.btn.btn-primary.btn-sm.custom-btn(type='button') Rozwiń
     //  .row.space
 
-include right-panels
-
+include ../right-panels

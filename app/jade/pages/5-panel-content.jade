@@ -1,10 +1,4 @@
-extends ./layouts/_panels
-
-
-  h4= title
-  - var pets = ['cat', 'dog']
-  each petName in pets[1]
-    include pet.jade
+extends ../layouts/_panels
 
 //.col-md-9.col-sm-12.pull-left.padding-content
 //  .panel.panel-default.panels-title
@@ -206,5 +200,5 @@ extends ./layouts/_panels
 //      //      button.claim-hseq4-7.btn.btn-primary.btn-sm.custom-btn(type='button') Rozwiń
 //      //  .row.space
 //
-//include right-panels
-//
+include ../right-panels
+

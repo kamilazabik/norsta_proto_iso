@@ -1,32 +1,35 @@
-.col-md-9.col-sm-12.pull-left.padding-content
-  .panel.panel-default.panels-title
-    .panel-heading
-      .row.panel-hseq2.panels.box-under-header
-        .col-md-1.pull-left.number
-          h4 2
-        .col-md-5.col-sm-5.pull-left.title
-          h4.title-hseq2 Polityka HSEQ
-        .col-md-3.assessment
-          .row
-            .col-md-4
-              .pie.pull-left(data-name='rangeslider2') 60%
-            .col-md-4
-              h6 Wynik
-              h6 Oceniono
-            .col-md-4
-              h6.text-left.numberValue2 0/160
-              h6.text-left.numberValue-per2 0%
-        .col-md-2.bar
-          span.numberValue2.numberValue 0/160
-          input.slider(value='0', min='0', max='160', step='1', name='rangeslider2', data-children='21,22,23,24,25,26,27,28,29', type='range', disabled, data-parent='0' )
-        .col-md-1-2.button-expand-three
-          button.claim-hseq0.btn.btn-primary.btn-sm.custom-btn.up(type='button') Do góry
-          button.claim-hseq1.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
-            i.fa.fa-angle-double-left(aria-hidden='true')
-          button.claim-hseq3.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
-            i.fa.fa-angle-double-right(aria-hidden='true')
-    .panel-body.panel-content.panels
-      .col-md-12.filter-group
+extends ../layouts/_panels
+
+
+//.col-md-9.col-sm-12.pull-left.padding-content
+//  .panel.panel-default.panels-title
+//    .panel-heading
+//      .row.panel-hseq5.panels.box-under-header
+//        .col-md-1.pull-left.number
+//          h4 5
+//        .col-md-5.col-sm-5.pull-left.title
+//          h4.title-hseq5 Ocena Wyników HSEQ
+//        .col-md-3.assessment
+//          .row
+//            .col-md-4
+//              .pie.pull-left(data-name='rangeslider5') 60%
+//            .col-md-4
+//              h6 Wynik
+//              h6 Oceniono
+//            .col-md-4
+//              h6.text-left.numberValue5 0/725
+//              h6.text-left.numberValue-per5 0%
+//        .col-md-2.bar
+//          span.numberValue5.numberValue 0/725
+//          input.slider(value='0', min='0', max='725', step='1', name='rangeslider5', data-children='51,52,53,54,55,56', type='range', disabled, data-parent='0' )
+//        .col-md-1-2.box-under-header.button-expand-three
+//          button.claim-hseq0.btn.btn-primary.btn-sm.custom-btn.up(type='button') Do góry
+//          button.claim-hseq4.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
+//            i.fa.fa-angle-double-left(aria-hidden='true')
+//          button.claim-hseq6.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
+//            i.fa.fa-angle-double-right(aria-hidden='true')
+//    .panel-body.panel-content.panels
+//      .col-md-12.filter-group
     //.col-md-12.panels.filter-group.padding-content
     //  .row.panel-hseq3-1.hseq(data-hseq="")
     //    .col-md-1.box-under-header-sx.pull-left.number
@@ -198,4 +201,5 @@
     //      button.claim-hseq4-7.btn.btn-primary.btn-sm.custom-btn(type='button') Rozwiń
     //  .row.space
 
-include right-panels
+include ../right-panels
+

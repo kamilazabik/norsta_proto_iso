@@ -1,29 +1,29 @@
 .col-md-9.col-sm-12.pull-left.padding-content
   .panel.panel-default.panels-title
     .panel-heading
-      .row.panel-hseq7.panels.box-under-header
+      .row.panel-hseq2.panels.box-under-header
         .col-md-1.pull-left.number
-          h4 7
+          h4 2
         .col-md-5.col-sm-5.pull-left.title
-          h4.title-hseq7 Przegląd Zarządzania HSEQ
+          h4.title-hseq2 Polityka HSEQ
         .col-md-3.assessment
           .row
             .col-md-4
-              .pie.pull-left(data-name='rangeslider7') 60%
+              .pie.pull-left(data-name='rangeslider2') 60%
             .col-md-4
               h6 Wynik
               h6 Oceniono
             .col-md-4
-              h6.text-left.numberValue7 0/230
-              h6.text-left.numberValue-per7 0%
+              h6.text-left.numberValue2 0/160
+              h6.text-left.numberValue-per2 0%
         .col-md-2.bar
-          span.numberValue7.numberValue 0/230
-          input.slider(value='0', min='0', max='230', step='1', name='rangeslider7', data-children='71', type='range', disabled, data-parent='0' )
+          span.numberValue2.numberValue 0/160
+          input.slider(value='0', min='0', max='160', step='1', name='rangeslider2', data-children='21,22,23,24,25,26,27,28,29', type='range', disabled, data-parent='0' )
         .col-md-1-2.button-expand-three
           button.claim-hseq0.btn.btn-primary.btn-sm.custom-btn.up(type='button') Do góry
-          button.claim-hseq6.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
+          button.claim-hseq1.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
             i.fa.fa-angle-double-left(aria-hidden='true')
-          button.claim-hseq0.btn.btn-primary.btn-sm.custom-btn.arrow(type='button' disabled)
+          button.claim-hseq3.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
             i.fa.fa-angle-double-right(aria-hidden='true')
     .panel-body.panel-content.panels
       .col-md-12.filter-group
@@ -198,5 +198,4 @@
     //      button.claim-hseq4-7.btn.btn-primary.btn-sm.custom-btn(type='button') Rozwiń
     //  .row.space
 
-include right-panels
-
+include ../right-panels

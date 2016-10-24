@@ -1,32 +1,66 @@
+.col-md-9.col-sm-12.pull-left.padding-content
+  .panel.panel-default.panels-title
+    .panel-heading
+      .row.panel-hseq.panels.box-under-header
+        .col-md-1.pull-left.number
+          h4.lab-hseq
+        .col-md-5.col-sm-5.pull-left.title
+          h4.title-hseq
+        .col-md-3.assessment
+          .row
+            .col-md-4
+              .pie.pull-left
+            .col-md-4
+              h6 Wynik
+              h6 Oceniono
+            .col-md-4
+              h6.text-left.numberValue
+              h6.text-left.numberValue-per 0%
+        .col-md-2.bar
+          span.numberValueBig.numberValue
+          //input.slider(value='0', min='0', max='160', step='1', name='rangeslider5', data-children='21,22,23,24,25,26,27,28,29', type='range', disabled, data-parent='0' )
+        .col-md-1-2.button-expand-three
+          button.claim-hseq0.btn.btn-primary.btn-sm.custom-btn.up(type='button') Do góry
+          button.claim-hseq1.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
+            i.fa.fa-angle-double-left(aria-hidden='true')
+          button.claim-hseq3.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
+            i.fa.fa-angle-double-right(aria-hidden='true')
+    .panel-body.panel-content.panels
+      .col-md-12.filter-group
 
-  .col-md-9.col-sm-12.pull-left.padding-content
-    .panel.panel-default.panels-title
-      .panel-heading
-        .row.panel-hseq1.panels.box-under-header
-          .col-md-1.pull-left.number
-            h4 A5
-          .col-md-5.col-sm-5.pull-left.title
-            h4.title-hseq1
-          .col-md-3.assessment
+
+.col-md-3.col-sm-12.pull-right.right-panel
+  #bs-collapse.panel-group
+    .col-md-12.col-sm-6.first-panel
+      .panel.wrap
+        .panel-heading
+          h4.panel-title
+            a(data-toggle='collapse', data-parent='', href='#one')
+              | Szczegóły
+        #one.panel-collapse.collapse.in
+          .panel-body
             .row
-              .col-md-4
-                .pie.pull-left(data-name='rangeslider5') 60%
-              .col-md-4
-                h6 Wynik
-                h6 Oceniono
-              .col-md-4
-                h6.text-left.numberValue1 0/135
-                h6.text-left.numberValue-per1 0%
-          .col-md-2.bar
-            span.numberValue1.numberValue 0/135
-            input.slider(value='0', min='0', max='135', step='1', name='rangeslider1', data-children='11', type='range', disabled, data-parent='0' )
-          .col-md-1-2.button-expand-three
-            button.claim-hseq0.btn.btn-primary.btn-sm.custom-btn.up(type='button') Do góry
-            button.claim-hseq2.btn.btn-primary.btn-sm.custom-btn.arrow(type='button' disabled)
-              i.fa.fa-angle-double-left(aria-hidden='true')
-            button.claim-hseq2.btn.btn-primary.btn-sm.custom-btn.arrow(type='button')
-              i.fa.fa-angle-double-right(aria-hidden='true')
-      .panel-body.panel-content.panels
-        .col-md-12.filter-group
-
+              .col-md-2
+                h5 Nazwa:
+              .col-md-9
+                h5.title-claim Wdrożenie i Funkcjonowanie HSEQ
+              .col-md-2
+                h5 Etykieta:
+              .col-md-9
+                h5.label-claim 4
+              .col-md-2
+                h5 Tagi:
+              .col-md-9
+            .text(data-name='panel1')
+              .editable_text Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+    // end of panel
+    .col-md-12.col-sm-6.last-panel
+      .panel.wrap
+        .panel-heading
+          h4.panel-title
+            a(data-toggle='collapse', data-parent='', href='#two')
+              | Ocena
+        #two.panel-collapse.collapse.in
+          .panel-body
+            | Where is the harp on the harpstring, and the red fire glowing? Where is the spring and the harvest and the tall corn growing?
 
