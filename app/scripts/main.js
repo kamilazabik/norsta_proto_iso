@@ -1,5 +1,105 @@
 $(document).ready( function(){
 
+
+  // var xml = "../iso.xml";
+
+    // var xmlDoc = $.parseXML('../iso.xml');
+    // var $xml = $(xmlDoc);
+    // var $id = $xml.find("node");
+    //
+    // // get value
+    // console.log($id.text());
+    //
+    // // set value
+    // // $title.text("XML Title");
+    //
+  var n;
+
+
+  $.ajax({
+    type: "GET",
+    url: "../iso.xml",
+    dataType: "xml",
+    success: xmlParser
+  });
+
+
+  var gg = []
+
+  function xmlParser(xml) {
+    $(xml).find("node").each(function (index, value) {
+
+      var arrXml = {};
+      var maxDegree = "maxDegree"
+      var lab = "label"
+      index = $(this).find("decision").attr('maxDegree')
+      value = $(this).find("label").html()
+      var name = 'name'
+      var nameElement = $(this).find("name").html()
+      // console.log(index)
+      // console.log(value)
+      // console.log(name)
+      if(value){
+        arrXml[maxDegree] = value.split('.').join("");
+        arrXml[lab] = index
+        arrXml[name] = nameElement
+        // console.log(arrXml)
+        gg.push(arrXml)
+      }
+
+    });
+
+    // n = function() {
+      return gg
+    // };
+  }
+
+// var n = xmlParser(xml);
+
+  // console.log(n);
+  console.log(gg);
+
+  //
+  // var data = {},
+  //   cats_array=[];
+  //
+  // // function xmlParser(xml) {
+  //   var oXML = $(xml).find('node');
+  //
+  //   oXML.each(function(){
+  //
+  //     var stepID = $(this).attr('id#3543504092');
+  //     data[stepID] = {};
+  //     $(this).find('node')
+  //       // var categoryID = jQuery(this).attr('id');
+  //       var categoryID = $(this).find('name');
+  //       // console.log(categoryID)
+  //       /* add category to array if doesn't already exist*/
+  //       if( $.inArray( categoryID, cats_array) ==-1){
+  //         cats_array.push( categoryID);
+  //       }
+  //       data[stepID][categoryID] = 'is available';
+  //       console.log(cats_array)
+  //
+  //
+  //   });
+  //
+  //   $.each(data, function(){
+  //     for( var i=0;i< cats_array.length; i++){
+  //       if( ! this[cats_array[i]] ){
+  //         this[cats_array[i]] ="not available";
+  //       }
+  //     }
+  //   })
+
+  // }
+
+ // console.log(JSON.stringify(data, null, ' '))
+
+
+
+
+
     $('#logo').click(function(e) {
       e.preventDefault();
       $('#content').load('./jade/main-page.html');
@@ -51,7 +151,7 @@ $(document).ready( function(){
           if(!panelTitle) {
             panelTitle = {}
           }
-          index  =value.className;
+          index  = value.className;
           panelTitle[index] = value.textContent
         });
 
@@ -104,6 +204,15 @@ console.log(numberClass);
             // console.log(classNamePanels);
 
             console.log(sliderTitle['rangeslider' + numberClass])
+
+            if (relationships['rangeslider' + numberClass].children){
+              console.log($('.row.panel-hseq4-1.hseq.space'))
+
+            }
+
+
+            // $('.panel-body.panel-content.panels').append( _panel-content.jade)
+
 
             loadTitle();
             var titleClaim = $('.title-hseq' + numberClass);
@@ -204,7 +313,7 @@ function applyFilter(filterGroup, filterName, filterValue) {
 
 var panelTitle;
 var sliderTitle;
-
+// var arrXml;
 
 
 
@@ -213,7 +322,7 @@ var slidersMemo;
 var relationships = {};
 relationships['rangeslider0'] = {parent: '', children: '5,6,7,8,9,10,11,12,13,14,15,16,17,18'};
 relationships['rangeslider4'] = {parent: '0', children: '41,42,43,44,45,46,47,48'};
-relationships['rangeslider5'] = {parent: '0', children: ''};
+relationships['rangeslider5'] = {parent: '0', children: '51,52'};
 relationships['rangeslider41'] = {parent: '4', children: '411,412,413,414,415,416,417,418,419'};
 relationships['rangeslider42'] = {parent: '4'};
 relationships['rangeslider43'] = {parent: '4'};
