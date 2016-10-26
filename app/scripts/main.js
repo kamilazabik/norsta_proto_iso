@@ -13,7 +13,7 @@ $(document).ready( function(){
     // // set value
     // // $title.text("XML Title");
     //
-  var n;
+  var n= []
 
 
   $.ajax({
@@ -24,40 +24,69 @@ $(document).ready( function(){
   });
 
 
-  var gg = []
+  var gg = [];
 
   function xmlParser(xml) {
-    $(xml).find("node").each(function (index, value) {
+    $(xml).find("node").each(function () {
 
-      var arrXml = {};
-      var maxDegree = "maxDegree"
-      var lab = "label"
-      index = $(this).find("decision").attr('maxDegree')
-      value = $(this).find("label").html()
-      var name = 'name'
-      var nameElement = $(this).find("name").html()
-      // console.log(index)
-      // console.log(value)
-      // console.log(name)
-      if(value){
-        arrXml[maxDegree] = value.split('.').join("");
-        arrXml[lab] = index
-        arrXml[name] = nameElement
-        // console.log(arrXml)
-        gg.push(arrXml)
+      var arrXml = {}
+         ,maxDegree = "maxDegree"
+         ,parent = "parent"
+         ,children = "children"
+         ,name = 'name'
+         ,nameElement = $(this).find("name").html()
+         ,value3 = $(this).find("project")
+         ,degree = $(this).find("decision").attr('maxDegree')
+         ,value1 = $(this).find("label")
+         // ,labelChildren = $(this).find("label")[0].textContent
+         // ,labelChildren = $(this).children('nodes').children('node').children('label').text( ).replace(/[A-Z]/g, " ").split('.').join("")
+         ,labelChildren = $(this).children('nodes').children('node').children('label').text( ).split(/(?=[A-Z])/).join(' ').split('.').join("")
+        ,labelParent= $(this).find("label").html();
+
+         // ,labelParent = $(this).find("label")[0].textContent;
+
+
+        // console.log(labelChildren)
+        // console.log(labelParent)
+
+
+        if(labelParent){
+          arrXml[parent] = labelParent.split('.').join("");
+          arrXml[maxDegree] = degree;
+          arrXml[name] = nameElement;
+          arrXml[children] = labelChildren
+          gg.push(arrXml)
+
       }
+        if(labelChildren){
+          arrXml[children] = labelChildren
+          gg.push(arrXml)
+        }
+
+      if(labelChildren){
+        n.push(labelChildren)
+      }
+
+
+
+
+
+
+      console.log(arrXml.children)
+      return gg
+
 
     });
 
-    // n = function() {
-      return gg
-    // };
   }
 
 // var n = xmlParser(xml);
 
-  // console.log(n);
+  console.log(n);
   console.log(gg);
+  // console.log(arrXml);
+
+
 
   //
   // var data = {},
