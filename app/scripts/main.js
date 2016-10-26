@@ -61,6 +61,7 @@ $(document).ready( function(){
         if(labelChildren){
           arrXml[children] = labelChildren
           gg.push(arrXml)
+
         }
 
       if(labelChildren){
@@ -69,14 +70,16 @@ $(document).ready( function(){
 
 
 
-
-
-
-      console.log(arrXml.children)
+      //console.log(arrXml.children)
       return gg
 
 
+
     });
+
+    $.each(gg, function(v){
+      console.log(gg[v])
+    })
 
   }
 
@@ -84,7 +87,7 @@ $(document).ready( function(){
 
   console.log(n);
   console.log(gg);
-  // console.log(arrXml);
+
 
 
 
