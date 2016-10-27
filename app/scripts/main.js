@@ -1,20 +1,8 @@
+var gg = {};
+
 $(document).ready( function(){
 
-
-  // var xml = "../iso.xml";
-
-    // var xmlDoc = $.parseXML('../iso.xml');
-    // var $xml = $(xmlDoc);
-    // var $id = $xml.find("node");
-    //
-    // // get value
-    // console.log($id.text());
-    //
-    // // set value
-    // // $title.text("XML Title");
-    //
   var n= []
-
 
   $.ajax({
     type: "GET",
@@ -22,9 +10,6 @@ $(document).ready( function(){
     dataType: "xml",
     success: xmlParser
   });
-
-
-  var gg = [];
 
   function xmlParser(xml) {
     $(xml).find("node").each(function () {
@@ -34,100 +19,51 @@ $(document).ready( function(){
          ,parent = "parent"
          ,children = "children"
          ,name = 'name'
-         ,nameElement = $(this).find("name").html()
-         ,value3 = $(this).find("project")
+         ,nameElement3 = $(this).find("name").html()
          ,degree = $(this).find("decision").attr('maxDegree')
-         ,value1 = $(this).find("label")
-         // ,labelChildren = $(this).find("label")[0].textContent
-         // ,labelChildren = $(this).children('nodes').children('node').children('label').text( ).replace(/[A-Z]/g, " ").split('.').join("")
-         ,labelChildren = $(this).children('nodes').children('node').children('label').text( ).split(/(?=[A-Z])/).join(' ').split('.').join("")
-        ,labelParent= $(this).find("label").html();
+         ,labelChildren = $(this).children('nodes').children('node').children('label').text( ).split(/(?=[A-Z])/).join(',').split('.').join("")
+         ,labelParent =  labelChildren.split(',')[0]
+        ,labelParentLength = labelParent.length-1
+        ,labelParent2 = labelParent.substring(0, labelParentLength)
+        // ,nameElement =  $(this).children('nodes').children('node[type="claim"]').children('name').text()
+        ,nameElement =   $(this).children('nodes').children('node').children('name').text()
 
-         // ,labelParent = $(this).find("label")[0].textContent;
-
-
-        // console.log(labelChildren)
-        // console.log(labelParent)
+      // replace(/[A-Z]/g, " ").split('.').join("")
 
 
-        if(labelParent){
-          arrXml[parent] = labelParent.split('.').join("");
+      // .text().split(/(?=[A-Z])/).join(',').split('.').join("").split(',')[0]
+
+          // .children('name')
+
+          // .text( ).split(/(?=[A-Z])/).join(',').split('.').join("")
+
+
+          // .text( ).split(/(?=[A-Z])/).join(',').split('.').join("").split(',')
+
+        // ,nameElementLength = nameElement.length
+        // ,nameElement2 = nameElement.substring(0, nameElementLength)
+
+// console.log(labelParent2)
+// console.log(labelChildren)
+// console.log(nameElement)
+console.log(labelParent + "    " + nameElement)
+
           arrXml[maxDegree] = degree;
-          arrXml[name] = nameElement;
+          arrXml[name] = nameElement3;
           arrXml[children] = labelChildren
-          gg.push(arrXml)
-
-      }
-        if(labelChildren){
-          arrXml[children] = labelChildren
-          gg.push(arrXml)
-
-        }
-
-      if(labelChildren){
-        n.push(labelChildren)
-      }
 
 
 
-      //console.log(arrXml.children)
-      return gg
+          gg[labelParent2] = arrXml
 
-
-
-    });
-
-    $.each(gg, function(v){
-      console.log(gg[v])
-    })
+      });
 
   }
 
-// var n = xmlParser(xml);
 
-  console.log(n);
   console.log(gg);
 
-
-
-
-  //
-  // var data = {},
-  //   cats_array=[];
-  //
-  // // function xmlParser(xml) {
-  //   var oXML = $(xml).find('node');
-  //
-  //   oXML.each(function(){
-  //
-  //     var stepID = $(this).attr('id#3543504092');
-  //     data[stepID] = {};
-  //     $(this).find('node')
-  //       // var categoryID = jQuery(this).attr('id');
-  //       var categoryID = $(this).find('name');
-  //       // console.log(categoryID)
-  //       /* add category to array if doesn't already exist*/
-  //       if( $.inArray( categoryID, cats_array) ==-1){
-  //         cats_array.push( categoryID);
-  //       }
-  //       data[stepID][categoryID] = 'is available';
-  //       console.log(cats_array)
-  //
-  //
-  //   });
-  //
-  //   $.each(data, function(){
-  //     for( var i=0;i< cats_array.length; i++){
-  //       if( ! this[cats_array[i]] ){
-  //         this[cats_array[i]] ="not available";
-  //       }
-  //     }
-  //   })
-
-  // }
-
- // console.log(JSON.stringify(data, null, ' '))
-
+  var tr = gg
 
 
 
@@ -242,6 +178,9 @@ console.log(numberClass);
 
             }
 
+            // console.log(tr)
+            // console.log(gg);
+
 
             // $('.panel-body.panel-content.panels').append( _panel-content.jade)
 
@@ -352,6 +291,7 @@ var sliderTitle;
 
 var slidersMemo;
 var relationships = {};
+console.log(relationships)
 relationships['rangeslider0'] = {parent: '', children: '5,6,7,8,9,10,11,12,13,14,15,16,17,18'};
 relationships['rangeslider4'] = {parent: '0', children: '41,42,43,44,45,46,47,48'};
 relationships['rangeslider5'] = {parent: '0', children: '51,52'};
