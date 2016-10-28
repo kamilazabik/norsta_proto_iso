@@ -1,14 +1,18 @@
-var gg = {};
+var xmlDataArr = {};
 
 $(document).ready( function(){
 
   var n= []
 
-  $.ajax({
+
+
+ $.ajax({
     type: "GET",
     url: "../iso.xml",
     dataType: "xml",
     success: xmlParser
+
+
   });
 
   function xmlParser(xml) {
@@ -26,45 +30,44 @@ $(document).ready( function(){
         ,labelParentLength = labelParent.length-1
         ,labelParent2 = labelParent.substring(0, labelParentLength)
         // ,nameElement =  $(this).children('nodes').children('node[type="claim"]').children('name').text()
-        ,nameElement =   $(this).children('nodes').children('node').children('name').text()
-
-      // replace(/[A-Z]/g, " ").split('.').join("")
-
-
-      // .text().split(/(?=[A-Z])/).join(',').split('.').join("").split(',')[0]
-
-          // .children('name')
-
-          // .text( ).split(/(?=[A-Z])/).join(',').split('.').join("")
-
-
-          // .text( ).split(/(?=[A-Z])/).join(',').split('.').join("").split(',')
-
+        ,nameElement = $(this).children('nodes').children('node').children('name').text().replace('PBI', "PBI: ").replace('SZBI', "SZBI. ").replace(/([a-z-ń0-9])([A-Z])/g, "$1. $2")
+          // .split('.')
         // ,nameElementLength = nameElement.length
         // ,nameElement2 = nameElement.substring(0, nameElementLength)
 
 // console.log(labelParent2)
 // console.log(labelChildren)
+// console.log(nameElement3)
 // console.log(nameElement)
-console.log(labelParent + "    " + nameElement)
+// console.log(labelParent + "    " + nameElement3)
 
           arrXml[maxDegree] = degree;
-          arrXml[name] = nameElement3;
+          arrXml[name] = nameElement;
           arrXml[children] = labelChildren
 
 
 
-          gg[labelParent2] = arrXml
+      if(labelParent2.length>0) {
+        xmlDataArr[labelParent2] = arrXml
+      }
 
       });
 
+    // console.log(xmlDataArr['A6'].children);
+    console.log(typeof xmlDataArr);
+    console.log(xmlDataArr);
+    // console.log(xmlDataArr['6']);
+
+    //console.log(JSON.stringify(xmlDataArr));
   }
 
 
-  console.log(gg);
+  // console.log(gg);
 
-  var tr = gg
+  //var tr = xmlDataArr
 
+console.log(isoObject);
+  console.log(isoObject['A6'].children);
 
 
 
@@ -134,7 +137,7 @@ console.log(labelParent + "    " + nameElement)
           sliderTitle[index] = value
         });
 
-        console.log(sliderTitle)
+        // console.log(sliderTitle)
 
 
 
@@ -168,24 +171,39 @@ console.log(numberClass);
             $('.lab-hseq').text('A' + numberClass)
             $('.panel-heading .col-md-2.bar').append(sliderTitle['rangeslider' + numberClass])
 
-            // var classNamePanels = $('[class*=\'panel-hseq\']');
-            // console.log(classNamePanels);
+            if(numberClass > 0){
 
-            console.log(sliderTitle['rangeslider' + numberClass])
+              console.log('ggggggggggggggggggggggg')
+              if (isoObject['A' + numberClass].children){
+                console.log((isoObject['A' + numberClass].children).split(',').length);
+                var numberOfChildren = (isoObject['A' + numberClass].children).split(',').length;
 
-            if (relationships['rangeslider' + numberClass].children){
-              console.log($('.row.panel-hseq4-1.hseq.space'))
+
+              for(var i = 1; i <= numberOfChildren; i++ ){
+console.log(i)
+
+                $('.col-md-12.filter-group').append($('.col-md-1.col-sm-1.box-under-header-sx.pull-left.number')).append($('h5')).html(isoObject['A' + numberClass].children)
+              }
+
+              }
+
 
             }
 
-            // console.log(tr)
-            // console.log(gg);
+            // var classNamePanels = $('[class*=\'panel-hseq\']');
+            // console.log(classNamePanels);
+
+            // console.log(sliderTitle['rangeslider' + numberClass])
+
+            // if (relationships['rangeslider' + numberClass].children){
+            //   console.log($('.row.panel-hseq4-1.hseq.space'))
+            //
+            // }
 
 
-            // $('.panel-body.panel-content.panels').append( _panel-content.jade)
 
 
-            loadTitle();
+
             var titleClaim = $('.title-hseq' + numberClass);
             console.log(titleClaim.text());
             var titlePanel = $('.title-claim');
@@ -198,6 +216,9 @@ console.log(numberClass);
       })
     });
   });
+
+
+  loadTitle();
 
 
   $(function () {
@@ -245,8 +266,8 @@ setFilter();
 });
 
 var filterValueMemo;
-console.log('filterValueMemo')
-console.log(filterValueMemo)
+// console.log('filterValueMemo')
+// console.log(filterValueMemo)
 
 function setFilter() {
   var filterSelect = $('.filter-select');
@@ -282,6 +303,7 @@ function applyFilter(filterGroup, filterName, filterValue) {
 
 
 
+
 var panelTitle;
 var sliderTitle;
 // var arrXml;
@@ -304,7 +326,7 @@ relationships['rangeslider411'] = {parent: '41', children: '4111,4112,4113,4114'
 relationships['rangeslider4113'] = {parent: '411', children: '4113-HS,4113-E,4113-Q'};
 relationships['rangeslider3'] = {parent: '0', children: '31,32,33,34,35,36,37'};
 
-console.log(slidersMemo)
+// console.log(slidersMemo)
 
 function sliderSum(theSlider) {
   var childrenIds = theSlider.data('children')
