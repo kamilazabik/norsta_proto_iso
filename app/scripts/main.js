@@ -173,16 +173,17 @@ console.log(numberClass);
 
             if(numberClass > 0){
 
-              console.log('ggggggggggggggggggggggg')
               if (isoObject['A' + numberClass].children){
                 console.log((isoObject['A' + numberClass].children).split(',').length);
                 var numberOfChildren = (isoObject['A' + numberClass].children).split(',').length;
 
 
+                $('.col-md-12.filter-group').append( $( "h2" ) );
+
               for(var i = 1; i <= numberOfChildren; i++ ){
 console.log(i)
 
-                $('.col-md-12.filter-group').append($('.col-md-1.col-sm-1.box-under-header-sx.pull-left.number')).append($('h5')).html(isoObject['A' + numberClass].children)
+                // $('.col-md-12.filter-group').append($('.row.panel-hseq4-1.hseq.space')).append($('.col-md-1.col-sm-1.box-under-header-sx.pull-left.number'))
               }
 
               }
