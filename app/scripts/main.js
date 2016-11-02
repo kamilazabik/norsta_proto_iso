@@ -175,7 +175,7 @@ console.log(numberClass);
 
               if (isoObject['A' + numberClass].children){
                 console.log((isoObject['A' + numberClass].children).split(',').length);
-                var numberOfChildren = (isoObject['A' + numberClass].children).split(',').length;
+                var numberOfChildren = (isoObject['A' + numberClass].children).split(',')
 
                function makePanel(){
                  var row = $("<div class='row panel-hseq4-1 hseq space'></div>")
@@ -188,23 +188,8 @@ console.log(numberClass);
                    // ,col1a= $("<a></a>").addClass('title-hseq')
                    ,col1a
                    ,col1h5 =("<h5></h5>")
-                   ,bb
 
-
-                 var childrenNum = isoObject['A'+numberClass].children.split(',')
-console.log(childrenNum)
-
-
-
-
-
-
-                     col1a = $("<a></a>").addClass('title-hseq' +childrenNum[i] )
-
-
-
-
-
+                     col1a = $("<a></a>").addClass('title-hseq' +numberOfChildren[i-1] )
 
                  col1.append(col1a)
 
@@ -214,7 +199,7 @@ console.log(childrenNum)
                   return row
                }
 
-              for(var i = 1; i <= numberOfChildren; i++ ){
+              for(var i = 1; i <= numberOfChildren.length; i++ ){
 
                 // console.log(i)
 
