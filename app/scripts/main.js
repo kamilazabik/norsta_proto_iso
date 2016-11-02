@@ -54,7 +54,7 @@ $(document).ready( function(){
       });
 
     // console.log(xmlDataArr['A6'].children);
-    console.log(typeof xmlDataArr);
+    // console.log(typeof xmlDataArr);
     console.log(xmlDataArr);
     // console.log(xmlDataArr['6']);
 
@@ -66,8 +66,8 @@ $(document).ready( function(){
 
   //var tr = xmlDataArr
 
-console.log(isoObject);
-  console.log(isoObject['A6'].children);
+// console.log(isoObject);
+//   console.log(isoObject['A6'].children);
 
 
 
@@ -177,13 +177,51 @@ console.log(numberClass);
                 console.log((isoObject['A' + numberClass].children).split(',').length);
                 var numberOfChildren = (isoObject['A' + numberClass].children).split(',').length;
 
+               function makePanel(){
+                 var row = $("<div class='row panel-hseq4-1 hseq space'></div>")
+                   ,col1 = $("<div class='col-md-1 col-sm-1 box-under-header-sx pull-left number'></div>")
+                   ,col2 = ("<div class='col-md-4-3 col-sm-10 box-under-header-sx pull-left title'></div>")
+                   ,col3 = ("<div class='col-md-1 col-sm-1 box-under-header-sx filter'></div>")
+                   ,col4 = ("<div class='col-md-3 box-under-header-sx assessment-icon'></div>")
+                   ,col5 = ("<div class='col-md-2 col-sm-5 box-under-header-sx bar'></div>")
+                   ,col6 = ("<div class='col-md-1-2 col-sm-2 box-under-header-sx button-expand'></div>")
+                   // ,col1a= $("<a></a>").addClass('title-hseq')
+                   ,col1a
+                   ,col1h5 =("<h5></h5>")
+                   ,bb
 
-                $('.col-md-12.filter-group').append( $( "h2" ) );
+
+                 var childrenNum = isoObject['A'+numberClass].children.split(',')
+console.log(childrenNum)
+
+
+
+
+
+
+                     col1a = $("<a></a>").addClass('title-hseq' +childrenNum[i] )
+
+
+
+
+
+
+                 col1.append(col1a)
+
+
+
+                 var panelContent = row.append(col1,col2,col3,col4,col5,col6)
+                  return row
+               }
 
               for(var i = 1; i <= numberOfChildren; i++ ){
-console.log(i)
 
-                // $('.col-md-12.filter-group').append($('.row.panel-hseq4-1.hseq.space')).append($('.col-md-1.col-sm-1.box-under-header-sx.pull-left.number'))
+                // console.log(i)
+
+                $('.col-md-12.filter-group').append( makePanel())
+
+
+                  // .append($('.col-md-1.col-sm-1.box-under-header-sx.pull-left.number'))
               }
 
               }
@@ -206,7 +244,7 @@ console.log(i)
 
 
             var titleClaim = $('.title-hseq' + numberClass);
-            console.log(titleClaim.text());
+            // console.log(titleClaim.text());
             var titlePanel = $('.title-claim');
             var label = $('.label-claim');
             titlePanel.text(titleClaim.text());
@@ -276,7 +314,7 @@ function setFilter() {
   if (filterValueMemo) {
     filterSelect.each(function () {
       var filterGroup = $('.filter-group');
-      console.log(filterGroup)
+      // console.log(filterGroup)
       applyFilter(filterGroup, $(this).data('filter-name'), filterValueMemo);
       filterSelect.val(filterValueMemo)
     })
@@ -292,7 +330,7 @@ function setFilter() {
 
 
 function applyFilter(filterGroup, filterName, filterValue) {
-  console.log(filterValue);
+  // console.log(filterValue);
   filterValueMemo = filterValue
   filterGroup.find('.hseq').each(function (index, element) {
     var testValue = $(element).data(filterName).toString();
@@ -315,6 +353,7 @@ var sliderTitle;
 var slidersMemo;
 var relationships = {};
 console.log(relationships)
+console.log(slidersMemo)
 relationships['rangeslider0'] = {parent: '', children: '5,6,7,8,9,10,11,12,13,14,15,16,17,18'};
 relationships['rangeslider4'] = {parent: '0', children: '41,42,43,44,45,46,47,48'};
 relationships['rangeslider5'] = {parent: '0', children: '51,52'};
@@ -364,6 +403,8 @@ function sliderSumForTop(sliderName) {
   }
 
   var childrenIds = relationships['rangeslider'+sliderName].children;
+  // console.log('childrenIds')
+  // console.log(childrenIds)
 
   if(slidersMemo) {
 
