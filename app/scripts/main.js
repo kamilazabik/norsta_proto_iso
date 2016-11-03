@@ -83,7 +83,7 @@ $(document).ready( function(){
 
     links.each(function(){
       var className = $(this);
-      // console.log(className)
+      console.log(className)
       var numberClass = className.attr('class').split(' ')[0].replace('title-hseq','').split('-');
 
       $(className).on('click', function (e) {
@@ -95,7 +95,7 @@ $(document).ready( function(){
         var label = $('.label-claim');
         e.preventDefault();
         title.text(link);
-        label.text('A' + numberClass.join('.'));
+        label.text(numberClass.join('.'));
         var panel = $('.panel-hseq' + numberClass.join('-'));
         // console.log(panel)
         panel.addClass('panel-shadow')
@@ -111,10 +111,12 @@ $(document).ready( function(){
 
     links.each(function(i){
       var className = $(this);
+
       var numberClass = className.attr('class').split(' ')[0].replace('claim-hseq','');
+      console.log(numberClass)
 
       $(className).on('click', function (e) {
-        console.log($(this).parent());
+        // console.log($(this).parent());
 
         var allTitles = $('[class^=\'title-hseq\']');
 
@@ -127,7 +129,7 @@ $(document).ready( function(){
         });
 
         var allRangeSlider = $('.slider')
-        console.log(allRangeSlider)
+        // console.log(allRangeSlider)
 
         allRangeSlider.each(function(index,value){
           if(!sliderTitle) {
@@ -138,8 +140,6 @@ $(document).ready( function(){
         });
 
         // console.log(sliderTitle)
-
-
 
         e.preventDefault();
         $('#content').load('./jade/main-panel.html', function(){
@@ -154,15 +154,15 @@ $(document).ready( function(){
               arr.push(src);
             }
 
+console.log('numberClass');
 console.log(numberClass);
 
-            if(numberClass > 0){
+            if(numberClass != 'A0'){
               var oneTitle = panelTitle['title-hseq' + numberClass];
-              console.log(oneTitle)
+              // console.log(oneTitle)
             }
 
             var pie = $('.panel-heading .pie').attr('data-name','rangeslider' + numberClass);
-            console.log(pie);
             $('.panel-hseq').removeClass('panel-hseq').addClass('panel-hseq' + numberClass);
             $('.title-hseq').removeClass('title-hseq').addClass('title-hseq' + numberClass).text(oneTitle);
             $('h6.numberValue').removeClass('numberValue').addClass('numberValue' + numberClass);
@@ -171,72 +171,72 @@ console.log(numberClass);
             $('.lab-hseq').text('A' + numberClass)
             $('.panel-heading .col-md-2.bar').append(sliderTitle['rangeslider' + numberClass])
 
-            if(numberClass > 0){
-
-              if (isoObject['A' + numberClass].children){
-                console.log((isoObject['A' + numberClass].children).split(',').length);
-                var numberOfChildren = (isoObject['A' + numberClass].children).split(',')
-
-               function makePanel(){
-                 var row = $("<div class='row panel-hseq4-1 hseq space'></div>")
-                   ,col1 = $("<div class='col-md-1 col-sm-1 box-under-header-sx pull-left number'></div>")
-                   ,col2 = ("<div class='col-md-4-3 col-sm-10 box-under-header-sx pull-left title'></div>")
-                   ,col3 = ("<div class='col-md-1 col-sm-1 box-under-header-sx filter'></div>")
-                   ,col4 = ("<div class='col-md-3 box-under-header-sx assessment-icon'></div>")
-                   ,col5 = ("<div class='col-md-2 col-sm-5 box-under-header-sx bar'></div>")
-                   ,col6 = ("<div class='col-md-1-2 col-sm-2 box-under-header-sx button-expand'></div>")
-                   // ,col1a= $("<a></a>").addClass('title-hseq')
-                   ,col1a
-                   ,col1h5 =("<h5></h5>")
-
-                     col1a = $("<a></a>").addClass('title-hseq' +numberOfChildren[i-1] )
-
-                 col1.append(col1a)
 
 
+            if(numberClass != 'A0'){
 
-                 var panelContent = row.append(col1,col2,col3,col4,col5,col6)
-                  return row
+              if (numberClass !== 'A0' && isoObject[ numberClass].children){
+                var numberOfChildren = (isoObject[numberClass].children).split(',')
+                  , nameOfChildren = (isoObject[numberClass].name).split('.')
+                // console.log(nameOfChildren)
+
+                function makePanel(){
+                  var row = $("<div class='row panel-hseq4-1 hseq space'></div>")
+                    ,col1 = $("<div class='col-md-1 col-sm-1 box-under-header-sx pull-left number'></div>")
+                    ,col1h5 =$("<h5> </h5>").text(numberOfChildren[i-1])
+                  col1.append(col1h5)
+
+                  var col2 = $("<div class='col-md-4-3 col-sm-10 box-under-header-sx pull-left title'></div>")
+                    ,col2a = $("<a></a>").addClass('title-hseq' + numberOfChildren[i-1]).attr('href', '#')
+                    ,col2h5 =$("<h5></h5>").text(nameOfChildren[i-1])
+                  col2a.append(col2h5)
+                  col2.append(col2a)
+
+                  var col3 = $("<div class='col-md-1 col-sm-1 box-under-header-sx filter'></div>")
+
+                    ,col4 = $("<div class='col-md-3 box-under-header-sx assessment-icon'></div>")
+                    ,col4row = $("<div class='row'></div>")
+                    ,col4rowCol1 = $("<div class='col-md-4 col-sm-4'></div>")
+                   // ,col4rowCol2 = $("<div class='col-md-4 col-sm-4'></div>")
+                    ,col4rowCol2 = $("<div class='col-md-4 col-sm-4'></div>")
+                    ,col4rowCol2pie = $("<div class=' pie pull-left'></div>").attr('data-name','rangeslider' + numberOfChildren[i-1])
+                    ,col4rowCol2h6 = $("<h6 class='numberValue" + numberOfChildren[i-1]+"' ></h6>")
+                    ,col4rowCol2h6per = $("<h6 class='numberValue-per" + numberOfChildren[i-1]+"' ></h6>")
+
+                  col4rowCol1.append(col4rowCol2pie)
+                  col4rowCol2.append(col4rowCol2h6,col4rowCol2h6per)
+                  col4row.append(col4rowCol1,col4rowCol2,col4rowCol2)
+                  col4.append(col4row)
+
+                  var col5 = $("<div class='col-md-2 col-sm-5 box-under-header-sx bar'></div>")
+                    ,max = isoObject[numberOfChildren[i-1]].maxDegree;
+                  var col5input = $("<input class='slider' type='range' value='0' min='0' max=" +max +" name='rangeslider" + numberOfChildren[i-1]+ "' data-parent='" + numberClass+ "' >")
+                  col5.append(col5input)
+
+                   var col6 = $("<div class='col-md-1-2 col-sm-2 box-under-header-sx button-expand'></div>")
+
+                 row.append(col1,col2,col3,col4,col5,col6)
+
+                 return row
                }
 
               for(var i = 1; i <= numberOfChildren.length; i++ ){
-
-                // console.log(i)
-
                 $('.col-md-12.filter-group').append( makePanel())
-
-
-                  // .append($('.col-md-1.col-sm-1.box-under-header-sx.pull-left.number'))
               }
-
               }
-
-
             }
-
-            // var classNamePanels = $('[class*=\'panel-hseq\']');
-            // console.log(classNamePanels);
-
-            // console.log(sliderTitle['rangeslider' + numberClass])
-
-            // if (relationships['rangeslider' + numberClass].children){
-            //   console.log($('.row.panel-hseq4-1.hseq.space'))
-            //
-            // }
-
-
-
-
 
             var titleClaim = $('.title-hseq' + numberClass);
             // console.log(titleClaim.text());
+
             var titlePanel = $('.title-claim');
             var label = $('.label-claim');
             titlePanel.text(titleClaim.text());
             label.text(numberClass.split('-').join('.'));
+
+
           });
         });
-
       })
     });
   });
@@ -329,7 +329,9 @@ function applyFilter(filterGroup, filterName, filterValue) {
 
 
 var panelTitle;
+
 var sliderTitle;
+console.log(sliderTitle)
 // var arrXml;
 
 
@@ -337,10 +339,11 @@ var sliderTitle;
 
 var slidersMemo;
 var relationships = {};
-console.log(relationships)
+// console.log(relationships)
 console.log(slidersMemo)
-relationships['rangeslider0'] = {parent: '', children: '5,6,7,8,9,10,11,12,13,14,15,16,17,18'};
-relationships['rangeslider4'] = {parent: '0', children: '41,42,43,44,45,46,47,48'};
+relationships['rangesliderA0'] = {parent: '', children: 'A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18'};
+relationships['rangesliderA6'] = {parent: 'A0', children: 'A61,A62'};
+relationships['rangesliderA7'] = {parent: 'A0', children: 'A71,A72,A73'};
 relationships['rangeslider5'] = {parent: '0', children: '51,52'};
 relationships['rangeslider41'] = {parent: '4', children: '411,412,413,414,415,416,417,418,419'};
 relationships['rangeslider42'] = {parent: '4'};
@@ -362,6 +365,7 @@ function sliderSum(theSlider) {
     $.each(childrenIds.split(','), function(idx, val) {
       if(slidersMemo) {
           var childValue = slidersMemo['rangeslider'+val];
+
         // console.log(childValue);
           if(childValue)
           {
@@ -377,7 +381,7 @@ function sliderSum(theSlider) {
 
 function sliderSumForTop(sliderName) {
   var sliderValue, result = 0;
-
+// console.log(sliderName)
   if(!relationships['rangeslider'+sliderName])
   {
     sliderValue = slidersMemo['rangeslider' + sliderName];
@@ -410,8 +414,8 @@ function sliderSumForTop(sliderName) {
 
 function updateTopSlider() {
 
-    var topValue = sliderSumForTop('0'),
-        topSlider = $('input[name=rangeslider0]');
+    var topValue = sliderSumForTop('A0'),
+        topSlider = $('input[name=rangesliderA0]');
 
     if (topValue >= 0) {
       topSlider.val(topValue);
@@ -497,7 +501,6 @@ function updateSlider(passObj, memo) {
 
     slidersMemo[obj[0].name] = value;
 
-
     // console.log(obj)
 
     if(obj.attr('data-parent') != null){
@@ -514,7 +517,6 @@ function updateSlider(passObj, memo) {
           updateTopSlider();
         }
       }
-
     }
   }
 
