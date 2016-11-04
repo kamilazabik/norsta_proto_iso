@@ -22,10 +22,6 @@ $(document).ready( function(){
         ,degree = $(this).find("decision").attr('maxDegree')
         ,labelChildren = $(this).children('nodes').children('node').children('label').text( ).split(/(?=[A-Z])/).join(',').split('.').join("")
         ,lastChildrenDegree =  $(this).children('nodes').children('node').children('label').siblings('assessment').children('decision')
-
-
-          // $(this).children('nodes').children('node').children('label').siblings('assessment').children('decision')
-          // .find('decision').text('')
         ,labelParent =  labelChildren.split(',')[0]
         ,labelParent1 =  labelChildren.split(',')
         ,labelParentLength = labelParent.length-1
@@ -38,38 +34,26 @@ $(document).ready( function(){
 
       var t=[]
       var y = []
-      console.log('yyyyyyyyyyyyyyyyy')
-      console.log(y)
-     $.each(lastChildrenDegree, function (index, value) {
-       // console.log(index)
-       console.log(value)
 
+     $.each(lastChildrenDegree, function (index, value) {
        t.push(value.outerHTML.split('"'))
-       console.log(t)
+       // console.log(t)
 
      })
 
       $.each(t, function (i,v) {
 
-        console.log('atatatatatata')
-        console.log(v[3])
+        // console.log('atatatatatata')
+        // console.log(v[3])
         y.push(v[3])
-
 
       })
 
       y.shift()
 
-      console.log(degree)
-
-
       arrXml[maxDegree] = degree;
       arrXml[name] = nameElement;
       arrXml[children] = labelChildren;
-
-
-      // arrXml[childrenDegree] = lastChildrenDegree.attr('maxDegree');
-
       arrXml[childrenDegree] = y.join(',');
 
       if(labelParent2.length>0  )  {
@@ -77,17 +61,12 @@ $(document).ready( function(){
       }
 
         // console.log(labelParent1[0] == "")
-
         // xmlDataArr[labelParent1[0]] = arrXml
-
-
       // && labelParent1.length >= 1
     });
 
-
-
     console.log(xmlDataArr);
-    //console.log(JSON.stringify(xmlDataArr));
+    // console.log(JSON.stringify(xmlDataArr));
   }
 
 
