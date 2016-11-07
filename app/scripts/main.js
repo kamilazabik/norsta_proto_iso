@@ -26,20 +26,31 @@ $(document).ready( function(){
         ,labelParent1 =  labelChildren.split(',')
         ,labelParentLength = labelParent.length-1
         ,labelParent2 = labelParent.substring(0, labelParentLength)
+        ,labelParent2Length = labelParent2.length-1
         // ,nameElement =  $(this).children('nodes').children('node[type="claim"]').children('name').text()
-        ,nameElement = $(this).children('nodes').children('node').children('name').text().replace('PBI', "PBI: ").replace('SZBI', "SZBI. ").replace(/([a-z-ń0-9])([A-Z])/g, "$1. $2");
+        ,nameElement = $(this).children('nodes').children('node').children('name').text().replace('PBI', "PBI: ").replace('SZBI', "SZBI. ").replace(/([a-z-ń0-9])([A-Z])/g, "$1. $2")
       // .split('.')
       // ,nameElementLength = nameElement.length
       // ,nameElement2 = nameElement.substring(0, nameElementLength)
+        ,parents = labelParent2.substring(0, labelParent2Length)
+        ,parents1 = labelParent2.substring(1, 3);
 
-      var t=[]
-      var y = []
+
+      if(labelParentLength == 3 && (parents1 >=11 && parents1 <= 18)){
+        parents = labelParent2.substring(0, labelParent2Length-1);
+      }else{
+        parents = labelParent2.substring(0, labelParent2Length);
+      }
+
+
+      var t=[];
+      var y = [];
 
      $.each(lastChildrenDegree, function (index, value) {
-       t.push(value.outerHTML.split('"'))
+       t.push(value.outerHTML.split('"'));
        // console.log(t)
 
-     })
+     });
 
       $.each(t, function (i,v) {
 
@@ -47,14 +58,15 @@ $(document).ready( function(){
         // console.log(v[3])
         y.push(v[3])
 
-      })
+      });
 
-      y.shift()
+      y.shift();
 
       arrXml[maxDegree] = degree;
       arrXml[name] = nameElement;
       arrXml[children] = labelChildren;
       arrXml[childrenDegree] = y.join(',');
+      arrXml[parent] = parents;
 
       if(labelParent2.length>0  )  {
         xmlDataArr[labelParent2] = arrXml
@@ -86,7 +98,7 @@ $(document).ready( function(){
 
       $(className).on('click', function (e) {
 
-       allElement.removeClass('panel-shadow')
+       allElement.removeClass('panel-shadow');
         // console.log(numberClass)
         var link = $(this).text();
         var title = $('.title-claim');
@@ -103,8 +115,8 @@ $(document).ready( function(){
   var arr = [];
 
   $(function loadPage(){
-    var links = $('[class^=\'claim\']');
-    // console.log(links)
+    var links = $('[class*=\'claim\']');
+    console.log(links)
 
     links.each(function(i){
       var className = $(this);
@@ -125,7 +137,7 @@ $(document).ready( function(){
           panelTitle[index] = value.textContent
         });
 
-        var allRangeSlider = $('.slider')
+        var allRangeSlider = $('.slider');
         // console.log(allRangeSlider)
 
         allRangeSlider.each(function(index,value){
@@ -141,8 +153,8 @@ $(document).ready( function(){
         $('#content').load('./jade/main-panel.html', function(){
           $('#content').append('<div id="panel-content" />');
           var src = $('#script');
-          if(numberClass == 0){
-            $('#panel-content').load('./jade/pages/0-panel-content.html')
+          if(numberClass == 'A'){
+            $('#panel-content').load('./jade/pages/A-panel-content.html');
 
             if(arr.length == 0){
               $('#scriptAdded' ).html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
@@ -152,7 +164,7 @@ $(document).ready( function(){
             }
 
           }else {
-            $('#panel-content').load('./jade/pages/6-panel-content.html', function(){
+            $('#panel-content').load('./jade/pages/A6-panel-content.html', function(){
 
               if(arr.length == 0){
                 $('#scriptAdded' ).html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
@@ -167,74 +179,90 @@ $(document).ready( function(){
                 var oneTitle = panelTitle['title-hseq' + numberClass];
               }
 
-              var pie = $('.panel-heading .pie').attr('data-name','rangeslider' + numberClass);
+              var pie = $('.panel-heading .pie').attr('data-name','rangeslider' + numberClass)
+                , buttonUp = $("<button type='button' class='claim-hseq" + isoObject[numberClass].parent + " btn btn-primary btn-sm custom-btn up'>Do góry</button>");
+
+
+
               $('.panel-hseq').removeClass('panel-hseq').addClass('panel-hseq' + numberClass);
               $('.title-hseq').removeClass('title-hseq').addClass('title-hseq' + numberClass).text(oneTitle);
               $('h6.numberValue').removeClass('numberValue').addClass('numberValue' + numberClass);
               $('span.numberValueBig').removeClass('numberValue').addClass('numberValue' + numberClass);
               $('.numberValue-per').removeClass('numberValue-per').addClass('numberValue-per' + numberClass);
-              $('.lab-hseq').text('A' + numberClass)
-              $('.panel-heading .col-md-2.bar').append(sliderTitle['rangeslider' + numberClass])
+              $('.lab-hseq').text(numberClass);
+              $('.panel-heading .col-md-2.bar').append(sliderTitle['rangeslider' + numberClass]);
+              console.log('isoObject[numberClass].parent')
+              console.log(isoObject[numberClass].parent)
+              $('.col-md-1-2.button-expand-three').append(buttonUp)
 
-              if(numberClass != 'A0'){
+              if(numberClass != 'A0' && isoObject[numberClass].children){
 
-                if (numberClass !== 'A0' && isoObject[ numberClass].children){
                   var numberOfChildren = (isoObject[numberClass].children).split(',')
                     , nameOfChildren = (isoObject[numberClass].name).split('.')
+                    , childrenDegree = (isoObject[numberClass].childrenDegree).split(',');
 
+                  function makePanel() {
 
-
-                  function makePanel(){
-                    // console.log(isoObject[numberOfChildren[i-1]].children)
-                    var children = isoObject[numberOfChildren[i-1]].children
-
+                    console.log('numberOfChildren');
+                    console.log(numberOfChildren[i-1]);
+                    console.log('childrenDegree');
+                    console.log(childrenDegree[i-1]);
 
                     var row = $("<div class='row panel-hseq4-1 hseq space'></div>")
-                      ,col1 = $("<div class='col-md-1 col-sm-1 box-under-header-sx pull-left number'></div>")
-                      ,col1h5 =$("<h5> </h5>").text(numberOfChildren[i-1])
-                    col1.append(col1h5)
+                        , col1 = $("<div class='col-md-1 col-sm-1 box-under-header-sx pull-left number'></div>")
+                        , col1h5 = $("<h5> </h5>").text(numberOfChildren[i - 1]);
+                      col1.append(col1h5);
 
-                    var col2 = $("<div class='col-md-4-3 col-sm-10 box-under-header-sx pull-left title'></div>")
-                      ,col2a = $("<a></a>").addClass('title-hseq' + numberOfChildren[i-1]).attr('href', '#')
-                      ,col2h5 =$("<h5></h5>").text(nameOfChildren[i-1])
-                    col2a.append(col2h5)
-                    col2.append(col2a)
+                      var col2 = $("<div class='col-md-4-3 col-sm-10 box-under-header-sx pull-left title'></div>")
+                        , col2a = $("<a></a>").addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
+                        , col2h5 = $("<h5></h5>").text(nameOfChildren[i - 1]);
+                      col2a.append(col2h5);
+                      col2.append(col2a);
 
-                    var col3 = $("<div class='col-md-1 col-sm-1 box-under-header-sx filter'></div>")
+                      var col3 = $("<div class='col-md-1 col-sm-1 box-under-header-sx filter'></div>")
 
-                      ,col4 = $("<div class='col-md-3 box-under-header-sx assessment-icon'></div>")
-                      ,col4row = $("<div class='row'></div>")
-                      ,col4rowCol1 = $("<div class='col-md-4 col-sm-4'></div>")
-                      // ,col4rowCol2 = $("<div class='col-md-4 col-sm-4'></div>")
-                      ,col4rowCol2 = $("<div class='col-md-4 col-sm-4'></div>")
-                      ,col4rowCol2pie = $("<div class=' pie pull-left'></div>").attr('data-name','rangeslider' + numberOfChildren[i-1])
-                      ,col4rowCol2h6 = $("<h6 class='numberValue" + numberOfChildren[i-1]+"' ></h6>")
-                      ,col4rowCol2h6per = $("<h6 class='numberValue-per" + numberOfChildren[i-1]+"' ></h6>")
+                        , col4 = $("<div class='col-md-3 box-under-header-sx assessment-icon'></div>")
+                        , col4row = $("<div class='row'></div>")
+                        , col4rowCol1 = $("<div class='col-md-4 col-sm-4'></div>")
+                        // ,col4rowCol2 = $("<div class='col-md-4 col-sm-4'></div>")
+                        , col4rowCol2 = $("<div class='col-md-4 col-sm-4'></div>")
+                        , col4rowCol2pie = $("<div class=' pie pull-left'></div>").attr('data-name', 'rangeslider' + numberOfChildren[i - 1])
+                        , col4rowCol2h6 = $("<h6 class='numberValue" + numberOfChildren[i - 1] + "' ></h6>")
+                        , col4rowCol2h6per = $("<h6 class='numberValue-per" + numberOfChildren[i - 1] + "' ></h6>");
 
-                    col4rowCol1.append(col4rowCol2pie)
-                    col4rowCol2.append(col4rowCol2h6,col4rowCol2h6per)
-                    col4row.append(col4rowCol1,col4rowCol2,col4rowCol2)
-                    col4.append(col4row)
+                      col4rowCol1.append(col4rowCol2pie);
+                      col4rowCol2.append(col4rowCol2h6, col4rowCol2h6per);
+                      col4row.append(col4rowCol1, col4rowCol2, col4rowCol2);
+                      col4.append(col4row);
 
-                    var col5 = $("<div class='col-md-2 col-sm-5 box-under-header-sx bar'></div>")
-                      ,max = isoObject[numberOfChildren[i-1]].maxDegree;
-                    var col5input = $("<input class='slider' type='range' value='0' min='0' max=" +max +" name='rangeslider" + numberOfChildren[i-1]+ "' data-parent='" + numberClass+ "' data-children='" + children+ "' >")
-                    col5.append(col5input)
+                      var col5 = $("<div class='col-md-2 col-sm-5 box-under-header-sx bar'></div>")
+                        ,max = childrenDegree[i-1]
+                        ,col6 = $("<div class='col-md-1-2 col-sm-2 box-under-header-sx button-expand'></div>")
+                        ,button = $("<button type='button' class='claim-hseq" + numberOfChildren[i - 1] + " btn btn-primary btn-sm custom-btn'>Rozwiń</button>");
 
-                    var col6 = $("<div class='col-md-1-2 col-sm-2 box-under-header-sx button-expand'></div>")
-                      , button = $("<button type='button' class='claim-hseq" + numberOfChildren[i-1]+" btn btn-primary btn-sm custom-btn'>Rozwiń</button>")
 
-                    col6.append(button)
+                    console.log(max);
 
-                    row.append(col1,col2,col3,col4,col5,col6)
+                      var col5input;
+                    if (isoObject[numberOfChildren[i - 1]] != undefined) {
+                      var children = isoObject[numberOfChildren[i - 1]].children;
+                      col5input = $("<input class='slider' type='range' value='0' min='0' max=" + max + " name='rangeslider" + numberOfChildren[i - 1] + "' data-parent='" + numberClass + "' data-children='" + children + "' disabled >");
+                      col6.append(button)
+                    }else {
+                      col5input = $("<input class='slider' type='range' value='0' min='0' max=" + max + " name='rangeslider" + numberOfChildren[i - 1] + "' data-parent='" + numberClass + "' >")
 
-                    return row
-                  }
+                    }
+                      col5.append(col5input);
+
+                      row.append(col1, col2, col3, col4, col5, col6);
+
+                      return row
+                    }
+
 
                   for(var i = 1; i <= numberOfChildren.length; i++ ){
                     $('.col-md-12.filter-group').append( makePanel())
                   }
-                }
               }
 
               var titleClaim = $('.title-hseq' + numberClass);
@@ -244,7 +272,6 @@ $(document).ready( function(){
               var label = $('.label-claim');
               titlePanel.text(titleClaim.text());
               label.text(numberClass.split('-').join('.'));
-
 
             });
 
@@ -353,24 +380,10 @@ console.log(sliderTitle)
 
 
 var slidersMemo;
-var relationships = {};
+
 // console.log(relationships)
 console.log(slidersMemo)
-relationships['rangesliderA0'] = {parent: '', children: 'A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18'};
-relationships['rangesliderA6'] = {parent: 'A0', children: 'A61,A62'};
-relationships['rangesliderA61'] = {parent: 'A6', children: 'A611,A612,A613,A614,A615'};
-relationships['rangesliderA611'] = {parent: 'A61', children: 'A611a,A611b,A611c,A611d'};
-relationships['rangesliderA612'] = {parent: 'A61', children: 'A612a,A612b'};
-relationships['rangesliderA7'] = {parent: 'A0', children: 'A71,A72,A73'};
-relationships['rangeslider5'] = {parent: '0', children: '51,52'};
-relationships['rangeslider41'] = {parent: '4', children: '411,412,413,414,415,416,417,418,419'};
-relationships['rangeslider42'] = {parent: '4'};
-relationships['rangeslider43'] = {parent: '4'};
-relationships['rangeslider44'] = {parent: '4'};
-relationships['rangeslider45'] = {parent: '4'};
-relationships['rangeslider411'] = {parent: '41', children: '4111,4112,4113,4114'};
-relationships['rangeslider4113'] = {parent: '411', children: '4113-HS,4113-E,4113-Q'};
-relationships['rangeslider3'] = {parent: '0', children: '31,32,33,34,35,36,37'};
+
 
 // console.log(slidersMemo)
 
