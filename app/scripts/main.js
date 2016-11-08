@@ -80,7 +80,7 @@ $(document).ready( function(){
   //   // console.log(JSON.stringify(xmlDataArr));
   // }
 
-// console.log(isoObject)
+console.log(isoObject)
 
     $('#logo').click(function(e) {
       e.preventDefault();
