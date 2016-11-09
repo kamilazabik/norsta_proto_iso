@@ -89,8 +89,8 @@ console.log(isoObject)
 
 
   function loadTitle(){
-    var links = $('[class*=\'title-hseq\']');
-    var allElement = $('[class*=\'panel-hseq\']');
+    var links = $('[class*=\'title-hseq\']')
+      , allElement = $('[class*=\'panel-hseq\']')
 
     links.each(function(){
       var className = $(this);
@@ -115,19 +115,17 @@ console.log(isoObject)
   var arr = [];
 
   $(function loadPage(){
-    var links = $('[class*=\'claim\']');
-    var allTitles = $('[class^=\'title-hseq\']');
-    // console.log(links)
-    // console.log(allTitles)
+    var links = $('[class*=\'claim\']')
+      , allTitles = $('[class^=\'title-hseq\']')
+      , content = $('#content');
+
 
     links.each(function(i){
       var className = $(this);
       var numberClass = className.attr('class').split(' ')[0].replace('claim-hseq','');
-      // console.log(numberClass)
-
-
 
       $(className).on('click', function (e) {
+        e.preventDefault();
 
         allTitles.each(function(index,value){
           if(!panelTitle) {
@@ -146,9 +144,7 @@ console.log(isoObject)
         // });
 
 
-
         var allRangeSlider = $('.slider');
-        // console.log(allRangeSlider)
 
         allRangeSlider.each(function(index,value){
           if(!sliderTitle) {
@@ -159,10 +155,14 @@ console.log(isoObject)
         });
 
 
-        e.preventDefault();
-        $('#content').load('./jade/main-panel.html', function(){
-          $('#content').append('<div id="panel-content" />');
+
+
+        content.empty()
+        // content.append(makeMainPanel())
+        // $('#content').load('./jade/main-panel.html', function(){
+        content.append('<div id="panel-content" />');
           var src = $('#script');
+
           if(numberClass == 'A'){
             $('#panel-content').load('./jade/pages/A-panel-content.html');
 
@@ -174,59 +174,25 @@ console.log(isoObject)
             }
 
           }else {
-            $('#panel-content').load('./jade/pages/A6-panel-content.html', function(){
+            // $('#panel-content').load('./jade/pages/A6-panel-content.html', function(){
 
-              if(arr.length == 0){
-                $('#scriptAdded' ).html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
-                $(src ).attr('src','');
-                arr.push(src);
-              }
-              //
-              // console.log('panelTitleSidebar');
-              // console.log(panelTitleSidebar)
+              // if(arr.length == 0){
+              //   $('#scriptAdded' ).html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
+              //   $(src ).attr('src','');
+              //   arr.push(src);
+              // }
+
 
               var oneTitle;
 
               if(numberClass != 'A'){
-                // console.log('panelTitle')
-                // console.log(panelTitle)
                  oneTitle = panelTitle['title-hseq' + numberClass];
               }
               // else {
               //    oneTitle = panelTitleSidebar['claim-hseq' + numberClass];
               // }
 
-
-              var siblings = isoObject[isoObject[numberClass].parent].children.split(',')
-                  ,indexOfnumberClass = siblings.indexOf(numberClass)
-                  ,nextSibling = siblings[indexOfnumberClass + 1]
-                  ,prevSibling = siblings[indexOfnumberClass - 1]
-
-              var pie = $('.panel-heading .pie').attr('data-name', numberClass)
-                , arrowLeft = $("<i class='fa fa-angle-double-left' aria-hidden='true'></i>")
-                , arrowRight = $("<i class='fa fa-angle-double-right' aria-hidden='true'></i>")
-                , buttonUp = $('<button type=\'button\' class=\'claim-hseq' + isoObject[numberClass].parent + ' btn btn-primary btn-sm custom-btn up\'>Do góry</button>')
-              var buttonLeft = $('<button type=\'button\' class=\'claim-hseq' + prevSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowLeft)
-              var buttonRight = $('<button type=\'button\' class=\'claim-hseq' + nextSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowRight)
-
-
-              if(prevSibling == undefined) {
-                buttonLeft.attr('disabled', 'disabled')
-              }else if(nextSibling == undefined){
-                buttonRight.attr('disabled', 'disabled')
-              }
-
-
-              $('.panel-hseq').removeClass('panel-hseq').addClass('panel-hseq' + numberClass);
-              $('.title-hseq').removeClass('title-hseq').addClass('title-hseq' + numberClass).text(oneTitle);
-              $('h6.numberValue').removeClass('numberValue').addClass('numberValue' + numberClass);
-              $('span.numberValueBig').removeClass('numberValue').addClass('numberValue' + numberClass);
-              $('.numberValue-per').removeClass('numberValue-per').addClass('numberValue-per' + numberClass);
-              $('.lab-hseq').text(numberClass);
-              $('.panel-heading .col-md-2.bar').append(sliderTitle[numberClass]);
-              // console.log('isoObject[numberClass].parent')
-              // console.log(isoObject[numberClass].parent)
-              $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight)
+            makePanelsTitle(numberClass, oneTitle)
 
               if(numberClass != 'A0' && isoObject[numberClass].children){
 
@@ -234,79 +200,21 @@ console.log(isoObject)
                     , nameOfChildren = (isoObject[numberClass].name).split('.')
                     , childrenDegree = (isoObject[numberClass].childrenDegree).split(',');
 
-                  function makePanel() {
-
-                    // console.log('numberOfChildren');
-                    // console.log(numberOfChildren[i-1]);
-                    // console.log('childrenDegree');
-                    // console.log(childrenDegree[i-1]);
-
-                    var row = $('<div class=\'row panel-hseq'+ numberOfChildren[i - 1]+' hseq space\'></div>')
-                        , col1 = $('<div class=\'col-md-1 col-sm-1 box-under-header-sx pull-left number\'></div>')
-                        , col1h5 = $('<h5> </h5>').text(numberOfChildren[i - 1]);
-                      col1.append(col1h5);
-
-                      var col2 = $('<div class=\'col-md-4-3 col-sm-10 box-under-header-sx pull-left title\'></div>')
-                        , col2a = $('<a></a>').addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
-                        , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1]);
-                      col2a.append(col2h5);
-                      col2.append(col2a);
-
-                      var col3 = $('<div class=\'col-md-1 col-sm-1 box-under-header-sx filter\'></div>')
-
-                        , col4 = $('<div class=\'col-md-3 box-under-header-sx assessment-icon\'></div>')
-                        , col4row = $('<div class=\'row\'></div>')
-                        , col4rowCol1 = $('<div class=\'col-md-4 col-sm-4\'></div>')
-                        // ,col4rowCol2 = $("<div class='col-md-4 col-sm-4'></div>")
-                        , col4rowCol2 = $('<div class=\'col-md-4 col-sm-4\'></div>')
-                        , col4rowCol2pie = $('<div class=\' pie pull-left\'></div>').attr('data-name',numberOfChildren[i - 1])
-                        , col4rowCol2h6 = $('<h6 class=\'numberValue' + numberOfChildren[i - 1] + '\' ></h6>')
-                        , col4rowCol2h6per = $('<h6 class=\'numberValue-per' + numberOfChildren[i - 1] + '\' ></h6>');
-
-                      col4rowCol1.append(col4rowCol2pie);
-                      col4rowCol2.append(col4rowCol2h6, col4rowCol2h6per);
-                      col4row.append(col4rowCol1, col4rowCol2, col4rowCol2);
-                      col4.append(col4row);
-
-                      var col5 = $('<div class=\'col-md-2 col-sm-5 box-under-header-sx bar\'></div>')
-                        ,max = childrenDegree[i-1]
-                        ,col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
-                        ,button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>');
-
-
-                    // console.log(max);
-
-                      var col5input;
-                    if (isoObject[numberOfChildren[i - 1]] != undefined) {
-                      var children = isoObject[numberOfChildren[i - 1]].children;
-                      col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
-                      col6.append(button)
-                    }else {
-                      col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' >')
-
-                    }
-                      col5.append(col5input);
-                      row.append(col1, col2, col3, col4, col5, col6);
-                      return row
-                    }
-
                   for(var i = 1; i <= numberOfChildren.length; i++ ){
-                    $('.col-md-12.filter-group').append( makePanel())
+                    $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,numberClass))
                   }
               }
 
               var titleClaim = $('.title-hseq' + numberClass);
-              // console.log(titleClaim.text());
-
               var titlePanel = $('.title-claim');
               var label = $('.label-claim');
               titlePanel.text(titleClaim.text());
               label.text(numberClass.split('-').join('.'));
 
-            });
+            // });
           }
 
-        });
+        // });
       })
     });
   });
