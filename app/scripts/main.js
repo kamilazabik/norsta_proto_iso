@@ -1,5 +1,7 @@
 var xmlDataArr = {};
 
+console.log("main.js");
+
 $(document).ready( function(){
 
 /* $.ajax({
@@ -80,7 +82,7 @@ $(document).ready( function(){
   //   // console.log(JSON.stringify(xmlDataArr));
   // }
 
-console.log(isoObject)
+  console.log(isoObject)
 
     $('#logo').click(function(e) {
       e.preventDefault();
@@ -117,155 +119,158 @@ console.log(isoObject)
   $(function loadPage(){
     var links = $('[class*=\'claim\']')
       , allTitles = $('[class^=\'title-hseq\']')
-      , content = $('#content');
+      , content = $('#content')
+      , src = $('#script');
 
-
-    links.each(function(i){
+    links.each(function(i) {
       var className = $(this);
-      var numberClass = className.attr('class').split(' ')[0].replace('claim-hseq','');
+      // console.log($(this))
+      var numberClass = className.attr('class').split(' ')[0].replace('claim-hseq', '');
 
-      $(className).on('click', function (e) {
-        e.preventDefault();
+      allTitles.each(function (index, value) {
+        if (!panelTitle) {
+          panelTitle = {}
+        }
+        index = value.className;
+        panelTitle[index] = value.textContent
+      });
 
-        allTitles.each(function(index,value){
-          if(!panelTitle) {
-            panelTitle = {}
-          }
-          index  = value.className;
-          panelTitle[index] = value.textContent
-        });
+      var allRangeSlider = $('.slider');
 
-        // links.each(function(index,value){
-        //   if(!panelTitleSidebar) {
-        //     panelTitleSidebar = {}
-        //   }
-        //   index  = value.className;
-        //   panelTitleSidebar[index] = value.textContent
-        // });
+      allRangeSlider.each(function (index, value) {
+        if (!sliderTitle) {
+          sliderTitle = {}
+        }
+        index = value.name;
+        sliderTitle[index] = value
+      });
 
+      function createPage(){
+          var content =  $('#content')
+            , panelContent = $('#panel-content')
 
-        var allRangeSlider = $('.slider');
+          content.empty()
+          panelContent.empty();
+          // $('#content').load('./jade/main-panel.html')
+          content.prepend(makeMainPanel())
+          content.append($('<div id="panel-content"></div>'))
 
-        allRangeSlider.each(function(index,value){
-          if(!sliderTitle) {
-            sliderTitle = {}
-          }
-          index  = value.name;
-          sliderTitle[index] = value
-        });
+          console.log(numberClass)
 
+          if (numberClass == 'A') {
+            // $('#main-panel').remove()
 
+            $('#panel-content').html(panelContent);//
+            console.log(panelContent)
+            // $('#panel-content').load('./jade/pages/A-panel-content.html');
 
+            // if (arr.length == 0) {
+            //   $('#scriptAdded').html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
+            //   $(src).attr('src', '');
+            //   // $('#script' ).replaceWith('<script ></script>');
+            //   arr.push(src);
+            // }
+            //onLoadPage();
+            console.log("X1");
+            loadPage();
+            onLoadPage();
 
-        content.empty()
-        // content.append(makeMainPanel())
-        // $('#content').load('./jade/main-panel.html', function(){
-        content.append('<div id="panel-content" />');
-          var src = $('#script');
+          } else {
 
-          if(numberClass == 'A'){
-            $('#panel-content').load('./jade/pages/A-panel-content.html');
+            // $('#panel-content').load('./jade/pages/A6-panel-content.html', function(){
+            // if(arr.length == 0){
+            //   $('#scriptAdded' ).html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
+            //   $(src ).attr('src','');
+            //   arr.push(src);
+            // }
 
-            if(arr.length == 0){
-              $('#scriptAdded' ).html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
-              $(src ).attr('src','');
-              // $('#script' ).replaceWith('<script ></script>');
-              arr.push(src);
+            var oneTitle = panelTitle['title-hseq' + numberClass];
+
+            makePanelsTitle(numberClass, oneTitle);
+
+            if (numberClass != 'A0' && isoObject[numberClass].children) {
+
+              var numberOfChildren = (isoObject[numberClass].children).split(',')
+                , nameOfChildren = (isoObject[numberClass].name).split('.')
+                , childrenDegree = (isoObject[numberClass].childrenDegree).split(',');
+
+              for (var i = 1; i <= numberOfChildren.length; i++) {
+                $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
+              }
             }
 
-          }else {
-            // $('#panel-content').load('./jade/pages/A6-panel-content.html', function(){
+            var titleClaim = $('.title-hseq' + numberClass);
+            var titlePanel = $('.title-claim');
+            var label = $('.label-claim');
+            titlePanel.text(titleClaim.text());
+            label.text(numberClass.split('-').join('.'));
 
-              // if(arr.length == 0){
-              //   $('#scriptAdded' ).html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
-              //   $(src ).attr('src','');
-              //   arr.push(src);
-              // }
-
-
-              var oneTitle;
-
-              if(numberClass != 'A'){
-                 oneTitle = panelTitle['title-hseq' + numberClass];
-              }
-              // else {
-              //    oneTitle = panelTitleSidebar['claim-hseq' + numberClass];
-              // }
-
-            makePanelsTitle(numberClass, oneTitle)
-
-              if(numberClass != 'A0' && isoObject[numberClass].children){
-
-                  var numberOfChildren = (isoObject[numberClass].children).split(',')
-                    , nameOfChildren = (isoObject[numberClass].name).split('.')
-                    , childrenDegree = (isoObject[numberClass].childrenDegree).split(',');
-
-                  for(var i = 1; i <= numberOfChildren.length; i++ ){
-                    $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,numberClass))
-                  }
-              }
-
-              var titleClaim = $('.title-hseq' + numberClass);
-              var titlePanel = $('.title-claim');
-              var label = $('.label-claim');
-              titlePanel.text(titleClaim.text());
-              label.text(numberClass.split('-').join('.'));
-
+            //onLoadPage();
+            console.log("X2");
+            loadPage();
+            onLoadPage();
             // });
           }
+        }
 
-        // });
+      console.log("onClick");
+      $(className).on('click', function (e) {
+        console.log("Click!");
+        e.preventDefault();
+        createPage()
       })
     });
   });
 
+  function onLoadPage()
+  {
+    console.log("onLoadPage!");
+    loadTitle();
 
-  loadTitle();
+    $(function () {
+      var linksContent = $('div#content div.col-md-5').find('a');
+      var linksSidebar = $('div#sidebar-wrapper ul').find('a');
 
+      $(linksContent).on('click', function (e) {
+        // console.log('1');
+        $(linksSidebar).removeClass('red');
+        var clickedLink = $(this);
+        $.each(linksSidebar, function (index, value) {
+          // console.log(value);
+          if($(value).text().indexOf(clickedLink.text().trim())>=0){
+            $(value).addClass('red');
+            if($(value).is(':hidden')){
+              // var children = $(value).parents();
+              // var siblings2 = $(value).parent('li').nextAll().prevAll();
+              var siblings = $(value).parents('li').nextAll().prevAll();
+              siblings.show('fast');
 
-  $(function () {
-    var linksContent = $('div#content div.col-md-5').find('a');
-    var linksSidebar = $('div#sidebar-wrapper ul').find('a');
-
-    $(linksContent).on('click', function (e) {
-      // console.log('1');
-      $(linksSidebar).removeClass('red');
-      var clickedLink = $(this);
-      $.each(linksSidebar, function (index, value) {
-        // console.log(value);
-        if($(value).text().indexOf(clickedLink.text().trim())>=0){
-          $(value).addClass('red');
-          if($(value).is(':hidden')){
-            // var children = $(value).parents();
-            // var siblings2 = $(value).parent('li').nextAll().prevAll();
-            var siblings = $(value).parents('li').nextAll().prevAll();
-            siblings.show('fast');
-
+            }
           }
-        }
+        });
+        e.stopPropagation();
       });
-      e.stopPropagation();
+
+      $('#menu-projects').on('click', function (e) {
+        // console.log('2');
+        $(linksSidebar).removeClass('red');
+        e.stopPropagation();
+      });
+
+      $(linksSidebar).on('click', function (e) {
+        $(linksSidebar).removeClass('red');
+        $(this).addClass('red');
+        e.stopPropagation();
+      })
+
     });
 
-    $('#menu-projects').on('click', function (e) {
-      // console.log('2');
-      $(linksSidebar).removeClass('red');
-      e.stopPropagation();
-    });
+    setFilter();
+    $('.slider').rangeslider();
+  }
+  onLoadPage();
 
-    $(linksSidebar).on('click', function (e) {
-      $(linksSidebar).removeClass('red');
-      $(this).addClass('red');
-      e.stopPropagation();
-    })
-
-  });
-
-setFilter();
-
-  $('.slider').rangeslider();
-
-});
+});//END of document.READY
 
 var filterValueMemo;
 // console.log('filterValueMemo')
@@ -392,23 +397,22 @@ function updateTopSlider() {
     }
 }
 
-$.fn.rangeslider = function(options) {
-  var obj = this;
-  var defautValue = obj.attr('value');
-  obj.wrap('<span class=\'range-slider\'></span>');
-  obj.after('<span class=\'slider-container\'>' +
-    '<span class=\'bar\'>' +
-    '<span class=\'pasek1\'></span>' +
-    '<span class =\'pasek\'></span>' +
-    '</span><span class=\'bar-btn\'>' +
-    // "<span>0</span>" +
-    '</span></span>');
-  obj.attr('oninput', 'updateSlider(this)');
-  updateSlider(this, slidersMemo);
+$.fn.rangeslider = function (options) {
+    var obj = this;
+    var defautValue = obj.attr('value');
+    obj.wrap('<span class=\'range-slider\'></span>');
+    obj.after('<span class=\'slider-container\'>' +
+      '<span class=\'bar\'>' +
+      '<span class=\'pasek1\'></span>' +
+      '<span class =\'pasek\'></span>' +
+      '</span><span class=\'bar-btn\'>' +
+      // "<span>0</span>" +
+      '</span></span>');
+    obj.attr('oninput', 'updateSlider(this)');
+    updateSlider(this, slidersMemo);
 
-  return obj;
+    return obj;
 };
-
 
 function updateSlider(passObj, memo) {
 

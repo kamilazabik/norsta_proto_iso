@@ -35,11 +35,15 @@ function makePanelsTitle(numberClass, oneTitle){
 
   $('#panel-content').append(paddingContent)
 
+  console.log(numberClass)
 
-  var siblings = isoObject[isoObject[numberClass].parent].children.split(',')
-    ,indexOfnumberClass = siblings.indexOf(numberClass)
-    ,nextSibling = siblings[indexOfnumberClass + 1]
-    ,prevSibling = siblings[indexOfnumberClass - 1]
+
+    var siblings = isoObject[isoObject[numberClass].parent].children.split(',')
+      ,indexOfnumberClass = siblings.indexOf(numberClass)
+      ,nextSibling = siblings[indexOfnumberClass + 1]
+      ,prevSibling = siblings[indexOfnumberClass - 1]
+
+
 
   var pie = $('.panel-heading .pie').attr('data-name', numberClass)
     , arrowLeft = $("<i class='fa fa-angle-double-left' aria-hidden='true'></i>")
@@ -113,42 +117,42 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   return row
 }
 
-// function makeMainPanel(){
-//   var mainPanel = $('<div id="#main-panel"></div>')
-//     , col = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
-//     , col1 = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
-//     , col1row = $('<div class="row fixedPos box-header"></div>')
-//     , col1rowTitleMain = $('<div class="col-lg-5 col-md-3 col-sm-3 col-xs-2 pull-left title-main"></div>')
-//     , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
-//
-//     , col1rowAssess = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
-//     , col1rowAssessPie = $('<div class="pie pull-left" data-name="A"></div>')
-//
-//     , col1rowAssess1 = $('<div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 pull-left assessment"></div>')
-//     , col1rowAssess1numVal = $('<h4 class="text-left numberValueA"></h4>')
-//     , col1rowAssess1numValPer = $('<h4 class="text-left numberValue-perA"></h4>')
-//
-//     , col1rowBar = $('<div class="col-lg-2 col-md-2 col-xs-2 bar"></div>')
-//     , col1rowBarSpan = $('<span class="numberValueA numberValue"></span>')
-//     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="5,A6,A7,A8,A9,10,11,12,13,14,15,16,17,18" type="range" disabled>')
-//
-//     , col1rowFilter = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pull-left filter"></div>')
-//
-//
-//   col1rowTitleMain.append(col1rowTitleMainH3)
-//   col1rowAssess.append(col1rowAssessPie)
-//   col1rowAssess1.append(col1rowAssess1numVal,col1rowAssess1numValPer)
-//   col1rowBar.append(col1rowBarSpan,col1rowBarInput)
-//   col1row.append(col1rowTitleMain,col1rowAssess,col1rowAssess1,col1rowBar,col1rowFilter)
-//   col1.append(col1row)
-//   mainPanel.append(col1)
-//
-// return mainPanel;
-//
-// }
+function makeMainPanel(){
+  var mainPanel = $('<div id="#main-panel"></div>')
+    , col = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
+    , col1 = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
+    , col1row = $('<div class="row fixedPos box-header"></div>')
+    , col1rowTitleMain = $('<div class="col-lg-5 col-md-3 col-sm-3 col-xs-2 pull-left title-main"></div>')
+    , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
+
+    , col1rowAssess = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
+    , col1rowAssessPie = $('<div class="pie pull-left" data-name="A"></div>')
+
+    , col1rowAssess1 = $('<div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 pull-left assessment"></div>')
+    , col1rowAssess1numVal = $('<h4 class="text-left numberValueA"></h4>')
+    , col1rowAssess1numValPer = $('<h4 class="text-left numberValue-perA"></h4>')
+
+    , col1rowBar = $('<div class="col-lg-2 col-md-2 col-xs-2 bar"></div>')
+    , col1rowBarSpan = $('<span class="numberValueA numberValue"></span>')
+    , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="5,A6,A7,A8,A9,10,11,12,13,14,15,16,17,18" type="range" disabled>')
+
+    , col1rowFilter = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pull-left filter"></div>')
+
+
+  col1rowTitleMain.append(col1rowTitleMainH3)
+  col1rowAssess.append(col1rowAssessPie)
+  col1rowAssess1.append(col1rowAssess1numVal,col1rowAssess1numValPer)
+  col1rowBar.append(col1rowBarSpan,col1rowBarInput)
+  col1row.append(col1rowTitleMain,col1rowAssess,col1rowAssess1,col1rowBar,col1rowFilter)
+  col1.append(col1row)
+  mainPanel.append(col1)
+
+return mainPanel;
+
+}
 
 function makePanelContent (){
-  var button = $('<button class="claim-hseqA5.btn btn-primary btn-sm custom-btn" type="button">Rozwiń')
+  var button1 = $('<button class="claim-hseqA5.btn btn-primary btn-sm custom-btn" type="button">Rozwiń')
 
-  return button;
+  return button1;
 }
