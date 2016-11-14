@@ -1,6 +1,6 @@
 var xmlDataArr = {};
 
-console.log("main.js");
+// console.log("main.js");
 
 $(document).ready( function(){
 
@@ -114,81 +114,69 @@ $(document).ready( function(){
     });
   }
 
-  var arr = [];
 
-  $(function loadPage(){
+
+  $(function loadPage(loadPageVal, isNextLoad){
     var links = $('[class*=\'claim\']')
       , allTitles = $('[class^=\'title-hseq\']')
       , content = $('#content')
       , src = $('#script');
 
     links.each(function(i) {
-      var className = $(this);
-      // console.log($(this))
-      var numberClass = className.attr('class').split(' ')[0].replace('claim-hseq', '');
+        var className = $(this);
+        var numberClass = className.attr('class').split(' ')[0].replace('claim-hseq', '');
 
-      allTitles.each(function (index, value) {
-        if (!panelTitle) {
-          panelTitle = {}
-        }
-        index = value.className;
-        panelTitle[index] = value.textContent
-      });
 
-      var allRangeSlider = $('.slider');
+        allTitles.each(function (index, value) {
+          if (!panelTitle) {
+            panelTitle = {}
+          }
+          index = value.className;
+          panelTitle[index] = value.textContent
+        });
 
-      allRangeSlider.each(function (index, value) {
-        if (!sliderTitle) {
-          sliderTitle = {}
-        }
-        index = value.name;
-        sliderTitle[index] = value
-      });
+        var allRangeSlider = $('.slider');
 
-      function createPage(){
-          var content =  $('#content')
+        allRangeSlider.each(function (index, value) {
+          if (!sliderTitle) {
+            sliderTitle = {}
+          }
+          index = value.name;
+          sliderTitle[index] = value
+        });
+
+
+        function createPage() {
+          var content = $('#content')
             , panelContent = $('#panel-content')
+            , mainPanel = $('#main-panel')
+            , panels = $('.panel.panel-default');
 
-          content.empty()
-          panelContent.empty();
+          // content.empty()
+          mainPanel.remove();
+          panels.remove();
+          // panelContent.empty();
           // $('#content').load('./jade/main-panel.html')
-          content.prepend(makeMainPanel())
-          content.append($('<div id="panel-content"></div>'))
-
-          console.log(numberClass)
+          content.prepend(makeMainPanel());
+          // content.append($('<div id="panel-content"></div>'))
 
           if (numberClass == 'A') {
-            // $('#main-panel').remove()
 
-            $('#panel-content').html(panelContent);//
-            console.log(panelContent)
-            // $('#panel-content').load('./jade/pages/A-panel-content.html');
-
-            // if (arr.length == 0) {
-            //   $('#scriptAdded').html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
-            //   $(src).attr('src', '');
-            //   // $('#script' ).replaceWith('<script ></script>');
-            //   arr.push(src);
-            // }
-            //onLoadPage();
             console.log("X1");
-            loadPage();
+
+            // $('#panel-content').append(panelContentText);
+            $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(panelContentText);
+
+            loadPage(null,true);
             onLoadPage();
 
           } else {
-
-            // $('#panel-content').load('./jade/pages/A6-panel-content.html', function(){
-            // if(arr.length == 0){
-            //   $('#scriptAdded' ).html('<script type=\'text/javascript\' src=\'scripts/main.js\'></script>');
-            //   $(src ).attr('src','');
-            //   arr.push(src);
-            // }
 
             var oneTitle = panelTitle['title-hseq' + numberClass];
 
             makePanelsTitle(numberClass, oneTitle);
 
-            if (numberClass != 'A0' && isoObject[numberClass].children) {
+            if (numberClass != 'A' && isoObject[numberClass].children) {
 
               var numberOfChildren = (isoObject[numberClass].children).split(',')
                 , nameOfChildren = (isoObject[numberClass].name).split('.')
@@ -199,6 +187,8 @@ $(document).ready( function(){
               }
             }
 
+            // $('#panel-content').append(makeRightPanel())
+
             var titleClaim = $('.title-hseq' + numberClass);
             var titlePanel = $('.title-claim');
             var label = $('.label-claim');
@@ -207,19 +197,37 @@ $(document).ready( function(){
 
             //onLoadPage();
             console.log("X2");
-            loadPage();
+            loadPage(null,true);
             onLoadPage();
-            // });
+
           }
         }
 
-      console.log("onClick");
-      $(className).on('click', function (e) {
-        console.log("Click!");
-        e.preventDefault();
-        createPage()
-      })
-    });
+        // console.log("onClick");
+        // console.log(numberClass)
+        // $(className).on('click', function (e) {
+      console.log('isNextLoad');
+      console.log(isNextLoad);
+        if (isNextLoad) {
+          console.log("Click! 2");
+          $('#panel-content .claim-hseq' + numberClass).on('click', function (e) {
+            // console.log('arr');
+            // console.log(arr.length);
+            e.preventDefault();
+            createPage()
+          })
+        }
+        else {
+          console.log("Click! 1");
+          $('.claim-hseq' + numberClass).on('click', function (e) {
+            // console.log('arr');
+            // console.log(arr.length);
+            e.preventDefault();
+            createPage()
+          })
+        }
+      }
+    );
   });
 
   function onLoadPage()
@@ -313,6 +321,9 @@ function applyFilter(filterGroup, filterName, filterValue) {
 
 var panelTitle;
 var panelTitleSidebar;
+var arr = [];
+var arr1 = [];
+console.log(arr.length)
 
 var sliderTitle;
 // console.log(sliderTitle)
