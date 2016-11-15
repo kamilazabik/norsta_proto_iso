@@ -119,8 +119,8 @@ $(document).ready( function(){
   $(function loadPage(loadPageVal, isNextLoad){
     var links = $('[class*=\'claim\']')
       , allTitles = $('[class^=\'title-hseq\']')
-      , content = $('#content')
-      , src = $('#script');
+      , content = $('#content');
+
 
     links.each(function(i) {
         var className = $(this);
@@ -152,17 +152,33 @@ $(document).ready( function(){
             , mainPanel = $('#main-panel')
             , panels = $('.panel.panel-default');
 
+          var numberOfChildMainPanel = (isoObject['A'].children).split(',')
+            , nameOfChildMainPanel = (isoObject['A'].name).split('.')
+            , childDegreeMainPanel = (isoObject['A'].childrenDegree).split(',');
+          console.log(numberOfChildMainPanel);
+          console.log(nameOfChildMainPanel);
+          console.log(childDegreeMainPanel);
+
+
           // content.empty()
           mainPanel.remove();
           panels.remove();
           // panelContent.empty();
           // $('#content').load('./jade/main-panel.html')
-          content.prepend(makeMainPanel());
+          content.prepend(makeMainPanel(numberOfChildMainPanel));
           // content.append($('<div id="panel-content"></div>'))
+
+          console.log(numberClass)
 
           if (numberClass == 'A') {
 
-            console.log("X1");
+            // console.log("X1");
+
+            //   $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(makeFirstPartOfMainPage());
+            //
+            // for (var j = 1; j <= numberOfChildMainPanel.length; j++) {
+            //   $('.col-md-12.col-sm-12.col-sx-12').append(makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j))
+            // }
 
             // $('#panel-content').append(panelContentText);
             $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(panelContentText);
@@ -170,10 +186,10 @@ $(document).ready( function(){
             loadPage(null,true);
             onLoadPage();
 
+
           } else {
 
             var oneTitle = panelTitle['title-hseq' + numberClass];
-
             makePanelsTitle(numberClass, oneTitle);
 
             if (numberClass != 'A' && isoObject[numberClass].children) {
@@ -187,29 +203,20 @@ $(document).ready( function(){
               }
             }
 
-            // $('#panel-content').append(makeRightPanel())
-
             var titleClaim = $('.title-hseq' + numberClass);
             var titlePanel = $('.title-claim');
             var label = $('.label-claim');
             titlePanel.text(titleClaim.text());
             label.text(numberClass.split('-').join('.'));
 
-            //onLoadPage();
             console.log("X2");
             loadPage(null,true);
             onLoadPage();
-
           }
         }
 
-        // console.log("onClick");
-        // console.log(numberClass)
-        // $(className).on('click', function (e) {
-      console.log('isNextLoad');
-      console.log(isNextLoad);
         if (isNextLoad) {
-          console.log("Click! 2");
+          // console.log("Click! 2");
           $('#panel-content .claim-hseq' + numberClass).on('click', function (e) {
             // console.log('arr');
             // console.log(arr.length);
@@ -218,10 +225,9 @@ $(document).ready( function(){
           })
         }
         else {
+          // createPage();
           console.log("Click! 1");
           $('.claim-hseq' + numberClass).on('click', function (e) {
-            // console.log('arr');
-            // console.log(arr.length);
             e.preventDefault();
             createPage()
           })
@@ -280,6 +286,8 @@ $(document).ready( function(){
 
 });//END of document.READY
 
+
+
 var filterValueMemo;
 // console.log('filterValueMemo')
 // console.log(filterValueMemo)
@@ -321,9 +329,9 @@ function applyFilter(filterGroup, filterName, filterValue) {
 
 var panelTitle;
 var panelTitleSidebar;
-var arr = [];
-var arr1 = [];
-console.log(arr.length)
+// var arr = [];
+// var arr1 = [];
+// console.log(arr.length)
 
 var sliderTitle;
 // console.log(sliderTitle)
@@ -492,7 +500,8 @@ function updateSlider(passObj, memo) {
       var parentSlider = $('input[name='+obj.attr('data-parent') +']')
         , parentVal = sliderSum(parentSlider);
       // console.log(parentSlider.val())
-      // console.log(parentSlider)
+      console.log(parentSlider)
+      console.log(parentSlider)
 
       if(parentVal>=0)
       {
