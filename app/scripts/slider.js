@@ -1,11 +1,3 @@
-var slidersMemo;
-
-// console.log(relationships)
-// console.log('slidersMemo')
-// console.log(slidersMemo)
-
-
-// console.log(slidersMemo)
 
 function sliderSum(theSlider) {
   var childrenIds = theSlider.data('children')
