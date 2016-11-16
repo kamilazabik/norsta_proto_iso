@@ -82,7 +82,7 @@ $(document).ready( function(){
             // var panelContent = $('#panel-content')
             var mainPanel = $('#main-panel')
               , panels = $('.panel.panel-default')
-              , row = $('.row.mainPage');
+              , row = $('.row.mainPagePanels');
 
           mainPanel.remove();
           panels.remove();

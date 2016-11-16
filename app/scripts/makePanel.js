@@ -155,6 +155,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 }
 
 function makeFirstPartOfMainPage(){
+  // var paddingContent = $('<div class="col-md-9 col-sm-12 col-xs-12 pull-left padding-content"></div>')
   var panelDefault = $('<div class="panel panel-default"></div>')
     , panelContent = $('<div class="panel-body panel-content panels"></div>')
     , panelCol = $('<div class="col-md-12 col-sm-12 col-sx-12"></div>');
@@ -201,9 +202,9 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
   panelRowCol2.append(panelRowCol2A);
   panelRowCol3.append(panelRowCol3Button);
 
-  panelRowCol4RowC1.append(panelRowCol4RowC1Pie)
-  panelRowCol4RowC2.append(panelRowCol4RowC2H6, panelRowCol4RowC2H6Per)
-  panelRowCol4RowC3.append()
+  panelRowCol4RowC1.append(panelRowCol4RowC1Pie);
+  panelRowCol4RowC2.append(panelRowCol4RowC2H6, panelRowCol4RowC2H6Per);
+  panelRowCol4RowC3.append();
 
   panelRowCol4Row.append(panelRowCol4RowC1, panelRowCol4RowC2,panelRowCol4RowC3);
   panelRowCol4.append(panelRowCol4Row);
@@ -213,3 +214,66 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
   panelRow.append(panelRowCol1, panelRowCol2,panelRowCol3,panelRowCol4,panelRowCol5,panelRowCol6)
   return panelRow;
 }
+
+// function makePanelContent (){
+//   var button1 = $('<button class="claim-hseqA5.btn btn-primary btn-sm custom-btn" type="button">Rozwiń');
+//
+//   return button1;
+// }
+
+// function makeRightPanel(){
+//   var rightPanel = $('<div class="col-md-3 col-sm-12 pull-right right-panel"></div>')
+//     , bsCollapse = $('<div id="bs-collapse" class="panel-group"></div>')
+//     , firstPanel = $('<div class="col-md-12 col-sm-6 first-panel"></div>')
+//     , firstPanelWrap = $('<div class="panel wrap"></div>')
+//     , firstPanelWrapHead = $('<div class="panel-heading"></div>')
+//     , firstPanelWrapHeadH4 = $('<h4 class="panel-title"></h4>')
+//     , firstPanelWrapHeadH4a = $('<a data-toggle="collapse" data-parent="" href=#one"></a>').text('Szczegóły')
+//     , firstPanelWrapOne = $('<div id="one" class="panel-collapse collapse in"></div>')
+//     , firstPanelWrapOneBody = $('<div class="panel-body"></div>')
+//     , firstPanelWrapOneBodyRow1 = $('<div class="row"></div>')
+//     , firstPanelWrapOneBodyRow1C1 = $('<div class="col-md-2"></div>')
+//     , firstPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa')
+//     , firstPanelWrapOneBodyRow1C2 = $('<div class="col-md-9"></div>')
+//     , firstPanelWrapOneBodyRow1C2H5 = $('<h5></h5>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
+//
+//     , firstPanelWrapOneBodyRow2 = $('<div class="row"></div>')
+//     , firstPanelWrapOneBodyRow2C1 = $('<div class="col-md-2"></div>')
+//     , firstPanelWrapOneBodyRow2C1H5 = $('<h5></h5>').text('Etykieta:')
+//     , firstPanelWrapOneBodyRow2C2 = $('<div class="col-md-9"></div>')
+//     , firstPanelWrapOneBodyRow2C2H5 = $('<h5 class="label-claim"></h5>')
+//
+//     , firstPanelWrapOneBodyRow3 = $('<div class="row"></div>')
+//     , firstPanelWrapOneBodyRow3C1 = $('<div class="col-md-2"></div>')
+//     , firstPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tagi')
+//     , firstPanelWrapOneBodyRow3C2 = $('<div class="col-md-9"></div>')
+//
+//
+//     , lastPanel = $('<div class="col-md-12 col-sm-6 last-panel"></div>')
+//     , lastPanelWrap = $('<div class="panel wrap"></div>')
+//
+//
+//     , firstPanelWrapOneBodyText = $('<div data-name="panel1"></div>')
+//
+//
+//   firstPanelWrapOneBodyRow2C1.append(firstPanelWrapOneBodyRow2C1H5);
+//   firstPanelWrapOneBodyRow2C2.append(firstPanelWrapOneBodyRow2C2H5);
+//   firstPanelWrapOneBodyRow2.append(firstPanelWrapOneBodyRow2C1,firstPanelWrapOneBodyRow2C2 );
+//
+//   firstPanelWrapOneBodyRow1C2.append(firstPanelWrapOneBodyRow1C2H5);
+//   firstPanelWrapOneBodyRow1C1.append(firstPanelWrapOneBodyRow1C1H5);
+//   firstPanelWrapOneBodyRow1.append(firstPanelWrapOneBodyRow1C1,firstPanelWrapOneBodyRow1C2);
+//   firstPanelWrapOneBody.append(firstPanelWrapOneBodyRow1,firstPanelWrapOneBodyRow2,firstPanelWrapOneBodyRow3);
+//   firstPanelWrapOne.append(firstPanelWrapOneBody);
+//
+//
+//   firstPanelWrapHeadH4.append(firstPanelWrapHeadH4a);
+//   firstPanelWrapHead.append(firstPanelWrapHeadH4);
+//   firstPanelWrap.append(firstPanelWrapHead, firstPanelWrapOne);
+//   firstPanel.append(firstPanelWrap);
+//   bsCollapse.append(firstPanel);
+//   rightPanel.append(bsCollapse);
+//
+//
+//   return rightPanel;
+// }
