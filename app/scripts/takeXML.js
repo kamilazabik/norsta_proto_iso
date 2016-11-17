@@ -19,7 +19,12 @@ $(document).ready( function() {
         , nameElement3 = $(this).find('name').html()
         , degree = $(this).find('decision').attr('maxDegree')
         , labelChildren = $(this).children('nodes').children('node').children('label').text().split(/(?=[A-Z])/).join(',').split('.').join('')
-        , descriptionChildren = $(this).children('nodes').children('node').children('description').text().split('Wymagania')
+        , descriptionChildren = $(this).children('nodes').children('node').children('description')
+
+
+          // .text().replace(/([<b><])([W](?=y))/g, '##<b$1 $2').split('<b##').join('^')
+
+        // split('Wymagania')
           // .split(/(?=[A-Z])/, "Wymagania")
           // .split(/(?=[A-Z])/).join(',').split('.').join('')
         , lastChildrenDegree = $(this).children('nodes').children('node').children('label').siblings('assessment').children('decision')
@@ -37,8 +42,21 @@ $(document).ready( function() {
         , parents1 = labelParent2.substring(1, 3);
 
       // console.log(labelParent2)
-      // console.log(labelChildren)
+      console.log(labelChildren)
       console.log(descriptionChildren)
+
+var e = []
+      $.each(descriptionChildren, function (v,i) {
+        console.log(v)
+        console.log(i.innerHTML)
+          var ht = (i.innerHTML).replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+        console.log(ht)
+        e.push(ht)
+
+      })
+
+console.log(e.toString('^'))
+
 
       if (labelParentLength == 3 && (parents1 >= 11 && parents1 <= 18)) {
         parents = labelParent2.substring(0, labelParent2Length - 1);

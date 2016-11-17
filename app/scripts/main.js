@@ -13,13 +13,50 @@ $(document).ready( function(){
     });
 
 
+  function loadDescription(numberClass){
+    var labelDescription = $('.description');
+    // console.log("numberClass1");
+    // console.log(numberClass);
+    var numberClassText = numberClass.toString();
+    // console.log(numberClassText);
+    var input = $('input[name='+numberClass +']');
+    var inputParent = input.attr('data-parent');
+    var arryChildren = isoObject[inputParent].children.split(',')
+    var arryDescription = isoObject[inputParent].description.split('^')
+    var positionOfChildren = arryChildren.indexOf(numberClassText);
+
+
+    // var input = $('input[name=A611a]')
+
+    console.log(input.attr('data-parent'));
+    // var numberOfChildren = (isoObject[numberClass].children).split(',')
+    // console.log(numberOfChildren);
+    console.log(arryChildren);
+    console.log(arryDescription);
+    console.log(positionOfChildren);
+    // var description = isoObject[numberClass][positionOfChildren]
+
+    if(positionOfChildren>0){
+      labelDescription.html(arryDescription[positionOfChildren+1]);
+    }
+
+
+
+
+  }
+
+
+
   function loadTitle(){
     var links = $('[class*=\'title-hseq\']')
-      , allElement = $('[class*=\'panel-hseq\']')
+      , allElement = $('[class*=\'panel-hseq\']');
+
+
 
     links.each(function(){
       var className = $(this);
       var numberClass = className.attr('class').split(' ')[0].replace('title-hseq','').split('-');
+
 
       $(className).on('click', function (e) {
 
@@ -31,6 +68,15 @@ $(document).ready( function(){
         e.preventDefault();
         title.text(link);
         label.text(numberClass.join('.'));
+
+
+        loadDescription(numberClass)
+
+          // .description.split('^');
+
+        // console.log(description);
+
+
         var panel = $('.panel-hseq' + numberClass.join('-'));
         panel.addClass('panel-shadow')
       })
@@ -128,11 +174,27 @@ $(document).ready( function(){
 
             // $('#panel-content').append(makeRightPanel())
 
+            var description = isoObject[numberClass].description.split('^');
+
+            // console.log(description[1]);
+            // console.log(numberClass);
+            // console.log(numberOfChildren);
+            // console.log(numberOfChildren.indexOf(numberClass));
+
             var titleClaim = $('.title-hseq' + numberClass);
             var titlePanel = $('.title-claim');
             var label = $('.label-claim');
+
             titlePanel.text(titleClaim.text());
             label.text(numberClass.split('-').join('.'));
+
+            console.log("numberClass2");
+            console.log(numberClass);
+
+
+
+
+
 
             //onLoadPage();
             // console.log("X2");
@@ -172,6 +234,7 @@ $(document).ready( function(){
       }
     );
   });
+
 
 
   function onLoadPage()
