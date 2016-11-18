@@ -83,8 +83,8 @@ function makePanelsTitle(numberClass, oneTitle){
 
 
   var pie = $('.panel-heading .pie').attr('data-name', numberClass)
-    , arrowLeft = $("<i class='fa fa-angle-double-left' aria-hidden='true'></i>")
-    , arrowRight = $("<i class='fa fa-angle-double-right' aria-hidden='true'></i>")
+    , arrowLeft = $('<i class=\'fa fa-angle-double-left\' aria-hidden=\'true\'></i>')
+    , arrowRight = $('<i class=\'fa fa-angle-double-right\' aria-hidden=\'true\'></i>')
     , buttonUp = $('<button type=\'button\' class=\'claim-hseq' + isoObject[numberClass].parent + ' btn btn-primary btn-sm custom-btn up\'>Do góry</button>');
   var buttonLeft = $('<button type=\'button\' class=\'claim-hseq' + prevSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowLeft);
   var buttonRight = $('<button type=\'button\' class=\'claim-hseq' + nextSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowRight);

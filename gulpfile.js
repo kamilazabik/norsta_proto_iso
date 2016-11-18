@@ -174,7 +174,9 @@ gulp.task('serve:dist', function() {
     notify: false,
     port: 9000,
     server: {
-      baseDir: ['dist']
+      baseDir: ['dist'],
+      directory: true,
+      https: true
     }
   });
 });
