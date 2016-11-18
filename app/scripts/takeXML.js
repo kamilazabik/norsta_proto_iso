@@ -125,9 +125,10 @@ $(document).ready( function() {
         , degree = $(this).find('decision').attr('maxDegree')
         , labelChildren = $(this).children('nodes').children('node').children('label').text().split(/(?=[A-Z])/).join(',').split('.').join('')
         , descriptionChildren = $(this).children('nodes').children('node').children('description')
-        , lastChildrenDegree = $(this).children('nodes').children('node').children('label').siblings('assessment').children('decision')
+        , lastChildrenDegree = $(this).children('nodes').children('node').children('label').siblings('assessment').children('decision').attr('maxDegree')
         , labelParent = $(this).children('label').text()
         , nameElement = $(this).children('nodes').children('node').children('name').text().replace('PBI', 'PBI: ').replace('SZBI', 'SZBI. ').replace(/([a-z-ń0-9])([A-Z])/g, '$1. $2')
+        , nodeId = $(this).find('node').attr('id')
 
 
 
@@ -136,6 +137,9 @@ $(document).ready( function() {
       console.log(descriptionChildren);
       console.log(degree);
       console.log(nameElement);
+      console.log(lastChildrenDegree);
+      console.log("nodeId");
+      console.log(nodeId);
 
 
       var arrayWithDescription = [];
@@ -146,6 +150,17 @@ $(document).ready( function() {
         textDescription = arrayWithDescription.join('$')
 
       });
+
+      arrXml[maxDegree] = degree;
+      arrXml[name] = nameElement;
+      arrXml[children] = labelChildren;
+      arrXml[childrenDegree] = descriptionChildren
+      arrXml[parent] = labelParent;
+      arrXml[description] = textDescription;
+
+      // if (labelParent.length > 0) {
+        xmlDataArr[labelParent] = arrXml
+      // }
 
 // console.log(textDescription);
 
@@ -173,16 +188,7 @@ $(document).ready( function() {
       //
       // y.shift();
 
-      arrXml[maxDegree] = degree;
-      arrXml[name] = nameElement;
-      arrXml[children] = labelChildren;
-      arrXml[childrenDegree] = descriptionChildren
-      arrXml[parent] = labelParent;
-      arrXml[description] = textDescription;
 
-      if (labelParent.length > 0) {
-        xmlDataArr[labelParent] = arrXml
-      }
 
       // console.log(labelParent1[0] == "")
       // xmlDataArr[labelParent1[0]] = arrXml
