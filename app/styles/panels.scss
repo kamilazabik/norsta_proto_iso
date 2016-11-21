@@ -234,7 +234,9 @@ circle {
     .pie {
       width: $pie-size-sx;
       height: $pie-size-sx;
-      margin-top: 10px;
+      align-items:center;
+
+      //margin-top: 10px;
     }
 
     button{

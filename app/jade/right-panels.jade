@@ -1,5 +1,17 @@
 .col-md-3.col-sm-12.pull-right.right-panel
   #bs-collapse.panel-group
+    .col-md-12.col-sm-6.last-panel
+      .panel.wrap
+        .panel-heading
+          h4.panel-title
+            a(data-toggle='collapse', data-parent='', href='#two')
+              | Ocena
+        #two.panel-collapse.collapse.in
+          .panel-body
+            | Where is the harp on the harpstring, and the red fire glowing?
+            .row
+              .col-md-9.sliderRightPanel
+                //input.slider(value='0', min='0', max='40', step='1', name='A5', type='range', data-parent='A', data-children='A511,A512', disabled)
     .col-md-12.col-sm-6.first-panel
       .panel.wrap
         .panel-heading
@@ -30,15 +42,7 @@
             //.text(data-name='panel1')
               .editable_text Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
     // end of panel
-    .col-md-12.col-sm-6.last-panel
-      .panel.wrap
-        .panel-heading
-          h4.panel-title
-            a(data-toggle='collapse', data-parent='', href='#two')
-              | Ocena
-        #two.panel-collapse.collapse.in
-          .panel-body
-            | Where is the harp on the harpstring, and the red fire glowing? Where is the spring and the harvest and the tall corn growing?
+
   // end of #bs-collapse
 
   //#accordion.panel-group(role='tablist', aria-multiselectable='true')

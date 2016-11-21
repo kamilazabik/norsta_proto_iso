@@ -28,6 +28,18 @@ function createPage(numberClass, isNextLoad) {
   row.remove();
   content.prepend(makeMainPanel());
 
+  var maxDegree = isoObject[numberClass].maxDegree;
+  console.log(maxDegree);
+
+  // $('input.slider').attr('max', maxDegree)
+
+  // var slider = $('<input class="slider" value="0" min="0" max="40" step="1" name="A5" data-children="A511,A512" type="range" disabled>')
+
+
+
+  $('.sliderRightPanel').empty()
+
+  console.log(slider)
 
   if (numberClass == 'A') {
 
@@ -43,8 +55,6 @@ function createPage(numberClass, isNextLoad) {
     // $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(panelContentText);
 
     loadPage(isNextLoad);
-    // console.log('firstLoad')
-    // console.log(firstLoad)
     onLoadPage();
 
   } else {
@@ -71,9 +81,12 @@ function createPage(numberClass, isNextLoad) {
     var titleClaim = $('.title-hseq' + numberClass);
     var titlePanel = $('.title-claim');
     var label = $('.label-claim');
+    var slider;
 
     titlePanel.text(titleClaim.text());
     label.text(numberClass.split('-').join('.'));
+
+    makeSlider(numberClass, maxDegree);
 
     loadDescription(numberClass);
 
@@ -131,7 +144,7 @@ function loadPage(isNextLoad){
       }
     }
   );
-};//loadPage
+}//loadPage
 
 
 
@@ -213,6 +226,9 @@ function loadDescription(numberClass){
 function loadTitle(){
   var links = $('[class*=\'title-hseq\']')
     , allElement = $('[class*=\'panel-hseq\']');
+  var title = $('.title-claim');
+  var label = $('.label-claim');
+
 
   links.each(function(){
     var className = $(this);
@@ -220,21 +236,21 @@ function loadTitle(){
 
 
     $(className).on('click', function (e) {
+      var classNameText = numberClass.join('.')
+      console.log(classNameText)
 
       allElement.removeClass('panel-shadow');
-      // console.log(numberClass)
+      // $('.sliderRightPanel').empty()
+
       var link = $(this).text();
-      var title = $('.title-claim');
-      var label = $('.label-claim');
+
       e.preventDefault();
       title.text(link);
       label.text(numberClass.join('.'));
 
-
+      changeSlider(classNameText)
       loadDescription(numberClass)
-
       // .description.split('^');
-
       // console.log(description);
 
       var panel = $('.panel-hseq' + numberClass.join('-'));
