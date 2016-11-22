@@ -80,11 +80,6 @@ function makePanelsTitle(numberClass, oneTitle){
     ,nextSibling = siblings[indexOfnumberClass + 1]
     ,prevSibling = siblings[indexOfnumberClass - 1];
 
-  console.log(nextSibling)
-  console.log(prevSibling)
-
-
-
   var pie = $('.panel-heading .pie').attr('data-name', numberClass)
     , arrowLeft = $('<i class=\'fa fa-angle-double-left\' aria-hidden=\'true\'></i>')
     , arrowRight = $('<i class=\'fa fa-angle-double-right\' aria-hidden=\'true\'></i>')
@@ -144,7 +139,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >')
     col6.append(button)
   }else {
-    col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' >')
+    col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >')
   }
 
 
@@ -237,22 +232,31 @@ function makeSlider(numberClass, maxDegree){
 }
 
 function changeSlider(numberClass){
+
   var slider = $('.sliderRightPanel input.slider')
-  var maxDegree;
   var input = $('input[name='+numberClass +']')
     , inputParent = input.attr('data-parent')
-    , inputDegree = input.attr('max')
+    , inputDegree = input.attr('max');
 
-  slider.attr('max', inputDegree )
-  slider.attr('name', numberClass)
-  slider.attr('data-parent', inputParent )
+  updateSlider(input, null);
 
-  console.log(inputDegree)
+
+  slider.attr('max', inputDegree );
+  slider.attr('name', numberClass);
+  slider.attr('data-parent', inputParent );
+  slider.attr('value', slidersMemo[numberClass]);
+
+  // console.log('slider');
+  // console.log(slider);
+  // console.log('input');
+  // console.log(input);
+
+  // updateSlider(slider, null);
 
 
   if (isoObject[numberClass]!= undefined) {
-    var inputChildren = input.attr('data-children')
-    console.log(inputChildren)
+    var inputChildren = input.attr('data-children');
+    // console.log(inputChildren);
     slider.attr('data-children', inputChildren )
   }else{
     slider.attr('data-children', '' );

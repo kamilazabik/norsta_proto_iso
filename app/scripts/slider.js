@@ -1,4 +1,3 @@
-
 function sliderSum(theSlider) {
   var childrenIds = theSlider.data('children')
     ,   result = 0;
@@ -143,6 +142,7 @@ function updateSlider(passObj, memo) {
 
     slidersMemo[obj[0].name] = value;
 
+    // console.log(slidersMemo)
 
     // console.log(obj)
 
