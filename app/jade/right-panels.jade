@@ -7,11 +7,15 @@
             a(data-toggle='collapse', data-parent='', href='#two')
               | Ocena
         #two.panel-collapse.collapse.in
-          .panel-body
-            | Where is the harp on the harpstring, and the red fire glowing?
+          .panel-body.addedComment
             .row
               .col-md-9.sliderRightPanel
                 //input.slider(value='0', min='0', max='40', step='1', name='A5', type='range', data-parent='A', data-children='A511,A512', disabled)
+            .text(data-name='panel1')
+            .row
+              .col-md-12
+                h5.comment Opis
+            .editable_text Dodaj Twój komentarz
     .col-md-12.col-sm-6.first-panel
       .panel.wrap
         .panel-heading
@@ -39,37 +43,4 @@
                 h5 Opis:
               .col-md-9
                 h5.description
-            //.text(data-name='panel1')
-              .editable_text Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-    // end of panel
 
-  // end of #bs-collapse
-
-  //#accordion.panel-group(role='tablist', aria-multiselectable='true')
-  //  .panel.panel-default
-  //    #headingOne.panel-heading(role='tab')
-  //      h4.panel-title
-  //        a(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseOne', aria-expanded='true', aria-controls='collapseOne') Szczegóły
-  //    #collapseOne.panel-collapse.collapse.in(role='tabpanel', aria-labelledby='headingOne')
-  //      .panel-body
-  //        .row
-  //          .col-md-2
-  //            h5 Nazwa:
-  //            h5 Etykieta:
-  //            h5 Tagi:
-  //          .col-md-10
-  //            h5.title-claim Wdrożenie i Funkcjonowanie HSEQ
-  //            h5.label-claim 4
-  //        .text(data-name='panel1')
-  //          .editable_text Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-  //  .panel.panel-default
-  //    #headingTwo.panel-heading(role='tab')
-  //      h4.panel-title
-  //        a.collapsed(role='button', data-toggle='collapse', data-parent='#accordion', href='#collapseTwo', aria-expanded='false', aria-controls='collapseTwo') Ocena
-  //    #collapseTwo.panel-collapse.collapse(role='tabpanel', aria-labelledby='headingTwo')
-  //      .panel-body
-  //        .text(data-name='panel2')
-  //          .editable_text Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-
-
-//include ./includes/scripts

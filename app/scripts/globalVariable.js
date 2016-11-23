@@ -5,6 +5,7 @@ var panelTitleSidebar;
 var sliderTitle;
 var slidersMemo;
 var firstLoad = false;
+var clickedButton = false;
 
 
 

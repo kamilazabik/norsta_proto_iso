@@ -1,86 +1,60 @@
-function divClicked() {
-  console.log('THIS')
-  console.log($(this))
-  var divHtml = $(this).html();
+  function divClicked() {
+    var divHtml = $(this).html();
+    var editableText = $('<textarea />');
+    editableText.val(divHtml);
+    $(this).replaceWith(editableText);
+    editableText.focus();
+    // setup the blur event for this new textarea
+    editableText.blur(editableTextBlurred);
 
-  console.log('aaaaaaaaaaaaaaaaaaaa')
 
-  if(inputMemo){
-    // divHtml = inputMemo.name
+    function setHeight(e) {
+      $(e).css({'height': 'auto', 'overflow-y': 'hidden'}).height(e.scrollHeight);
+    }
 
+    $('textarea').each(function () {
+      setHeight(this);
+    }).on('input', function () {
+      setHeight(this);
+    });
 
-    console.log(inputMemo)
-    // editableText.val(divHtml);
+  }
+
+  function editableTextBlurred() {
+    var numberClass = $('.addedComment').attr('data-name');
+    var html = $(this).val();
+    console.log(html);
+    var viewableText = $('<div class="addedCom">');
+    viewableText.html(html);
+    console.log(numberClass);
+
+    // setup the click event for this new div
+    var obj = $(this).parent();
+
+    console.log(numberClass);
+    isoObject[numberClass].comment = html;
+    console.log(isoObject[numberClass]);
+
+    $(this).replaceWith(viewableText);
+    viewableText.click(divClicked);
   }
 
 
-
-  var editableText = $('<textarea />')
-  editableText.val(divHtml);
-  console.log('divHtml')
-  console.log(divHtml)
-  $(this).replaceWith(editableText);
-  editableText.focus();
-  // setup the blur event for this new textarea
-  editableText.blur(editableTextBlurred);
-
-
-
-
-  function setHeight(e) {
-    $(e).css({'height':'auto','overflow-y':'hidden'}).height(e.scrollHeight);
-  }
-  $('textarea').each(function () {
-    setHeight(this);
-  }).on('input', function () {
-    setHeight(this);
-  });
-
-}
-
-var inputMemo;
-
-
-
-function editableTextBlurred() {
-  console.log('THIS')
-  console.log($(this))
-  var html = $(this).val();
-  var viewableText = $('<div>')
-  viewableText.html(html);
-
-  // setup the click event for this new div
-
-
-
-  var obj = $(this).parent()
-  console.log(obj)
-  console.log(obj.attr('data-name'))
-
-  if(!inputMemo)
-  {
-    inputMemo={};
-  }
-
-  inputMemo[obj.attr('data-name')] = html;
-
-  console.log('html');
-  console.log(html);
-
-  // }
-
-  $(this).replaceWith(viewableText);
-  viewableText.click(divClicked);
-}
-
-
-
-
-$(document).ready(function() {
-  $('.editable_text').click(divClicked);
-});
+// function setComment(className) {
 //
+//   $('.editable_text').on('click', divClicked, function(){
+//     console.log(className);
+//     isoObject[className].comment = newComment;
+//     console.log(isoObject[className]);
+//   });
+//
+//
+// }
 
+
+// $(document).ready(function() {
+//   $('.editable_text').click(divClicked);
+// });
 
 
 (function () {

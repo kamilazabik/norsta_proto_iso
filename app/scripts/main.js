@@ -5,9 +5,12 @@ $(document).ready( function(){
     e.preventDefault();
     $('#content').load('./jade/main-page.html');
   });
-  // */console.log(isoObject)
-  console.log(slidersMemo)
+  // */console.log(isoObject);
+  console.log(slidersMemo);
+  console.log(isoObject['A5']);
+
   createPage('A', false);
+
 });//END of document.READY
 
 
@@ -29,6 +32,7 @@ function createPage(numberClass, isNextLoad) {
   content.prepend(makeMainPanel());
 
   var maxDegree = isoObject[numberClass].maxDegree;
+
   // $('input.slider').attr('max', maxDegree)
 
   // var slider = $('<input class="slider" value="0" min="0" max="40" step="1" name="A5" data-children="A511,A512" type="range" disabled>')
@@ -48,6 +52,7 @@ function createPage(numberClass, isNextLoad) {
     // $('#panel-content').append(panelContentText);
     // $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(panelContentText);
 
+    makeSlider();
     loadPage(isNextLoad);
     onLoadPage();
 
@@ -79,7 +84,7 @@ function createPage(numberClass, isNextLoad) {
     titlePanel.text(titleClaim.text());
     label.text(numberClass.split('-').join('.'));
 
-    makeSlider(numberClass, maxDegree);
+    makeSlider();
 
     loadDescription(numberClass);
 
@@ -89,6 +94,8 @@ function createPage(numberClass, isNextLoad) {
     onLoadPage();
   }
 }//createPage
+
+
 
 function loadPage(isNextLoad){
   var links = $('[class*=\'claim\']')
@@ -134,10 +141,6 @@ function loadPage(isNextLoad){
     }
   );
 }//loadPage
-
-
-
-
 
 
 function onLoadPage() {
@@ -186,6 +189,9 @@ function onLoadPage() {
   $('.slider').rangeslider();
 }//onLoadPage
 
+
+
+
 function loadDescription(numberClass){
   var labelDescription = $('.description');
   // console.log("numberClass1");
@@ -203,69 +209,4 @@ function loadDescription(numberClass){
 
 
 
-function loadTitle(){
-  var links = $('[class*=\'title-hseq\']')
-    , allElement = $('[class*=\'panel-hseq\']')
-    , title = $('.title-claim')
-    , label = $('.label-claim')
-    , allInputs = $('input')
-  var slider = $('.sliderRightPanel input.slider')
-    // , className
 
-// console.log(slider)
-
-  allElement.each(function(){
-    var className = $(this)
-    // console.log(className)
-    // var numberClass = className.attr('class').split(' ')[0].replace('title-hseq','').split('-');
-      var numberClass = className.attr('class').split(' ')[1].replace('panel-hseq','').split('-')
-      var panel = $('.panel-hseq' + numberClass.join('-'));
-    // var classNameText1 = numberClass.join('.')
-
-    clickOnClassName(numberClass, className,panel)
-
-  });
-
-
-  function clickOnClassName(numberClass,className,panel) {
-    $(className).on('click', function (e) {
-
-      var classNameText = numberClass.join('.')
-        // , link = $(this).text();
-        , link = $('.title-hseq' + classNameText).text();
-
-      allElement.removeClass('panel-shadow');
-      e.preventDefault();
-      title.text(link);
-      label.text(numberClass.join('.'));
-
-      changeSlider(classNameText);
-
-      loadDescription(numberClass);
-
-      panel.addClass('panel-shadow');
-
-      if(isoObject[numberClass] == undefined){
-        allInputs.each(function () {
-          $('input').attr('disabled', 'disabled')
-        });
-
-        var clickedInput = $('input[name='+classNameText +']');
-        clickedInput.removeAttr('disabled' );
-      }
-
-    });
-
-    $('.sliderRightPanel').on('click', function (e) {
-
-      var classNameText = numberClass.join('.')
-
-      var input = $('input[name='+numberClass +']')
-      console.log(input)
-
-      // changeSlider(classNameText);
-      // updateSlider(input, null);
-
-    })
-  }
-}//loadTitle

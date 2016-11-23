@@ -464,6 +464,33 @@ console.log(labelChildren)
       // return gg
 
 
+
+
+
+
+//doctype html
+//html.no-js(lang='')
+//  include jade/includes/head
+//  body
+//    //if lt IE 10
+//      p.browserupgrade
+//         You are using an
+//        strong outdated
+//          browser. Please
+//        a(href='http://browsehappy.com/') upgrade your browser
+//          to improve your experience.
+//    #main-page.container-fluid
+//      include jade/includes/nav-top
+//      #wrapper.toggled-2
+//        #sidebar-wrapper.tree
+//          include jade/includes/sidebar
+//        #page-content-wrapper
+//          #content.container-fluid.xyz
+//            include jade/main-page
+//    .footer
+//      include jade/includes/footer
+//    include jade/includes/scripts
+
     // $.each(gg, function(v){
     //   console.log(gg[v])
     // })

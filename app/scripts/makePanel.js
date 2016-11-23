@@ -19,14 +19,17 @@ function makeMainPanel(){
 
   // data-parent="null"
 
-    , col1rowFilter = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 pull-left filter"></div>')
+    , col1rowButtons = $('<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-left filter"></div>')
+    , col1rowButtonsBtnB1 = $('<button type="button" id="normalAsses" class="btn btn-primary">Normalna ocena</button>')
+    , col1rowButtonsBtnB2 = $('<button type="button" id="fastAsses" class="btn btn-primary">Szybka ocena</button>')
 
 
+  col1rowButtons.append(col1rowButtonsBtnB1,col1rowButtonsBtnB2);
   col1rowTitleMain.append(col1rowTitleMainH3);
   col1rowAssess.append(col1rowAssessPie);
   col1rowAssess1.append(col1rowAssess1numVal,col1rowAssess1numValPer);
   col1rowBar.append(col1rowBarSpan,col1rowBarInput);
-  col1row.append(col1rowTitleMain,col1rowAssess,col1rowAssess1,col1rowBar,col1rowFilter);
+  col1row.append(col1rowTitleMain,col1rowAssess,col1rowAssess1,col1rowBar,col1rowButtons);
   col1.append(col1row);
   col.append(col1);
   mainPanel.append(col);
@@ -95,7 +98,6 @@ function makePanelsTitle(numberClass, oneTitle){
     if(nextSibling == undefined){
     buttonRight.attr('disabled', 'disabled')
   }
-
 
 
   $('.panel-hseq').removeClass('panel-hseq').addClass('panel-hseq' + numberClass);
@@ -216,19 +218,31 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
   panelRow.append(panelRowCol1, panelRowCol2,panelRowCol3,panelRowCol4,panelRowCol5,panelRowCol6)
   return panelRow;
 }
+//
+// function makeSlider(numberClass, maxDegree){
+//   var slider;
+//   if (isoObject[numberClass].children != undefined) {
+//     var children = isoObject[numberClass].children;
+//     slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxDegree + ' name=\'' + numberClass + '\' data-parent=\'' + isoObject[numberClass].parent + '\' data-children=\'' + isoObject[numberClass].children + '\' disabled >')
+//   }else {
+//     slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxDegree + ' name=\'' + numberClass + '\' data-parent=\'' + isoObject[numberClass].parent + '\' >')
+//
+//   }
+//
+//   $('.sliderRightPanel').append(slider)
+// }
 
-function makeSlider(numberClass, maxDegree){
+function makeSlider(){
   var slider;
-  if (isoObject[numberClass].children != undefined) {
-    var children = isoObject[numberClass].children;
-    slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxDegree + ' name=\'' + numberClass + '\' data-parent=\'' + isoObject[numberClass].parent + '\' data-children=\'' + isoObject[numberClass].children + '\' disabled >')
-  }else {
-    slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxDegree + ' name=\'' + numberClass + '\' data-parent=\'' + isoObject[numberClass].parent + '\' >')
-
-  }
+  // if (isoObject[numberClass].children != undefined) {
+  //   var children = isoObject[numberClass].children;
+    slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=\'40\' name=\'A5\' data-parent=\'A\' data-children=\'A511,A512\' disabled >')
+  // }else {
+  //   slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxDegree + ' name=\'' + numberClass + '\' data-parent=\'' + isoObject[numberClass].parent + '\' >')
+  //
+  // }
 
   $('.sliderRightPanel').append(slider)
-
 }
 
 function changeSlider(numberClass){
@@ -240,7 +254,6 @@ function changeSlider(numberClass){
 
   updateSlider(input, null);
 
-
   slider.attr('max', inputDegree );
   slider.attr('name', numberClass);
   slider.attr('data-parent', inputParent );
@@ -248,11 +261,10 @@ function changeSlider(numberClass){
 
   // console.log('slider');
   // console.log(slider);
-  // console.log('input');
-  // console.log(input);
+  console.log('input');
+  console.log(input);
 
   // updateSlider(slider, null);
-
 
   if (isoObject[numberClass]!= undefined) {
     var inputChildren = input.attr('data-children');
