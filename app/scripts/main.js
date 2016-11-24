@@ -5,9 +5,8 @@ $(document).ready( function(){
     e.preventDefault();
     $('#content').load('./jade/main-page.html');
   });
-  // */console.log(isoObject);
-  console.log(slidersMemo);
-  console.log(isoObject['A5']);
+  // */
+  console.log(isoObject);
 
   createPage('A', false);
 
@@ -19,12 +18,16 @@ function createPage(numberClass, isNextLoad) {
   var numberOfChildMainPanel = (isoObject['A'].children).split(',')
     , nameOfChildMainPanel = (isoObject['A'].name).split('.')
     , childDegreeMainPanel = (isoObject['A'].childrenDegree).split(',')
-    , content = $('#content');
-
-  // var panelContent = $('#panel-content')
-  var mainPanel = $('#main-panel')
+    , content = $('#content')
+    , mainPanel = $('#main-panel')
     , panels = $('.panel.panel-default')
-    , row = $('.row.mainPagePanels');
+    , row = $('.row.mainPagePanels')
+    , description = isoObject[numberClass].description.split('^')
+    , titleClaim = $('.title-hseq' + numberClass)
+    , titlePanel = $('.title-claim')
+    , label = $('.label-claim')
+    // , comment = $('.addedCom')
+    , slider;
 
   mainPanel.remove();
   panels.remove();
@@ -75,14 +78,12 @@ function createPage(numberClass, isNextLoad) {
 
     // $('#panel-content').append(makeRightPanel())
 
-    var description = isoObject[numberClass].description.split('^');
-    var titleClaim = $('.title-hseq' + numberClass);
-    var titlePanel = $('.title-claim');
-    var label = $('.label-claim');
-    var slider;
-
     titlePanel.text(titleClaim.text());
     label.text(numberClass.split('-').join('.'));
+
+
+
+    addComments (numberClass);
 
     makeSlider();
 
@@ -94,7 +95,6 @@ function createPage(numberClass, isNextLoad) {
     onLoadPage();
   }
 }//createPage
-
 
 
 function loadPage(isNextLoad){

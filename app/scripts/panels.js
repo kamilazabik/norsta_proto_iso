@@ -7,9 +7,8 @@
     // setup the blur event for this new textarea
     editableText.blur(editableTextBlurred);
 
-
     function setHeight(e) {
-      $(e).css({'height': 'auto', 'overflow-y': 'hidden'}).height(e.scrollHeight);
+      $(e).css({'height': 'auto', 'overflow-y': 'hidden', 'width' : '100%'}).height(e.scrollHeight);
     }
 
     $('textarea').each(function () {
@@ -17,24 +16,25 @@
     }).on('input', function () {
       setHeight(this);
     });
-
   }
 
   function editableTextBlurred() {
     var numberClass = $('.addedComment').attr('data-name');
     var html = $(this).val();
-    console.log(html);
-    var viewableText = $('<div class="addedCom">');
+    var viewableText = $('<div class="addedCom">')
     viewableText.html(html);
-    console.log(numberClass);
 
     // setup the click event for this new div
     var obj = $(this).parent();
 
-    console.log(numberClass);
-    isoObject[numberClass].comment = html;
-    console.log(isoObject[numberClass]);
 
+  if(!isoObject[numberClass]){
+  isoObject[numberClass] = {
+      comment: html
+  };
+  }else{
+    isoObject[numberClass].comment = html;
+  }
     $(this).replaceWith(viewableText);
     viewableText.click(divClicked);
   }

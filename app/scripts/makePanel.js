@@ -42,20 +42,20 @@ function makePanelsTitle(numberClass, oneTitle){
   var paddingContent = $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content')
     ,panelTitle= $('<div class="panel panel-default panels-title"></div>')
     ,panelHeading = $('<div class="panel-heading"></div>')
-    ,rowPanel = $('<div class="row panel-hseq panels box-under-header"></div>')
+    ,rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header"></div>')
     ,colNumber = $('<div class="col-md-1 pull-left number"></div>')
     ,colNumberH4 = $('<h4 class="lab-hseq"></h4>')
     ,colTitle = $('<div class="col-md-6 col-sm-5 pull-left title"></div>')
-    ,colTitleH4 = $('<h4 class="title-hseq"></h4>')
+    ,colTitleH4 = $('<h4 class="title-hseq'+numberClass+'"></h4>').text(oneTitle)
     ,colAssess = $('<div class="col-md-2 assessment"></div>')
     ,colAssesstRow = $('<div class="row"></div>')
     ,colAssessRowCol1 = $('<div class="col-md-6"></div>')
     ,colAssessRowCol2 = $('<div class="col-md-6"></div>')
     ,colAssessRowColPie = $('<div class="pie pull-left"></div>')
-    ,colAssessRowColNumValue = $('<h5 class="text-left numberValue"></h5>')
-    ,colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per"></h5>')
+    ,colAssessRowColNumValue = $('<h5 class="text-left numberValue'+numberClass+'"></h5>')
+    ,colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
     ,colBar = $('<div class="col-md-2 bar"></div>')
-    ,colBarSpan = $('<span class="numberValueBig numberValue"></span>')
+    ,colBarSpan = $('<span class="numberValueBig numberValue'+numberClass+'"></span>')
     ,colButton = $('<span class="col-md-1-2 button-expand-three"></span>')
     ,panelBody = $('<div class="panel-body panel-content panels"></div>')
     ,colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
@@ -72,10 +72,6 @@ function makePanelsTitle(numberClass, oneTitle){
   panelHeading.append(rowPanel);
   panelTitle.append(panelHeading).append(panelBody);
   paddingContent.append(panelTitle);
-
-  // $('#panel-content').append(paddingContent);
-
-  // console.log(numberClass);
 
 
   var siblings = isoObject[isoObject[numberClass].parent].children.split(',')
@@ -94,19 +90,13 @@ function makePanelsTitle(numberClass, oneTitle){
   if(prevSibling == undefined) {
     buttonLeft.attr('disabled', 'disabled')
   }
-
     if(nextSibling == undefined){
     buttonRight.attr('disabled', 'disabled')
   }
 
-
-  $('.panel-hseq').removeClass('panel-hseq').addClass('panel-hseq' + numberClass);
-  $('.title-hseq').removeClass('title-hseq').addClass('title-hseq' + numberClass).text(oneTitle);
-  $('h5.numberValue').removeClass('numberValue').addClass('numberValue' + numberClass);
-  $('span.numberValueBig').removeClass('numberValue').addClass('numberValue' + numberClass);
-  $('.numberValue-per').removeClass('numberValue-per').addClass('numberValue-per' + numberClass);
   $('.lab-hseq').text(numberClass);
   $('.panel-heading .col-md-2.bar').append(sliderTitle[numberClass]);
+  // console.log(sliderTitle)
   $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
 
   return paddingContent;
@@ -136,7 +126,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     ,col5input;
 
 
-  if (isoObject[numberOfChildren[i - 1]] != undefined) {
+  if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
     var children = isoObject[numberOfChildren[i - 1]].children;
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >')
     col6.append(button)
@@ -261,8 +251,8 @@ function changeSlider(numberClass){
 
   // console.log('slider');
   // console.log(slider);
-  console.log('input');
-  console.log(input);
+  // console.log('input');
+  // console.log(input);
 
   // updateSlider(slider, null);
 

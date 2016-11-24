@@ -178,6 +178,10 @@ div.panel:first-child {
   border: 1px solid #c9c9c9;
 }
 
+.addedComment {
+  word-wrap: break-word;
+}
+
 //@include media-breakpoint-only(md) {
 //  .right-panel {
 //    padding-top: 20px;
