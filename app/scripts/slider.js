@@ -76,11 +76,22 @@ $.fn.rangeslider = function (options) {
     '</span><span class=\'bar-btn\'>' +
     // "<span>0</span>" +
     '</span></span>');
-  obj.attr('oninput', 'updateSlider(this)');
+  obj.attr('oninput', 'OnInputSlider(this)');
   updateSlider(this, slidersMemo);
 
   return obj;
 };
+
+function OnInputSlider(obj)
+{
+  updateSlider(obj);
+  if(obj)
+  {
+    tempAssessmentObject.sliderName=obj.name;
+    tempAssessmentObject.value=$(obj).val();
+    notSavedAssessment=true;
+  }
+}
 
 function updateSlider(passObj, memo) {
 
@@ -140,9 +151,19 @@ function updateSlider(passObj, memo) {
       slidersMemo={};
     }
 
-    slidersMemo[obj[0].name] = value;
+    // slidersMemo[obj[0].name] = value;
 
-    // console.log(slidersMemo)
+    if(SzybkaOcena){
+      console.log('zapisało się')
+      slidersMemo[obj[0].name] = value;
+    }else{
+      console.log("nie zapisało się")
+    }
+
+
+    // slidersMemo[obj[0].name] = value;
+
+    console.log(slidersMemo)
 
     // console.log(obj)
 

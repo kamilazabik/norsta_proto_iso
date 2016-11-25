@@ -6,8 +6,6 @@ function loadTitle(){
     , allInputs = $('input')
     , slider = $('.sliderRightPanel input.slider');
 
-  changeAssessment();
-
   allElement.each(function(){
     var className = $(this)
     // var numberClass = className.attr('class').split(' ')[0].replace('title-hseq','').split('-');
@@ -45,44 +43,50 @@ function loadTitle(){
 
       addComments (classNameText)
 
-      changeSlider(classNameText);
+      // changeSlider(classNameText);
 
       loadDescription(numberClass);
 
 
       panel.addClass('panel-shadow');
 
-
       if(!isoObject[numberClass] || !isoObject[numberClass].children){
         console.log(inputs);
         console.log(classNameText);
-        removeAssess(classNameText,inputs,slider);
         // removeAssess(classNameText,slider);
 
         allInputs.each(function () {
           $('input').attr('disabled', 'disabled')
         });
-        if(!clickedButton){
-          var clickedInput = $('input[name='+classNameText +']');
-          clickedInput.removeAttr('disabled' );
-        }else{
-          slider.removeAttr('disabled' );
-        }
+        var clickedInput = $('input[name='+classNameText +']');
+        clickedInput.removeAttr('disabled' );
+
+        // if(!clickedButton){
+        //
+        // }else{
+        //   slider.removeAttr('disabled' );
+        // }
       }
 
-
+      if(notSavedAssessment)
+      {
+        //TODO:
+        //Alert ze nie zapisana ocena z wyborem zapisz/anuluj
+        //SaveAssessment();
+        //CancelAssessment();
+      }
     });
 
-    $('.sliderRightPanel').on('click', function (e) {
-
-      var classNameText = numberClass.join('.');
-
-      var input = $('input[name='+numberClass +']');
-      // console.log(input);
-
-      // changeSlider(classNameText);
-      updateSlider(input, slidersMemo);
-    })
+    // $('.sliderRightPanel').on('click', function (e) {
+    //
+    //   var classNameText = numberClass.join('.');
+    //
+    //   var input = $('input[name='+numberClass +']');
+    //   // console.log(input);
+    //
+    //   // changeSlider(classNameText);
+    //   updateSlider(input, slidersMemo);
+    // })
   }
 }//loadTitle
 
@@ -91,36 +95,53 @@ function addComments (classNameText){
   var comment = $('.addedCom');
 
   if(!isoObject[classNameText] ||!isoObject[classNameText].comment ){
-    comment.text('Dodaj komentarz');
+    comment.text('');
   }else{
     comment.text(isoObject[classNameText].comment);
   }
 }
 
 
-function changeAssessment (){
-  $('#normalAsses, #fastAsses').click(function () {
-    if (this.id == 'normalAsses') {
-      // console.log('normalAsses 1 clicked');
-      clickedButton = true;
-      // console.log(clickedButton)
-    }
-    else if (this.id == 'fastAsses') {
-      // console.log('fastAsses 2 clicked');
-      clickedButton = false;
-      // console.log(clickedButton)
-    }
+function SetSelectAssessmentField()
+{
+    $('#normalAsses').click(function () {
+      SzybkaOcena = false;
+      console.log(SzybkaOcena)
+    });
+
+    $('#fastAsses').click(function () {
+        SzybkaOcena = true;
+        console.log(SzybkaOcena)
+    });
+}
+
+function SetAssessmentField()
+{
+  $('#saveAssess').on('click', function () {
+      SaveAssessment();
   });
-}
 
-function removeAssess(className,input,slider) {
-  $('#removeAssess').unbind('click');
   $('#removeAssess').on('click', function () {
-      console.log('removeAssess 1 clicked');
-    slidersMemo[className] = "0";
-    updateSlider(input, slidersMemo);
-    updateSlider(slider, slidersMemo);
-    })
+      CancelAssessment();
+  })
 }
 
+function SaveAssessment()
+{
+  if(tempAssessmentObject && tempAssessmentObject.sliderName)
+  {
+    slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
+    updateTopSlider();
+    notSavedAssessment=false;
+  }
+}
 
+function CancelAssessment()
+{
+  if(tempAssessmentObject && tempAssessmentObject.sliderName)
+  {
+    var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
+    updateSlider(input, slidersMemo);
+    notSavedAssessment=false;
+  }
+}

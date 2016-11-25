@@ -55,7 +55,7 @@ function createPage(numberClass, isNextLoad) {
     // $('#panel-content').append(panelContentText);
     // $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(panelContentText);
 
-    makeSlider();
+    // makeSlider();
     loadPage(isNextLoad);
     onLoadPage();
 
@@ -85,7 +85,7 @@ function createPage(numberClass, isNextLoad) {
 
     addComments (numberClass);
 
-    makeSlider();
+    // makeSlider();
 
     loadDescription(numberClass);
 
@@ -146,6 +146,8 @@ function loadPage(isNextLoad){
 function onLoadPage() {
 
   loadTitle();
+  SetSelectAssessmentField();
+  SetAssessmentField();
 
   $(function () {
     var linksContent = $('div#content div.col-md-5').find('a');
