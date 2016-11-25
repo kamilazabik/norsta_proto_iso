@@ -127,16 +127,22 @@ $(document).ready( function() {
             childrenDescriptions = '',
             childrenMaxDegree = '';
 
+        console.log(childrenMaxDegree)
+
         if(children)
         {
           children = (children.children[0].children[6].children);
 
           for(var i=0; i<children.length; i++)
           {
+            console.log(children[i].children[4].children[1])
+            console.log( children[i].children[0])
+            // console.log(children[i].children[4].children[1].innerHTML)
+
             var localLabel = children[i].children[1].innerHTML,
                 localName = children[i].children[0].innerHTML,
                 localDescription = children[i].children[3].innerHTML,
-                localMaxDegree = children[i].children[3].innerHTML;
+                localMaxDegree = children[i].children[4].children[1];
 
             if(localLabel && localLabel.length>0) {
               if(childrenLabels.length===0)
@@ -167,6 +173,16 @@ $(document).ready( function() {
                 childrenDescriptions = childrenDescriptions + ',' + localDescription;
               }
             }
+
+            if(localMaxDegree && localMaxDegree.length>0) {
+              if(childrenMaxDegree.length===0)
+              {
+                childrenMaxDegree=localMaxDegree;
+              }
+              else {
+                childrenMaxDegree = childrenMaxDegree + ',' + localMaxDegree;
+              }
+            }
           }
         }
 
@@ -177,7 +193,7 @@ $(document).ready( function() {
         arrXml['children'] = childrenLabels;
         arrXml['childrenNames'] = childrenNames;
         arrXml['childrenDescriptions'] = childrenDescriptions;
-        arrXml['childrenMaxDegree'] = '';
+        arrXml['childrenMaxDegree'] = childrenMaxDegree;
 
         xmlDataArr[label] = arrXml;
       }
