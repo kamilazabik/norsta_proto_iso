@@ -16,8 +16,8 @@ $(document).ready( function(){
 
 function createPage(numberClass, isNextLoad) {
   var numberOfChildMainPanel = (isoObject['A'].children).split(',')
-    , nameOfChildMainPanel = (isoObject['A'].name).split('.')
-    , childDegreeMainPanel = (isoObject['A'].childrenDegree).split(',')
+    , nameOfChildMainPanel = (isoObject['A'].childrenNames).split('.')
+    , childDegreeMainPanel = (isoObject['A'].childrenMaxDegree).split(',')
     , content = $('#content')
     , mainPanel = $('#main-panel')
     , panels = $('.panel.panel-default')
@@ -28,6 +28,7 @@ function createPage(numberClass, isNextLoad) {
     , label = $('.label-claim')
     // , comment = $('.addedCom')
     , slider;
+
 
   mainPanel.remove();
   panels.remove();
@@ -68,8 +69,10 @@ function createPage(numberClass, isNextLoad) {
     if (numberClass != 'A' && isoObject[numberClass].children) {
 
       var numberOfChildren = (isoObject[numberClass].children).split(',')
-        , nameOfChildren = (isoObject[numberClass].name).split('.')
-        , childrenDegree = (isoObject[numberClass].childrenDegree).split(',');
+        , nameOfChildren = (isoObject[numberClass].childrenNames).split('.')
+        , childrenDegree = (isoObject[numberClass].childrenMaxDegree).split(',');
+
+      console.log(nameOfChildren)
 
       for (var i = 1; i <= numberOfChildren.length; i++) {
         $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
@@ -195,18 +198,10 @@ function onLoadPage() {
 
 
 function loadDescription(numberClass){
-  var labelDescription = $('.description');
-  // console.log("numberClass1");
-  // console.log(numberClass);
-  var numberClassText = numberClass.toString()
-    , input = $('input[name='+numberClass +']')
-    , inputParent = input.attr('data-parent')
-    , arrayChildren = isoObject[inputParent].children.split(',')
-    , arrayDescription = isoObject[inputParent].description.split('$');
-  arrayDescription.shift();
-  var positionOfChildren = arrayChildren.indexOf(numberClassText);
+  var labelDescription = $('.description')
+    , arrayDescription = isoObject[numberClass].description;
 
-  labelDescription.html(arrayDescription[positionOfChildren]);
+  labelDescription.html(arrayDescription);
 }//loadDescription
 
 

@@ -116,35 +116,44 @@ $(document).ready( function() {
     $(xml).find('node').each(function () {
       //console.log($(this));
 
-      var label = $(this).children('label').text(),
+      var label = $(this).children('label').text().split('.').join(''),
           arrXml = {};
 
       if(label.length > 0) {
-        var parentLabel = ($(this)[0].parentElement.parentElement.parentElement.parentElement.children[1].innerHTML),
+        var parentLabel = ($(this)[0].parentElement.parentElement.parentElement.parentElement.children[1].innerHTML.split('.').join('')),
             children = $(this)[0].children[5],
             childrenLabels = '',
             childrenNames = '',
             childrenDescriptions = '',
             childrenMaxDegree = '';
 
-        console.log(childrenMaxDegree)
-
         if(children)
         {
           children = (children.children[0].children[6].children);
+          // console.log(children)
 
           for(var i=0; i<children.length; i++)
           {
-            console.log(children[i].children[4].children[1])
-            console.log( children[i].children[0])
-            // console.log(children[i].children[4].children[1].innerHTML)
 
-            var localLabel = children[i].children[1].innerHTML,
+            var localMaxDegree;
+
+            for(var j=0; j<children[i].children[4].children.length; j++){
+            // console.log(children[i].children[4].children[j].getAttribute('maxDegree'));
+              localMaxDegree = children[i].children[4].children[1].getAttribute('maxDegree');
+          }
+
+            // var localLabel = children[i].children[1],
+            var localLabel = children[i].children[1].innerHTML.split('.').join(''),
                 localName = children[i].children[0].innerHTML,
-                localDescription = children[i].children[3].innerHTML,
-                localMaxDegree = children[i].children[4].children[1];
+                localDescription = children[i].children[3].innerHTML;
+
+             // console.log(localMaxDegree)
+            // console.log(localName);
+
 
             if(localLabel && localLabel.length>0) {
+              // console.log(localLabel);
+              // console.log(childrenLabels);
               if(childrenLabels.length===0)
               {
                 childrenLabels=localLabel;
@@ -160,7 +169,7 @@ $(document).ready( function() {
                 childrenNames=localName;
               }
               else {
-                childrenNames = childrenNames + ',' + localName;
+                childrenNames = childrenNames + '.' + localName;
               }
             }
 
@@ -200,5 +209,6 @@ $(document).ready( function() {
     });
 
     console.log(xmlDataArr);
+    // console.log(JSON.stringify(xmlDataArr))
   }
 });

@@ -12,12 +12,14 @@ function loadTitle(){
       , numberClass = className.attr('class').split(' ')[1].replace('panel-hseq','').split('-')
       , panel = $('.panel-hseq' + numberClass.join('-'));
 
+
+
     clickOnClassName(numberClass, className,panel)
 
   });
 
   function clickOnClassName(numberClass,className,panel) {
-
+    console.log(className)
 
     $(className).on('click', function (e) {
 
@@ -26,9 +28,7 @@ function loadTitle(){
       console.log(t)
 
       var classNameText = numberClass.join('.')
-        // , link = $(this).text();
         , link = $('.title-hseq' + classNameText).text()
-        // , comment = $('.addedCom')
         , inputs =$(this).children().find('input')
         , inputName = inputs.attr('name')
 
@@ -61,16 +61,12 @@ function loadTitle(){
         var clickedInput = $('input[name='+classNameText +']');
         clickedInput.removeAttr('disabled' );
 
-        // if(!clickedButton){
-        //
-        // }else{
-        //   slider.removeAttr('disabled' );
-        // }
       }
 
-      if(notSavedAssessment)
+      if(notSavedAssessment && !SzybkaOcena)
       {
         //TODO:
+        $('#myModal').modal('show')
         //Alert ze nie zapisana ocena z wyborem zapisz/anuluj
         //SaveAssessment();
         //CancelAssessment();
@@ -133,6 +129,7 @@ function SaveAssessment()
     slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
     updateTopSlider();
     notSavedAssessment=false;
+    $('#myModal').modal('hide')
   }
 }
 
@@ -143,5 +140,6 @@ function CancelAssessment()
     var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
     updateSlider(input, slidersMemo);
     notSavedAssessment=false;
+    $('#myModal').modal('hide')
   }
 }
