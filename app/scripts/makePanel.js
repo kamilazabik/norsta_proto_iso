@@ -23,9 +23,8 @@ function makeMainPanel(){
     , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
     , col1rowButtonsGroupLabel1 = $('<label class="btn btn-primary active"></label>')
     , col1rowButtonsGroupLabel2 = $('<label class="btn btn-primary"></label>')
-    , col1rowButtonsGroupLabelInput1 = $('<input id="option1" class="fastAssess" type="radio" name="options" autocomplete="off" value="ddddddddddd" checked="">').text('Szybka ocena')
-    , col1rowButtonsGroupLabelInput2 = $('<input id="option2" class="normalAssess" type="radio" name="options" autocomplete="off">')
-
+    , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" class="fastAsses" autocomplete="off" checked> Radio 1 '
+    , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Radio 2'
 
 
     // , col1rowButtonsBtnB1 = $('<button type="button" id="normalAsses" class="btn btn-primary">Normalna ocena</button>')
