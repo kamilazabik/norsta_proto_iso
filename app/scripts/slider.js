@@ -85,11 +85,15 @@ $.fn.rangeslider = function (options) {
 function OnInputSlider(obj)
 {
   updateSlider(obj);
-  if(obj)
-  {
+  if(obj) {
     tempAssessmentObject.sliderName=obj.name;
     tempAssessmentObject.value=$(obj).val();
-    notSavedAssessment=true;
+    $ ('input').off('click')
+
+    $('input').on('click', function (e) {
+      notSavedAssessment=true;
+      e.stopPropagation()
+    })
   }
 }
 
@@ -111,8 +115,7 @@ function updateSlider(passObj, memo) {
   nextObj.find('span.bar > span.pasek1').css('width', percentage + '%');
   nextObj.find('span.bar > span.pasek').css('width', max * t - percentage + '%' );
 
-  if(!obj[0])
-  {
+  if(!obj[0]) {
     return;
   }
   var nn = obj[0].name.replace('rangeslider','');
@@ -129,16 +132,13 @@ function updateSlider(passObj, memo) {
       if($(obj[idx]).attr('data-children') != null){
         initVal = sliderSum($(obj[idx]));
       }
-      else
-      {
+      else {
         initVal = memo[obj[idx].name];
       }
-      if(!initVal)
-      {
+      if(!initVal) {
         initVal=0;
       }
       $(passObj[idx]).val(initVal);
-      // console.log($(passObj[idx]).name);
       updateSlider(passObj[idx], null);
 
 
@@ -146,26 +146,19 @@ function updateSlider(passObj, memo) {
     return;
   } else {
     //ruch myszką
-    if(!slidersMemo)
-    {
+    if(!slidersMemo) {
       slidersMemo={};
     }
 
     // slidersMemo[obj[0].name] = value;
 
     if(SzybkaOcena){
-      console.log('zapisało się')
+      // console.log('zapisało się')
       slidersMemo[obj[0].name] = value;
     }else{
-      console.log("nie zapisało się")
+      // console.log("nie zapisało się")
     }
 
-
-    // slidersMemo[obj[0].name] = value;
-
-    console.log(slidersMemo)
-
-    // console.log(obj)
 
     if(obj.attr('data-parent') != null){
       var parentSlider = $('input[name='+obj.attr('data-parent') +']')
@@ -173,8 +166,7 @@ function updateSlider(passObj, memo) {
       // console.log(parentSlider.val())
       // console.log(parentSlider)
 
-      if(parentVal>=0)
-      {
+      if(parentVal>=0) {
         parentSlider.val(parentVal);
         updateSlider(parentSlider, null);
         if(parentSlider.attr('name')) {

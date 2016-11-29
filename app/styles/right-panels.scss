@@ -182,7 +182,7 @@ div.panel:first-child {
   word-wrap: break-word;
 }
 
-#removeAssess, #saveAssess {
+#removeAssess, #saveAssess,#removeAssessAlert, #saveAssessAlert  {
   margin: 10px;
 }
 
@@ -203,6 +203,22 @@ div.panel:first-child {
 //@media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
 //  .
 //  }
+//}
+////
+//.btn-primary:hover{
+//   background-color: #0b1829
+// }
+//
+//.btn-primary:active {
+//  background-color: #0b1829
+//}
+//
+//
+//.btn-primary:target {
+//  background-color: #0b1829
+//}
+    //#removeAssess:active, #saveAssess:active{
+//  background-color: #1d395e
 //}
 
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {

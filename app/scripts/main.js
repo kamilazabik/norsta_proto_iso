@@ -56,7 +56,6 @@ function createPage(numberClass, isNextLoad) {
     // $('#panel-content').append(panelContentText);
     // $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(panelContentText);
 
-    // makeSlider();
     loadPage(isNextLoad);
     onLoadPage();
 
@@ -71,8 +70,6 @@ function createPage(numberClass, isNextLoad) {
       var numberOfChildren = (isoObject[numberClass].children).split(',')
         , nameOfChildren = (isoObject[numberClass].childrenNames).split('.')
         , childrenDegree = (isoObject[numberClass].childrenMaxDegree).split(',');
-
-      console.log(nameOfChildren)
 
       for (var i = 1; i <= numberOfChildren.length; i++) {
         $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))

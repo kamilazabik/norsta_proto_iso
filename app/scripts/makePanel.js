@@ -20,11 +20,22 @@ function makeMainPanel(){
   // data-parent="null"
 
     , col1rowButtons = $('<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-left filter"></div>')
-    , col1rowButtonsBtnB1 = $('<button type="button" id="normalAsses" class="btn btn-primary">Normalna ocena</button>')
-    , col1rowButtonsBtnB2 = $('<button type="button" id="fastAsses" class="btn btn-primary">Szybka ocena</button>')
+    , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
+    , col1rowButtonsGroupLabel1 = $('<label class="btn btn-primary active"></label>')
+    , col1rowButtonsGroupLabel2 = $('<label class="btn btn-primary"></label>')
+    , col1rowButtonsGroupLabelInput1 = $('<input id="option1" class="fastAssess" type="radio" name="options" autocomplete="off" value="ddddddddddd" checked="">').text('Szybka ocena')
+    , col1rowButtonsGroupLabelInput2 = $('<input id="option2" class="normalAssess" type="radio" name="options" autocomplete="off">')
 
 
-  col1rowButtons.append(col1rowButtonsBtnB1,col1rowButtonsBtnB2);
+
+    // , col1rowButtonsBtnB1 = $('<button type="button" id="normalAsses" class="btn btn-primary">Normalna ocena</button>')
+    // , col1rowButtonsBtnB2 = $('<button type="button" id="fastAsses" class="btn btn-primary">Szybka ocena</button>')
+
+
+  col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
+  col1rowButtonsGroupLabel2.append(col1rowButtonsGroupLabelInput2);
+  col1rowButtonsGroup.append(col1rowButtonsGroupLabel1, col1rowButtonsGroupLabel2);
+  col1rowButtons.append(col1rowButtonsGroup);
   col1rowTitleMain.append(col1rowTitleMainH3);
   col1rowAssess.append(col1rowAssessPie);
   col1rowAssess1.append(col1rowAssess1numVal,col1rowAssess1numValPer);
@@ -33,6 +44,7 @@ function makeMainPanel(){
   col1.append(col1row);
   col.append(col1);
   mainPanel.append(col);
+
 
   return mainPanel;
 
