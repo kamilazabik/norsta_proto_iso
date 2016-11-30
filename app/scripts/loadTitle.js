@@ -73,10 +73,12 @@ function addComments (classNameText){
 function SetSelectAssessmentField() {
     $('#normalAssess').click(function () {
       SzybkaOcena = false;
+      console.log('NormalnaOcena')
     });
 
     $('#fastAssess').click(function () {
         SzybkaOcena = true;
+      console.log('SzybkaOcena')
     });
 }//SetSelectAssessmentField
 
