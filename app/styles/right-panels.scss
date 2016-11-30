@@ -7,12 +7,9 @@
   right: 0;
   height: 100%;
   padding-top: 14px;
-  padding-right: 0;
-  padding-left: 5px;
+  padding-right: 15px;
+  padding-left: 0;
 
-  .title-claim, .label-claim{
-    margin-left: 15px;
-  }
 }
 
 .panel-margin {
@@ -42,8 +39,8 @@
     max-width: 970px;
   }
 
-  div[class*='col-'] {
-    padding: 0 15px;
+  .last-panel, .first-panel {
+    padding: 0 0;
   }
 
   a:focus,
@@ -102,6 +99,11 @@
   .panel-body {
     background: #fff;
     min-height: 200px !important;
+
+    div[class*='col-'] {
+      padding: 0 15px;
+    }
+
   }
 
   .panel:last-child .panel-body {
