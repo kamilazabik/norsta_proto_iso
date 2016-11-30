@@ -8,13 +8,14 @@
           .modal-header
             button.close(type='button', data-dismiss='modal', aria-label='Close')
               span(aria-hidden='true') ×
-            h4#myModalLabel.modal-title Potwierdzenie
-          .modal-body Czy chcesz zapisać zmiany?
+            h4#myModalLabel.modal-title Confirmation
+          .modal-body Save the changed node?
           .modal-footer
             //button.btn.btn-default(type='button', data-dismiss='modal') Close
             //button.btn.btn-primary(type='button') Save changes
-            button(type="button" id="removeAssessAlert" class="btn btn-primary btn-sm pull-right") Anuluj ocenę
-            button(type="button" id="saveAssessAlert" class="btn btn-primary btn-sm pull-right") Zapisz ocenę
+            button(type="button" id="saveAssessAlert" class="btn btn-primary btn-sm pull-right") OK
+            button(type="button" id="removeAssessAlert" class="btn btn-primary btn-sm pull-right") Canel
+
 
 
 include ../right-panels

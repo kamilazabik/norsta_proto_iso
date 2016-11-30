@@ -103,112 +103,112 @@
 //
 //
 //
-$(document).ready( function() {
-  $.ajax({
-    type: 'GET',
-    url: '../iso.xml',
-    dataType: 'xml',
-    success: xmlParser
-  });
-
-  function xmlParser(xml) {
-
-    $(xml).find('node').each(function () {
-      //console.log($(this));
-
-      var label = $(this).children('label').text().split('.').join(''),
-          arrXml = {};
-
-      if(label.length > 0) {
-        var parentLabel = ($(this)[0].parentElement.parentElement.parentElement.parentElement.children[1].innerHTML.split('.').join('')),
-            children = $(this)[0].children[5],
-            childrenLabels = '',
-            childrenNames = '',
-            childrenDescriptions = '',
-            childrenMaxDegree = '';
-
-        if(children)
-        {
-          children = (children.children[0].children[6].children);
-          // console.log(children)
-
-          for(var i=0; i<children.length; i++)
-          {
-
-            var localMaxDegree;
-
-            for(var j=0; j<children[i].children[4].children.length; j++){
-            // console.log(children[i].children[4].children[j].getAttribute('maxDegree'));
-              localMaxDegree = children[i].children[4].children[1].getAttribute('maxDegree');
-          }
-
-            // var localLabel = children[i].children[1],
-            var localLabel = children[i].children[1].innerHTML.split('.').join(''),
-                localName = children[i].children[0].innerHTML,
-                localDescription = children[i].children[3].innerHTML;
-
-             // console.log(localMaxDegree)
-            // console.log(localName);
-
-
-            if(localLabel && localLabel.length>0) {
-              // console.log(localLabel);
-              // console.log(childrenLabels);
-              if(childrenLabels.length===0)
-              {
-                childrenLabels=localLabel;
-              }
-              else {
-                childrenLabels = childrenLabels + ',' + localLabel;
-              }
-            }
-
-            if(localName && localName.length>0) {
-              if(childrenNames.length===0)
-              {
-                childrenNames=localName;
-              }
-              else {
-                childrenNames = childrenNames + '.' + localName;
-              }
-            }
-
-            if(localDescription && localDescription.length>0) {
-              if(childrenDescriptions.length===0)
-              {
-                childrenDescriptions=localDescription;
-              }
-              else {
-                childrenDescriptions = childrenDescriptions + ',' + localDescription;
-              }
-            }
-
-            if(localMaxDegree && localMaxDegree.length>0) {
-              if(childrenMaxDegree.length===0)
-              {
-                childrenMaxDegree=localMaxDegree;
-              }
-              else {
-                childrenMaxDegree = childrenMaxDegree + ',' + localMaxDegree;
-              }
-            }
-          }
-        }
-
-        arrXml['parent'] = parentLabel;
-        arrXml['name'] = $(this).children('name').text();
-        arrXml['description'] = $(this).children('description').text();
-        arrXml['maxDegree'] = $(this).find('decision').attr('maxDegree');
-        arrXml['children'] = childrenLabels;
-        arrXml['childrenNames'] = childrenNames;
-        arrXml['childrenDescriptions'] = childrenDescriptions;
-        arrXml['childrenMaxDegree'] = childrenMaxDegree;
-
-        xmlDataArr[label] = arrXml;
-      }
-    });
-
-    console.log(xmlDataArr);
-    // console.log(JSON.stringify(xmlDataArr))
-  }
-});
+// $(document).ready( function() {
+//   $.ajax({
+//     type: 'GET',
+//     url: '../iso_en.xml',
+//     dataType: 'xml',
+//     success: xmlParser
+//   });
+//
+//   function xmlParser(xml) {
+//
+//     $(xml).find('node').each(function () {
+//       //console.log($(this));
+//
+//       var label = $(this).children('label').text().split('.').join(''),
+//           arrXml = {};
+//
+//       if(label.length > 0) {
+//         var parentLabel = ($(this)[0].parentElement.parentElement.parentElement.parentElement.children[1].innerHTML.split('.').join('')),
+//             children = $(this)[0].children[5],
+//             childrenLabels = '',
+//             childrenNames = '',
+//             childrenDescriptions = '',
+//             childrenMaxDegree = '';
+//
+//         if(children)
+//         {
+//           children = (children.children[0].children[6].children);
+//           // console.log(children)
+//
+//           for(var i=0; i<children.length; i++)
+//           {
+//
+//             var localMaxDegree;
+//
+//             for(var j=0; j<children[i].children[4].children.length; j++){
+//             // console.log(children[i].children[4].children[j].getAttribute('maxDegree'));
+//               localMaxDegree = children[i].children[4].children[1].getAttribute('maxDegree');
+//           }
+//
+//             // var localLabel = children[i].children[1],
+//             var localLabel = children[i].children[1].innerHTML.split('.').join(''),
+//                 localName = children[i].children[0].innerHTML,
+//                 localDescription = children[i].children[3].innerHTML;
+//
+//              // console.log(localMaxDegree)
+//             // console.log(localName);
+//
+//
+//             if(localLabel && localLabel.length>0) {
+//               // console.log(localLabel);
+//               // console.log(childrenLabels);
+//               if(childrenLabels.length===0)
+//               {
+//                 childrenLabels=localLabel;
+//               }
+//               else {
+//                 childrenLabels = childrenLabels + ',' + localLabel;
+//               }
+//             }
+//
+//             if(localName && localName.length>0) {
+//               if(childrenNames.length===0)
+//               {
+//                 childrenNames=localName;
+//               }
+//               else {
+//                 childrenNames = childrenNames + '.' + localName;
+//               }
+//             }
+//
+//             if(localDescription && localDescription.length>0) {
+//               if(childrenDescriptions.length===0)
+//               {
+//                 childrenDescriptions=localDescription;
+//               }
+//               else {
+//                 childrenDescriptions = childrenDescriptions + ',' + localDescription;
+//               }
+//             }
+//
+//             if(localMaxDegree && localMaxDegree.length>0) {
+//               if(childrenMaxDegree.length===0)
+//               {
+//                 childrenMaxDegree=localMaxDegree;
+//               }
+//               else {
+//                 childrenMaxDegree = childrenMaxDegree + ',' + localMaxDegree;
+//               }
+//             }
+//           }
+//         }
+//
+//         arrXml['parent'] = parentLabel;
+//         arrXml['name'] = $(this).children('name').text();
+//         arrXml['description'] = $(this).children('description').text();
+//         arrXml['maxDegree'] = $(this).find('decision').attr('maxDegree');
+//         arrXml['children'] = childrenLabels;
+//         arrXml['childrenNames'] = childrenNames;
+//         arrXml['childrenDescriptions'] = childrenDescriptions;
+//         arrXml['childrenMaxDegree'] = childrenMaxDegree;
+//
+//         xmlDataArr[label] = arrXml;
+//       }
+//     });
+//
+//     console.log(xmlDataArr);
+//     // console.log(JSON.stringify(xmlDataArr))
+//   }
+// });

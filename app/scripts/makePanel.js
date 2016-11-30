@@ -4,7 +4,7 @@ function makeMainPanel(){
     , col1 = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1row = $('<div class="row fixedPos box-header"></div>')
     , col1rowTitleMain = $('<div class="col-lg-5 col-md-3 col-sm-3 col-xs-2 pull-left title-main"></div>')
-    , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
+    , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('ISO 27001 Assessment')
 
     , col1rowAssess = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
     , col1rowAssessPie = $('<div class="pie pull-left" data-name="A"></div>')
@@ -23,8 +23,8 @@ function makeMainPanel(){
     , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
     , col1rowButtonsGroupLabel1 = $('<label id="fastAssess" class="btn btn-primary active"></label>')
     , col1rowButtonsGroupLabel2 = $('<label id="normalAssess" class="btn btn-primary"></label>')
-    , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Szybka ocena '
-    , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normalna ocena'
+    , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Fast Assessment'
+    , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normal Assessment'
 
 
   col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
@@ -89,7 +89,7 @@ function makePanelsTitle(numberClass, oneTitle){
   var pie = $('.panel-heading .pie').attr('data-name', numberClass)
     , arrowLeft = $('<i class=\'fa fa-angle-double-left\' aria-hidden=\'true\'></i>')
     , arrowRight = $('<i class=\'fa fa-angle-double-right\' aria-hidden=\'true\'></i>')
-    , buttonUp = $('<button type=\'button\' class=\'claim-hseq' + isoObject[numberClass].parent + ' btn btn-primary btn-sm custom-btn up\'>Do góry</button>');
+    , buttonUp = $('<button type=\'button\' class=\'claim-hseq' + isoObject[numberClass].parent + ' btn btn-primary btn-sm custom-btn up\'>Go up</button>');
   var buttonLeft = $('<button type=\'button\' class=\'claim-hseq' + prevSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowLeft);
   var buttonRight = $('<button type=\'button\' class=\'claim-hseq' + nextSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowRight);
 
@@ -129,7 +129,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     ,col5 = $('<div class=\'col-md-2 col-sm-5 box-under-header-sx bar\'></div>')
     ,max = childrenDegree[i-1]
     ,col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
-    ,button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
+    ,button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Expand</button>')
     ,col5input;
 
 
@@ -176,7 +176,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol2AH4 = $('<h4></h4>').text(nameOfChildMainPanel[j])
 
     , panelRowCol3 = $('<div class="col-xs-3 visible-xs box-under-header button-expand"></div>')
-    , panelRowCol3Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm.custom-btn\'>Rozwiń</button>')
+    , panelRowCol3Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm.custom-btn\'>Expand</button>')
 
     , panelRowCol4 = $('<div class="col-md-2 col-sm-4 col-xs-6 box-under-header assessment-icon"></div>')
     , panelRowCol4Row = $('<div class="row"></div>')
@@ -196,7 +196,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol5Input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxPanel + ' name=\'' + numberOfChildMainPanel[j - 1] + '\' data-parent=\'A\' data-children=\'' + panelChildren + '\' disabled >')
 
     , panelRowCol6 = $('<div class="col-md-1-1 hidden-xs box-under-header button-expand"></div>')
-    , panelRowCol6Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
+    , panelRowCol6Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn\'>Expand</button>')
 
   panelRowCol1.append(panelRowCol1H4);
   panelRowCol2A.append(panelRowCol2AH4);
