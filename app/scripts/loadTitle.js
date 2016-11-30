@@ -68,23 +68,19 @@ function addComments (classNameText){
   }else{
     comment.text(isoObject[classNameText].comment);
   }
-}
+}//addComments
 
-function SetSelectAssessmentField()
-{
-    $('.normalAssess').click(function () {
+function SetSelectAssessmentField() {
+    $('#normalAssess').click(function () {
       SzybkaOcena = false;
-      console.log('NormalnaOcena')
     });
 
-    $('.fastAssess').click(function () {
+    $('#fastAssess').click(function () {
         SzybkaOcena = true;
-      console.log('SzybkaOcena')
     });
-}
+}//SetSelectAssessmentField
 
-function SetAssessmentField()
-{
+function SetAssessmentField() {
   $('#saveAssessAlert').on('click', function () {
       SaveAssessment();
   });
@@ -100,10 +96,9 @@ function SetAssessmentField()
   $('#removeAssess').on('click', function () {
     CancelAssessment();
   })
-}
+}//SetAssessmentField
 
-function SaveAssessment()
-{
+function SaveAssessment() {
   if(tempAssessmentObject && tempAssessmentObject.sliderName)
   {
     slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
@@ -112,10 +107,9 @@ function SaveAssessment()
     // console.log(notSavedAssessment)
     $('#myModal').modal('hide')
   }
-}
+}//SaveAssessment
 
-function CancelAssessment()
-{
+function CancelAssessment() {
   if(tempAssessmentObject && tempAssessmentObject.sliderName)
   {
     var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
@@ -123,7 +117,7 @@ function CancelAssessment()
     notSavedAssessment=false;
     $('#myModal').modal('hide')
   }
-}
+}//CancelAssessment
 
 
 

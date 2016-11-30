@@ -21,14 +21,10 @@ function makeMainPanel(){
 
     , col1rowButtons = $('<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-left filter"></div>')
     , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
-    , col1rowButtonsGroupLabel1 = $('<label class="btn btn-primary active"></label>')
-    , col1rowButtonsGroupLabel2 = $('<label class="btn btn-primary"></label>')
-    , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" class="fastAsses" autocomplete="off" checked> Radio 1 '
-    , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Radio 2'
-
-
-    // , col1rowButtonsBtnB1 = $('<button type="button" id="normalAsses" class="btn btn-primary">Normalna ocena</button>')
-    // , col1rowButtonsBtnB2 = $('<button type="button" id="fastAsses" class="btn btn-primary">Szybka ocena</button>')
+    , col1rowButtonsGroupLabel1 = $('<label id="fastAssess" class="btn btn-primary active"></label>')
+    , col1rowButtonsGroupLabel2 = $('<label id="normalAssess" class="btn btn-primary"></label>')
+    , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Szybka ocena '
+    , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normalna ocena'
 
 
   col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
