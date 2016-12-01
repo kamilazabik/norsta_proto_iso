@@ -5,7 +5,7 @@ var xmlDataArr = {},
   sliderTitle,
   slidersMemo,
   firstLoad = false,
-  SzybkaOcena = true,
+  SzybkaOcena = false,
   tempAssessmentObject = { sliderName: null, value: null },
   notSavedAssessment = false;
 
