@@ -23,6 +23,7 @@ function loadTitle(){
         , link = $('.title-hseq' + classNameText).text()
         , inputs =$(this).children().find('input')
         , inputName = inputs.attr('name')
+        , numberClassWithDots = addDotsForLabels(numberClass.join(''));
 
       $('.addedComment').attr('data-name', classNameText);
       $('.editable_text').on('click', divClicked);
@@ -30,7 +31,7 @@ function loadTitle(){
       allElement.removeClass('panel-shadow');
       e.preventDefault();
       title.text(link);
-      label.text(numberClass.join('.'));
+      label.text(numberClassWithDots);
 
       addComments (classNameText);
       loadDescription(numberClass);

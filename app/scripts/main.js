@@ -69,7 +69,8 @@ function createPage(numberClass, isNextLoad) {
 
       var numberOfChildren = (isoObject[numberClass].children).split(',')
         , nameOfChildren = (isoObject[numberClass].childrenNames).split('.')
-        , childrenDegree = (isoObject[numberClass].childrenMaxDegree).split(',');
+        , childrenDegree = (isoObject[numberClass].childrenMaxDegree).split(',')
+        , numberClassWithDots = addDotsForLabels(numberClass);
 
       for (var i = 1; i <= numberOfChildren.length; i++) {
         $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
@@ -79,7 +80,7 @@ function createPage(numberClass, isNextLoad) {
     // $('#panel-content').append(makeRightPanel())
 
     titlePanel.text(titleClaim.text());
-    label.text(numberClass.split('-').join('.'));
+    label.text(numberClassWithDots);
 
 
 
