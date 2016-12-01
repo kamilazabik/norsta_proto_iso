@@ -40,13 +40,14 @@ function makeMainPanel(){
   col.append(col1);
   mainPanel.append(col);
 
-
   return mainPanel;
 
-}
+}//makeMainPanel
 
 function makePanelsTitle(numberClass, oneTitle){
-  var paddingContent = $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content')
+
+  var numberClassWithDots = addDotsForLabels(numberClass)
+    ,paddingContent = $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content')
     ,panelTitle= $('<div class="panel panel-default panels-title"></div>')
     ,panelHeading = $('<div class="panel-heading"></div>')
     ,rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header"></div>')
@@ -80,7 +81,6 @@ function makePanelsTitle(numberClass, oneTitle){
   panelTitle.append(panelHeading).append(panelBody);
   paddingContent.append(panelTitle);
 
-
   var siblings = isoObject[isoObject[numberClass].parent].children.split(',')
     ,indexOfnumberClass = siblings.indexOf(numberClass)
     ,nextSibling = siblings[indexOfnumberClass + 1]
@@ -93,7 +93,6 @@ function makePanelsTitle(numberClass, oneTitle){
   var buttonLeft = $('<button type=\'button\' class=\'claim-hseq' + prevSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowLeft);
   var buttonRight = $('<button type=\'button\' class=\'claim-hseq' + nextSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowRight);
 
-
   if(prevSibling == undefined) {
     buttonLeft.attr('disabled', 'disabled')
   }
@@ -101,20 +100,30 @@ function makePanelsTitle(numberClass, oneTitle){
     buttonRight.attr('disabled', 'disabled')
   }
 
-  $('.lab-hseq').text(numberClass);
+  $('.lab-hseq').text(numberClassWithDots);
   $('.panel-heading .col-md-2.bar').append(sliderTitle[numberClass]);
   // console.log(sliderTitle)
   $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
 
   return paddingContent;
-}
+}//makePanelsTitle
 
+function addDotsForLabels(label){
+  if(label[1] == 1 && label.length >= 4){
+    label = label.slice(0,3) + "." + label.charAt(3) + "." + label.slice(4,6)
+  }else if(label[1] == 1 && label.length < 4){
+    return label
+  } else if(label[1] != 1 && label.length >= 3){
+    label = label.slice(0,2) + "." + label.charAt(2) + "." + label.slice(3,5)
+  }
+  return label
+}//addDotsForLabels
 
 function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,numberClass ) {
-
-  var row = $('<div class=\'row panel-hseq'+ numberOfChildren[i - 1]+' hseq space\'></div>')
+  var numberOfChildrenWithDots = numberOfChildren.map(addDotsForLabels)
+    , row = $('<div class=\'row panel-hseq'+ numberOfChildren[i - 1]+' hseq space\'></div>')
     , col1 = $('<div class=\'col-md-1 col-sm-1 box-under-header-sx pull-left number\'></div>')
-    , col1h5 = $('<h5> </h5>').text(numberOfChildren[i - 1])
+    , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'col-md-5-3 col-sm-10 box-under-header-sx pull-left title\'></div>')
     , col2a = $('<a></a>').addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
     , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
@@ -165,7 +174,7 @@ function makeFirstPartOfMainPage(){
   panelDefault.append(panelContent);
 
   return panelDefault;
-}
+}//makeBodyPanel
 
 function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j ){
   var panelRow = $('<div class=\'row panel-hseq'+ numberOfChildMainPanel[j - 1]+' hseq space\'></div>')
@@ -214,7 +223,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
 
   panelRow.append(panelRowCol1, panelRowCol2,panelRowCol3,panelRowCol4,panelRowCol5,panelRowCol6)
   return panelRow;
-}
+}//makeSecondPartOfMainPage
 //
 // function makeSlider(numberClass, maxDegree){
 //   var slider;
@@ -240,7 +249,7 @@ function makeSlider(){
   // }
 
   $('.sliderRightPanel').append(slider)
-}
+}//makeSlider
 
 function changeSlider(numberClass){
 
@@ -273,8 +282,7 @@ function changeSlider(numberClass){
 
   }
 
-
-}
+}//changeSlider
 
 
 // function makePanelContent (){

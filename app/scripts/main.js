@@ -25,9 +25,8 @@ function createPage(numberClass, isNextLoad) {
     , description = isoObject[numberClass].description.split('^')
     , titleClaim = $('.title-hseq' + numberClass)
     , titlePanel = $('.title-claim')
-    , label = $('.label-claim')
-    // , comment = $('.addedCom')
-    , slider;
+    , label = $('.label-claim');
+
 
 
   mainPanel.remove();
@@ -37,15 +36,11 @@ function createPage(numberClass, isNextLoad) {
 
   var maxDegree = isoObject[numberClass].maxDegree;
 
-  // $('input.slider').attr('max', maxDegree)
-
   // var slider = $('<input class="slider" value="0" min="0" max="40" step="1" name="A5" data-children="A511,A512" type="range" disabled>')
 
   $('.sliderRightPanel').empty();
 
   if (numberClass == 'A') {
-
-    // console.log("X1");
 
     $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(makeFirstPartOfMainPage());
 
@@ -69,7 +64,8 @@ function createPage(numberClass, isNextLoad) {
 
       var numberOfChildren = (isoObject[numberClass].children).split(',')
         , nameOfChildren = (isoObject[numberClass].childrenNames).split('.')
-        , childrenDegree = (isoObject[numberClass].childrenMaxDegree).split(',');
+        , childrenDegree = (isoObject[numberClass].childrenMaxDegree).split(',')
+        , numberClassWithDots = addDotsForLabels(numberClass);
 
       for (var i = 1; i <= numberOfChildren.length; i++) {
         $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
@@ -77,11 +73,8 @@ function createPage(numberClass, isNextLoad) {
     }
 
     // $('#panel-content').append(makeRightPanel())
-
     titlePanel.text(titleClaim.text());
-    label.text(numberClass.split('-').join('.'));
-
-
+    label.text(numberClassWithDots);
 
     addComments (numberClass);
 
