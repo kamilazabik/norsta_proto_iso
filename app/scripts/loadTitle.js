@@ -73,15 +73,34 @@ function addComments (classNameText){
   }
 }//addComments
 
-function SetSelectAssessmentField() {
-    $('#normalAssess').click(function () {
-      SzybkaOcena = false;
-    });
+// function SetSelectAssessmentField() {
+//     $('#normalAssess').click(function () {
+//       SzybkaOcena = false;
+//     });
+//
+//     $('#fastAssess').click(function () {
+//         SzybkaOcena = true;
+//     });
+// }//SetSelectAssessmentField
 
-    $('#fastAssess').click(function () {
+function SetSelectAssessmentField(){
+
+  $('#selectAssessment').on('change', function(){
+    $('#selectAssessment option').each(function() {
+      var selectId = $(this).attr('id')
+      if (selectId == "normalAssess" && $(this).is(':selected')) {
+        console.log("normalAssess");
+        SzybkaOcena = false;
+      }else if (selectId == "fastAssess" && $(this).is(':selected')){
+        console.log("fastAssess");
         SzybkaOcena = true;
-    });
-}//SetSelectAssessmentField
+      }else if(selectId == "noAssessment" && $(this).is(':selected')){
+        console.log("no");
+      }
+    })
+  })
+}////SetSelectAssessmentField
+
 
 function SetAssessmentField() {
   $('#saveAssessAlert').on('click', function () {

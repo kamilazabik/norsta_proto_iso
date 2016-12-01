@@ -3,7 +3,7 @@ function makeMainPanel(){
     , col = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1 = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1row = $('<div class="row fixedPos box-header"></div>')
-    , col1rowTitleMain = $('<div class="col-lg-5 col-md-3 col-sm-3 col-xs-2 pull-left title-main"></div>')
+    , col1rowTitleMain = $('<div class="col-lg-6 col-md-3 col-sm-3 col-xs-2 pull-left title-main"></div>')
     , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
 
     , col1rowAssess = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
@@ -19,18 +19,26 @@ function makeMainPanel(){
 
   // data-parent="null"
 
-    , col1rowButtons = $('<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-left filter"></div>')
-    , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
-    , col1rowButtonsGroupLabel1 = $('<label id="fastAssess" class="btn btn-primary active"></label>')
-    , col1rowButtonsGroupLabel2 = $('<label id="normalAssess" class="btn btn-primary"></label>')
-    , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Szybka ocena '
-    , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normalna ocena'
+    , col1rowButtons = $('<div class="col-lg-2 col-md-3 col-sm-3 col-xs-3 pull-left filter"></div>')
+    // , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
+    // , col1rowButtonsGroupLabel1 = $('<label id="fastAssess" class="btn btn-primary active"></label>')
+    // , col1rowButtonsGroupLabel2 = $('<label id="normalAssess" class="btn btn-primary"></label>')
+    // , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Szybka ocena '
+    // , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normalna ocena'
+
+    ,col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
+    ,col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normalna ocena</option>')
+    ,col1rowButtonsSelectOption2 = $('<option id="fastAssess">Szybka ocena</option>')
+    ,col1rowButtonsSelectOption3 = $('<option id="noAssessment">Brak oceny</option>')
 
 
-  col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
-  col1rowButtonsGroupLabel2.append(col1rowButtonsGroupLabelInput2);
-  col1rowButtonsGroup.append(col1rowButtonsGroupLabel1, col1rowButtonsGroupLabel2);
-  col1rowButtons.append(col1rowButtonsGroup);
+
+
+  col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,     col1rowButtonsSelectOption3)
+  // col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
+  // col1rowButtonsGroupLabel2.append(col1rowButtonsGroupLabelInput2);
+  // col1rowButtonsGroup.append(col1rowButtonsGroupLabel1, col1rowButtonsGroupLabel2);
+  col1rowButtons.append(col1rowButtonsSelect);
   col1rowTitleMain.append(col1rowTitleMainH3);
   col1rowAssess.append(col1rowAssessPie);
   col1rowAssess1.append(col1rowAssess1numVal,col1rowAssess1numValPer);
