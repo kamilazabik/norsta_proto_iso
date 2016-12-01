@@ -118,7 +118,7 @@ circle {
   .filter {
     align-items: center;
     .form-control {
-      width: 80%;
+      width: 100%;
     }
   }
 }
@@ -312,6 +312,13 @@ circle {
       //}
     }
   }
+@media (max-width: 1400px){
+.box-header{
+  h3 {
+    font-size: 18px;
+  }
+}
+}
 
 @media (max-width: $container-lg){
   .box-header{
