@@ -20,17 +20,21 @@ function makeMainPanel(){
   // data-parent="null"
 
     , col1rowButtons = $('<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-left filter"></div>')
-    , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
-    , col1rowButtonsGroupLabel1 = $('<label id="fastAssess" class="btn btn-primary active"></label>')
-    , col1rowButtonsGroupLabel2 = $('<label id="normalAssess" class="btn btn-primary"></label>')
-    , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Fast Assessment'
-    , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normal Assessment'
+    ,col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
+    ,col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normal Assessment</option>')
+    ,col1rowButtonsSelectOption2 = $('<option id="fastAssess">Fast Assessment</option>')
+    ,col1rowButtonsSelectOption3 = $('<option id="noAssessment">No Assessment</option>')
+    // , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
+    // , col1rowButtonsGroupLabel1 = $('<label id="fastAssess" class="btn btn-primary active"></label>')
+    // , col1rowButtonsGroupLabel2 = $('<label id="normalAssess" class="btn btn-primary"></label>')
+    // , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Fast Assessment'
+    // , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normal Assessment'
 
-
-  col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
-  col1rowButtonsGroupLabel2.append(col1rowButtonsGroupLabelInput2);
-  col1rowButtonsGroup.append(col1rowButtonsGroupLabel1, col1rowButtonsGroupLabel2);
-  col1rowButtons.append(col1rowButtonsGroup);
+  col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,     col1rowButtonsSelectOption3)
+  // col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
+  // col1rowButtonsGroupLabel2.append(col1rowButtonsGroupLabelInput2);
+  // col1rowButtonsGroup.append(col1rowButtonsGroupLabel1, col1rowButtonsGroupLabel2);
+  col1rowButtons.append(col1rowButtonsSelect);
   col1rowTitleMain.append(col1rowTitleMainH3);
   col1rowAssess.append(col1rowAssessPie);
   col1rowAssess1.append(col1rowAssess1numVal,col1rowAssess1numValPer);
