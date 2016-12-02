@@ -12,6 +12,7 @@ function loadTitle(){
       , numberClass = className.attr('class').split(' ')[1].replace('panel-hseq','').split('-')
       , panel = $('.panel-hseq' + numberClass.join('-'));
 
+
     clickOnClassName(numberClass, className,panel)
 
   });
@@ -27,6 +28,10 @@ function loadTitle(){
 
       $('.addedComment').attr('data-name', classNameText);
       $('.editable_text').on('click', divClicked);
+      $('.number').removeClass('labelColor')
+      $('.panel-title').removeClass('labelColor')
+
+
 
       console.log(numberClassWithDots)
 
@@ -39,6 +44,10 @@ function loadTitle(){
       loadDescription(numberClass);
 
       panel.addClass('panel-shadow');
+      panel.children(":first").addClass('labelColor')
+     $('.panel-title').addClass('labelColor')
+      console.log(panel.children(":first"))
+
 
       if(!isoObject[numberClass].children){
 

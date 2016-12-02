@@ -36,8 +36,6 @@ function createPage(numberClass, isNextLoad) {
 
   var maxDegree = isoObject[numberClass].maxDegree;
 
-  // var slider = $('<input class="slider" value="0" min="0" max="40" step="1" name="A5" data-children="A511,A512" type="range" disabled>')
-
   $('.sliderRightPanel').empty();
 
   if (numberClass == 'A') {
@@ -77,13 +75,10 @@ function createPage(numberClass, isNextLoad) {
     label.text(numberClassWithDots);
 
     addComments (numberClass);
-
-    // makeSlider();
-
     loadDescription(numberClass);
+    // $('.panel-title').addClass('labelColor')
 
     //onLoadPage();
-    // console.log("X2");
     loadPage(isNextLoad);
     onLoadPage();
   }

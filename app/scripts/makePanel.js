@@ -61,7 +61,7 @@ function makePanelsTitle(numberClass, oneTitle){
     ,rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header"></div>')
     ,colNumber = $('<div class="col-md-1 pull-left number"></div>')
     ,colNumberH4 = $('<h4 class="lab-hseq"></h4>')
-    ,colTitle = $('<div class="col-md-6 col-sm-5 pull-left title"></div>')
+    ,colTitle = $('<div class="col-md-5-3 col-sm-5 pull-left title"></div>')
     ,colTitleH4 = $('<h4 class="title-hseq'+numberClass+'"></h4>').text(oneTitle)
     ,colAssess = $('<div class="col-md-2 assessment"></div>')
     ,colAssesstRow = $('<div class="row"></div>')
@@ -70,7 +70,7 @@ function makePanelsTitle(numberClass, oneTitle){
     ,colAssessRowColPie = $('<div class="pie pull-left"></div>')
     ,colAssessRowColNumValue = $('<h5 class="text-left numberValue'+numberClass+'"></h5>')
     ,colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
-    ,colBar = $('<div class="col-md-2 bar"></div>')
+    ,colBar = $('<div class="col-md-2-7 bar"></div>')
     ,colBarSpan = $('<span class="numberValueBig numberValue'+numberClass+'"></span>')
     ,colButton = $('<span class="col-md-1-2 button-expand-three"></span>')
     ,panelBody = $('<div class="panel-body panel-content panels"></div>')
@@ -109,7 +109,7 @@ function makePanelsTitle(numberClass, oneTitle){
   }
 
   $('.lab-hseq').text(numberClassWithDots);
-  $('.panel-heading .col-md-2.bar').append(sliderTitle[numberClass]);
+  $('.panel-heading .col-md-2-7.bar').append(sliderTitle[numberClass]);
   // console.log(sliderTitle)
   $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
 
@@ -135,7 +135,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col2 = $('<div class=\'col-md-5-3 col-sm-10 box-under-header-sx pull-left title\'></div>')
     , col2a = $('<a></a>').addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
     , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
-    , col3 = $('<div class=\'col-md-1 col-sm-1 box-under-header-sx filter\'></div>')
+    // , col3 = $('<div class=\'col-md-1 col-sm-1 box-under-header-sx filter\'></div>')
     , col4 = $('<div class=\'col-md-2 box-under-header-sx assessment-icon\'></div>')
     , col4row = $('<div class=\'row\'></div>')
     , col4rowCol1 = $('<div class=\'col-md-6 col-sm-6\'></div>')
@@ -143,7 +143,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4rowCol2pie = $('<div class=\' pie pull-left\'></div>').attr('data-name',numberOfChildren[i - 1])
     , col4rowCol2h6 = $('<h5 class=\'numberValue' + numberOfChildren[i - 1] + '\' ></h5>')
     , col4rowCol2h6per = $('<h5 class=\'numberValue-per' + numberOfChildren[i - 1] + '\' ></h5>')
-    ,col5 = $('<div class=\'col-md-2 col-sm-5 box-under-header-sx bar\'></div>')
+    ,col5 = $('<div class=\'col-md-2-7 col-sm-5 box-under-header-sx bar\'></div>')
     ,max = childrenDegree[i-1]
     ,col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
     ,button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
@@ -167,7 +167,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   col4row.append(col4rowCol1, col4rowCol2, col4rowCol2);
   col4.append(col4row);
   col5.append(col5input);
-  row.append(col1, col2, col3, col4, col5, col6);
+  row.append(col1, col2, col4, col5, col6);
 
   return row
 }

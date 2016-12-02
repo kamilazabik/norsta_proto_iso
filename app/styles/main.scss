@@ -24,9 +24,9 @@ $icon-font-path: '../fonts/';
       @include make-sm-column( 0.7 );
     }
 
-    //.col-xs-1 {
-    //  @include make-xs-column( 0.7 );
-    //}
+    .col-md-2-7 {
+      @include make-md-column( 2.7 );
+    }
 
     .col-md-4-3 {
       @include make-md-column(4.3);
