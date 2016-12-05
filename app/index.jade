@@ -14,7 +14,9 @@ block content
         #sidebar-wrapper.tree
           include jade/includes/sidebar
         #page-content-wrapper
-          #content.container-fluid.xyz
+          #collapseExample.collapse
+            input.well(type="text" value="Wpisz szukaną frazę..." )
+          #content.container-fluid.xyz.marginPanelContentBig
             //include jade/main-panel
             #panel-content
               include jade/pages/A-panel-content

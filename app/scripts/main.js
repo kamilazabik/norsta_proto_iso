@@ -190,5 +190,21 @@ function loadDescription(numberClass){
 }//loadDescription
 
 
-
+// function removeMargin(){
+//   $('button[name="search"]').on('click', function(){
+//     var buttonSearch = $('[name="search"]')
+//     console.log(buttonSearch)
+//     console.log(buttonSearch.attr('aria-expanded'))
+//     $('.container-fluid ').removeClass('marginPanelContentSmall').removeClass('marginPanelContentBig')
+//     if(buttonSearch.attr('aria-expanded') == 'false'){
+//       $('.container-fluid ')
+//       console.log('ffffffffffffff')
+//       $('.container-fluid  ').addClass('marginPanelContentSmall')
+//     }else{
+//       $('.container-fluid  ').addClass('marginPanelContentBig')
+//     }
+//   })
+//
+//
+// }
 

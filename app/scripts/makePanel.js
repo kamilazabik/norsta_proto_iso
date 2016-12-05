@@ -147,8 +147,12 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     ,max = childrenDegree[i-1]
     ,col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
     ,button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
-    ,col5input;
+    ,col5input
+    ,buttonEvidences = $("<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' data-toggle='collapse' data-target='#collapseExample1' aria-expanded='false' aria-controls='collapseExample1' name='search'>Dowody</button>")
+    ,evidenceID = $('<div id="collapseExample1" class="collapse"></div>')
+    ,evidence = $('<div class="well"></div>')
 
+    evidenceID.append(evidence)
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
     var children = isoObject[numberOfChildren[i - 1]].children;
@@ -156,6 +160,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     col6.append(button)
   }else {
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >')
+    col6.append(buttonEvidences)
   }
 
 
@@ -168,6 +173,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   col4.append(col4row);
   col5.append(col5input);
   row.append(col1, col2, col4, col5, col6);
+
+
 
   return row
 }

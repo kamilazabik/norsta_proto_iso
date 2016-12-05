@@ -78,7 +78,7 @@ $icon-font-path: '../fonts/';
 
 .container-fluid {
   min-height: 1000px;
-  padding-top: 72px;
+  padding-top: 15px;
 }
 
 #main-page {
@@ -89,7 +89,16 @@ $icon-font-path: '../fonts/';
   background-color: $content;
   padding-right: 0;
   padding-left: 0;
+  border-top: 1px solid #9b9b9b;
 }
+
+//.marginPanelContentSmall{
+//  padding-top:20px
+//}
+//
+//.marginPanelContentBig{
+//  padding-top:72px
+//}
 
 #panel-content {
   height: 100%;
@@ -275,5 +284,29 @@ h3 {
 }
 
 
+#collapseExample {
+  z-index: 10000;
+  margin-right: -2px;
+}
+
+.well{
+  margin-top: 1px;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  width: 100%;
+  //border: 1px solid #acacac !important;
+  color: #b3b3b3;
+  font-size: 16px;
+  min-height: 15px !important;
+  padding: 15px !important;
+  background-color: #fff !important;
+}
+
+button[name='search'] {
+  margin: 10px;
+  //background-color: $panels-head;
+  //border: 2px solid #fff;
+
+}
 
 

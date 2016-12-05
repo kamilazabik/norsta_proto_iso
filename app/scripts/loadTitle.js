@@ -28,14 +28,18 @@ function loadTitle(){
 
       $('.addedComment').attr('data-name', classNameText);
       $('.editable_text').on('click', divClicked);
-      $('.number').removeClass('labelColor')
-      $('.panel-title').removeClass('labelColor')
 
+      // $('.number').removeClass('labelColor')
+      // panel.removeClass('labelColor')
+      $('.panel-title').removeClass('labelColor')
+      // allElement.removeClass('labelColor');
+
+      allElement.children().removeClass('labelColor')
 
 
       console.log(numberClassWithDots)
 
-      allElement.removeClass('panel-shadow');
+      // allElement.removeClass('panel-shadow');
       e.preventDefault();
       title.text(link);
       label.text(numberClassWithDots);
@@ -43,9 +47,9 @@ function loadTitle(){
       addComments (classNameText);
       loadDescription(numberClass);
 
-      panel.addClass('panel-shadow');
-      panel.children(":first").addClass('labelColor')
-     $('.panel-title').addClass('labelColor')
+      // panel.addClass('panel-shadow');
+      panel.children().not(':first').addClass('labelColor')
+     $('#two > .panel-body').addClass('labelColor')
       console.log(panel.children(":first"))
 
 
