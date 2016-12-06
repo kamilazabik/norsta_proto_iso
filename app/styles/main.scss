@@ -56,6 +56,10 @@ $icon-font-path: '../fonts/';
       @include make-md-column( 1 );
     }
 
+    .col-md-11-1 {
+      @include make-md-column( 11.3 );
+    }
+
     .col-sm-1-1 {
        @include make-sm-column( 1.3 );
      }
@@ -71,6 +75,10 @@ $icon-font-path: '../fonts/';
     .col-xs-1-1 {
       @include make-xs-column( 1.3 );
     }
+    .col-md-offset-1-1{
+      @include make-md-column-offset( 0.7 );
+    }
+
   }
 
   padding-right: 0;
@@ -289,7 +297,7 @@ h3 {
   margin-right: -2px;
 }
 
-.well{
+#collapseExample .well{
   margin-top: 1px;
   margin-bottom: 0 !important;
   border-radius: 0 !important;

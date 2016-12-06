@@ -143,15 +143,19 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4rowCol2pie = $('<div class=\' pie pull-left\'></div>').attr('data-name',numberOfChildren[i - 1])
     , col4rowCol2h6 = $('<h5 class=\'numberValue' + numberOfChildren[i - 1] + '\' ></h5>')
     , col4rowCol2h6per = $('<h5 class=\'numberValue-per' + numberOfChildren[i - 1] + '\' ></h5>')
-    ,col5 = $('<div class=\'col-md-2-7 col-sm-5 box-under-header-sx bar\'></div>')
-    ,max = childrenDegree[i-1]
-    ,col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
-    ,button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
-    ,col5input
-    ,buttonEvidences = $("<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' data-toggle='collapse' data-target='#collapseExample1' aria-expanded='false' aria-controls='collapseExample1' name='search'>Dowody</button>")
-    ,evidenceID = $('<div id="collapseExample1" class="collapse"></div>')
-    ,evidence = $('<div class="well"></div>')
+    , col5 = $('<div class=\'col-md-2-7 col-sm-5 box-under-header-sx bar\'></div>')
+    , max = childrenDegree[i-1]
+    , col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
+    , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
+    , col5input
+    , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' >Dowody</button>')
+    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-11-1 col-md-offset-1-1 collapse\'></div>')
 
+
+    , evidence = $('<div class="well"></div>')
+    , evidenceList = $('<ul></ul>').append('<li>Dowód 1</li>').append('<li>Dowód 2</li>')
+
+    evidence.append(evidenceList)
     evidenceID.append(evidence)
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
@@ -172,11 +176,12 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   col4row.append(col4rowCol1, col4rowCol2, col4rowCol2);
   col4.append(col4row);
   col5.append(col5input);
-  row.append(col1, col2, col4, col5, col6);
+  row.append(col1, col2, col4, col5, col6, evidenceID);
 
 
 
-  return row
+
+  return row;
 }
 
 function makeFirstPartOfMainPage(){

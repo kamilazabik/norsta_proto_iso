@@ -48,7 +48,7 @@ function loadTitle(){
       loadDescription(numberClass);
 
       // panel.addClass('panel-shadow');
-      panel.children().not(':first').addClass('labelColor')
+      panel.children().not(':first').not(':last').addClass('labelColor')
      $('#two > .panel-body').addClass('labelColor')
       console.log(panel.children(":first"))
 

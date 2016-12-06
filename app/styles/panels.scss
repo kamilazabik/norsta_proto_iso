@@ -270,6 +270,24 @@ circle {
     border-right: $panels-border;
     align-items:center;
   }
+
+  .collapse, .collapsing {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .well{
+    margin-top: 0;
+    border-top: 0;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+    width: 100%;
+    //color: #b3b3b3;
+    font-size: 14px;
+    min-height: 15px !important;
+    padding: 15px !important;
+    background-color: #fff !important;
+  }
 }
 
   .bar-header {
