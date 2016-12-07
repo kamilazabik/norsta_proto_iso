@@ -37,7 +37,7 @@ function loadTitle(){
       allElement.children().removeClass('labelColor')
 
 
-      console.log(numberClassWithDots)
+      // console.log(numberClassWithDots)
 
       // allElement.removeClass('panel-shadow');
       e.preventDefault();
@@ -50,8 +50,9 @@ function loadTitle(){
       // panel.addClass('panel-shadow');
       panel.children().not(':first').not(':last').addClass('labelColor')
      $('#two > .panel-body').addClass('labelColor')
-      console.log(panel.children(":first"))
+      // console.log(panel.children(":first"))
 
+      addClassNotCollapsed(classNameText)
 
       if(!isoObject[numberClass].children){
 
@@ -136,10 +137,12 @@ function SetAssessmentField() {
 function SaveAssessment() {
   if(tempAssessmentObject && tempAssessmentObject.sliderName)
   {
+    var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
     slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
     updateTopSlider();
+    updateSlider(input, slidersMemo);
     notSavedAssessment=false;
-    // console.log(notSavedAssessment)
+    console.log(tempAssessmentObject)
     $('#myModal').modal('hide')
   }
 }//SaveAssessment
@@ -154,5 +157,18 @@ function CancelAssessment() {
   }
 }//CancelAssessment
 
+function addClassNotCollapsed(classNameText){
+  var clickedPanel = $('.panel-hseq' + classNameText+' div.number')
+  var clickedPanelButton = $('.panel-hseq' + classNameText+' div.button-expand')
+    , collapseElement = $('#collapseExample' + classNameText).attr('aria-expanded');
 
+  clickedPanel.removeClass('number-not-collapsed')
+  clickedPanelButton.removeClass('button-expand-not-collapsed')
+
+  if(collapseElement == 'false' || collapseElement == undefined){
+    clickedPanel.addClass('number-not-collapsed')
+    clickedPanelButton.addClass('button-expand-not-collapsed')
+  }
+
+}
 

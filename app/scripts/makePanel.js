@@ -56,7 +56,7 @@ function makePanelsTitle(numberClass, oneTitle){
 
   var numberClassWithDots = addDotsForLabels(numberClass)
     ,paddingContent = $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content')
-    ,panelTitle= $('<div class="panel panel-default panels-title"></div>')
+    ,panelTitle= $('<div class="panel panel-default panels-title allPanels"></div>')
     ,panelHeading = $('<div class="panel-heading"></div>')
     ,rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header"></div>')
     ,colNumber = $('<div class="col-md-1 pull-left number"></div>')
@@ -149,14 +149,63 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
     , col5input
     , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' >Dowody</button>')
-    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-11-1 col-md-offset-1-1 collapse\'></div>')
+    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-12 collapse evidences\'></div>')
 
 
     , evidence = $('<div class="well"></div>')
-    , evidenceList = $('<ul></ul>').append('<li>Dowód 1</li>').append('<li>Dowód 2</li>')
+    , evidenceTable = $('<table class="table"></table>')
+    , evidenceTableHead = $('<thead></thead>')
+    , evidenceTableBody = $('<tbody></tbody>')
+    , evidenceTableTr = $('<tr></tr>')
+    , evidenceTableTh1 = $('<th></th>')
+    , evidenceTableTh2 = $('<th>Nazwa</th>')
+    , evidenceTableTh3 = $('<th>Repozytorium</th>')
+    , evidenceTableTh4 = $('<th>Numer strony w PDF</th>')
+    , evidenceTableTh5 = $('<th></th>')
 
-    evidence.append(evidenceList)
-    evidenceID.append(evidence)
+
+      // .append('<tr>Dowód 1</tr>').append('<tr>Dowód 2</tr>')
+    , evidenceTr1 = $('<tr></tr>')
+    , evidenceTr1Td1 = $('<th>1</th>')
+    , evidenceTr1Td2 = $('<td>Dokument potwierdzający zasady nadawania i przekazywania ról i uprawnień</td>')
+    , evidenceTr1Td3 = $('<td>szablony_ISO27001</td>')
+    , evidenceTr1Td4 = $('<td>3</td>')
+    , evidenceTr1Td5 = $('<td class="buttons"></td>')
+    , buttonTr1AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
+    , buttonTr1SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
+
+    , evidenceTr2 = $('<tr></tr>')
+    , evidenceTr2Td1 = $('<th>2</th>')
+    , evidenceTr2Td2 = $('<td>Dowód 2</td>')
+    , evidenceTr2Td3 = $('<td>szablony_ISO27001</td>')
+    , evidenceTr2Td4 = $('<td>10</td>')
+    , evidenceTr2Td5 = $('<td class="buttons"></td>')
+    , buttonTr2AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
+    , buttonTr2SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
+
+    , evidenceTr3 = $('<tr></tr>')
+    , evidenceTr3Td1 = $('<th>3</th>')
+    , evidenceTr3Td2 = $('<td></td>')
+    , evidenceTr3Td3 = $('<td></td>')
+    , evidenceTr3Td4 = $('<td></td>')
+    , evidenceTr3Td5 = $('<td class="buttons"></td>')
+    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
+    , buttonTr3SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
+
+
+    evidenceTr1Td5.append(buttonTr1AddEvidence,buttonTr1SelectEvidence)
+    evidenceTr2Td5.append(buttonTr2AddEvidence,buttonTr2SelectEvidence)
+    evidenceTr3Td5.append(buttonTr3AddEvidence,buttonTr3SelectEvidence)
+    evidenceTr1.append(evidenceTr1Td1,evidenceTr1Td2,evidenceTr1Td3,evidenceTr1Td4,evidenceTr1Td5);
+    evidenceTr2.append(evidenceTr2Td1,evidenceTr2Td2,evidenceTr2Td3,evidenceTr2Td4,evidenceTr2Td5);
+    evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td4,evidenceTr3Td5);
+
+    evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4,evidenceTableTh5);
+    evidenceTableHead.append(evidenceTableTr);
+    evidenceTableBody.append(evidenceTr1,evidenceTr2,evidenceTr3);
+    evidenceTable.append(evidenceTableHead, evidenceTableBody);
+    evidence.append(evidenceTable);
+    evidenceID.append(evidence);
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
     var children = isoObject[numberOfChildren[i - 1]].children;
@@ -186,7 +235,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
 function makeFirstPartOfMainPage(){
   // var paddingContent = $('<div class="col-md-9 col-sm-12 col-xs-12 pull-left padding-content"></div>')
-  var panelDefault = $('<div class="panel panel-default"></div>')
+  var panelDefault = $('<div class="panel panel-default allPanels"></div>')
     , panelContent = $('<div class="panel-body panel-content panels"></div>')
     , panelCol = $('<div class="col-md-12 col-sm-12 col-sx-12"></div>');
 

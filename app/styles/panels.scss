@@ -6,6 +6,7 @@
   border-radius: 3px;
   border: 0;
   //border-top: 1px solid #e7e7e7;
+
 }
 
 .padding-content {
@@ -127,6 +128,10 @@ circle {
   .panel-heading {
     padding: 0 15px !important;
     //background-color: #eae8e9;
+  }
+
+  .row {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   }
 
   h4 {
@@ -255,38 +260,122 @@ circle {
     color: #fff;
     border-top: 1px solid $panels-head;
     border-bottom: 1px solid $panels-head;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    transition-property: border-bottom-left-radius;
+    transition-duration:1s;
     //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   }
 
+  .number-not-collapsed {
+    border-bottom-left-radius: 0;
+  }
+
   .assessment-icon {
-    border-left: $panels-border;
+    //border-left: $panels-border;
   }
 
   .bar {
-    border: $panels-border;
+    //border: $panels-border;
+    border-top: $panels-border;
+    border-bottom: $panels-border;
   }
+
 
   .button-expand {
     border-right: $panels-border;
     align-items:center;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    transition-property: border-bottom-right-radius;
+    transition-duration:1s;
+  }
+
+  .button-expand-not-collapsed {
+    border-bottom-right-radius: 0;
   }
 
   .collapse, .collapsing {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+  //.evidences{
+  //  padding-left: 0;
+  //  list-style-type: none;
+  //  margin-bottom: 0;
+  //  li {
+  //    padding-bottom: 10px;
+  //    padding-top: 10px;
+  //  }
+  //  :not(:last-child){
+  //    border-bottom: 1px solid rgb(227, 227, 227);
+  //  }
+  //}
+  table{
+    margin-bottom: 0;
+    thead{
+      color: #aeaeae;
+
+      tr {
+        th{
+          border-bottom: 1px solid #ddd;
+          font-weight: normal;
+        }
+      }
+
+      :first-child{
+        width: 5%;
+      }
+      :nth-child(2){
+        width: 28%;
+      }
+      :nth-child(3){
+        width: 28%;
+      }
+      :nth-child(4){
+        width: 14%;
+      }
+      :nth-child(5){
+        width: 25%;
+        }
+
+      }
+    }
+    tbody{
+      tr {
+        th{
+          color: #aeaeae;
+        }
+      }
+    }
+
+    .buttons{
+      :nth-child(1){
+        margin-right: 5px;
+      }
+      :nth-child(2){
+        margin-left: 5px;
+    }
+
+    button{
+      background: $panels-head;
+      border: $panels-head;
+    }
+  }
 
   .well{
     margin-top: 0;
     border-top: 0;
     margin-bottom: 0 !important;
-    border-radius: 0 !important;
     width: 100%;
     //color: #b3b3b3;
     font-size: 14px;
     min-height: 15px !important;
-    padding: 15px !important;
+    padding: 5px 15px !important;
     background-color: #fff !important;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    //color: $panels-head;
   }
 }
 

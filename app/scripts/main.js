@@ -20,14 +20,15 @@ function createPage(numberClass, isNextLoad) {
     , childDegreeMainPanel = (isoObject['A'].childrenMaxDegree).split(',')
     , content = $('#content')
     , mainPanel = $('#main-panel')
-    , panels = $('.panel.panel-default')
+    , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
     , description = isoObject[numberClass].description.split('^')
     , titleClaim = $('.title-hseq' + numberClass)
     , titlePanel = $('.title-claim')
     , label = $('.label-claim');
 
-
+console.log(panels)
+// console.log(paddingContent.next())
 
   mainPanel.remove();
   panels.remove();

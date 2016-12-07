@@ -95,6 +95,11 @@
   a {
     color: rgba(255,255,255,.7);
   }
+
+  ul {
+    padding-left: 10px;
+    list-style-type: none;
+  }
 }
 
 #sidebar-wrapper::-webkit-scrollbar-track {
@@ -322,10 +327,7 @@
 .nav-pills.nav-stacked {
   padding-left: 10px;
 }
-ul {
-  padding-left: 10px;
-  list-style-type: none;
-}
+
 
 .white-icon {
   color: white;
