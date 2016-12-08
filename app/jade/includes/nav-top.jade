@@ -8,14 +8,11 @@ nav.navbar.navbar-default.no-margin.navbar-fixed-top
       img(alt='Brand', src='images/argevide_logo.png')
     button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2', aria-expanded='false')
   // navbar-header
-
-
   #bs-example-navbar-collapse-1.collapse.navbar-collapse
     ul.nav.navbar-nav
       li.active
         button#menu-toggle-2.navbar-toggle.collapse.in(data-toggle='collapse')
           span.glyphicon.glyphicon-forward(aria-hidden='true')
-
     // navbar-header
   #bs-example-navbar-collapse-2.collapse.navbar-collapse
     ul.nav.navbar-nav
@@ -24,26 +21,35 @@ nav.navbar.navbar-default.no-margin.navbar-fixed-top
       li
         a(href='#') Widok
       li.dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Dropdown
+        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Raporty
           span.caret
         ul.dropdown-menu
           li
-            a(href='#') Action
+            a(href='#') Zrzut ekranu
           li
-            a(href='#') Another action
-          li
-            a(href='#') Something else here
+            a(href='#') Lista zmian
           li.divider(role='separator')
           li
-            a(href='#') Separated link
+            a(href='#') Raport XML/HTML
+          li
+            a(href='#') Arkusz ocen
           li.divider(role='separator')
           li
-            a(href='#') One more separated link
-    button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseExample', aria-expanded='false', aria-controls='collapseExample', name='search')
-      span.glyphicon.glyphicon-search(aria-hidden='true')
+            a(href='#') Metryki projektu
+          li
+            a(href='#') Lista odwołań
+          li
+            a(href='#') Lista dowodów
+          li
+            a(href='#') Raport argumentu
+          //li
+          //  a(href='#') Separated link
+          li.divider(role='separator')
+          li
+            a(href='#') Lista ocen
     ul.nav.navbar-nav.navbar-right
       li.dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Profil
+        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Jan Kowalski
           span.caret
         ul.dropdown-menu
           li
@@ -51,10 +57,8 @@ nav.navbar.navbar-default.no-margin.navbar-fixed-top
           li.divider(role='separator')
           li
             a(href='#') Wyloguj
-    //a.btn.btn-primary(role='button', data-toggle='collapse', href='#collapseExample', aria-expanded='false', aria-controls='collapseExample')
-    //  span.glyphicon.glyphicon-search(aria-hidden='true')
-    //  | Link with href
-
+    button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseExample', aria-expanded='false', aria-controls='collapseExample', name='search')
+      span.glyphicon.glyphicon-search(aria-hidden='true')
 
 
 

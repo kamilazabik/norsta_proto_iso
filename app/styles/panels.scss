@@ -45,7 +45,6 @@ svg {
 .pie {
   display: inline-block;
   margin-right: 10px;
-  //margin-top: 10px;
   transform: rotate(-90deg );
 }
 
@@ -68,9 +67,7 @@ circle {
 //}
 
 .box-header {
-  background: #fff;
-  color: $color-black;
-  overflow: hidden;
+  @include back-color(#fff, $color-black, hidden);
   //-webkit-border-radius: 2px 2px 0 0;
   //-moz-border-radius: 2px 2px 0 0;
   //box-shadow: 1px 1px rgba(0, 0, 0, 0.05);
@@ -79,8 +76,7 @@ circle {
   border-radius: 2px;
 
   h4 {
-    font-weight: 400;
-    line-height: 1.4;
+    @include font(400,1.4);
     margin: 5px;
   }
 
@@ -135,14 +131,11 @@ circle {
   }
 
   h4 {
-    font-weight: 400;
-    line-height: 1.4;
+    @include font(400,1.4);
   }
 
   .box-under-header {
-    background: $panels-content;
-    color: black;
-    overflow: hidden;
+    @include back-color($panels-content, black, hidden);
     //-webkit-border-radius: 2px 2px 0 0;
     //-moz-border-radius: 2px 2px 0 0;
     border-radius: 3px 3px 0 0;
@@ -189,22 +182,18 @@ circle {
   padding-top: 20px !important;
 
   .box-under-header {
-    background: $panels-content;
-    color: $color-black;
-    overflow: hidden;
+    @include back-color($panels-content, $color-black, hidden);
     //-webkit-border-radius: 2px 2px 0 0;
     //-moz-border-radius: 2px 2px 0 0;
     height: 5em;
   }
 
   svg {
-    height: $pie-size-md;
-    width: $pie-size-md;
+    @include pie-svg ($pie-size-md, $pie-size-md);
   }
 
   .pie {
-    width: $pie-size-md;
-    height: $pie-size-md;
+    @include pie-svg ($pie-size-md, $pie-size-md);
     margin-top: 10px;
   }
 
@@ -213,32 +202,25 @@ circle {
   }
 
   .box-under-header-sx {
-    //background: #f2f2f2;
-    background: $panels-content;
-    color: $color-black;
-    overflow: hidden;
+    @include back-color($panels-content, $color-black, hidden);
     //-webkit-border-radius: 2px 2px 0 0;
     //-moz-border-radius: 2px 2px 0 0;
     height: 4.2em;
 
     h5 {
-      font-weight: 400;
-      line-height: 1.3;
+      @include font(400,1.3);
     }
 
     h6 {
-      font-weight: 400;
-      line-height: 0.8;
+      @include font(400,0.8);
     }
 
     svg  {
-      height: $pie-size-sx;
-      width: $pie-size-sx;
+      @include pie-svg ($pie-size-sx, $pie-size-sx);
     }
 
     .pie {
-      width: $pie-size-sx;
-      height: $pie-size-sx;
+      @include pie-svg ($pie-size-sx, $pie-size-sx);
       align-items:center;
 
       //margin-top: 10px;
@@ -250,16 +232,16 @@ circle {
   }
 
   .title, .assessment-icon, .filter, .button-expand {
-    border-top: $panels-border;
-    border-bottom: $panels-border;
+    @include border-top-bottom($panels-border);
   }
 
   .number {
+    @include border-top-bottom(1px solid $panels-head);
     align-items:center;
     background: $panels-head;
     color: #fff;
-    border-top: 1px solid $panels-head;
-    border-bottom: 1px solid $panels-head;
+    //border-top: 1px solid $panels-head;
+    //border-bottom: 1px solid $panels-head;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     transition-property: border-bottom-left-radius;
@@ -276,9 +258,7 @@ circle {
   }
 
   .bar {
-    //border: $panels-border;
-    border-top: $panels-border;
-    border-bottom: $panels-border;
+    @include border-top-bottom($panels-border);
   }
 
 
@@ -327,7 +307,7 @@ circle {
         width: 5%;
       }
       :nth-child(2){
-        width: 28%;
+        width: 33%;
       }
       :nth-child(3){
         width: 28%;
@@ -336,7 +316,7 @@ circle {
         width: 14%;
       }
       :nth-child(5){
-        width: 25%;
+        width: 20%;
         }
 
       }
@@ -439,8 +419,6 @@ circle {
     }
   }
 }
-
-
 
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
   .box-header{

@@ -148,8 +148,9 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
     , col5input
-    , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' >Dowody</button>')
+    , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' ></button>')
     , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-12 collapse evidences\'></div>')
+    ,buttonEvidencesIcon = $('<i class=\'glyphicon glyphicon-folder-open\' aria-hidden=\'true\'></i>')
 
 
     , evidence = $('<div class="well"></div>')
@@ -171,8 +172,14 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , evidenceTr1Td3 = $('<td>szablony_ISO27001</td>')
     , evidenceTr1Td4 = $('<td>3</td>')
     , evidenceTr1Td5 = $('<td class="buttons"></td>')
-    , buttonTr1AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
-    , buttonTr1SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
+    // , buttonTr1AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
+    // , buttonTr1SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
+
+
+    ,evidenceTr1Td5Select = $('<select id=\'selectActionWithEvidences' + numberOfChildren[i - 1] + '1\' class="form-control" ></select>')
+    ,evidenceTr1Td5SelectOption1 = $('<option id="openDoc">Otwórz dowód</option>')
+    ,evidenceTr1Td5SelectOption2 = $('<option id="addDoc">Prześlij nowy dowód</option>')
+    ,evidenceTr1Td5SelectOption3 = $('<option id="selectDoc">Wybierz istniejący dowód</option>')
 
     , evidenceTr2 = $('<tr></tr>')
     , evidenceTr2Td1 = $('<th>2</th>')
@@ -180,8 +187,14 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , evidenceTr2Td3 = $('<td>szablony_ISO27001</td>')
     , evidenceTr2Td4 = $('<td>10</td>')
     , evidenceTr2Td5 = $('<td class="buttons"></td>')
-    , buttonTr2AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
-    , buttonTr2SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
+    // , buttonTr2AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
+    // , buttonTr2SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
+
+    ,evidenceTr2Td5Select = $('<select id=\'selectActionWithEvidences' + numberOfChildren[i - 1] + '\' class="form-control" ></select>')
+    ,evidenceTr2Td5SelectOption1 = $('<option id="openDoc">Otwórz dowód</option>')
+    ,evidenceTr2Td5SelectOption2 = $('<option id="addDoc">Prześlij nowy dowód</option>')
+    ,evidenceTr2Td5SelectOption3 = $('<option id="selectDoc">Wybierz istniejący dowód</option>')
+
 
     , evidenceTr3 = $('<tr></tr>')
     , evidenceTr3Td1 = $('<th>3</th>')
@@ -189,13 +202,25 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td></td>')
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
-    , buttonTr3SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
+    // , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Prześlij nowy dowód</button>')
+    // , buttonTr3SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm custom-btn\' >Wybierz istniejący dowód</button>')
 
 
-    evidenceTr1Td5.append(buttonTr1AddEvidence,buttonTr1SelectEvidence)
-    evidenceTr2Td5.append(buttonTr2AddEvidence,buttonTr2SelectEvidence)
-    evidenceTr3Td5.append(buttonTr3AddEvidence,buttonTr3SelectEvidence)
+    ,evidenceTr3Td5Select = $('<select id=\'selectActionWithEvidences' + numberOfChildren[i - 1] + '\' class="form-control" ></select>')
+    ,evidenceTr3Td5SelectOption1 = $('<option id="openDoc">Otwórz dowód</option>')
+    ,evidenceTr3Td5SelectOption2 = $('<option id="addDoc">Prześlij nowy dowód</option>')
+    ,evidenceTr3Td5SelectOption3 = $('<option id="selectDoc">Wybierz istniejący dowód</option>')
+
+    evidenceTr3Td5Select.append(evidenceTr3Td5SelectOption1,evidenceTr3Td5SelectOption2,evidenceTr3Td5SelectOption3)
+    evidenceTr2Td5Select.append(evidenceTr2Td5SelectOption1,evidenceTr2Td5SelectOption2,evidenceTr2Td5SelectOption3)
+    evidenceTr1Td5Select.append(evidenceTr1Td5SelectOption1,evidenceTr1Td5SelectOption2,evidenceTr1Td5SelectOption3)
+    buttonEvidences.append(buttonEvidencesIcon)
+    // evidenceTr1Td5.append(buttonTr1AddEvidence,buttonTr1SelectEvidence)
+    // evidenceTr2Td5.append(buttonTr2AddEvidence,buttonTr2SelectEvidence)
+    // evidenceTr3Td5.append(buttonTr3AddEvidence,buttonTr3SelectEvidence)
+    evidenceTr3Td5.append(evidenceTr3Td5Select)
+    evidenceTr2Td5.append(evidenceTr2Td5Select)
+    evidenceTr1Td5.append(evidenceTr1Td5Select)
     evidenceTr1.append(evidenceTr1Td1,evidenceTr1Td2,evidenceTr1Td3,evidenceTr1Td4,evidenceTr1Td5);
     evidenceTr2.append(evidenceTr2Td1,evidenceTr2Td2,evidenceTr2Td3,evidenceTr2Td4,evidenceTr2Td5);
     evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td4,evidenceTr3Td5);
@@ -232,6 +257,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
   return row;
 }
+
 
 function makeFirstPartOfMainPage(){
   // var paddingContent = $('<div class="col-md-9 col-sm-12 col-xs-12 pull-left padding-content"></div>')

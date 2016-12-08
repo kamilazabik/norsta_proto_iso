@@ -52,7 +52,8 @@ function loadTitle(){
      $('#two > .panel-body').addClass('labelColor')
       // console.log(panel.children(":first"))
 
-      addClassNotCollapsed(classNameText)
+      addClassNotCollapsed(classNameText);
+      addEvidence(classNameText);
 
       if(!isoObject[numberClass].children){
 
@@ -170,5 +171,24 @@ function addClassNotCollapsed(classNameText){
     clickedPanelButton.addClass('button-expand-not-collapsed')
   }
 
+}
+
+function addEvidence(classNameText){
+  var collapseElement = $('#collapseExample' + classNameText).attr('aria-expanded');
+  if(collapseElement == 'true'){
+    $('#selectActionWithEvidences' + classNameText + '1 option').each(function() {
+      var selectId = $(this).attr('id')
+      if (selectId == "openDoc" && $(this).is(':selected')) {
+        console.log("openDoc");
+      }else if (selectId == "addDoc" && $(this).is(':selected')){
+        event.stopPropagation();
+        console.log("addDoc");
+        $('#modalEvidence').modal('show');
+        collapseElement = 'false'
+      }else if(selectId == "addDoc" && $(this).is(':selected')){
+        console.log("addDoc");
+      }
+    })
+  }
 }
 

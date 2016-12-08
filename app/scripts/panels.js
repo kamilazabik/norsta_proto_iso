@@ -65,7 +65,7 @@
   $(window).on('show.bs.dropdown', function (e) {
 
     // grab the menu
-    dropdownMenu = $(e.target).find('.dropdown-menu');
+    dropdownMenu = $(e.target).find('.dropdown-menu.filters');
 
     // detach it and append it to the body
     $('body').append(dropdownMenu.detach());

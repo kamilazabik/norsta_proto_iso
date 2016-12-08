@@ -4,6 +4,20 @@
 /* Toggle Styles */
 @import "mixins";
 
+.nav {
+  height: 56px;
+
+  > li {
+    height: 56px;
+  }
+  > li > a{
+      height: 56px;
+  }
+}
+
+.navbar-right{
+  margin-right: -2px;
+}
 
 //navbar-defaul
 

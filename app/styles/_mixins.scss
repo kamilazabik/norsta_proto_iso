@@ -22,6 +22,26 @@ $sidebar-md: 350px;
 $color-black: #000;
 
 
+@mixin back-color($background, $color, $overflow){
+  background: $background;
+  color: $color;
+  overflow: $overflow;
+}
+
+@mixin font($font-weight, $line-height){
+  font-weight: $font-weight;
+  line-height: $line-height;
+}
+
+@mixin pie-svg ($height, $width){
+  height: $height;
+  width: $width;
+}
+
+@mixin border-top-bottom($border){
+  border-top: $border;
+  border-bottom: $border;
+}
 
 //$panels-head: #007BA9;
 //$sidebar-color: #001F2B;
