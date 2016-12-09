@@ -53,7 +53,7 @@ function loadTitle(){
       // console.log(panel.children(":first"))
 
       addClassNotCollapsed(classNameText);
-      addEvidence(classNameText);
+      addEvidence();
 
       if(!isoObject[numberClass].children){
 
@@ -173,22 +173,9 @@ function addClassNotCollapsed(classNameText){
 
 }
 
-function addEvidence(classNameText){
-  var collapseElement = $('#collapseExample' + classNameText).attr('aria-expanded');
-  if(collapseElement == 'true'){
-    $('#selectActionWithEvidences' + classNameText + '1 option').each(function() {
-      var selectId = $(this).attr('id')
-      if (selectId == "openDoc" && $(this).is(':selected')) {
-        console.log("openDoc");
-      }else if (selectId == "addDoc" && $(this).is(':selected')){
-        event.stopPropagation();
-        console.log("addDoc");
-        $('#modalEvidence').modal('show');
-        collapseElement = 'false'
-      }else if(selectId == "addDoc" && $(this).is(':selected')){
-        console.log("addDoc");
-      }
-    })
-  }
+function addEvidence(){
+  $('.fa.fa-plus').on('click', function(){
+    $('#modalEvidence').modal('show');
+  })
 }
 
