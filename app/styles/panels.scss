@@ -307,16 +307,16 @@ circle {
         width: 5%;
       }
       :nth-child(2){
-        width: 33%;
+        width: 35%;
       }
       :nth-child(3){
-        width: 28%;
+        width: 25%;
       }
       :nth-child(4){
-        width: 19%;
+        width: 25%;
       }
       :nth-child(5){
-        width: 15%;
+        width: 10%;
         }
 
       }
@@ -368,8 +368,8 @@ circle {
 
 .labelColor {
   background-color: $label !important;
-  //border-top: 1px solid $label !important;
-  //border-bottom: 1px solid $label !important;
+  border-top: 1px solid $label !important;
+  border-bottom: 1px solid $label !important;
 }
 
   @keyframes fillup {

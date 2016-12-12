@@ -58,6 +58,11 @@
     //box-shadow: none;
   }
 
+  .panel-title{
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius:3px 3px 0 0;
+    border-radius:3px 3px 0 0;
+  }
   .panel:last-child {
     border-bottom: none;
   }

@@ -48,8 +48,9 @@ function loadTitle(){
       loadDescription(numberClass);
 
       // panel.addClass('panel-shadow');
-      panel.children().not(':first').not(':last').addClass('labelColor')
-     $('#two > .panel-body').addClass('labelColor')
+      panel.children(':first').addClass('labelColor')
+      // panel.children().not(':first').not(':last').addClass('labelColor')
+     $('.right-panel .panel-title').addClass('labelColor')
       // console.log(panel.children(":first"))
 
       addClassNotCollapsed(classNameText);

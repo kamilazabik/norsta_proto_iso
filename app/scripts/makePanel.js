@@ -29,7 +29,7 @@ function makeMainPanel(){
     ,col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
     ,col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normalna ocena</option>')
     ,col1rowButtonsSelectOption2 = $('<option id="fastAssess">Szybka ocena</option>')
-    ,col1rowButtonsSelectOption3 = $('<option id="noAssessment">Brak oceny</option>')
+    ,col1rowButtonsSelectOption3 = $('<option id="noAssessment">Brak oceny</option>');
 
 
 
@@ -164,17 +164,14 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , evidenceTableTh4 = $('<th>Nazwa dokumentu</th>')
     , evidenceTableTh5 = $('<th></th>')
 
-
-      // .append('<tr>Dowód 1</tr>').append('<tr>Dowód 2</tr>')
     , evidenceTr1 = $('<tr></tr>')
     , evidenceTr1Td1 = $('<th>1</th>')
     , evidenceTr1Td2 = $('<td>Dokument potwierdzający zasady nadawania i przekazywania ról i uprawnień</td>')
     , evidenceTr1Td3 = $('<td>szablony_ISO27001</td>')
-    , evidenceTr1Td4 = $('<td>3</td>')
+    , evidenceTr1Td4 = $('<td>zasada_nadawania_i_przekazywania_rol.pdf</td>')
     , evidenceTr1Td5 = $('<td class="buttons"></td>')
     , buttonTr1OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
     , buttonTr1AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
-    , buttonTr1SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-th" aria-hidden="true"></i>')
 
     , evidenceTr2 = $('<tr></tr>')
     , evidenceTr2Td1 = $('<th>2</th>')
@@ -184,8 +181,6 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , evidenceTr2Td5 = $('<td class="buttons"></td>')
     , buttonTr2OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
     , buttonTr2AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
-    , buttonTr2SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-th" aria-hidden="true"></i>')
-
 
     , evidenceTr3 = $('<tr></tr>')
     , evidenceTr3Td1 = $('<th>3</th>')
@@ -194,18 +189,12 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , evidenceTr3Td4 = $('<td></td>')
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
     , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
-    , buttonTr3SelectEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-th" aria-hidden="true"></i>')
+    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
 
-    // ,evidenceTr3Td5Select = $('<select id=\'selectActionWithEvidences' + numberOfChildren[i - 1] + '\' class="form-control" ></select>')
-    // ,evidenceTr3Td5SelectOption1 = $('<option id="openDoc">Otwórz dowód</option>')
-    // ,evidenceTr3Td5SelectOption2 = $('<option id="addDoc">Prześlij nowy dowód</option>')
-    // ,evidenceTr3Td5SelectOption3 = $('<option id="selectDoc">Wybierz istniejący dowód</option>')
-
-    buttonEvidences.append(buttonEvidencesIcon)
-    evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence,buttonTr1SelectEvidence)
-    evidenceTr2Td5.append(buttonTr2OpenEvidence,buttonTr2AddEvidence,buttonTr2SelectEvidence)
-    evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence,buttonTr3SelectEvidence)
+    buttonEvidences.append(buttonEvidencesIcon);
+    evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence);
+    evidenceTr2Td5.append(buttonTr2OpenEvidence,buttonTr2AddEvidence);
+    evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
 
     evidenceTr1.append(evidenceTr1Td1,evidenceTr1Td2,evidenceTr1Td3,evidenceTr1Td4,evidenceTr1Td5);
     evidenceTr2.append(evidenceTr2Td1,evidenceTr2Td2,evidenceTr2Td3,evidenceTr2Td4,evidenceTr2Td5);
@@ -220,13 +209,12 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
     var children = isoObject[numberOfChildren[i - 1]].children;
-    col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >')
+    col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
     col6.append(button)
   }else {
-    col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >')
+    col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >');
     col6.append(buttonEvidences)
   }
-
 
   col1.append(col1h5);
   col2a.append(col2h5);
@@ -238,11 +226,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   col5.append(col5input);
   row.append(col1, col2, col4, col5, col6, evidenceID);
 
-
-
-
   return row;
-}
+}//makeBodyPanel
 
 
 function makeFirstPartOfMainPage(){
@@ -255,7 +240,7 @@ function makeFirstPartOfMainPage(){
   panelDefault.append(panelContent);
 
   return panelDefault;
-}//makeBodyPanel
+}//makeFirstPartOfMainPage
 
 function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j ){
   var panelRow = $('<div class=\'row panel-hseq'+ numberOfChildMainPanel[j - 1]+' hseq space\'></div>')
@@ -286,7 +271,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol5Input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxPanel + ' name=\'' + numberOfChildMainPanel[j - 1] + '\' data-parent=\'A\' data-children=\'' + panelChildren + '\' disabled >')
 
     , panelRowCol6 = $('<div class="col-md-1-1 hidden-xs box-under-header button-expand"></div>')
-    , panelRowCol6Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
+    , panelRowCol6Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>');
 
   panelRowCol1.append(panelRowCol1H4);
   panelRowCol2A.append(panelRowCol2AH4);

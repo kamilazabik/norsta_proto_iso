@@ -317,4 +317,60 @@ button[name='search'] {
 
 }
 
+#modalEvidence{
+  table {
+    table-layout:fixed;
+    margin-bottom: 0;
+  }
 
+  .title{
+    font-size: 16px;
+  }
+
+  .table.table-condensed{
+    th:nth-child(1){
+      width: 10%;
+    }
+    th:nth-child(2){
+      width: 45%;
+    }
+    th:nth-child(3){
+      width: 30%;
+    }
+    th:nth-child(4){
+      width: 15%;
+    }
+  }
+
+  .div-table-content {
+    height: 300px;
+    overflow-y:auto;
+
+    tr:nth-child(1){
+      td{
+        border-top:0;
+      }
+    }
+
+    tr {
+      td:nth-child(1){
+        width: 10%;
+      }
+      td:nth-child(2){
+        width: 45%;
+      }
+      td:nth-child(3){
+        width: 30%;
+      }
+      td:nth-child(4){
+        width: 15%;
+      }
+    }
+    tr:hover {
+      background-color: #ededed;
+    }
+  }
+
+
+
+}
