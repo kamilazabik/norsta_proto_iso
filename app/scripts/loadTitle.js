@@ -3,8 +3,9 @@ function loadTitle(){
     , allElement = $('[class*=\'panel-hseq\']')
     , title = $('.title-claim')
     , label = $('.label-claim')
-    , allInputs = $('input')
+    , allInputs = $('.allPanels input')
     , slider = $('.sliderRightPanel input.slider');
+
 
   allElement.each(function(){
     var className = $(this)
@@ -24,17 +25,17 @@ function loadTitle(){
         , link = $('.title-hseq' + classNameText).text()
         , inputs =$(this).children().find('input')
         , inputName = inputs.attr('name')
-        , numberClassWithDots = addDotsForLabels(numberClass.join(''))
+        , numberClassWithDots = addDotsForLabels(numberClass.join(''));
 
       $('.addedComment').attr('data-name', classNameText);
       $('.editable_text').on('click', divClicked);
 
       // $('.number').removeClass('labelColor')
       // panel.removeClass('labelColor')
-      $('.panel-title').removeClass('labelColor')
+      $('.panel-title').removeClass('labelColor');
       // allElement.removeClass('labelColor');
 
-      allElement.children().removeClass('labelColor')
+      allElement.children().removeClass('labelColor');
 
 
       // console.log(numberClassWithDots)
@@ -47,6 +48,7 @@ function loadTitle(){
       addComments (classNameText);
       loadDescription(numberClass);
 
+
       // panel.addClass('panel-shadow');
       panel.children(':first').addClass('labelColor')
       // panel.children().not(':first').not(':last').addClass('labelColor')
@@ -56,10 +58,12 @@ function loadTitle(){
       addClassNotCollapsed(classNameText);
       addEvidence();
 
+
       if(!isoObject[numberClass].children){
 
-        allInputs.each(function () {
-          $('input').attr('disabled', 'disabled')
+        allInputs.each(function (v,i) {
+          var input = $(this)
+          input.attr('disabled', 'disabled')
         });
         var clickedInput = $('input[name='+classNameText +']');
         clickedInput.removeAttr('disabled' );
@@ -177,6 +181,25 @@ function addClassNotCollapsed(classNameText){
 function addEvidence(){
   $('.fa.fa-plus').on('click', function(){
     $('#modalEvidence').modal('show');
+    // $('input#csv').removeAttr('disabled')
+    console.log($('input#csv'))
+
+
   })
 }
+
+function attachEvidence() {
+  $(document).on('click', '.browse', function(){
+    var file = $(this).parent().parent().parent().find('.file');
+    file.trigger('click');
+  });
+  $(document).on('change', '.file', function(){
+    $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
+  });
+}
+
+
+
+var evidences;
+
 

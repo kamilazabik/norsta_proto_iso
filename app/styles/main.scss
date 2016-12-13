@@ -370,7 +370,11 @@ button[name='search'] {
       background-color: #ededed;
     }
   }
-
-
-
 }
+
+
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+

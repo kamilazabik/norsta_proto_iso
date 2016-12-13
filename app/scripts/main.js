@@ -7,11 +7,10 @@ $(document).ready( function(){
   });
   // */
   console.log(isoObject);
-
   createPage('A', false);
+  attachEvidence();
 
 });//END of document.READY
-
 
 
 function createPage(numberClass, isNextLoad) {
@@ -26,9 +25,6 @@ function createPage(numberClass, isNextLoad) {
     , titleClaim = $('.title-hseq' + numberClass)
     , titlePanel = $('.title-claim')
     , label = $('.label-claim');
-
-console.log(panels)
-// console.log(paddingContent.next())
 
   mainPanel.remove();
   panels.remove();
