@@ -20,7 +20,6 @@ function loadTitle(){
 
   function clickOnClassName(numberClass,className,panel) {
     $(className).on('click', function (e) {
-
       var classNameText = numberClass.join('.')
         , link = $('.title-hseq' + classNameText).text()
         , inputs =$(this).children().find('input')
@@ -181,9 +180,6 @@ function addClassNotCollapsed(classNameText){
 function addEvidence(){
   $('.fa.fa-plus').on('click', function(){
     $('#modalEvidence').modal('show');
-    // $('input#csv').removeAttr('disabled')
-    console.log($('input#csv'))
-
 
   })
 }
@@ -191,15 +187,53 @@ function addEvidence(){
 function attachEvidence() {
   $(document).on('click', '.browse', function(){
     var file = $(this).parent().parent().parent().find('.file');
+    event.preventDefault();
     file.trigger('click');
   });
   $(document).on('change', '.file', function(){
     $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
   });
+
+  $(document).on('click','.save-new-evid', function( event ) {
+    console.log($(this))
+    event.preventDefault();
+    var nameOfFile = $('.form-control.name-evid').val()
+      , nameOfEvidence = $('#textareaNameEvid').val()
+    evidences['a'] = {nameDocument:nameOfFile, nameEvidence: nameOfEvidence }
+
+    console.log(evidences)
+
+    makeTr(nameOfFile, nameOfEvidence)
+    $('#modalEvidence').modal('hide');
+
+  });
+}
+
+function makeTr(nameOfFile, nameOfEvidence){
+
+  var evidenceTr3 = $('<tr></tr>')
+    , evidenceTr3Td1 = $('<th>3</th>')
+    , evidenceTr3Td2 = $('<td></td>').text(nameOfEvidence)
+    , evidenceTr3Td3 = $('<td></td>')
+    , evidenceTr3Td4 = $('<td></td>').text(nameOfFile)
+    , evidenceTr3Td5 = $('<td class="buttons"></td>')
+    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
+    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
+
+
+    evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
+    evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,
+    evidenceTr3Td4,evidenceTr3Td5);
+
+
+  $('.well table tbody').append(evidenceTr3);
+
+
 }
 
 
 
-var evidences;
+
+
 
 

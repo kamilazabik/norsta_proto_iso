@@ -149,63 +149,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
     , col5input
     , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' ></button>')
-    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-12 collapse evidences\'></div>')
+    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-12 collapse evidences\'></div>').append(addEvidencesToTheList())
     ,buttonEvidencesIcon = $('<i class=\'fa fa-arrow-down\' aria-hidden=\'true\'></i>')
-
-
-    , evidence = $('<div class="well"></div>')
-    , evidenceTable = $('<table class="table"></table>')
-    , evidenceTableHead = $('<thead></thead>')
-    , evidenceTableBody = $('<tbody></tbody>')
-    , evidenceTableTr = $('<tr></tr>')
-    , evidenceTableTh1 = $('<th></th>')
-    , evidenceTableTh2 = $('<th>Nazwa</th>')
-    , evidenceTableTh3 = $('<th>Repozytorium</th>')
-    , evidenceTableTh4 = $('<th>Nazwa dokumentu</th>')
-    , evidenceTableTh5 = $('<th></th>')
-
-    , evidenceTr1 = $('<tr></tr>')
-    , evidenceTr1Td1 = $('<th>1</th>')
-    , evidenceTr1Td2 = $('<td>Dokument potwierdzający zasady nadawania i przekazywania ról i uprawnień</td>')
-    , evidenceTr1Td3 = $('<td>szablony_ISO27001</td>')
-    , evidenceTr1Td4 = $('<td>zasada_nadawania_i_przekazywania_rol.pdf</td>')
-    , evidenceTr1Td5 = $('<td class="buttons"></td>')
-    , buttonTr1OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr1AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
-
-    , evidenceTr2 = $('<tr></tr>')
-    , evidenceTr2Td1 = $('<th>2</th>')
-    , evidenceTr2Td2 = $('<td>Dowód 2</td>')
-    , evidenceTr2Td3 = $('<td>szablony_ISO27001</td>')
-    , evidenceTr2Td4 = $('<td>zasada_nadawania_i_przekazywania_rol.pdf</td>')
-    , evidenceTr2Td5 = $('<td class="buttons"></td>')
-    , buttonTr2OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr2AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
-
-    , evidenceTr3 = $('<tr></tr>')
-    , evidenceTr3Td1 = $('<th>3</th>')
-    , evidenceTr3Td2 = $('<td></td>')
-    , evidenceTr3Td3 = $('<td></td>')
-    , evidenceTr3Td4 = $('<td></td>')
-    , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
-
-    buttonEvidences.append(buttonEvidencesIcon);
-    evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence);
-    evidenceTr2Td5.append(buttonTr2OpenEvidence,buttonTr2AddEvidence);
-    evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
-
-    evidenceTr1.append(evidenceTr1Td1,evidenceTr1Td2,evidenceTr1Td3,evidenceTr1Td4,evidenceTr1Td5);
-    evidenceTr2.append(evidenceTr2Td1,evidenceTr2Td2,evidenceTr2Td3,evidenceTr2Td4,evidenceTr2Td5);
-    evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td4,evidenceTr3Td5);
-
-    evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4,evidenceTableTh5);
-    evidenceTableHead.append(evidenceTableTr);
-    evidenceTableBody.append(evidenceTr1,evidenceTr2,evidenceTr3);
-    evidenceTable.append(evidenceTableHead, evidenceTableBody);
-    evidence.append(evidenceTable);
-    evidenceID.append(evidence);
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
     var children = isoObject[numberOfChildren[i - 1]].children;
@@ -216,6 +161,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     col6.append(buttonEvidences)
   }
 
+  buttonEvidences.append(buttonEvidencesIcon);
   col1.append(col1h5);
   col2a.append(col2h5);
   col2.append(col2a);
@@ -228,6 +174,70 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
   return row;
 }//makeBodyPanel
+
+function addEvidencesToTheList(){
+  var evidence = $('<div class="well"></div>')
+    , evidenceTable = $('<table class="table"></table>')
+    , evidenceTableHead = $('<thead></thead>')
+    , evidenceTableBody = $('<tbody></tbody>')
+    , evidenceTableTr = $('<tr></tr>')
+    , evidenceTableTh1 = $('<th></th>')
+    , evidenceTableTh2 = $('<th>Nazwa</th>')
+    , evidenceTableTh3 = $('<th>Repozytorium</th>')
+    , evidenceTableTh4 = $('<th>Nazwa dokumentu</th>')
+    , evidenceTableTh5 = $('<th></th>')
+
+    // , evidenceTr1 = $('<tr></tr>')
+    // , evidenceTr1Td1 = $('<th>1</th>')
+    // , evidenceTr1Td2 = $('<td>Dokument potwierdzający zasady nadawania i przekazywania ról i uprawnień</td>')
+    // , evidenceTr1Td3 = $('<td>szablony_ISO27001</td>')
+    // , evidenceTr1Td4 = $('<td>zasada_nadawania_i_przekazywania_rol.pdf</td>')
+    // , evidenceTr1Td5 = $('<td class="buttons"></td>')
+    // , buttonTr1OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
+    // , buttonTr1AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
+    //
+    // , evidenceTr2 = $('<tr></tr>')
+    // , evidenceTr2Td1 = $('<th>2</th>')
+    // , evidenceTr2Td2 = $('<td>Dowód 2</td>')
+    // , evidenceTr2Td3 = $('<td>szablony_ISO27001</td>')
+    // , evidenceTr2Td4 = $('<td>zasada_nadawania_i_przekazywania_rol.pdf</td>')
+    // , evidenceTr2Td5 = $('<td class="buttons"></td>')
+    // , buttonTr2OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
+    // , buttonTr2AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
+
+    , evidenceTr3 = $('<tr></tr>')
+    , evidenceTr3Td1 = $('<th>3</th>')
+    , evidenceTr3Td2 = $('<td></td>')
+    , evidenceTr3Td3 = $('<td></td>')
+    , evidenceTr3Td4 = $('<td></td>')
+    , evidenceTr3Td5 = $('<td class="buttons"></td>')
+    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
+    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
+
+
+  // evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence);
+  // evidenceTr2Td5.append(buttonTr2OpenEvidence,buttonTr2AddEvidence);
+  evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
+
+  // evidenceTr1.append(evidenceTr1Td1,evidenceTr1Td2,evidenceTr1Td3,evidenceTr1Td4,evidenceTr1Td5);
+  // evidenceTr2.append(evidenceTr2Td1,evidenceTr2Td2,evidenceTr2Td3,evidenceTr2Td4,evidenceTr2Td5);
+  evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td4,evidenceTr3Td5);
+
+  evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4,evidenceTableTh5);
+  evidenceTableHead.append(evidenceTableTr);
+  // evidenceTableBody.append(evidenceTr1,evidenceTr2,evidenceTr3);
+  evidenceTableBody.append(evidenceTr3);
+  evidenceTable.append(evidenceTableHead, evidenceTableBody);
+  evidence.append(evidenceTable);
+
+
+  return evidence
+
+}
+
+
+
+
 
 
 function makeFirstPartOfMainPage(){

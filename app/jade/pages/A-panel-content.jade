@@ -35,14 +35,17 @@
       .modal-body
         p.title Wybierz nowy dowód
         .form-group
+          label(for='textareaNameEvid') Nazwa
+          textarea#textareaNameEvid.form-control(rows='1' placeholder='Wpisz nazwę')
+        .form-group
           input.file(type='file', name='')
           .input-group.col-xs-12
-            input.form-control(type='text', disabled='', placeholder='Dodaj dokument')
+            input.form-control.name-evid(type='text', disabled='', placeholder='Dodaj dokument')
             span.input-group-btn
               button.browse.btn.btn-primary(type='button')
                 i.glyphicon.glyphicon-search
                 |  Przeglądaj
-
+        button.save-new-evid.btn.btn-primary(type='submit') Zapisz
         hr
         p.title Wybierz istniejący dowód
         .row

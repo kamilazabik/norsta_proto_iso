@@ -10,6 +10,7 @@ $(document).ready( function(){
   createPage('A', false);
   attachEvidence();
 
+
 });//END of document.READY
 
 
@@ -48,6 +49,7 @@ function createPage(numberClass, isNextLoad) {
 
     loadPage(isNextLoad);
     onLoadPage();
+
 
   } else {
 

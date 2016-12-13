@@ -7,7 +7,8 @@ var xmlDataArr = {},
   firstLoad = false,
   SzybkaOcena = false,
   tempAssessmentObject = { sliderName: null, value: null },
-  notSavedAssessment = false;
+  notSavedAssessment = false,
+  evidences = {};
 
 
 
