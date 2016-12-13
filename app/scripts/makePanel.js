@@ -205,8 +205,8 @@ function addEvidencesToTheList(){
     // , buttonTr2OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
     // , buttonTr2AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
-    , evidenceTr3 = $('<tr></tr>')
-    , evidenceTr3Td1 = $('<th>3</th>')
+    , evidenceTr3 = $('<tr class="first"></tr>')
+    , evidenceTr3Td1 = $('<th>1</th>')
     , evidenceTr3Td2 = $('<td></td>')
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td></td>')

@@ -212,7 +212,7 @@ function attachEvidence() {
 function makeTr(nameOfFile, nameOfEvidence){
 
   var evidenceTr3 = $('<tr></tr>')
-    , evidenceTr3Td1 = $('<th>3</th>')
+    , evidenceTr3Td1 = $('<th>1</th>')
     , evidenceTr3Td2 = $('<td></td>').text(nameOfEvidence)
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td></td>').text(nameOfFile)
@@ -225,8 +225,10 @@ function makeTr(nameOfFile, nameOfEvidence){
     evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,
     evidenceTr3Td4,evidenceTr3Td5);
 
-
+  $('.first').remove()
   $('.well table tbody').append(evidenceTr3);
+
+
 
 
 }
