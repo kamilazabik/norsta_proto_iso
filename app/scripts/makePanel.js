@@ -149,7 +149,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn\'>Rozwiń</button>')
     , col5input
     , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' ></button>')
-    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-12 collapse evidences\'></div>').append(addEvidencesToTheList())
+    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
     ,buttonEvidencesIcon = $('<i class=\'fa fa-arrow-down\' aria-hidden=\'true\'></i>')
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
@@ -175,9 +175,9 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   return row;
 }//makeBodyPanel
 
-function addEvidencesToTheList(){
+function addEvidencesToTheList(numberOfChildren,i){
   var evidence = $('<div class="well"></div>')
-    , evidenceTable = $('<table class="table"></table>')
+    , evidenceTable = $('<table id=\'' +  numberOfChildren[i - 1] + '\' class=\'table\'></table>')
     , evidenceTableHead = $('<thead></thead>')
     , evidenceTableBody = $('<tbody></tbody>')
     , evidenceTableTr = $('<tr></tr>')
@@ -211,8 +211,8 @@ function addEvidencesToTheList(){
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td></td>')
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
+    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
+    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
 
 
   // evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence);
@@ -230,7 +230,7 @@ function addEvidencesToTheList(){
   evidenceTable.append(evidenceTableHead, evidenceTableBody);
   evidence.append(evidenceTable);
 
-
+  // addEvidence(numberOfChildren[i - 1])
   return evidence
 
 }

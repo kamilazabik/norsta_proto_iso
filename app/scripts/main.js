@@ -69,6 +69,16 @@ function createPage(numberClass, isNextLoad) {
       }
     }
 
+    // console.log(evidences);
+    console.log(numberOfChildren);
+    console.log(isoObject[numberClass]['numberOfEvidence']);
+
+
+
+    console.log(isoObject)
+
+
+
     // $('#panel-content').append(makeRightPanel())
     titlePanel.text(titleClaim.text());
     label.text(numberClassWithDots);

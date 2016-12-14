@@ -16,6 +16,14 @@ function loadTitle(){
 
     clickOnClassName(numberClass, className,panel)
 
+    if(isoObject[numberClass]['numberOfEvidence']){
+      var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
+      var z;
+      for(z = 1; z <= numberOfEvid; z++){
+        makeTr(numberClass, z+1 )
+      }
+    }
+
   });
 
   function clickOnClassName(numberClass,className,panel) {
@@ -47,6 +55,8 @@ function loadTitle(){
       addComments (classNameText);
       loadDescription(numberClass);
 
+      console.log(classNameText)
+
 
       // panel.addClass('panel-shadow');
       panel.children(':first').addClass('labelColor')
@@ -55,7 +65,7 @@ function loadTitle(){
       // console.log(panel.children(":first"))
 
       addClassNotCollapsed(classNameText);
-      addEvidence();
+      addEvidence(classNameText);
 
 
       if(!isoObject[numberClass].children){
@@ -149,6 +159,8 @@ function SaveAssessment() {
     notSavedAssessment=false;
     console.log(tempAssessmentObject)
     $('#myModal').modal('hide')
+
+    console.log(tempAssessmentObject)
   }
 }//SaveAssessment
 
@@ -177,57 +189,79 @@ function addClassNotCollapsed(classNameText){
 
 }
 
-function addEvidence(){
-  $('.fa.fa-plus').on('click', function(){
-    $('#modalEvidence').modal('show');
+function addEvidence(classNameText){
+  $('.btn.btn-primary.add').on('click', function(){
+    $('#modalEvidence').removeAttr('data-name')
+    $('#modalEvidence').modal('show').attr('data-name', classNameText)
+
 
   })
 }
 
 function attachEvidence() {
+
   $(document).on('click', '.browse', function(){
     var file = $(this).parent().parent().parent().find('.file');
     event.preventDefault();
     file.trigger('click');
+
   });
   $(document).on('change', '.file', function(){
     $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
   });
 
   $(document).on('click','.save-new-evid', function( event ) {
-    console.log($(this))
+    var className = $('#modalEvidence').attr('data-name');
     event.preventDefault();
+
     var nameOfFile = $('.form-control.name-evid').val()
-      , nameOfEvidence = $('#textareaNameEvid').val()
-    evidences['a'] = {nameDocument:nameOfFile, nameEvidence: nameOfEvidence }
+      , nameOfEvidence = $('#textareaNameEvid').val();
+    var rowCount = $('#' + className +' tbody').find('tr').length + 1
 
-    console.log(evidences)
+    console.log(rowCount)
+    console.log(nameOfFile)
 
-    makeTr(nameOfFile, nameOfEvidence)
+    evidences[className] = {nameDocument:nameOfFile, nameEvidence: nameOfEvidence }
+    isoObject[className]['nameDocument' + rowCount]= nameOfFile
+    isoObject[className]['nameEvidence' + rowCount]= nameOfEvidence
+    isoObject[className]['numberOfEvidence']= rowCount -1
+    // isoObject[className][rowCount].unshift(nameOfFile)
+    // isoObject[className].evidencess = {nameDocument:nameOfFile, nameEvidence: nameOfEvidence }
+
+    // evidences['A'].nameDocument = nameOfFile;
+    // evidences[className].nameEvidence = nameOfEvidence;
+
+    console.log(isoObject);
+    // console.log(evidences['a'].nameDocument);
+
+    // var rowCount = $('#' + className +' tbody tr:last').index() + 1;
+
+    makeTr(className, rowCount);
+
+
     $('#modalEvidence').modal('hide');
 
   });
 }
 
-function makeTr(nameOfFile, nameOfEvidence){
+function makeTr(className, rowCount){
+  var evidenceTr3 = $('<tr class=\'' + rowCount +'\'></tr>')
+    , evidenceTr3Td1 = $('<th></th>').text(rowCount)
+    , evidenceTr3Td2 = $('<td></td>').text(isoObject[className]['nameEvidence' + rowCount])
 
-  var evidenceTr3 = $('<tr></tr>')
-    , evidenceTr3Td1 = $('<th>1</th>')
-    , evidenceTr3Td2 = $('<td></td>').text(nameOfEvidence)
     , evidenceTr3Td3 = $('<td></td>')
-    , evidenceTr3Td4 = $('<td></td>').text(nameOfFile)
+    , evidenceTr3Td4 = $('<td></td>').text( isoObject[className]['nameDocument' + rowCount])
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
+    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
+    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
 
 
     evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
     evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,
     evidenceTr3Td4,evidenceTr3Td5);
 
-  $('.first').remove()
-  $('.well table tbody').append(evidenceTr3);
 
+  $('.well table tbody').prepend(evidenceTr3);
 
 
 
