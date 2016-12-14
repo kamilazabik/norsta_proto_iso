@@ -211,30 +211,21 @@ function attachEvidence() {
   });
 
   $(document).on('click','.save-new-evid', function( event ) {
-    var className = $('#modalEvidence').attr('data-name');
     event.preventDefault();
+    var className = $('#modalEvidence').attr('data-name')
+      , nameOfFile = $('.form-control.name-evid').val()
+      , nameOfEvidence = $('#textareaNameEvid').val()
+      , rowCount = $('#' + className +' tbody').find('tr').length + 1;
 
-    var nameOfFile = $('.form-control.name-evid').val()
-      , nameOfEvidence = $('#textareaNameEvid').val();
-    var rowCount = $('#' + className +' tbody').find('tr').length + 1
+    console.log(rowCount);
+    console.log(nameOfFile);
 
-    console.log(rowCount)
-    console.log(nameOfFile)
-
-    evidences[className] = {nameDocument:nameOfFile, nameEvidence: nameOfEvidence }
-    isoObject[className]['nameDocument' + rowCount]= nameOfFile
-    isoObject[className]['nameEvidence' + rowCount]= nameOfEvidence
-    isoObject[className]['numberOfEvidence']= rowCount -1
-    // isoObject[className][rowCount].unshift(nameOfFile)
-    // isoObject[className].evidencess = {nameDocument:nameOfFile, nameEvidence: nameOfEvidence }
-
-    // evidences['A'].nameDocument = nameOfFile;
-    // evidences[className].nameEvidence = nameOfEvidence;
+    evidences[className] = {nameDocument:nameOfFile, nameEvidence: nameOfEvidence };
+    isoObject[className]['nameDocument' + rowCount]= nameOfFile;
+    isoObject[className]['nameEvidence' + rowCount]= nameOfEvidence;
+    isoObject[className]['numberOfEvidence']= rowCount - 1;
 
     console.log(isoObject);
-    // console.log(evidences['a'].nameDocument);
-
-    // var rowCount = $('#' + className +' tbody tr:last').index() + 1;
 
     makeTr(className, rowCount);
 
