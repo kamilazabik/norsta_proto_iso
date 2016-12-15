@@ -20,7 +20,9 @@ function loadTitle(){
       var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
       var z;
       for(z = 1; z <= numberOfEvid; z++){
-        makeTr(numberClass, z+1 )
+        $('#collapseExample'+ numberClass +' .well table tbody').prepend(makeTr(numberClass, z + 1 ));
+console.log(z)
+        // makeTr(numberClass, z+1 )
       }
     }
 
@@ -56,6 +58,8 @@ function loadTitle(){
       loadDescription(numberClass);
 
       console.log(classNameText)
+      console.log($(this))
+
 
 
       // panel.addClass('panel-shadow');
@@ -175,15 +179,15 @@ function CancelAssessment() {
 }//CancelAssessment
 
 function addClassNotCollapsed(classNameText){
-  var clickedPanel = $('.panel-hseq' + classNameText+' div.number')
+  var clickedPanel = $('.panel-hseq' + classNameText+' div.number');
   var clickedPanelButton = $('.panel-hseq' + classNameText+' div.button-expand')
     , collapseElement = $('#collapseExample' + classNameText).attr('aria-expanded');
 
-  clickedPanel.removeClass('number-not-collapsed')
-  clickedPanelButton.removeClass('button-expand-not-collapsed')
+  clickedPanel.removeClass('number-not-collapsed');
+  clickedPanelButton.removeClass('button-expand-not-collapsed');
 
   if(collapseElement == 'false' || collapseElement == undefined){
-    clickedPanel.addClass('number-not-collapsed')
+    clickedPanel.addClass('number-not-collapsed');
     clickedPanelButton.addClass('button-expand-not-collapsed')
   }
 
@@ -191,9 +195,14 @@ function addClassNotCollapsed(classNameText){
 
 function addEvidence(classNameText){
   $('.btn.btn-primary.add').on('click', function(){
-    $('#modalEvidence').removeAttr('data-name')
-    $('#modalEvidence').modal('show').attr('data-name', classNameText)
+    var dataEvidence = $(this).attr('data-evidence')
+      , modalEvidence = $('#modalEvidence')
+      , buttonSave = $('.save-new-evid.btn.btn-primary');
 
+    buttonSave.removeAttr('data-evidence');
+    modalEvidence.removeAttr('data-name');
+    modalEvidence.modal('show').attr('data-name', classNameText);
+    buttonSave.attr('data-evidence', dataEvidence)
 
   })
 }
@@ -212,25 +221,35 @@ function attachEvidence() {
 
   $(document).on('click','.save-new-evid', function( event ) {
     event.preventDefault();
-    var className = $('#modalEvidence').attr('data-name')
+    var modalEvidenceWindow = $('#modalEvidence')
+      ,className = modalEvidenceWindow.attr('data-name')
       , nameOfFile = $('.form-control.name-evid').val()
       , nameOfEvidence = $('#textareaNameEvid').val()
-      , rowCount = $('#' + className +' tbody').find('tr').length + 1;
-
-    console.log(rowCount);
-    console.log(nameOfFile);
-
-    evidences[className] = {nameDocument:nameOfFile, nameEvidence: nameOfEvidence };
-    isoObject[className]['nameDocument' + rowCount]= nameOfFile;
-    isoObject[className]['nameEvidence' + rowCount]= nameOfEvidence;
-    isoObject[className]['numberOfEvidence']= rowCount - 1;
-
-    console.log(isoObject);
-
-    makeTr(className, rowCount);
+      , rowCount = $('#' + className +' tbody').find('tr').length + 1
+      , dataEvidence = $(this).attr('data-evidence');
 
 
-    $('#modalEvidence').modal('hide');
+
+    if(dataEvidence == undefined){
+      isoObject[className]['nameDocument' + rowCount]= nameOfFile;
+      isoObject[className]['nameEvidence' + rowCount]= nameOfEvidence;
+      isoObject[className]['numberOfEvidence']= rowCount - 1;
+
+      $('#collapseExample'+ className +' .well table tbody').prepend(makeTr(className,rowCount));
+    }else if($('#collapseExample'+ className +' .well table tbody').find('tr.' + dataEvidence))
+    {
+      var replacedTr = $('#collapseExample'+ className +' .well table tbody').find('tr.' + dataEvidence);
+
+      isoObject[className]['nameDocument' + dataEvidence]= nameOfFile;
+      isoObject[className]['nameEvidence' + dataEvidence]= nameOfEvidence;
+      isoObject[className]['numberOfEvidence']= rowCount - 2;
+      replacedTr.replaceWith(makeTr(className,dataEvidence))
+
+      // evidenceTr3 = $('<tr class=\'' + dataEvidence +'\'></tr>')
+      // $('#collapseExample'+ className +' .well table tbody').prepend(evidenceTr3);
+    }
+    // makeTr(className,rowCount,dataEvidence);
+    modalEvidenceWindow.modal('hide');
 
   });
 }
@@ -244,18 +263,17 @@ function makeTr(className, rowCount){
     , evidenceTr3Td4 = $('<td></td>').text( isoObject[className]['nameDocument' + rowCount])
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
     , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
-
+    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' data-evidence=\''+ rowCount+ '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
 
     evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
     evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,
     evidenceTr3Td4,evidenceTr3Td5);
 
+  console.log(isoObject[className]['nameDocument' + rowCount])
 
-  $('.well table tbody').prepend(evidenceTr3);
+  return evidenceTr3
 
-
-
+  // $('#collapseExample'+ className +' .well table tbody').prepend(evidenceTr3);
 }
 
 

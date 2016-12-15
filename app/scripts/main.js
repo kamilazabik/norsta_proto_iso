@@ -70,8 +70,8 @@ function createPage(numberClass, isNextLoad) {
     }
 
     // console.log(evidences);
-    console.log(numberOfChildren);
-    console.log(isoObject[numberClass]['numberOfEvidence']);
+    // console.log(numberOfChildren);
+    // console.log(isoObject[numberClass]['numberOfEvidence']);
 
 
 
