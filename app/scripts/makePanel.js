@@ -72,9 +72,18 @@ function makePanelsTitle(numberClass, oneTitle){
     ,colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
     ,colBar = $('<div class="col-md-2-7 bar"></div>')
     ,colBarSpan = $('<span class="numberValueBig numberValue'+numberClass+'"></span>')
-    ,colButton = $('<span class="col-md-1-2 button-expand-three"></span>')
+    ,colButton = $('<div class="col-md-1-2 button-expand-three"></div>')
+    ,colButtonRow1 = $('<div class="row"></div>')
+    ,colButtonRow1Col1 = $('<div class="col-md-12"></div>')
+    ,colButtonRow2 = $('<div class="row"></div>')
+    ,colButtonRow2Col1 = $('<div class="col-md-12"></div>')
     ,panelBody = $('<div class="panel-body panel-content panels"></div>')
     ,colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
+
+
+
+  colButtonRow1.append(colButtonRow1Col1);
+  colButtonRow2.append(colButtonRow2Col1);
 
   colBar.append(colBarSpan);
   colAssessRowCol2.append(colAssessRowColNumValue, colAssessRowColNumValuePer);
@@ -111,7 +120,10 @@ function makePanelsTitle(numberClass, oneTitle){
   $('.lab-hseq').text(numberClassWithDots);
   $('.panel-heading .col-md-2-7.bar').append(sliderTitle[numberClass]);
   // console.log(sliderTitle)
-  $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
+  // $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
+  colButtonRow1.append(buttonUp);
+  colButtonRow2.append(buttonRight, buttonLeft );
+  colButton.append(colButtonRow1, colButtonRow2)
 
   return paddingContent;
 }//makePanelsTitle
@@ -186,6 +198,7 @@ function addEvidencesToTheList(numberOfChildren,i){
     , evidenceTableTh3 = $('<th>Repozytorium</th>')
     , evidenceTableTh4 = $('<th>Nazwa dokumentu</th>')
     , evidenceTableTh5 = $('<th></th>')
+    , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
     // , evidenceTr1 = $('<tr></tr>')
     // , evidenceTr1Td1 = $('<th>1</th>')
@@ -205,28 +218,28 @@ function addEvidencesToTheList(numberOfChildren,i){
     // , buttonTr2OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
     // , buttonTr2AddEvidence = $('<button type=\'button\' class=\'btn btn-primary\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
-    , evidenceTr3 = $('<tr class="first"></tr>')
-    , evidenceTr3Td1 = $('<th>1</th>')
-    , evidenceTr3Td2 = $('<td></td>')
-    , evidenceTr3Td3 = $('<td></td>')
-    , evidenceTr3Td4 = $('<td></td>')
-    , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
+    // , evidenceTr3 = $('<tr class="first"></tr>')
+    // , evidenceTr3Td1 = $('<th>1</th>')
+    // , evidenceTr3Td2 = $('<td>Nazwa</td>')
+    // , evidenceTr3Td3 = $('<td>Repozytorium</td>')
+    // , evidenceTr3Td4 = $('<td></td>')
+    // , evidenceTr3Td5 = $('<td class="buttons"></td>')
+    // , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
+    // , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
 
 
   // evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence);
   // evidenceTr2Td5.append(buttonTr2OpenEvidence,buttonTr2AddEvidence);
-  evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
+  // evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
 
   // evidenceTr1.append(evidenceTr1Td1,evidenceTr1Td2,evidenceTr1Td3,evidenceTr1Td4,evidenceTr1Td5);
   // evidenceTr2.append(evidenceTr2Td1,evidenceTr2Td2,evidenceTr2Td3,evidenceTr2Td4,evidenceTr2Td5);
-  evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td4,evidenceTr3Td5);
-
+  // evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td4,evidenceTr3Td5);
+  evidenceTableTh5.append(evidenceTableTh5AddEvidence )
   evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4,evidenceTableTh5);
   evidenceTableHead.append(evidenceTableTr);
   // evidenceTableBody.append(evidenceTr1,evidenceTr2,evidenceTr3);
-  evidenceTableBody.append(evidenceTr3);
+  // evidenceTableBody.append(evidenceTr3);
   evidenceTable.append(evidenceTableHead, evidenceTableBody);
   evidence.append(evidenceTable);
 

@@ -25,7 +25,6 @@ span.numberValue {
 .title,
 .assessment,
 .filter,
-.button-expand,
 .bar-header,
 .bar,
 .title-main,
@@ -33,7 +32,17 @@ span.numberValue {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  //align-items:center;
   height: 100%;
+}
+
+.button-expand{
+  display: flex;
+  align-items: center;
+  height: 100%;
+  //align-self: center;
+  //justify-content: center;
+  //align-content: center;
 }
 
 svg {
@@ -126,7 +135,7 @@ circle {
     //background-color: #eae8e9;
   }
 
-  .row {
+    > .row {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   }
 
@@ -165,12 +174,18 @@ circle {
 
       button.up{
         background: $panels-head;
-        margin: 3px 20px 3px 0px;
+        margin: 3px 25px 3px 0px;
+        float: right;
       }
+
       button.arrow{
         background: $panels-head;
-        margin: 0 5px 0 1px;
+        float: right;
       }
+      .arrow:nth-child(2){
+        margin: 0 25px 0 6px;
+      }
+
     }
   }
 }
@@ -188,6 +203,11 @@ circle {
     height: 5em;
   }
 
+  button{
+    background: $panels-head;
+    border: $panels-head;
+  }
+
   svg {
     @include pie-svg ($pie-size-md, $pie-size-md);
   }
@@ -198,8 +218,18 @@ circle {
   }
 
   .button-expand{
-    height: 5em;
+    //justify-content:center;
+    //flex-direction: column;
+
+    button{
+      //align-items: center;
+    }
+
   }
+
+  //.button-expand{
+  //  height: 5em;
+  //}
 
   .box-under-header-sx {
     @include back-color($panels-content, $color-black, hidden);
@@ -264,11 +294,16 @@ circle {
 
   .button-expand {
     border-right: $panels-border;
-    align-items:center;
+    //align-items:center;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     transition-property: border-bottom-right-radius;
     transition-duration:1s;
+
+    button{
+      //text-align: right;
+      margin-left: auto;
+    }
   }
 
   .button-expand-not-collapsed {
@@ -291,31 +326,33 @@ circle {
   //    border-bottom: 1px solid rgb(227, 227, 227);
   //  }
   //}
-  table{
+  .well table{
     margin-bottom: 0;
     thead{
       color: #aeaeae;
 
       tr {
         th{
-          border-bottom: 1px solid #ddd;
+          //border-bottom: 1px solid #ddd;
+          border-bottom: 0;
           font-weight: normal;
+          vertical-align: middle;
         }
       }
 
-      :first-child{
+      th:nth-child(1){
         width: 5%;
       }
-      :nth-child(2){
+      th:nth-child(2){
         width: 35%;
       }
-      :nth-child(3){
+      th:nth-child(3){
         width: 25%;
       }
-      :nth-child(4){
+      th:nth-child(4){
         width: 25%;
       }
-      :nth-child(5){
+      th:nth-child(5){
         width: 10%;
         }
 
@@ -328,14 +365,6 @@ circle {
         }
       }
     }
-
-
-
-    button{
-      background: $panels-head;
-      border: $panels-head;
-      margin: 5px;
-  }
 
   .well{
     margin-top: 0;
@@ -350,6 +379,16 @@ circle {
     border-top-right-radius: 0;
     border-top-left-radius: 0;
     //color: $panels-head;
+
+    .buttons{
+      display: flex;
+    }
+    button:nth-child(1){
+        margin: 5px 5px 5px auto;
+      }
+    button:nth-child(2){
+      margin: 5px 0px 5px 0;
+    }
   }
 }
 
