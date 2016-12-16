@@ -43,6 +43,7 @@ span.numberValue {
   //align-self: center;
   //justify-content: center;
   //align-content: center;
+
 }
 
 svg {
@@ -171,19 +172,24 @@ circle {
     }
     .button-expand-three{
       height: 5em;
+      //justify-content: space-between;
+      //display: flex;
 
       button.up{
         background: $panels-head;
-        margin: 3px 25px 3px 0px;
-        float: right;
+        margin: 3px 5px 3px auto;
+        display: block;
       }
 
       button.arrow{
         background: $panels-head;
         float: right;
       }
+      .arrow:nth-child(1){
+        margin: 0 5px 0 0;
+      }
       .arrow:nth-child(2){
-        margin: 0 25px 0 6px;
+        margin: 0 5px 0 6px;
       }
 
     }
@@ -300,9 +306,13 @@ circle {
     transition-property: border-bottom-right-radius;
     transition-duration:1s;
 
-    button{
+    button.expand{
       //text-align: right;
       margin-left: auto;
+    }
+
+    .expand-main-page{
+      margin: 0 auto;
     }
   }
 
@@ -384,10 +394,10 @@ circle {
       display: flex;
     }
     button:nth-child(1){
-        margin: 5px 5px 5px auto;
+        margin: 5px 0px 5px auto;
       }
     button:nth-child(2){
-      margin: 5px 0px 5px 0;
+      margin: 5px 0px 5px 5px;
     }
   }
 }
@@ -409,6 +419,7 @@ circle {
   background-color: $label !important;
   border-top: 1px solid $label !important;
   border-bottom: 1px solid $label !important;
+  color:white;
 }
 
   @keyframes fillup {
