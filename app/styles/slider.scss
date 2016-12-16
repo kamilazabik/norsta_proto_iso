@@ -1,0 +1,129 @@
+.range-slider {
+  display: inline-block;
+  width: 110%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  //padding-bottom: 15px;
+  > {
+    input {
+      opacity: 0;
+      width: 100%;
+      position: relative;
+      z-index: 5;
+      margin-top: 0px;
+      -webkit-appearance: none;
+      cursor: pointer;
+      -webkit-appearance: none;
+      &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        z-index: 100;
+        position: relative;
+        width: 50px;
+        height: 30px;
+        -webkit-border-radius: 10px;
+      }
+    }
+    span.slider-container {
+      //min-height: 110px;
+      display: inline-block;
+      position: absolute;
+      top: 0px;
+      left: -8px;
+      right: 46px;
+      z-index: 3;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      > span {
+        &.bar {
+          //background-color: #000;
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ed3107+0,fcf52d+50,6bcc04+100 */
+          background: #ed3107; /* Old browsers */
+          background: -moz-linear-gradient(left,  #ed3107 0%, #fcf52d 50%, #2cc10a 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(left,  #ed3107 0%,#fcf52d 50%,#2cc10a 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to right,  #ed3107 0%,#fcf52d 50%,#2cc10a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed3107', endColorstr='#2cc10a',GradientType=1 ); /* IE6-9 */
+          display: inline-block;
+          position: absolute;
+          z-index: 1;
+          top: 12px;
+          left: 10px;
+          right: -28px;
+          height: 11px;
+          overflow: hidden;
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          > span.pasek1 {
+            //background: #02c38a;
+            display: inline-block;
+            float: left;
+            height: 11px;
+            width: 0%;
+          }
+          > span.pasek {
+            background: #afafaf;
+            display: inline-block;
+            float: left;
+            height: 11px;
+            width: 0%;
+
+          }
+        }
+        &.bar-btn {
+          display: inline-block;
+          position: absolute;
+          //width: 46px;
+          //height: 30px;
+          padding-top: 8px;
+          font-weight: bold;
+          text-align: center;
+          //background: #fff;
+          left: 10px;
+          //top: -78px;
+          border-radius: 3px;
+          //border: #333 2px solid;
+          -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          &:after {
+            content: "";
+            border: 2px solid #fff;
+            //  //background-color: #02c38a;
+            border-radius: 20px;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            position: absolute;
+            left: 8px;
+            top: 7px;
+            z-index: 3;
+            -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          }
+          > span {
+            &:before {
+              content: "";
+              display: inline-block;
+              width: 0;
+              height: 0;
+              border-width: 25px;
+              border-style: solid;
+              border-color: #333 transparent transparent;
+              position: absolute;
+              //top: 60px;
+              left: -2px;
+              background-color: #00AA00;
+            }
+            &:after {
+              content: "%";
+            }
+          }
+        }
+      }
+    }
+  }
+}

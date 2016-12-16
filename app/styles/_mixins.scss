@@ -14,12 +14,18 @@ $label: rgb(84, 166, 230);
 //$sidebar-color: #2E3440;
 $sidebar-color: #34495E;
 $content: #D0D3D9;
+$panels-head-border: 1px solid #3387c8;
 $panels-content: #F7FAFD;
 $panels-border: 1px solid #dedede;
-$panels-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12), 0 -1px 1px 0 rgba(0,0,0,.12);
+$color-shadow1: rgba(0,0,0,.2);
+$color-shadow2: rgba(0,0,0,.14);
+$color-shadow3: rgba(0,0,0,.12);
+$panels-shadow: 0 1px 3px 0 $color-shadow1,0 1px 1px 0 $color-shadow2,0 2px 1px -1px $color-shadow3, 0 -1px 1px 0 $color-shadow3;
 $sidebar-max: 400px;
 $sidebar-md: 350px;
 $color-black: #000;
+$right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow1, 0px 1px 5px 0px $color-shadow3;
+
 
 
 @mixin back-color($background, $color, $overflow){
@@ -41,6 +47,65 @@ $color-black: #000;
 @mixin border-top-bottom($border){
   border-top: $border;
   border-bottom: $border;
+}
+
+@mixin border-right($color, $size){
+  border-right: $color;
+  border-top-right-radius: $size;
+  border-bottom-right-radius: $size;
+  transition-property: border-bottom-right-radius;
+  transition-duration:1s;
+}
+
+@mixin border-left($size){
+  border-top-left-radius: $size;
+  border-bottom-left-radius: $size;
+  transition-property: border-bottom-left-radius;
+  transition-duration:1s;
+}
+
+@mixin border-radius($tl, $tr, $br, $bl){
+  border-radius:$tl, $tr, $br, $bl;
+}
+
+@mixin panel-heading($content, $position, $right, $top, $font, $transition, $transform){
+  content: $content;
+  position: $position;
+  right: $right;
+  top: $top;
+  font-size: $font ;
+  transition: $transition;
+  transform: $transform;
+}
+
+@mixin tr-size(){
+  th:nth-child(1){
+    width: 5%;
+  }
+  th:nth-child(2){
+    width: 35%;
+  }
+  th:nth-child(3){
+    width: 25%;
+  }
+  th:nth-child(4){
+    width: 25%;
+  }
+  th:nth-child(5){
+    width: 10%;
+  }
+}
+
+@mixin vendor-prefixes($property, $value) {
+  -webkit-#{$property}: $value;
+  -moz-#{$property}: $value;
+  -ms-#{$property}: $value;
+  -o-#{$property}: $value;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  @include vendor-prefixes(border-radius, $radius);
 }
 
 //$panels-head: #007BA9;

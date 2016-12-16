@@ -1,12 +1,17 @@
 @import "mixins";
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+
+
 .panel {
   box-shadow: $panels-shadow;
   border-radius: 3px;
   border: 0;
-  //border-top: 1px solid #e7e7e7;
+}
 
+.allPanels {
+  margin-top: 20px;
+  margin-bottom: 16px;
 }
 
 .padding-content {
@@ -43,7 +48,6 @@ span.numberValue {
   //align-self: center;
   //justify-content: center;
   //align-content: center;
-
 }
 
 svg {
@@ -69,13 +73,6 @@ circle {
   stroke: #45d666 !important;
 }
 
-//.fixedPos{
-//  position: fixed;
-//  right: 0;
-//  //left: 10px;
-//  z-index: 0;
-//}
-
 .box-header {
   @include back-color(#fff, $color-black, hidden);
   //-webkit-border-radius: 2px 2px 0 0;
@@ -93,16 +90,13 @@ circle {
   h2 {
     float: left;
     padding: 10px 0;
-    //margin: 0 0 0 20px;
   }
   svg {
-    height: $pie-size-big;
-    width: $pie-size-big;
+    @include pie-svg ($pie-size-big, $pie-size-big);
   }
 
   .pie {
-    width: $pie-size-big;
-    height: $pie-size-big;
+    @extend svg;
     margin-top: 0;
   }
 
@@ -128,12 +122,14 @@ circle {
       width: 100%;
     }
   }
+  #fastAsses {
+    margin-top: 5px;
+  }
 }
 
 .panels-title {
   .panel-heading {
     padding: 0 15px !important;
-    //background-color: #eae8e9;
   }
 
     > .row {
@@ -149,17 +145,14 @@ circle {
     //-webkit-border-radius: 2px 2px 0 0;
     //-moz-border-radius: 2px 2px 0 0;
     border-radius: 3px 3px 0 0;
-    //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     height: 5em;
 
     svg {
-      height: $pie-size-md;
-      width: $pie-size-md;
+      @include pie-svg ($pie-size-md, $pie-size-md);
     }
 
     .pie {
-      width: $pie-size-md;
-      height: $pie-size-md;
+      @extend svg;
       margin-top: 10px;
     }
 
@@ -172,8 +165,6 @@ circle {
     }
     .button-expand-three{
       height: 5em;
-      //justify-content: space-between;
-      //display: flex;
 
       button.up{
         background: $panels-head;
@@ -219,23 +210,9 @@ circle {
   }
 
   .pie {
-    @include pie-svg ($pie-size-md, $pie-size-md);
+    @extend svg;
     margin-top: 10px;
   }
-
-  .button-expand{
-    //justify-content:center;
-    //flex-direction: column;
-
-    button{
-      //align-items: center;
-    }
-
-  }
-
-  //.button-expand{
-  //  height: 5em;
-  //}
 
   .box-under-header-sx {
     @include back-color($panels-content, $color-black, hidden);
@@ -256,10 +233,8 @@ circle {
     }
 
     .pie {
-      @include pie-svg ($pie-size-sx, $pie-size-sx);
+      @extend svg;
       align-items:center;
-
-      //margin-top: 10px;
     }
 
     button{
@@ -272,16 +247,11 @@ circle {
   }
 
   .number {
-    @include border-top-bottom(1px solid $panels-head);
+    @include border-top-bottom($panels-head-border);
+    @include border-left(3px);
     align-items:center;
     background: $panels-head;
     color: #fff;
-    //border-top: 1px solid $panels-head;
-    //border-bottom: 1px solid $panels-head;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    transition-property: border-bottom-left-radius;
-    transition-duration:1s;
     //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   }
 
@@ -289,25 +259,14 @@ circle {
     border-bottom-left-radius: 0;
   }
 
-  .assessment-icon {
-    //border-left: $panels-border;
-  }
-
   .bar {
     @include border-top-bottom($panels-border);
   }
 
-
   .button-expand {
-    border-right: $panels-border;
-    //align-items:center;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    transition-property: border-bottom-right-radius;
-    transition-duration:1s;
+    @include border-right($panels-border, 3px);
 
     button.expand{
-      //text-align: right;
       margin-left: auto;
     }
 
@@ -324,57 +283,6 @@ circle {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  //.evidences{
-  //  padding-left: 0;
-  //  list-style-type: none;
-  //  margin-bottom: 0;
-  //  li {
-  //    padding-bottom: 10px;
-  //    padding-top: 10px;
-  //  }
-  //  :not(:last-child){
-  //    border-bottom: 1px solid rgb(227, 227, 227);
-  //  }
-  //}
-  .well table{
-    margin-bottom: 0;
-    thead{
-      color: #aeaeae;
-
-      tr {
-        th{
-          //border-bottom: 1px solid #ddd;
-          border-bottom: 0;
-          font-weight: normal;
-          vertical-align: middle;
-        }
-      }
-
-      th:nth-child(1){
-        width: 5%;
-      }
-      th:nth-child(2){
-        width: 35%;
-      }
-      th:nth-child(3){
-        width: 25%;
-      }
-      th:nth-child(4){
-        width: 25%;
-      }
-      th:nth-child(5){
-        width: 10%;
-        }
-
-      }
-    }
-    tbody{
-      tr {
-        th{
-          color: #aeaeae;
-        }
-      }
-    }
 
   .well{
     margin-top: 0;
@@ -390,14 +298,51 @@ circle {
     border-top-left-radius: 0;
     //color: $panels-head;
 
+    table{
+      margin-bottom: 0;
+      thead{
+        color: #aeaeae;
+
+        tr {
+          th{
+            border-bottom: 0;
+            font-weight: normal;
+            vertical-align: middle;
+          }
+        }
+
+        th:nth-child(1){
+          width: 5%;
+        }
+        th:nth-child(2){
+          width: 35%;
+        }
+        th:nth-child(3){
+          width: 25%;
+        }
+        th:nth-child(4){
+          width: 25%;
+        }
+        th:nth-child(5){
+          width: 10%;
+        }
+      }
+      tbody{
+        tr {
+          th{
+            color: #aeaeae;
+          }
+        }
+      }
+    }
     .buttons{
       display: flex;
     }
     button:nth-child(1){
-        margin: 5px 0px 5px auto;
+        margin: 5px 0 5px auto;
       }
     button:nth-child(2){
-      margin: 5px 0px 5px 5px;
+      margin: 5px 0 5px 5px;
     }
   }
 }
@@ -410,10 +355,7 @@ circle {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
-#fastAsses {
-  margin-top: 5px;
 
-}
 
 .labelColor {
   background-color: $label !important;

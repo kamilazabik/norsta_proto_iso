@@ -16,13 +16,14 @@ function loadTitle(){
 
     clickOnClassName(numberClass, className,panel)
 
-    if(isoObject[numberClass]['numberOfEvidence']){
+    if(isoObject[numberClass]['numberOfEvidence'] != undefined){
       var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
       var z;
+      // console.log( $('#collapseExample'+ numberClass +' .well table tbody'))
+
       for(z = numberOfEvid  ; z >= 0; z--){
         $('#collapseExample'+ numberClass +' .well table tbody').prepend(makeTr(numberClass, z + 1 ));
-console.log(z)
-console.log(numberOfEvid)
+//
         // makeTr(numberClass, z+1 )
       }
     }
@@ -47,9 +48,6 @@ console.log(numberOfEvid)
 
       allElement.children().removeClass('labelColor');
 
-
-      // console.log(numberClassWithDots)
-
       // allElement.removeClass('panel-shadow');
       e.preventDefault();
       title.text(link);
@@ -57,10 +55,6 @@ console.log(numberOfEvid)
 
       addComments (classNameText);
       loadDescription(numberClass);
-
-      console.log(classNameText)
-      console.log($(this))
-
 
 
       // panel.addClass('panel-shadow');
@@ -123,13 +117,10 @@ function SetSelectAssessmentField(){
     $('#selectAssessment option').each(function() {
       var selectId = $(this).attr('id')
       if (selectId == "normalAssess" && $(this).is(':selected')) {
-        console.log("normalAssess");
         SzybkaOcena = false;
       }else if (selectId == "fastAssess" && $(this).is(':selected')){
-        console.log("fastAssess");
         SzybkaOcena = true;
       }else if(selectId == "noAssessment" && $(this).is(':selected')){
-        console.log("no");
       }
     })
   })
@@ -162,10 +153,8 @@ function SaveAssessment() {
     updateTopSlider();
     updateSlider(input, slidersMemo);
     notSavedAssessment=false;
-    console.log(tempAssessmentObject);
     $('#myModal').modal('hide');
 
-    console.log(tempAssessmentObject)
   }
 }//SaveAssessment
 
@@ -191,8 +180,7 @@ function addClassNotCollapsed(classNameText){
     clickedPanel.addClass('number-not-collapsed');
     clickedPanelButton.addClass('button-expand-not-collapsed')
   }
-
-}
+}//addClassNotCollapsed
 
 function addEvidence(classNameText){
   $('.btn.btn-primary.add').on('click', function(){
@@ -204,9 +192,8 @@ function addEvidence(classNameText){
     modalEvidence.removeAttr('data-name');
     modalEvidence.modal('show').attr('data-name', classNameText);
     buttonSave.attr('data-evidence', dataEvidence)
-
   })
-}
+}//addEvidence
 
 function attachEvidence() {
 
@@ -247,7 +234,7 @@ function attachEvidence() {
     modalEvidenceWindow.modal('hide');
 
   });
-}
+}//attachEvidence
 
 function makeTr(className, rowCount){
   var evidenceTr3 = $('<tr class=\'' + rowCount +'\'></tr>')
@@ -264,11 +251,9 @@ function makeTr(className, rowCount){
     evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,
     evidenceTr3Td4,evidenceTr3Td5);
 
-  console.log(isoObject[className]['nameDocument' + rowCount]);
-
   return evidenceTr3;
 
-}
+}//makeTr
 
 
 

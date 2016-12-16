@@ -118,7 +118,7 @@ function makePanelsTitle(numberClass, oneTitle){
 
   $('.lab-hseq').text(numberClassWithDots);
   $('.panel-heading .col-md-2-7.bar').append(sliderTitle[numberClass]);
-  // console.log(sliderTitle)
+
   // $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
   colButtonRow1Col1.append(buttonUp);
   colButtonRow2Col1.append(buttonRight, buttonLeft );
@@ -321,16 +321,10 @@ function changeSlider(numberClass){
   slider.attr('data-parent', inputParent );
   slider.attr('value', slidersMemo[numberClass]);
 
-  // console.log('slider');
-  // console.log(slider);
-  // console.log('input');
-  // console.log(input);
-
   // updateSlider(slider, null);
 
   if (isoObject[numberClass]!= undefined) {
     var inputChildren = input.attr('data-children');
-    // console.log(inputChildren);
     slider.attr('data-children', inputChildren )
   }else{
     slider.attr('data-children', '' );

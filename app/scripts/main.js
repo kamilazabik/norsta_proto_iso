@@ -69,13 +69,8 @@ function createPage(numberClass, isNextLoad) {
       }
     }
 
-    // console.log(evidences);
-    // console.log(numberOfChildren);
-    // console.log(isoObject[numberClass]['numberOfEvidence']);
 
-
-
-    console.log(isoObject)
+    // console.log(isoObject)
 
 
 
@@ -129,7 +124,6 @@ function loadPage(isNextLoad){
         })
       }
       else {
-        // console.log("Click! 1");
         $('.claim-hseq' + numberClass).on('click', function (e) {
           e.preventDefault();
           createPage(numberClass, true)
