@@ -9,6 +9,8 @@ $(document).ready( function(){
   console.log(isoObject);
 
   createPage('A', false);
+  attachEvidence();
+
 
 });//END of document.READY
 
@@ -20,15 +22,12 @@ function createPage(numberClass, isNextLoad) {
     , childDegreeMainPanel = (isoObject['A'].childrenMaxDegree).split(',')
     , content = $('#content')
     , mainPanel = $('#main-panel')
-    , panels = $('.panel.panel-default')
+    , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
     , description = isoObject[numberClass].description.split('^')
     , titleClaim = $('.title-hseq' + numberClass)
     , titlePanel = $('.title-claim')
-    , label = $('.label-claim')
-    // , comment = $('.addedCom')
-    , slider;
-
+    , label = $('.label-claim');
 
   mainPanel.remove();
   panels.remove();
@@ -37,15 +36,9 @@ function createPage(numberClass, isNextLoad) {
 
   var maxDegree = isoObject[numberClass].maxDegree;
 
-  // $('input.slider').attr('max', maxDegree)
-
-  // var slider = $('<input class="slider" value="0" min="0" max="40" step="1" name="A5" data-children="A511,A512" type="range" disabled>')
-
   $('.sliderRightPanel').empty();
 
   if (numberClass == 'A') {
-
-    // console.log("X1");
 
     $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(makeFirstPartOfMainPage());
 
@@ -58,6 +51,7 @@ function createPage(numberClass, isNextLoad) {
 
     loadPage(isNextLoad);
     onLoadPage();
+
 
   } else {
 
@@ -75,23 +69,20 @@ function createPage(numberClass, isNextLoad) {
       for (var i = 1; i <= numberOfChildren.length; i++) {
         $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
       }
+
+
+
     }
 
     // $('#panel-content').append(makeRightPanel())
-
     titlePanel.text(titleClaim.text());
     label.text(numberClassWithDots);
 
-
-
     addComments (numberClass);
-
-    // makeSlider();
-
     loadDescription(numberClass);
+    // $('.panel-title').addClass('labelColor')
 
     //onLoadPage();
-    // console.log("X2");
     loadPage(isNextLoad);
     onLoadPage();
   }
@@ -133,7 +124,6 @@ function loadPage(isNextLoad){
         })
       }
       else {
-        // console.log("Click! 1");
         $('.claim-hseq' + numberClass).on('click', function (e) {
           e.preventDefault();
           createPage(numberClass, true)

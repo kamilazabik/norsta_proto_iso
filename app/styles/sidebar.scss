@@ -4,6 +4,20 @@
 /* Toggle Styles */
 @import "mixins";
 
+.nav {
+  height: 56px;
+
+  > li {
+    height: 56px;
+  }
+  > li > a{
+      height: 56px;
+  }
+}
+
+.navbar-right{
+  margin-right: -2px;
+}
 
 //navbar-defaul
 
@@ -95,6 +109,11 @@
   a {
     color: rgba(255,255,255,.7);
   }
+
+  ul {
+    padding-left: 10px;
+    list-style-type: none;
+  }
 }
 
 #sidebar-wrapper::-webkit-scrollbar-track {
@@ -133,6 +152,7 @@
   //overflow-x: hidden;
   height: 100%;
   //background-color: #fcfcfc;
+  margin-top: 55px
 
 }
 .xyz{
@@ -321,10 +341,7 @@
 .nav-pills.nav-stacked {
   padding-left: 10px;
 }
-ul {
-  padding-left: 10px;
-  list-style-type: none;
-}
+
 
 .white-icon {
   color: white;
