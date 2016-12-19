@@ -19,12 +19,10 @@ function loadTitle(){
     if(isoObject[numberClass]['numberOfEvidence'] != undefined){
       var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
       var z;
-      // console.log( $('#collapseExample'+ numberClass +' .well table tbody'))
 
       for(z = numberOfEvid  ; z >= 0; z--){
         $('#collapseExample'+ numberClass +' .well table tbody').prepend(makeTr(numberClass, z + 1 ));
-//
-        // makeTr(numberClass, z+1 )
+
       }
     }
 
@@ -45,12 +43,15 @@ function loadTitle(){
       allElement.removeClass('panel-shadow');
       e.preventDefault();
       title.text(link);
-      label.text(numberClass.join('.'));
+      // label.text(numberClass.join('.'));
+      label.text(numberClassWithDots);
 
       addComments (classNameText);
       loadDescription(numberClass);
 
       panel.addClass('panel-shadow');
+      addClassNotCollapsed(classNameText);
+      addEvidence(classNameText);
 
       if(!isoObject[numberClass].children){
 

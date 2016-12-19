@@ -3,7 +3,7 @@ function makeMainPanel(){
     , col = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1 = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1row = $('<div class="row fixedPos box-header"></div>')
-    , col1rowTitleMain = $('<div class="col-lg-5 col-md-3 col-sm-3 col-xs-2 pull-left title-main"></div>')
+    , col1rowTitleMain = $('<div class="col-lg-6 col-md-5 col-sm-5 col-xs-2 pull-left title-main"></div>')
     , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('ISO 27001 Assessment')
 
     , col1rowAssess = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
@@ -19,21 +19,13 @@ function makeMainPanel(){
 
   // data-parent="null"
 
-    , col1rowButtons = $('<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 pull-left filter"></div>')
+    , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 pull-left filter"></div>')
     ,col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
     ,col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normal Assessment</option>')
     ,col1rowButtonsSelectOption2 = $('<option id="fastAssess">Fast Assessment</option>')
     ,col1rowButtonsSelectOption3 = $('<option id="noAssessment">No Assessment</option>')
-    // , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
-    // , col1rowButtonsGroupLabel1 = $('<label id="fastAssess" class="btn btn-primary active"></label>')
-    // , col1rowButtonsGroupLabel2 = $('<label id="normalAssess" class="btn btn-primary"></label>')
-    // , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Fast Assessment'
-    // , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normal Assessment'
 
-  col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,     col1rowButtonsSelectOption3)
-  // col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
-  // col1rowButtonsGroupLabel2.append(col1rowButtonsGroupLabelInput2);
-  // col1rowButtonsGroup.append(col1rowButtonsGroupLabel1, col1rowButtonsGroupLabel2);
+  col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,col1rowButtonsSelectOption3)
   col1rowButtons.append(col1rowButtonsSelect);
   col1rowTitleMain.append(col1rowTitleMainH3);
   col1rowAssess.append(col1rowAssessPie);
@@ -115,7 +107,6 @@ function makePanelsTitle(numberClass, oneTitle){
   $('.lab-hseq').text(numberClassWithDots);
   $('.panel-heading .col-md-2-7.bar').append(sliderTitle[numberClass]);
 
-  // $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
   colButtonRow1Col1.append(buttonUp);
   colButtonRow2Col1.append(buttonRight, buttonLeft );
   colButton.append(colButtonRow1, colButtonRow2);
@@ -196,22 +187,12 @@ function addEvidencesToTheList(numberOfChildren,i){
     , evidenceTableTh5 = $('<th></th>')
     , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
-  // evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence);
-  // evidenceTr2Td5.append(buttonTr2OpenEvidence,buttonTr2AddEvidence);
-  // evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
-
-  // evidenceTr1.append(evidenceTr1Td1,evidenceTr1Td2,evidenceTr1Td3,evidenceTr1Td4,evidenceTr1Td5);
-  // evidenceTr2.append(evidenceTr2Td1,evidenceTr2Td2,evidenceTr2Td3,evidenceTr2Td4,evidenceTr2Td5);
-  // evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td4,evidenceTr3Td5);
   evidenceTableTh5.append(evidenceTableTh5AddEvidence );
   evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4,evidenceTableTh5);
   evidenceTableHead.append(evidenceTableTr);
-  // evidenceTableBody.append(evidenceTr1,evidenceTr2,evidenceTr3);
-  // evidenceTableBody.append(evidenceTr3);
   evidenceTable.append(evidenceTableHead, evidenceTableBody);
   evidence.append(evidenceTable);
 
-  // addEvidence(numberOfChildren[i - 1])
   return evidence
 
 }
