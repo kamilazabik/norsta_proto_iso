@@ -126,6 +126,7 @@ function SaveAssessment() {
   {
     slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
     updateTopSlider();
+    updateSlider(input, slidersMemo);
     notSavedAssessment=false;
     // console.log(notSavedAssessment)
     $('#myModal').modal('hide')
