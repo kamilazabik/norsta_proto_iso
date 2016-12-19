@@ -167,6 +167,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     var children = isoObject[numberOfChildren[i - 1]].children;
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
     col6.append(button)
+
   }else {
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >');
     col6.append(buttonEvidences)
@@ -236,7 +237,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
   var panelRow = $('<div class=\'row panel-hseq'+ numberOfChildMainPanel[j - 1]+' hseq space\'></div>')
     , panelRowCol1 = $('<div class="col-md-1 col-sm-1 col-xs-1 box-under-header pull-left number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
-    , panelRowCol2 = $('<div class="col-md-6-3 col-sm-4 col-xs-8 box-under-header pull-left title"></div>')
+    , panelRowCol2 = $('<div class="col-md-5-3 col-sm-4 col-xs-8 box-under-header pull-left title"></div>')
     , panelRowCol2A = $('<a></a>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#')
     , panelRowCol2AH4 = $('<h4></h4>').text(nameOfChildMainPanel[j])
 
@@ -254,7 +255,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol4RowC2H6Per = $('<h5 class=\'numberValue-per' +  numberOfChildMainPanel[j - 1] + '\' ></h5>').text('0%')
     , panelRowCol4RowC3 = $('<div class="col-md-4 col-sm-4 col-xs-4"></div>')
 
-    , panelRowCol5 = $('<div class="col-md-2 col-sm-2 col-xs-6 box-under-header bar-header"></div>')
+    , panelRowCol5 = $('<div class="col-md-3 col-sm-2 col-xs-6 box-under-header bar-header"></div>')
     , panelRowCol5Span = $('<span class=\'numberValueBig' + numberOfChildMainPanel[j - 1] + ' numberValue\' ></span>')
 
     , panelChildren = isoObject[numberOfChildMainPanel[j - 1]].children

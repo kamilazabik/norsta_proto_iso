@@ -193,6 +193,10 @@ circle {
   padding-bottom: 0 !important;
   padding-top: 20px !important;
 
+  .hseq.space {
+    cursor: pointer;
+  }
+
   .box-under-header {
     @include back-color($panels-content, $color-black, hidden);
     //-webkit-border-radius: 2px 2px 0 0;
@@ -348,13 +352,16 @@ circle {
 }
 
   .bar-header {
-    border: 1px solid #e7e7e7;
+    @include border-top-bottom($panels-border);
   }
 
   .panel-shadow {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
+.active-input {
+  background-color: #b6e0ee !important;
+}
 
 
 .labelColor {

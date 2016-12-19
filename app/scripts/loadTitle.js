@@ -74,7 +74,8 @@ function loadTitle(){
           input.attr('disabled', 'disabled')
         });
         var clickedInput = $('input[name='+classNameText +']');
-        clickedInput.removeAttr('disabled' );
+        clickedInput.removeAttr('disabled' )
+
       }
 
       if(notSavedAssessment && !SzybkaOcena) {
