@@ -7,13 +7,11 @@ $(document).ready( function(){
   });
   // */
   console.log(isoObject);
-
   createPage('A', false);
   attachEvidence();
 
 
 });//END of document.READY
-
 
 
 function createPage(numberClass, isNextLoad) {
