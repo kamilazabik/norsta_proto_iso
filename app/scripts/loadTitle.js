@@ -9,7 +9,7 @@ function loadTitle(){
 
   allElement.each(function(){
     var className = $(this)
-    // var numberClass = className.attr('class').split(' ')[0].replace('title-hseq','').split('-');
+      // var numberClass = className.attr('class').split(' ')[0].replace('title-hseq','').split('-');
       , numberClass = className.attr('class').split(' ')[1].replace('panel-hseq','').split('-')
       , panel = $('.panel-hseq' + numberClass.join('-'));
 
@@ -19,10 +19,12 @@ function loadTitle(){
     if(isoObject[numberClass]['numberOfEvidence'] != undefined){
       var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
       var z;
+      // console.log( $('#collapseExample'+ numberClass +' .well table tbody'))
 
       for(z = numberOfEvid  ; z >= 0; z--){
         $('#collapseExample'+ numberClass +' .well table tbody').prepend(makeTr(numberClass, z + 1 ));
-
+//
+        // makeTr(numberClass, z+1 )
       }
     }
 
@@ -30,7 +32,6 @@ function loadTitle(){
 
   function clickOnClassName(numberClass,className,panel) {
     $(className).on('click', function (e) {
-
       var classNameText = numberClass.join('.')
         , link = $('.title-hseq' + classNameText).text()
         , inputs =$(this).children().find('input')
@@ -40,31 +41,46 @@ function loadTitle(){
       $('.addedComment').attr('data-name', classNameText);
       $('.editable_text').on('click', divClicked);
 
-      allElement.removeClass('panel-shadow');
+      // $('.number').removeClass('labelColor')
+      // panel.removeClass('labelColor')
+      $('.panel-title').removeClass('labelColor');
+      // allElement.removeClass('labelColor');
+
+      allElement.children().removeClass('labelColor');
+
+      // allElement.removeClass('panel-shadow');
       e.preventDefault();
       title.text(link);
-      // label.text(numberClass.join('.'));
       label.text(numberClassWithDots);
 
       addComments (classNameText);
       loadDescription(numberClass);
 
-      panel.addClass('panel-shadow');
+
+      // panel.addClass('panel-shadow');
+      panel.children(':first').addClass('labelColor')
+      // panel.children().not(':first').not(':last').addClass('labelColor')
+      $('.right-panel .panel-title').addClass('labelColor')
+      // console.log(panel.children(":first"))
+
       addClassNotCollapsed(classNameText);
       addEvidence(classNameText);
 
+
       if(!isoObject[numberClass].children){
 
-        allInputs.each(function () {
-          $('input').attr('disabled', 'disabled')
+        allInputs.each(function (v,i) {
+          var input = $(this)
+          input.attr('disabled', 'disabled')
         });
         var clickedInput = $('input[name='+classNameText +']');
-        clickedInput.removeAttr('disabled' );
+        clickedInput.removeAttr('disabled' )
+
       }
 
       if(notSavedAssessment && !SzybkaOcena) {
 
-          $('#myModal').modal('show');
+        $('#myModal').modal('show');
 
         //TODO:
         //Alert ze nie zapisana ocena z wyborem zapisz/anuluj
@@ -114,11 +130,11 @@ function SetSelectAssessmentField(){
 
 function SetAssessmentField() {
   $('#saveAssessAlert').on('click', function () {
-      SaveAssessment();
+    SaveAssessment();
   });
 
   $('#removeAssessAlert').on('click', function () {
-      CancelAssessment();
+    CancelAssessment();
   });
 
   $('#saveAssess').on('click', function () {
@@ -232,16 +248,13 @@ function makeTr(className, rowCount){
     , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
     , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' data-evidence=\''+ rowCount+ '\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
 
-    evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
-    evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,
+  evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
+  evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,
     evidenceTr3Td4,evidenceTr3Td5);
 
   return evidenceTr3;
 
 }//makeTr
-
-
-
 
 
 

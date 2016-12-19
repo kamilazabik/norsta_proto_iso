@@ -144,7 +144,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col5 = $('<div class=\'col-md-2-7 col-sm-5 box-under-header-sx bar\'></div>')
     , max = childrenDegree[i-1]
     , col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
-    , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
+    , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Expand</button>')
     , col5input
     , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary expand\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' ></button>')
     , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
@@ -181,9 +181,9 @@ function addEvidencesToTheList(numberOfChildren,i){
     , evidenceTableBody = $('<tbody></tbody>')
     , evidenceTableTr = $('<tr></tr>')
     , evidenceTableTh1 = $('<th></th>')
-    , evidenceTableTh2 = $('<th>Nazwa</th>')
-    , evidenceTableTh3 = $('<th>Repozytorium</th>')
-    , evidenceTableTh4 = $('<th>Nazwa dokumentu</th>')
+    , evidenceTableTh2 = $('<th>Name</th>')
+    , evidenceTableTh3 = $('<th>Repository</th>')
+    , evidenceTableTh4 = $('<th>Address</th>')
     , evidenceTableTh5 = $('<th></th>')
     , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
