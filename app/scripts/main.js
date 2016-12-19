@@ -73,22 +73,22 @@ function createPage(numberClass, isNextLoad) {
     }
 
 
-    var children = isoObject[numberClass].children.split(' ')
-
-    $.each(numberOfChildren, function (index,value) {
-
-      if(!$('input[name='+value +']').attr('data-children')){
-        console.log($('input[name='+value +']').attr('data-children').siblings())
-
-        console.log(isoObject[value])
-        console.log($('.pasek'))
-        $('span.pasek').addClass('active-input');
-      }
-
-      console.log($('input[name='+value +']').attr('data-children'))
-
-
-    })
+    // var children = isoObject[numberClass].children.split(' ')
+    //
+    // $.each(numberOfChildren, function (index,value) {
+    //
+    //   if(!$('input[name='+value +']').attr('data-children')){
+    //     console.log($('input[name='+value +']').attr('data-children').siblings())
+    //
+    //     console.log(isoObject[value])
+    //     console.log($('.pasek'))
+    //     $('span.pasek').addClass('active-input');
+    //   }
+    //
+    //   console.log($('input[name='+value +']').attr('data-children'))
+    //
+    //
+    // })
 
 
 
