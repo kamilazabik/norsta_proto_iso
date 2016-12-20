@@ -27,7 +27,6 @@ function loadTitle(){
         // makeTr(numberClass, z+1 )
       }
     }
-
   });
 
   function clickOnClassName(numberClass,className,panel) {
@@ -65,6 +64,34 @@ function loadTitle(){
 
       addClassNotCollapsed(classNameText);
       addEvidence(classNameText);
+
+
+      // var children = isoObject[classNameText].children.split(' ')
+      console.log(classNameText)
+
+      // $.each(children, function (index,value) {
+      //   console.log(value)
+      //
+      //   if(!isoObject[value].children){
+      //     console.log($('.panel-hseq'+ value).find('.bar').childNodes)
+      //
+      //   }
+      //
+      //   // if(!$('input[name='+value +']').attr('data-children')){
+      //   //   // console.log($('input[name='+value +']').attr('data-children').siblings())
+      //   //
+      //   //   console.log(isoObject[value])
+      //   //   console.log($('.pasek'))
+      //   //   $('span.pasek').addClass('active-input');
+      //   // }
+      //
+      //   // console.log($('input[name='+value +']').attr('data-children'))
+      //
+      //
+      // })
+
+
+
 
 
       if(!isoObject[numberClass].children){

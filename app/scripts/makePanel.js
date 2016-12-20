@@ -13,31 +13,19 @@ function makeMainPanel(){
     , col1rowAssess1numVal = $('<h4 class="text-left numberValueA"></h4>')
     , col1rowAssess1numValPer = $('<h4 class="text-left numberValue-perA"></h4>')
 
-    , col1rowBar = $('<div class="col-lg-2 col-md-2 col-xs-2 bar"></div>')
+    , col1rowBar = $('<div class="col-lg-2 col-md-2 col-xs-2 bar-slider"></div>')
     , col1rowBarSpan = $('<span class="numberValueA numberValue"></span>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
 
   // data-parent="null"
 
     , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 pull-left filter"></div>')
-    // , col1rowButtonsGroup = $('<div class="btn-group" data-toggle="buttons"></div>')
-    // , col1rowButtonsGroupLabel1 = $('<label id="fastAssess" class="btn btn-primary active"></label>')
-    // , col1rowButtonsGroupLabel2 = $('<label id="normalAssess" class="btn btn-primary"></label>')
-    // , col1rowButtonsGroupLabelInput1 = '<input type="radio" name="options" id="option1" autocomplete="off" checked> Szybka ocena '
-    // , col1rowButtonsGroupLabelInput2 = '<input type="radio" name="options" id="option2" class="normalAsses" autocomplete="off"> Normalna ocena'
-
-    ,col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
-    ,col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normalna ocena</option>')
-    ,col1rowButtonsSelectOption2 = $('<option id="fastAssess">Szybka ocena</option>')
-    ,col1rowButtonsSelectOption3 = $('<option id="noAssessment">Brak oceny</option>');
-
-
-
+    , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
+    , col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normalna ocena</option>')
+    , col1rowButtonsSelectOption2 = $('<option id="fastAssess">Szybka ocena</option>')
+    , col1rowButtonsSelectOption3 = $('<option id="noAssessment">Brak oceny</option>');
 
   col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,     col1rowButtonsSelectOption3)
-  // col1rowButtonsGroupLabel1.append(col1rowButtonsGroupLabelInput1);
-  // col1rowButtonsGroupLabel2.append(col1rowButtonsGroupLabelInput2);
-  // col1rowButtonsGroup.append(col1rowButtonsGroupLabel1, col1rowButtonsGroupLabel2);
   col1rowButtons.append(col1rowButtonsSelect);
   col1rowTitleMain.append(col1rowTitleMainH3);
   col1rowAssess.append(col1rowAssessPie);
@@ -70,7 +58,7 @@ function makePanelsTitle(numberClass, oneTitle){
     ,colAssessRowColPie = $('<div class="pie pull-left"></div>')
     ,colAssessRowColNumValue = $('<h5 class="text-left numberValue'+numberClass+'"></h5>')
     ,colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
-    ,colBar = $('<div class="col-md-2-7 bar"></div>')
+    ,colBar = $('<div class="col-md-2-7 bar-slider"></div>')
     ,colBarSpan = $('<span class="numberValueBig numberValue'+numberClass+'"></span>')
     ,colButton = $('<div class="col-md-1-2 button-expand-three"></div>')
     ,colButtonRow1 = $('<div class="row"></div>')
@@ -117,7 +105,7 @@ function makePanelsTitle(numberClass, oneTitle){
   }
 
   $('.lab-hseq').text(numberClassWithDots);
-  $('.panel-heading .col-md-2-7.bar').append(sliderTitle[numberClass]);
+  $('.panel-heading .col-md-2-7.bar-slider').append(sliderTitle[numberClass]);
 
   // $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
   colButtonRow1Col1.append(buttonUp);
@@ -154,7 +142,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4rowCol2pie = $('<div class=\' pie pull-left\'></div>').attr('data-name',numberOfChildren[i - 1])
     , col4rowCol2h6 = $('<h5 class=\'numberValue' + numberOfChildren[i - 1] + '\' ></h5>')
     , col4rowCol2h6per = $('<h5 class=\'numberValue-per' + numberOfChildren[i - 1] + '\' ></h5>')
-    , col5 = $('<div class=\'col-md-2-7 col-sm-5 box-under-header-sx bar\'></div>')
+    , col5 = $('<div class=\'col-md-2-7 col-sm-5 box-under-header-sx bar-slider\'></div>')
     , max = childrenDegree[i-1]
     , col6 = $('<div class=\'col-md-1-2 col-sm-2 box-under-header-sx button-expand\'></div>')
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
@@ -167,6 +155,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     var children = isoObject[numberOfChildren[i - 1]].children;
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
     col6.append(button)
+
+
 
   }else {
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >');

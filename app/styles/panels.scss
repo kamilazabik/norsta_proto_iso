@@ -31,7 +31,7 @@ span.numberValue {
 .assessment,
 .filter,
 .bar-header,
-.bar,
+.bar-slider,
 .title-main,
 .assessment-icon  {
   display: flex;
@@ -263,7 +263,7 @@ circle {
     border-bottom-left-radius: 0;
   }
 
-  .bar {
+  .bar-slider {
     @include border-top-bottom($panels-border);
   }
 
@@ -360,7 +360,7 @@ circle {
   }
 
 .active-input {
-  background-color: #b6e0ee !important;
+  background-color: #80b9e4 !important;
 }
 
 

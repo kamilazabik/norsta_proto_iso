@@ -97,6 +97,17 @@ function OnInputSlider(obj)
   }
 }
 
+// function activeSlider(numberOfChildren){
+//   $.each(numberOfChildren, function (index,value) {
+//     console.log(value)
+//     if(!isoObject[value].children){
+//       console.log($('.panel-hseq'+ value).find('.bar').find('span'))
+//     }
+//   })
+// }
+
+
+
 function updateSlider(passObj, memo) {
 
   var obj = $(passObj);
@@ -134,6 +145,8 @@ function updateSlider(passObj, memo) {
       }
       else {
         initVal = memo[obj[idx].name];
+
+        nextObj.parent().parent().parent().children('.bar-slider').children().children('.slider-container').children('.bar').children('.pasek').slice(2).addClass('active-input')
       }
       if(!initVal) {
         initVal=0;
