@@ -168,7 +168,7 @@ circle {
 
       button.up{
         background: $panels-head;
-        margin: 3px 5px 3px auto;
+        margin: 4px 5px 3px auto;
         display: block;
       }
 
@@ -176,11 +176,18 @@ circle {
         background: $panels-head;
         float: right;
       }
+
+      button.arrow:disabled{
+        background-color: rgb(175, 175, 175);
+        border-color: rgb(152, 152, 152);
+
+      }
+
       .arrow:nth-child(1){
         margin: 0 5px 0 0;
       }
       .arrow:nth-child(2){
-        margin: 0 5px 0 6px;
+        margin: 0 7px 0 6px;
       }
 
     }
@@ -360,7 +367,7 @@ circle {
   }
 
 .active-input {
-  background-color: #80b9e4 !important;
+  background-color: #78afda !important;
 }
 
 
