@@ -26,6 +26,7 @@ $sidebar-md: 350px;
 $color-black: #000;
 $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow1, 0px 1px 5px 0px $color-shadow3;
 
+// Generate the large columns
 
 
 @mixin back-color($background, $color, $overflow){

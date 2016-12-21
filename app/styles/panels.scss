@@ -26,6 +26,11 @@ span.numberValue {
   font-size: 16px;
 }
 
+button{
+  background-color: $panels-head;
+  border-color: $panels-head;
+}
+
 .number,
 .title,
 .assessment,
@@ -168,13 +173,15 @@ circle {
 
       button.up{
         background: $panels-head;
-        margin: 4px 5px 3px auto;
+        margin: 4px 0 3px auto;
         display: block;
+        border-color: $panels-head;
       }
 
       button.arrow{
         background: $panels-head;
         float: right;
+        border-color: $panels-head;
       }
 
       button.arrow:disabled{
@@ -183,11 +190,9 @@ circle {
 
       }
 
-      .arrow:nth-child(1){
-        margin: 0 5px 0 0;
-      }
+
       .arrow:nth-child(2){
-        margin: 0 7px 0 6px;
+        margin: 0 6px 0 6px;
       }
 
     }
@@ -367,7 +372,8 @@ circle {
   }
 
 .active-input {
-  background-color: #78afda !important;
+  //background-color: #78afda !important;
+  background-color: #86bfea !important;
 }
 
 
@@ -404,12 +410,17 @@ circle {
       //}
     }
   }
+
+
 @media (max-width: 1400px){
-.box-header{
-  h3 {
-    font-size: 18px;
+  .box-header{
+    h3 {
+      font-size: 18px;
+    }
   }
-}
+  .panels-title h4 {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: $container-lg){
