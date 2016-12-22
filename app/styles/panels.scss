@@ -150,7 +150,10 @@ circle {
     //-webkit-border-radius: 2px 2px 0 0;
     //-moz-border-radius: 2px 2px 0 0;
     border-radius: 3px 3px 0 0;
-    height: 5em;
+
+    > div{
+      height: 5em;
+    }
 
     svg {
       @include pie-svg ($pie-size-md, $pie-size-md);
@@ -171,6 +174,10 @@ circle {
     .button-expand-three{
       height: 5em;
 
+      .row > div {
+        padding-left: 0;
+      }
+
       button.up{
         background: $panels-head;
         margin: 4px 0 3px auto;
@@ -189,8 +196,6 @@ circle {
         border-color: rgb(152, 152, 152);
 
       }
-
-
       .arrow:nth-child(2){
         margin: 0 6px 0 6px;
       }
@@ -281,6 +286,7 @@ circle {
 
   .button-expand {
     @include border-right($panels-border, 3px);
+    padding-left: 0 !important;
 
     button.expand{
       margin-left: auto;
