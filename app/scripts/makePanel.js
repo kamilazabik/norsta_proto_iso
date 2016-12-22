@@ -225,7 +225,7 @@ function makeFirstPartOfMainPage(){
 
 function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j ){
   var panelRow = $('<div class=\'row panel-hseq'+ numberOfChildMainPanel[j - 1]+' hseq space\'></div>')
-    , panelRowCol1 = $('<div class="col-xl-0-8 col-lg-0-8 col-md-0-8 col-sm-1 col-xs-2 box-under-header pull-left number"></div>')
+    , panelRowCol1 = $('<div class="col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-2 box-under-header pull-left number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
     , panelRowCol2 = $('<div class="col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 box-under-header pull-left title"></div>')
     , panelRowCol2A = $('<a></a>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#')
@@ -243,7 +243,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol4RowC2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
     , panelRowCol4RowC2H6 = $('<h5 class=\'numberValue' + numberOfChildMainPanel[j - 1] + '\' ></h5>').text('0/' + maxPanel)
     , panelRowCol4RowC2H6Per = $('<h5 class=\'numberValue-per' +  numberOfChildMainPanel[j - 1] + '\' ></h5>').text('0%')
-    , panelRowCol4RowC3 = $('<div class="col-md-4 col-sm-4 col-xs-4"></div>')
+    // , panelRowCol4RowC3 = $('<div class="col-md-4 col-sm-4 col-xs-4"></div>')
 
     , panelRowCol5 = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-6 box-under-header bar-header"></div>')
     , panelRowCol5Span = $('<span class=\'numberValueBig' + numberOfChildMainPanel[j - 1] + ' numberValue\' ></span>')
@@ -261,9 +261,9 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
 
   panelRowCol4RowC1.append(panelRowCol4RowC1Pie);
   panelRowCol4RowC2.append(panelRowCol4RowC2H6, panelRowCol4RowC2H6Per);
-  panelRowCol4RowC3.append();
+  // panelRowCol4RowC3.append();
 
-  panelRowCol4Row.append(panelRowCol4RowC1, panelRowCol4RowC2,panelRowCol4RowC3);
+  panelRowCol4Row.append(panelRowCol4RowC1, panelRowCol4RowC2);
   panelRowCol4.append(panelRowCol4Row);
   panelRowCol5.append(panelRowCol5Span,panelRowCol5Input );
   panelRowCol6.append(panelRowCol6Button);

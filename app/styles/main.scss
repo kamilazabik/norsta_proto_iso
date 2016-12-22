@@ -48,9 +48,6 @@ $icon-font-path: '../fonts/';
     }
 
     @media (min-width: $screen-md-min) and  (max-width: $screen-md-max) {
-      .col-md-1-1 {
-        @include make-md-column( 0.8 );
-      }
       .col-md-1-2 {
          @include make-md-column( 1.2 );
          .navbar-btn {
