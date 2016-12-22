@@ -227,7 +227,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
   var panelRow = $('<div class=\'row panel-hseq'+ numberOfChildMainPanel[j - 1]+' hseq space\'></div>')
     , panelRowCol1 = $('<div class="col-md-1 col-sm-1 col-xs-1 box-under-header pull-left number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
-    , panelRowCol2 = $('<div class="col-xl-8 col-md-5-3 col-sm-4 col-xs-8 box-under-header pull-left title"></div>')
+    , panelRowCol2 = $('<div class="col-xl-8 col-lg-8 col-md-5-3 col-sm-4 col-xs-8 box-under-header pull-left title"></div>')
     , panelRowCol2A = $('<a></a>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#')
     , panelRowCol2AH4 = $('<h4></h4>').text(nameOfChildMainPanel[j])
 
