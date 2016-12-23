@@ -369,17 +369,17 @@ circle {
   }
 }
 
-  .bar-header {
-    @include border-top-bottom($panels-border);
-  }
+.bar-header {
+  @include border-top-bottom($panels-border);
+}
 
-  .panel-shadow {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  }
+.panel-shadow {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
 
 .active-input {
-  //background-color: #78afda !important;
-  background-color: #86bfea !important;
+//background-color: #78afda !important;
+background-color: #86bfea !important;
 }
 
 
@@ -390,82 +390,16 @@ circle {
   color:white;
 }
 
-  @keyframes fillup {
-    to {
-      stroke-dasharray: 158 158;
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .box-header{
-      h3{
-        font-size: 18px;
-      }
-
-      h4 {
-        font-size: 16px;
-      }
-      //svg {
-      //  height: $pie-size-md;
-      //  width: $pie-size-md;
-      //}
-      //
-      //.pie {
-      //  width: $pie-size-md;
-      //  height: $pie-size-md;
-      //}
-    }
-  }
-
-
-@media (max-width: 1400px){
-  .box-header{
-    h3 {
-      font-size: 18px;
-    }
-  }
-  .panels-title h4 {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: $container-lg){
-  .box-header{
-    h3 {
-      font-size: 18px;
-    }
-  }
-}
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  .box-header{
-    h3 {
-      font-size: 18px;
-    }
-  }
-
-  .panels {
-    h4 {
-    font-size: 14px;
-    }
-    span.numberValue {
-      font-size: 14px;
-    }
+@keyframes fillup {
+  to {
+    stroke-dasharray: 158 158;
   }
 }
 
 
-@media (max-width: $screen-xs-max) {
-    .panels {
-    h4 {
-      font-size: 14px;
-    }
-      span.numberValue {
-        font-size: 14px;
-      }
 
-      .visible-xs {
-        display: flex !important;
-      }
-  }
-}
+
+
+
+
+

@@ -43,7 +43,7 @@ function makeMainPanel(){
 function makePanelsTitle(numberClass, oneTitle){
 
   var numberClassWithDots = addDotsForLabels(numberClass)
-    ,paddingContent = $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content')
+    ,paddingContent = $('.col-xl-9.col-lg-9.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content')
     ,panelTitle= $('<div class="panel panel-default panels-title allPanels"></div>')
     ,panelHeading = $('<div class="panel-heading"></div>')
     ,rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header"></div>')
@@ -148,7 +148,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
     , col5input
     , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary expand\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' ></button>')
-    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-md-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
+    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
     ,buttonEvidencesIcon = $('<i class=\'fa fa-arrow-down\' aria-hidden=\'true\'></i>')
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {

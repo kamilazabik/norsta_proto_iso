@@ -1,0 +1,253 @@
+@import "mixins";
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+.container-fluid {
+  padding-left: 0;
+
+  .padding-content {
+    @media (max-width: 400px){
+      padding-right: 50px;
+    }
+  }
+
+  .panels {
+    @include make-row();
+
+    @media (min-width: $screen-sm-min) and  (max-width: $screen-sm-max) {
+      .col-sm-1-2 {
+        @include make-sm-column( 1.2 );
+      }
+      .col-sm-1-4 {
+        @include make-sm-column( 1.4 );
+      }
+      .col-sm-1-6 {
+        @include make-sm-column( 1.6 );
+      }
+      .col-sm-2-4 {
+        @include make-sm-column( 2.4 );
+      }
+      .col-sm-2-6 {
+        @include make-sm-column( 2.6 );
+      }
+      .col-sm-2-8 {
+        @include make-sm-column( 2.8 );
+      }
+      .col-sm-10-4 {
+        @include make-sm-column( 10.4 );
+      }
+    }
+
+    @media (min-width: $screen-md-min) and  (max-width: $screen-md-max) {
+      .col-md-1-2 {
+        @include make-md-column( 1.2 );
+        .navbar-btn {
+          margin-top: 0;
+          margin-bottom: 6px;
+        }
+      }
+      .col-md-1-6 {
+        @include make-md-column( 1.6 );
+      }
+      .col-md-2-8 {
+        @include make-md-column( 2.8 );
+      }
+      .col-md-2-2 {
+        @include make-md-column( 2.2 );
+      }
+      .col-md-5-2 {
+        @include make-md-column(5.2);
+      }
+    }
+  }
+
+  @media (min-width: $screen-lg-min) and  (max-width: $screen-lg-max){
+    .col-lg-0-8{
+      @include make-lg-column( 0.8 );
+    }
+    .col-lg-1-2 {
+      @include make-lg-column( 1.2 );
+    }
+    .col-lg-1-4 {
+      @include make-lg-column( 1.4 );
+    }
+    .col-lg-2-6 {
+      @include make-lg-column( 2.6 );
+    }
+    .col-lg-2-8 {
+      @include make-lg-column( 2.8 );
+    }
+    .col-lg-5-2 {
+      @include make-lg-column(5.2);
+    }
+  }
+
+  @media (min-width: $screen-xl-min){
+    .col-xl-0-8{
+      @include make-xl-column( 0.8 );
+    }
+    .col-xl-1-2 {
+      @include make-xl-column( 1.2 );
+    }
+    .col-xl-1-5{
+      @include make-xl-column( 1.5 );
+    }
+    .col-xl-2-5{
+      @include make-xl-column( 2.5 );
+    }
+    .col-xl-2-8 {
+      @include make-xl-column( 2.8 );
+    }
+    .col-xl-5-2 {
+      @include make-xl-column(5.2);
+    }
+  }
+
+  padding-right: 0;
+}
+
+//
+//@media screen and (max-width: 768px) {
+//  .box-header{
+//    h3{
+//      font-size: 18px;
+//    }
+//
+//    h4 {
+//      font-size: 16px;
+//    }
+//    //svg {
+//    //  height: $pie-size-md;
+//    //  width: $pie-size-md;
+//    //}
+//    //
+//    //.pie {
+//    //  width: $pie-size-md;
+//    //  height: $pie-size-md;
+//    //}
+//  }
+//}
+
+@media (max-width: $screen-xs-max){
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .box-header{
+    h3,h4, .numberValue {
+      font-size: 14px;
+    }
+    svg, .pie {
+      @include pie-svg($pie-size-md,$pie-size-md) ;
+    }
+  }
+
+  .panels {
+    h4 {
+      font-size: 14px;
+    }
+    span.numberValue {
+      font-size: 14px;
+    }
+
+    .visible-xs {
+      display: flex !important;
+    }
+
+    .box-under-header {
+      height: 4em;
+    }
+    .title {
+      background-color: $panels-head;
+      height: 3em;
+      border-top-right-radius: 3px;
+      @include border-top-bottom($panels-head);
+      a {
+        color: #fff;
+      }
+    }
+    .number {
+      height: 3em;
+      border-bottom-left-radius: 0;
+    }
+    .assessment-icon {
+      border-left: $panels-border;
+      border-bottom-left-radius: 3px;
+    }
+    .button-expand {
+      border-top-right-radius: 0;
+    }
+
+  }
+}//768px
+
+@media (min-width: $screen-sm-min) and  (max-width: $screen-sm-max) {
+  .box-header{
+    h3, h4 {
+      font-size: 16px;
+    }
+    svg, .pie {
+      @include pie-svg($pie-size-md,$pie-size-md);
+    }
+  }
+
+
+  .panels {
+    h4 {
+      font-size: 14px;
+    }
+    span.numberValue {
+      font-size: 14px;
+    }
+  }
+
+
+
+}//768px -992px
+
+
+@media (min-width: $screen-md-min) and  (max-width: $screen-md-max) {
+  .box-header{
+    h3 {
+      font-size: 16px;
+    }
+  }
+
+}//992px - 1200px
+
+
+@media (min-width: $screen-lg-min) and  (max-width: $screen-lg-max){
+  .box-header{
+    h3 {
+      font-size: 18px;
+    }
+  }
+  .panels-title h4 {
+    font-size: 16px;
+  }
+}//1200px - 1440px
+
+
+@media (min-width: $screen-xl-min){
+
+}//1440px
+
+
+//
+//@media (max-width: $container-lg){
+//  .box-header{
+//    h3 {
+//      font-size: 18px;
+//    }
+//  }
+//}
+
