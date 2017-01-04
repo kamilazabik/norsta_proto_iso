@@ -120,6 +120,10 @@ function loadPage(isNextLoad){
           e.preventDefault();
           createPage(numberClass, true)
         })
+        $('.panel-hseq' + numberClass).on('dblclick', function (e) {
+          e.preventDefault();
+          createPage(numberClass, true)
+        })
       }
       else {
         $('.claim-hseq' + numberClass).on('click', function (e) {

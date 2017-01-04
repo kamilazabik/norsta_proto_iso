@@ -8,7 +8,8 @@ var xmlDataArr = {},
   SzybkaOcena = false,
   tempAssessmentObject = { sliderName: null, value: null },
   notSavedAssessment = false,
-  evidences =  {};
+  evidences =  {},
+  selectAssessmentMemo;
 
 
   // {

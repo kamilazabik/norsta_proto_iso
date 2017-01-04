@@ -45,7 +45,6 @@
               button.browse.btn.btn-primary(type='button')
                 i.glyphicon.glyphicon-search
                 |  Przeglądaj
-        button.save-new-evid.btn.btn-primary(type='submit') Zapisz
         hr
         p.title Wybierz istniejący dowód
         .row
@@ -126,7 +125,8 @@
       .modal-footer
         //button.btn.btn-default(type='button', data-dismiss='modal') Close
         //button.btn.btn-primary(type='button') Save changes
-        button(type="button" id="saveEvidence" class="btn btn-primary btn-sm pull-right" data-dismiss="modal") Anuluj
+        button.save-new-evid.btn.btn-primary.btn-sm(type='submit') Zapisz
+        button.btn.btn-primary.btn-sm.pull-right(type="button" id="saveEvidence" data-dismiss="modal") Anuluj
 
 
 

@@ -132,8 +132,9 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col1 = $('<div class=\'col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-1 box-under-header-sx pull-left number\'></div>')
     , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 box-under-header-sx pull-left title\'></div>')
-    , col2a = $('<a></a>').addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
-    , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
+    , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1]).addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
+    // , col2a = $('<a></a>').addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
+    // , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
     // , col3 = $('<div class=\'col-md-1 col-sm-1 box-under-header-sx filter\'></div>')
     , col4 = $('<div class=\'col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 box-under-header-sx assessment-icon\'></div>')
     , col4row = $('<div class=\'row\'></div>')
@@ -155,18 +156,18 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     var children = isoObject[numberOfChildren[i - 1]].children;
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
     col6.append(button)
-
-
-
-  }else {
+  }else if(!isoObject[numberOfChildren[i - 1]].children && !SzybkaOcena){
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >');
+    col6.append(buttonEvidences)
+  }else{
+    col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\'  >');
     col6.append(buttonEvidences)
   }
 
   buttonEvidences.append(buttonEvidencesIcon);
   col1.append(col1h5);
-  col2a.append(col2h5);
-  col2.append(col2a);
+  // col2a.append(col2h5);
+  col2.append(col2h5);
   col4rowCol1.append(col4rowCol2pie);
   col4rowCol2.append(col4rowCol2h6, col4rowCol2h6per);
   col4row.append(col4rowCol1, col4rowCol2, col4rowCol2);
@@ -188,7 +189,7 @@ function addEvidencesToTheList(numberOfChildren,i){
     , evidenceTableTh3 = $('<th>Repozytorium</th>')
     , evidenceTableTh4 = $('<th>Nazwa dokumentu</th>')
     , evidenceTableTh5 = $('<th></th>')
-    , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right\' ></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
+    , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
   // evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence);
   // evidenceTr2Td5.append(buttonTr2OpenEvidence,buttonTr2AddEvidence);

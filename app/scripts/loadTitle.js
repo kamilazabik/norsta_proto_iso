@@ -30,21 +30,20 @@ function loadTitle(){
   });
 
   function clickOnClassName(numberClass,className,panel) {
-    $(className).on('click', function (e) {
+    $(className).on('click',  function (e) {
       var classNameText = numberClass.join('.')
         , link = $('.title-hseq' + classNameText).text()
         , inputs =$(this).children().find('input')
         , inputName = inputs.attr('name')
-        , numberClassWithDots = addDotsForLabels(numberClass.join(''));
+        , numberClassWithDots = addDotsForLabels(numberClass.join(''))
+        , panel = $('.panel-hseq' + classNameText);
 
+
+      $('.hseq.space').removeClass('cursor');
+      panel.addClass('cursor');
       $('.addedComment').attr('data-name', classNameText);
       $('.editable_text').on('click', divClicked);
-
-      // $('.number').removeClass('labelColor')
-      // panel.removeClass('labelColor')
       $('.panel-title').removeClass('labelColor');
-      // allElement.removeClass('labelColor');
-
       allElement.children().removeClass('labelColor');
 
       // allElement.removeClass('panel-shadow');
@@ -60,49 +59,31 @@ function loadTitle(){
       panel.children(':first').addClass('labelColor')
       // panel.children().not(':first').not(':last').addClass('labelColor')
      $('.right-panel .panel-title').addClass('labelColor')
-      // console.log(panel.children(":first"))
 
       addClassNotCollapsed(classNameText);
       addEvidence(classNameText);
-
-
       // var children = isoObject[classNameText].children.split(' ')
-      console.log(classNameText)
+      console.log(classNameText);
 
       // $.each(children, function (index,value) {
-      //   console.log(value)
-      //
       //   if(!isoObject[value].children){
       //     console.log($('.panel-hseq'+ value).find('.bar').childNodes)
-      //
       //   }
-      //
       //   // if(!$('input[name='+value +']').attr('data-children')){
       //   //   // console.log($('input[name='+value +']').attr('data-children').siblings())
-      //   //
-      //   //   console.log(isoObject[value])
-      //   //   console.log($('.pasek'))
       //   //   $('span.pasek').addClass('active-input');
       //   // }
-      //
       //   // console.log($('input[name='+value +']').attr('data-children'))
-      //
-      //
       // })
 
-
-
-
-
-      if(!isoObject[numberClass].children){
+      if(!isoObject[numberClass].children && !SzybkaOcena){
 
         allInputs.each(function (v,i) {
-          var input = $(this)
+          var input = $(this);
           input.attr('disabled', 'disabled')
         });
         var clickedInput = $('input[name='+classNameText +']');
         clickedInput.removeAttr('disabled' )
-
       }
 
       if(notSavedAssessment && !SzybkaOcena) {
@@ -129,25 +110,27 @@ function addComments (classNameText){
   }
 }//addComments
 
-// function SetSelectAssessmentField() {
-//     $('#normalAssess').click(function () {
-//       SzybkaOcena = false;
-//     });
-//
-//     $('#fastAssess').click(function () {
-//         SzybkaOcena = true;
-//     });
-// }//SetSelectAssessmentField
-
 function SetSelectAssessmentField(){
+  var selectAssessmentValue = $('#selectAssessment');
+    if(selectAssessmentMemo){
+      selectAssessmentValue.val(selectAssessmentMemo)
+    }
 
-  $('#selectAssessment').on('change', function(){
+  selectAssessmentValue.on('change', function(){
+    var allInputs = $('.allPanels input');
+    selectAssessmentMemo = $('#selectAssessment').val();
+    console.log(selectAssessmentMemo);
+
     $('#selectAssessment option').each(function() {
-      var selectId = $(this).attr('id')
+      var selectId = $(this).attr('id');
       if (selectId == "normalAssess" && $(this).is(':selected')) {
         SzybkaOcena = false;
       }else if (selectId == "fastAssess" && $(this).is(':selected')){
         SzybkaOcena = true;
+        allInputs.each(function (v,i) {
+          var input = $(this);
+          input.removeAttr('disabled')
+        });
       }else if(selectId == "noAssessment" && $(this).is(':selected')){
       }
     })
@@ -199,14 +182,22 @@ function CancelAssessment() {
 function addClassNotCollapsed(classNameText){
   var clickedPanel = $('.panel-hseq' + classNameText+' div.number');
   var clickedPanelButton = $('.panel-hseq' + classNameText+' div.button-expand')
+    , clickedButton =$('.panel-hseq' + classNameText+' div.button-expand button i')
     , collapseElement = $('#collapseExample' + classNameText).attr('aria-expanded');
 
   clickedPanel.removeClass('number-not-collapsed');
   clickedPanelButton.removeClass('button-expand-not-collapsed');
+  // console.log($('button[target = #collapseExample + classNameText]'))
 
   if(collapseElement == 'false' || collapseElement == undefined){
     clickedPanel.addClass('number-not-collapsed');
     clickedPanelButton.addClass('button-expand-not-collapsed')
+    clickedButton.removeClass('fa-arrow-down')
+    clickedButton.addClass('fa-arrow-up')
+  }else{
+    clickedButton.removeClass('fa-arrow-up')
+    clickedButton.addClass('fa-arrow-down')
+
   }
 }//addClassNotCollapsed
 
@@ -272,8 +263,8 @@ function makeTr(className, rowCount){
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td></td>').text( isoObject[className]['nameDocument' + rowCount])
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" aria-hidden="true"></i>')
-    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' data-evidence=\''+ rowCount+ '\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
+    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" data-toggle=\'tooltip\' data-placement=\'top\' title=\'Otwórz dowód\' aria-hidden="true"></i>')
+    , buttonTr3AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add\' data-evidence=\''+ rowCount+ '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Edytuj dowód\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
 
     evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
     evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,

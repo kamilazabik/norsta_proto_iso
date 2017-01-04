@@ -4,9 +4,10 @@
 
 
 .panel {
-  box-shadow: $panels-shadow;
+  //box-shadow: $panels-shadow;
+  box-shadow: $panels-shadow !important;
   border-radius: 3px;
-  border: 0;
+  border: 0 !important;
 }
 
 .allPanels {
@@ -29,6 +30,10 @@ span.numberValue {
 button{
   background-color: $panels-head;
   border-color: $panels-head;
+}
+
+.cursor{
+  cursor: pointer;
 }
 
 .number,
@@ -77,6 +82,8 @@ circle {
   fill: #e2282b !important;
   stroke: #45d666 !important;
 }
+
+
 
 .box-header {
   @include back-color(#fff, $color-black, hidden);
@@ -211,7 +218,7 @@ circle {
   padding-top: 20px !important;
 
   .hseq.space {
-    cursor: pointer;
+    //cursor: pointer;
   }
 
   .box-under-header {
