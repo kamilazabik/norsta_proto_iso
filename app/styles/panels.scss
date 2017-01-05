@@ -13,6 +13,9 @@
 .allPanels {
   margin-top: 20px;
   margin-bottom: 16px;
+   .title h4{
+     color: $panels-head;
+   }
 }
 
 .padding-content {
@@ -150,6 +153,7 @@ circle {
 
   h4 {
     @include font(400,1.4);
+    color: $panels-head;
   }
 
   .box-under-header {
@@ -394,7 +398,24 @@ background-color: #86bfea !important;
   background-color: $label !important;
   border-top: 1px solid $label !important;
   border-bottom: 1px solid $label !important;
-  color:white;
+  h4 {
+    color: white !important;
+  }
+}
+
+.titleColor {
+  //border: 1px solid $label !important;
+  //box-shadow: 0 0 10px rgba(84, 166, 230, 0.5)
+  div:not(:first-child) {
+    background-color: #f3f3f3;
+  }
+}
+
+.hseq.space:hover{
+  div:not(:first-child) {
+    background-color: #f3f3f3;
+  }
+
 }
 
 @keyframes fillup {

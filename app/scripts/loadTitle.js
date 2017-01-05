@@ -7,6 +7,8 @@ function loadTitle(){
     , slider = $('.sliderRightPanel input.slider');
 
 
+  console.log(slidersMemo);
+
   allElement.each(function(){
     var className = $(this)
     // var numberClass = className.attr('class').split(' ')[0].replace('title-hseq','').split('-');
@@ -43,8 +45,10 @@ function loadTitle(){
       panel.addClass('cursor');
       $('.addedComment').attr('data-name', classNameText);
       $('.editable_text').on('click', divClicked);
+
       $('.panel-title').removeClass('labelColor');
       allElement.children().removeClass('labelColor');
+      allElement.removeClass('titleColor');
 
       // allElement.removeClass('panel-shadow');
       e.preventDefault();
@@ -57,24 +61,13 @@ function loadTitle(){
 
       // panel.addClass('panel-shadow');
       panel.children(':first').addClass('labelColor')
+      panel.addClass('titleColor')
       // panel.children().not(':first').not(':last').addClass('labelColor')
      $('.right-panel .panel-title').addClass('labelColor')
 
       addClassNotCollapsed(classNameText);
       addEvidence(classNameText);
-      // var children = isoObject[classNameText].children.split(' ')
-      console.log(classNameText);
-
-      // $.each(children, function (index,value) {
-      //   if(!isoObject[value].children){
-      //     console.log($('.panel-hseq'+ value).find('.bar').childNodes)
-      //   }
-      //   // if(!$('input[name='+value +']').attr('data-children')){
-      //   //   // console.log($('input[name='+value +']').attr('data-children').siblings())
-      //   //   $('span.pasek').addClass('active-input');
-      //   // }
-      //   // console.log($('input[name='+value +']').attr('data-children'))
-      // })
+      console.log(slidersMemo)
 
       if(!isoObject[numberClass].children && !SzybkaOcena){
 
@@ -160,7 +153,9 @@ function SaveAssessment() {
   if(tempAssessmentObject && tempAssessmentObject.sliderName)
   {
     var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
+    console.log(input)
     slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
+    console.log(tempAssessmentObject)
     updateTopSlider();
     updateSlider(input, slidersMemo);
     notSavedAssessment=false;

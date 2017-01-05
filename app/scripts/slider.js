@@ -82,12 +82,14 @@ $.fn.rangeslider = function (options) {
   return obj;
 };
 
-function OnInputSlider(obj)
-{
+function OnInputSlider(obj) {
   updateSlider(obj);
+  console.log('OBJ')
+  console.log(obj)
   if(obj) {
     tempAssessmentObject.sliderName=obj.name;
     tempAssessmentObject.value=$(obj).val();
+    console.log(tempAssessmentObject)
     $ ('input').off('click')
 
     $('input').on('click', function (e) {
@@ -163,7 +165,7 @@ function updateSlider(passObj, memo) {
       slidersMemo={};
     }
 
-    // slidersMemo[obj[0].name] = value;
+    slidersMemo[obj[0].name] = value;
 
     if(SzybkaOcena){
       // console.log('zapisało się')

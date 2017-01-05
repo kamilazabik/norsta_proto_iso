@@ -229,8 +229,8 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol1 = $('<div class="col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-2 box-under-header pull-left number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
     , panelRowCol2 = $('<div class="col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 box-under-header pull-left title"></div>')
-    , panelRowCol2A = $('<a></a>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#')
-    , panelRowCol2AH4 = $('<h4></h4>').text(nameOfChildMainPanel[j])
+    // , panelRowCol2A = $('<p></p>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#')
+    , panelRowCol2AH4 = $('<h4></h4>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#').text(nameOfChildMainPanel[j])
 
     // , panelRowCol3 = $('<div class="col-xl-3 col-xs-3 visible-xs box-under-header button-expand"></div>')
     // , panelRowCol3Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm.custom-btn\'>Rozwiń</button>')
@@ -256,8 +256,9 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol6Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn expand-main-page\'>Rozwiń</button>');
 
   panelRowCol1.append(panelRowCol1H4);
-  panelRowCol2A.append(panelRowCol2AH4);
-  panelRowCol2.append(panelRowCol2A);
+  // panelRowCol2A.append(panelRowCol2AH4);
+  // panelRowCol2.append(panelRowCol2A);
+  panelRowCol2.append(panelRowCol2AH4);
   // panelRowCol3.append(panelRowCol3Button);
 
   panelRowCol4RowC1.append(panelRowCol4RowC1Pie);
