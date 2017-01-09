@@ -3,7 +3,7 @@ function makeMainPanel(){
     , col = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1 = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1row = $('<div class="row fixedPos box-header"></div>')
-    , col1rowTitleMain = $('<div class="col-lg-6 col-md-5 col-sm-5 col-xs-2 pull-left title-main"></div>')
+    , col1rowTitleMain = $('<div class="col-lg-6 col-md-5 col-sm-5 col-xs-12 pull-left title-main"></div>')
     , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
 
     , col1rowAssess = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
@@ -13,13 +13,13 @@ function makeMainPanel(){
     , col1rowAssess1numVal = $('<h4 class="text-left numberValueA"></h4>')
     , col1rowAssess1numValPer = $('<h4 class="text-left numberValue-perA"></h4>')
 
-    , col1rowBar = $('<div class="col-lg-2 col-md-2 col-xs-2 bar-slider"></div>')
+    , col1rowBar = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 bar-slider"></div>')
     , col1rowBarSpan = $('<span class="numberValueA numberValue"></span>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
 
   // data-parent="null"
 
-    , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 pull-left filter"></div>')
+    , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-left filter"></div>')
     , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
     , col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normalna ocena</option>')
     , col1rowButtonsSelectOption2 = $('<option id="fastAssess">Szybka ocena</option>')
@@ -148,7 +148,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col6 = $('<div class=\'col-xl-1-2 col-lg-1-2 col-md-1-6 col-sm-1-4 col-xs-2 box-under-header-sx button-expand\'></div>')
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
     , col5input
-    , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary expand\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' ></button>')
+    , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary expand\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
     , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
     ,buttonEvidencesIcon = $('<i class=\'fa fa-arrow-down\' aria-hidden=\'true\'></i>')
 

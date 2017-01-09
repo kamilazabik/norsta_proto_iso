@@ -10,7 +10,6 @@ $(document).ready( function(){
   createPage('A', false);
   attachEvidence();
 
-
 });//END of document.READY
 
 
@@ -127,6 +126,10 @@ function loadPage(isNextLoad){
       }
       else {
         $('.claim-hseq' + numberClass).on('click', function (e) {
+          e.preventDefault();
+          createPage(numberClass, true)
+        })
+        $('.panel-hseq' + numberClass).on('dblclick', function (e) {
           e.preventDefault();
           createPage(numberClass, true)
         })

@@ -165,13 +165,16 @@ function updateSlider(passObj, memo) {
       slidersMemo={};
     }
 
-    slidersMemo[obj[0].name] = value;
+    // slidersMemo[obj[0].name] = value;
+
 
     if(SzybkaOcena){
       // console.log('zapisało się')
       slidersMemo[obj[0].name] = value;
     }else{
-      // console.log("nie zapisało się")
+
+
+      slidersMemo[obj[0].name] = value;
     }
 
 
