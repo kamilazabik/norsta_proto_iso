@@ -17,7 +17,6 @@ function makeMainPanel(){
     , col1rowBarSpan = $('<span class="numberValueA numberValue"></span>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
 
-  // data-parent="null"
 
     , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-left filter"></div>')
     , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
@@ -107,7 +106,6 @@ function makePanelsTitle(numberClass, oneTitle){
   $('.lab-hseq').text(numberClassWithDots);
   $('.panel-heading .bar-slider').append(sliderTitle[numberClass]);
 
-  // $('.col-md-1-2.button-expand-three').append(buttonUp, buttonLeft, buttonRight);
   colButtonRow1Col1.append(buttonUp);
   colButtonRow2Col1.append(buttonRight, buttonLeft );
   colButton.append(colButtonRow1, colButtonRow2);
@@ -133,9 +131,6 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 box-under-header-sx pull-left title\'></div>')
     , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1]).addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
-    // , col2a = $('<a></a>').addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
-    // , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
-    // , col3 = $('<div class=\'col-md-1 col-sm-1 box-under-header-sx filter\'></div>')
     , col4 = $('<div class=\'col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 box-under-header-sx assessment-icon\'></div>')
     , col4row = $('<div class=\'row\'></div>')
     , col4rowCol1 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-6\'></div>')
@@ -166,7 +161,6 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
   buttonEvidences.append(buttonEvidencesIcon);
   col1.append(col1h5);
-  // col2a.append(col2h5);
   col2.append(col2h5);
   col4rowCol1.append(col4rowCol2pie);
   col4rowCol2.append(col4rowCol2h6, col4rowCol2h6per);
@@ -191,29 +185,17 @@ function addEvidencesToTheList(numberOfChildren,i){
     , evidenceTableTh5 = $('<th></th>')
     , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
-  // evidenceTr1Td5.append(buttonTr1OpenEvidence,buttonTr1AddEvidence);
-  // evidenceTr2Td5.append(buttonTr2OpenEvidence,buttonTr2AddEvidence);
-  // evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3AddEvidence);
-
-  // evidenceTr1.append(evidenceTr1Td1,evidenceTr1Td2,evidenceTr1Td3,evidenceTr1Td4,evidenceTr1Td5);
-  // evidenceTr2.append(evidenceTr2Td1,evidenceTr2Td2,evidenceTr2Td3,evidenceTr2Td4,evidenceTr2Td5);
-  // evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td4,evidenceTr3Td5);
   evidenceTableTh5.append(evidenceTableTh5AddEvidence );
-  evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4,evidenceTableTh5);
+  evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4, evidenceTableTh5);
   evidenceTableHead.append(evidenceTableTr);
-  // evidenceTableBody.append(evidenceTr1,evidenceTr2,evidenceTr3);
-  // evidenceTableBody.append(evidenceTr3);
   evidenceTable.append(evidenceTableHead, evidenceTableBody);
   evidence.append(evidenceTable);
 
-  // addEvidence(numberOfChildren[i - 1])
   return evidence
-
 }
 
 
 function makeFirstPartOfMainPage(){
-  // var paddingContent = $('<div class="col-md-9 col-sm-12 col-xs-12 pull-left padding-content"></div>')
   var panelDefault = $('<div class="panel panel-default allPanels"></div>')
     , panelContent = $('<div class="panel-body panel-content panels"></div>')
     , panelCol = $('<div class="col-md-12 col-sm-12 col-sx-12"></div>');
@@ -229,26 +211,17 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol1 = $('<div class="col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-2 box-under-header pull-left number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
     , panelRowCol2 = $('<div class="col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 box-under-header pull-left title"></div>')
-    // , panelRowCol2A = $('<p></p>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#')
     , panelRowCol2AH4 = $('<h4></h4>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#').text(nameOfChildMainPanel[j])
-
-    // , panelRowCol3 = $('<div class="col-xl-3 col-xs-3 visible-xs box-under-header button-expand"></div>')
-    // , panelRowCol3Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm.custom-btn\'>Rozwiń</button>')
-
     , panelRowCol4 = $('<div class="col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 box-under-header assessment-icon"></div>')
     , panelRowCol4Row = $('<div class="row"></div>')
     , panelRowCol4RowC1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
     , panelRowCol4RowC1Pie = $('<div class=\'pie pull-left\'></div>').attr('data-name',numberOfChildMainPanel[j - 1])
-
     , maxPanel = childDegreeMainPanel[j-1]
     , panelRowCol4RowC2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
     , panelRowCol4RowC2H6 = $('<h5 class=\'numberValue' + numberOfChildMainPanel[j - 1] + '\' ></h5>').text('0/' + maxPanel)
     , panelRowCol4RowC2H6Per = $('<h5 class=\'numberValue-per' +  numberOfChildMainPanel[j - 1] + '\' ></h5>').text('0%')
-    // , panelRowCol4RowC3 = $('<div class="col-md-4 col-sm-4 col-xs-4"></div>')
-
     , panelRowCol5 = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-6 box-under-header bar-header"></div>')
     , panelRowCol5Span = $('<span class=\'numberValueBig' + numberOfChildMainPanel[j - 1] + ' numberValue\' ></span>')
-
     , panelChildren = isoObject[numberOfChildMainPanel[j - 1]].children
     , panelRowCol5Input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxPanel + ' name=\'' + numberOfChildMainPanel[j - 1] + '\' data-parent=\'A\' data-children=\'' + panelChildren + '\' disabled >')
 
@@ -256,15 +229,9 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol6Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn expand-main-page\'>Rozwiń</button>');
 
   panelRowCol1.append(panelRowCol1H4);
-  // panelRowCol2A.append(panelRowCol2AH4);
-  // panelRowCol2.append(panelRowCol2A);
   panelRowCol2.append(panelRowCol2AH4);
-  // panelRowCol3.append(panelRowCol3Button);
-
   panelRowCol4RowC1.append(panelRowCol4RowC1Pie);
   panelRowCol4RowC2.append(panelRowCol4RowC2H6, panelRowCol4RowC2H6Per);
-  // panelRowCol4RowC3.append();
-
   panelRowCol4Row.append(panelRowCol4RowC1, panelRowCol4RowC2);
   panelRowCol4.append(panelRowCol4Row);
   panelRowCol5.append(panelRowCol5Span,panelRowCol5Input );
@@ -273,29 +240,10 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
   panelRow.append(panelRowCol1, panelRowCol2,panelRowCol4,panelRowCol5,panelRowCol6)
   return panelRow;
 }//makeSecondPartOfMainPage
-//
-// function makeSlider(numberClass, maxDegree){
-//   var slider;
-//   if (isoObject[numberClass].children != undefined) {
-//     var children = isoObject[numberClass].children;
-//     slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxDegree + ' name=\'' + numberClass + '\' data-parent=\'' + isoObject[numberClass].parent + '\' data-children=\'' + isoObject[numberClass].children + '\' disabled >')
-//   }else {
-//     slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxDegree + ' name=\'' + numberClass + '\' data-parent=\'' + isoObject[numberClass].parent + '\' >')
-//
-//   }
-//
-//   $('.sliderRightPanel').append(slider)
-// }
 
 function makeSlider(){
   var slider;
-  // if (isoObject[numberClass].children != undefined) {
-  //   var children = isoObject[numberClass].children;
     slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=\'40\' name=\'A5\' data-parent=\'A\' data-children=\'A511,A512\' disabled >')
-  // }else {
-  //   slider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxDegree + ' name=\'' + numberClass + '\' data-parent=\'' + isoObject[numberClass].parent + '\' >')
-  //
-  // }
 
   $('.sliderRightPanel').append(slider)
 }//makeSlider
@@ -313,8 +261,6 @@ function changeSlider(numberClass){
   slider.attr('name', numberClass);
   slider.attr('data-parent', inputParent );
   slider.attr('value', slidersMemo[numberClass]);
-
-  // updateSlider(slider, null);
 
   if (isoObject[numberClass]!= undefined) {
     var inputChildren = input.attr('data-children');
