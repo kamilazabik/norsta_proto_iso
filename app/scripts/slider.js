@@ -76,18 +76,15 @@ $.fn.rangeslider = function (options) {
 
 function OnInputSlider(obj) {
   updateSlider(obj);
-  console.log('OBJ')
-  console.log(obj)
   if(obj) {
     tempAssessmentObject.sliderName=obj.name;
     tempAssessmentObject.value=$(obj).val();
-    console.log(tempAssessmentObject);
     $ ('input').off('click');
 
-    $('input').on('click', function (e) {
-      notSavedAssessment=true;
-      e.stopPropagation()
-    })
+    // $('input').on('click', function (e) {
+    //   notSavedAssessment=true;
+    //   e.stopPropagation()
+    // })
   }
 }//OnInputSlider
 

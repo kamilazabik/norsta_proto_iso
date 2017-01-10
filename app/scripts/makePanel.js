@@ -67,10 +67,8 @@ function makePanelsTitle(numberClass, oneTitle){
     ,panelBody = $('<div class="panel-body panel-content panels"></div>')
     ,colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
 
-
   colButtonRow1.append(colButtonRow1Col1);
   colButtonRow2.append(colButtonRow2Col1);
-
   colBar.append(colBarSpan);
   colAssessRowCol2.append(colAssessRowColNumValue, colAssessRowColNumValuePer);
   colAssessRowCol1.append(colAssessRowColPie);
@@ -85,14 +83,14 @@ function makePanelsTitle(numberClass, oneTitle){
   paddingContent.append(panelTitle);
 
   var siblings = isoObject[isoObject[numberClass].parent].children.split(',')
-    ,indexOfnumberClass = siblings.indexOf(numberClass)
-    ,nextSibling = siblings[indexOfnumberClass + 1]
-    ,prevSibling = siblings[indexOfnumberClass - 1];
+    , indexOfnumberClass = siblings.indexOf(numberClass)
+    , nextSibling = siblings[indexOfnumberClass + 1]
+    , prevSibling = siblings[indexOfnumberClass - 1];
 
   var pie = $('.panel-heading .pie').attr('data-name', numberClass)
     , arrowLeft = $('<i class=\'fa fa-angle-double-left\' aria-hidden=\'true\'></i>')
     , arrowRight = $('<i class=\'fa fa-angle-double-right\' aria-hidden=\'true\'></i>')
-    , buttonUp = $('<button type=\'button\' class=\'claim-hseq' + isoObject[numberClass].parent + ' btn btn-primary btn-sm custom-btn up\'>Do góry</button>');
+    , buttonUp = $('<button type=\'button\' class=\'claim-hseq' + isoObject[numberClass].parent + ' btn btn-primary btn-sm custom-btn up\' name=\''+ isoObject[numberClass].parent+'\'>Do góry</button>');
   var buttonLeft = $('<button type=\'button\' class=\'claim-hseq' + prevSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowLeft);
   var buttonRight = $('<button type=\'button\' class=\'claim-hseq' + nextSibling + ' btn btn-primary btn-sm custom-btn arrow\'></button>').append(arrowRight);
 
@@ -151,10 +149,12 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     var children = isoObject[numberOfChildren[i - 1]].children;
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
     col6.append(button)
-  }else if(!isoObject[numberOfChildren[i - 1]].children && !SzybkaOcena){
-    col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >');
-    col6.append(buttonEvidences)
-  }else{
+  }
+  // else if(!isoObject[numberOfChildren[i - 1]].children && !SzybkaOcena){
+  //   col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\' disabled  >');
+  //   col6.append(buttonEvidences)
+  // }
+  else{
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\'  >');
     col6.append(buttonEvidences)
   }
@@ -170,6 +170,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   row.append(col1, col2, col4, col5, col6, evidenceID);
 
   return row;
+
 }//makeBodyPanel
 
 function addEvidencesToTheList(numberOfChildren,i){
@@ -194,7 +195,6 @@ function addEvidencesToTheList(numberOfChildren,i){
   return evidence
 }
 
-
 function makeFirstPartOfMainPage(){
   var panelDefault = $('<div class="panel panel-default allPanels"></div>')
     , panelContent = $('<div class="panel-body panel-content panels"></div>')
@@ -204,6 +204,7 @@ function makeFirstPartOfMainPage(){
   panelDefault.append(panelContent);
 
   return panelDefault;
+
 }//makeFirstPartOfMainPage
 
 function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j ){
@@ -268,7 +269,6 @@ function changeSlider(numberClass){
   }else{
     slider.attr('data-children', '' );
     slider.removeAttr('disabled' )
-
   }
 
 }//changeSlider

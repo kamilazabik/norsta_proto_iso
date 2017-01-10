@@ -6,7 +6,7 @@ function createPage(numberClass, isNextLoad) {
     , mainPanel = $('#main-panel')
     , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
-    , description = isoObject[numberClass].description.split('^')
+    // , description = isoObject[numberClass].description.split('^')
     , titleClaim = $('.title-hseq' + numberClass)
     , titlePanel = $('.title-claim')
     , label = $('.label-claim');
@@ -16,7 +16,7 @@ function createPage(numberClass, isNextLoad) {
   row.remove();
   content.prepend(makeMainPanel());
 
-  var maxDegree = isoObject[numberClass].maxDegree;
+  // var maxDegree = isoObject[numberClass].maxDegree;
 
   $('.sliderRightPanel').empty();
 
@@ -61,6 +61,7 @@ function createPage(numberClass, isNextLoad) {
 
 
 function loadPage(isNextLoad){
+
   var links = $('[class*=\'claim\']')
     , allTitles = $('[class^=\'title-hseq\']');
 
@@ -85,17 +86,49 @@ function loadPage(isNextLoad){
         sliderTitle[index] = value
       });
 
+
+
       if (isNextLoad) {
-        $('#panel-content .claim-hseq' + numberClass).on('click', function (e) {
-          e.preventDefault();
-          createPage(numberClass, true)
-        });
-        $('.panel-hseq' + numberClass).on('dblclick', function (e) {
-          e.preventDefault();
-          createPage(numberClass, true)
-        })
-      }
-      else {
+          $('.panel-body .claim-hseq' + numberClass).on('click', function (e) {
+            e.preventDefault();
+            createPage(numberClass, true)
+          });
+          $('.panel-hseq' + numberClass).on('dblclick', function (e) {
+            e.preventDefault();
+            createPage(numberClass, true)
+          });
+
+          $('.panel-heading .claim-hseq' + numberClass).on('click', function (e) {
+            console.log($(this).attr('name'))
+            var buttonClass = $(this).attr('name');
+            if(!SzybkaOcena){
+              console.log(SzybkaOcena)
+
+              notSavedAssessment=true;
+              $('#myModal').modal('show');
+              console.log(notSavedAssessment)
+
+              $('#saveAssessAlert').on('click', function () {
+                // SaveAssessment(buttonClass);
+                createPage(numberClass, true)
+              });
+
+              $('#removeAssessAlert').on('click', function () {
+                // SaveAssessment(buttonClass);
+                createPage(numberClass, true)
+              });
+
+              // if(notSavedAssessment){
+              //   console.log(notSavedAssessment)
+              //   // createPage(numberClass, true)
+              // }
+            }else {
+              e.preventDefault();
+              console.log(SzybkaOcena)
+              createPage(numberClass, true)
+            }
+          });
+      } else {
         $('.claim-hseq' + numberClass).on('click', function (e) {
           e.preventDefault();
           createPage(numberClass, true)

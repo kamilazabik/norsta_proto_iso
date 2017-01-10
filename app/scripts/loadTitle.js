@@ -6,7 +6,8 @@ function loadTitle(){
     , allInputs = $('.allPanels input')
     , slider = $('.sliderRightPanel input.slider');
 
-  console.log(slidersMemo);
+  // console.log(slidersMemo);
+
 
   allElement.each(function(){
     var className = $(this)
@@ -14,7 +15,7 @@ function loadTitle(){
       , panel = $('.panel-hseq' + numberClass.join('-'))
       , clickedButton =$('.panel-hseq' + numberClass+' div.button-expand button');
 
-    clickOnClassName(numberClass, className,panel);
+  clickOnClassName(numberClass, className,panel)
 
     clickedButton.on('click', function (e) {
       addClassNotCollapsed(numberClass);
@@ -31,7 +32,7 @@ function loadTitle(){
 
   function clickOnClassName(numberClass,className,panel) {
 
-    $(className).on('click',  function (e) {
+    className.on('click', function (e) {
       e.preventDefault();
 
       var classNameText = numberClass.join('.')
@@ -63,7 +64,6 @@ function loadTitle(){
       console.log(slidersMemo);
 
       if(!isoObject[numberClass].children && !SzybkaOcena){
-
         allInputs.each(function (v,i) {
           var input = $(this);
           input.attr('disabled', 'disabled')
@@ -72,15 +72,25 @@ function loadTitle(){
         clickedInput.removeAttr('disabled' )
       }
 
-      if(notSavedAssessment && !SzybkaOcena) {
+      // if(!SzybkaOcena){
+      //   $('.button-expand-three div div button').on('click', function (e) {
+      //     console.log('gggggggggggggggggggg')
+      //     notSavedAssessment=true;
+      //     $('#myModal').modal('show');
+      //     // e.stopPropagation()
+      //   })
+      // }
 
-          $('#myModal').modal('show');
 
-        //TODO:
-        //Alert ze nie zapisana ocena z wyborem zapisz/anuluj
-        // SaveAssessment();
-        // CancelAssessment();
-      }
+      // if(notSavedAssessment && !SzybkaOcena) {
+      //
+      //     $('#myModal').modal('show');
+      //
+      //   //TODO:
+      //   //Alert ze nie zapisana ocena z wyborem zapisz/anuluj
+      //   // SaveAssessment();
+      //   // CancelAssessment();
+      // }
     });
   }
 }//loadTitle
@@ -105,7 +115,7 @@ function SetSelectAssessmentField(){
   selectAssessmentValue.on('change', function(){
     var allInputs = $('.allPanels input');
     selectAssessmentMemo = $('#selectAssessment').val();
-    console.log(allInputs);
+
 
     $('#selectAssessment option').each(function() {
       var selectId = $(this).attr('id');
@@ -121,15 +131,16 @@ function SetSelectAssessmentField(){
           }
         });
       }else if(selectId == "noAssessment" && $(this).is(':selected')){
+
       }
     })
   })
 }//SetSelectAssessmentField
 
 
-function SetAssessmentField() {
+function SetAssessmentField(buttonClass) {
   $('#saveAssessAlert').on('click', function () {
-      SaveAssessment();
+      SaveAssessment(buttonClass);
   });
 
   $('#removeAssessAlert').on('click', function () {
@@ -145,12 +156,14 @@ function SetAssessmentField() {
   })
 }//SetAssessmentField
 
-function SaveAssessment() {
+function SaveAssessment(buttonClass) {
+  console.log(buttonClass)
   if(tempAssessmentObject && tempAssessmentObject.sliderName)
   {
     var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
     slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
-    console.log(tempAssessmentObject)
+    console.log(tempAssessmentObject);
+
     updateTopSlider();
     updateSlider(input, slidersMemo);
     notSavedAssessment=false;
@@ -167,6 +180,7 @@ function CancelAssessment() {
     updateSlider(input, tempAssessmentObject);
     notSavedAssessment=false;
     $('#myModal').modal('hide')
+
   }
 }//CancelAssessment
 

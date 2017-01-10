@@ -26,7 +26,7 @@ function attachEvidence() {
   $(document).on('click','.save-new-evid', function( event ) {
     event.preventDefault();
     var modalEvidenceWindow = $('#modalEvidence')
-      ,className = modalEvidenceWindow.attr('data-name')
+      , className = modalEvidenceWindow.attr('data-name')
       , nameOfFile = $('.form-control.name-evid').val()
       , nameOfEvidence = $('#textareaNameEvid').val()
       , rowCount = $('#' + className +' tbody').find('tr').length + 1
