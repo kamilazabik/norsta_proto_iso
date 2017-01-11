@@ -139,7 +139,7 @@ function updateSlider(passObj, memo) {
       slidersMemo={};
     }
 
-    console.log(slidersMemo)
+    // console.log(slidersMemo)
     // console.log(tempAssessmentObject)
     // slidersMemo[obj[0].name] = value;
 

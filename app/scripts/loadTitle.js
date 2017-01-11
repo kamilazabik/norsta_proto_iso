@@ -61,7 +61,6 @@ function loadTitle(){
      $('.right-panel .panel-title').addClass('labelColor');
 
       addEvidence(classNameText);
-      console.log(slidersMemo);
 
       if(!isoObject[numberClass].children && !SzybkaOcena){
         allInputs.each(function (v,i) {
@@ -74,7 +73,6 @@ function loadTitle(){
 
       // if(!SzybkaOcena){
       //   $('.button-expand-three div div button').on('click', function (e) {
-      //     console.log('gggggggggggggggggggg')
       //     notSavedAssessment=true;
       //     $('#myModal').modal('show');
       //     // e.stopPropagation()
@@ -161,10 +159,7 @@ function SaveAssessment() {
   {
     $.each(tempAssessmentObject, function (i, v) {
       var input = $('input[name=' + i + ']');
-      console.log(input)
-      console.log(i)
       slidersMemo[i] = v;
-      // console.log(tempAssessmentObject);
       updateTopSlider();
       updateSlider(input, slidersMemo);
     });
@@ -198,7 +193,7 @@ function CancelAssessment() {
     {
       $.each(tempAssessmentObject, function (i, v) {
         var input = $('input[name=' + i + ']');
-        console.log(tempAssessmentObject);
+        // console.log(tempAssessmentObject);
         updateSlider(input, slidersMemo);
       });
     notSavedAssessment=false;
