@@ -77,12 +77,16 @@ $.fn.rangeslider = function (options) {
 function OnInputSlider(obj) {
   updateSlider(obj);
   if(obj) {
-    tempAssessmentObject.sliderName=obj.name;
-    tempAssessmentObject.value=$(obj).val();
+    // tempAssessmentObject.sliderName=obj.name;
+    // tempAssessmentObject.value=$(obj).val();
+
+    tempAssessmentObject[obj.name]=$(obj).val();
+    console.log(tempAssessmentObject)
+
     $ ('input').off('click');
 
     // $('input').on('click', function (e) {
-    //   notSavedAssessment=true;
+      notSavedAssessment=true;
     //   e.stopPropagation()
     // })
   }
@@ -107,6 +111,8 @@ function updateSlider(passObj, memo) {
     return;
   }
   var nn = obj[0].name.replace('rangeslider','');
+
+  var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
 
   if(memo){ //Inicjalizacja slidera
     $.each(passObj, function (idx, val) {
@@ -133,14 +139,17 @@ function updateSlider(passObj, memo) {
       slidersMemo={};
     }
 
-    slidersMemo[obj[0].name] = value;
+    console.log(slidersMemo)
+    // console.log(tempAssessmentObject)
+    // slidersMemo[obj[0].name] = value;
 
-    // if(SzybkaOcena){
-    //   // zapisanie oceny
-    //   slidersMemo[obj[0].name] = value;
-    // }else{
-    //   slidersMemo[obj[0].name] = value;
-    // }
+    if(SzybkaOcena){
+      // zapisanie oceny
+      slidersMemo[obj[0].name] = value;
+    }else{
+      tempAssessmentObject[obj[0].name] = value;
+
+    }
 
     if(obj.attr('data-parent') != null){
       var parentSlider = $('input[name='+obj.attr('data-parent') +']')

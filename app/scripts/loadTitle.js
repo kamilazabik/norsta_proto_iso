@@ -140,7 +140,7 @@ function SetSelectAssessmentField(){
 
 function SetAssessmentField(buttonClass) {
   $('#saveAssessAlert').on('click', function () {
-      SaveAssessment(buttonClass);
+      SaveAssessment();
   });
 
   $('#removeAssessAlert').on('click', function () {
@@ -156,32 +156,64 @@ function SetAssessmentField(buttonClass) {
   })
 }//SetAssessmentField
 
-function SaveAssessment(buttonClass) {
-  console.log(buttonClass)
-  if(tempAssessmentObject && tempAssessmentObject.sliderName)
+function SaveAssessment() {
+  if(tempAssessmentObject)
   {
-    var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
-    slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
-    console.log(tempAssessmentObject);
+    $.each(tempAssessmentObject, function (i, v) {
+      var input = $('input[name=' + i + ']');
+      console.log(input)
+      console.log(i)
+      slidersMemo[i] = v;
+      // console.log(tempAssessmentObject);
+      updateTopSlider();
+      updateSlider(input, slidersMemo);
+    });
 
-    updateTopSlider();
-    updateSlider(input, slidersMemo);
+   // var t = $('input.slider')[1].attributes[6].value;
+   // console.log(t);
+   //  updateSlider($('input[name=' + t + ']'), null);
+
     notSavedAssessment=false;
-    $('#myModal').modal('hide');
-
+    tempAssessmentObject = {};
   }
+
+  // if(tempAssessmentObject && tempAssessmentObject.sliderName)
+  // {
+  //   var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
+  //   // slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
+  //   slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
+  //   console.log(tempAssessmentObject);
+  //   updateTopSlider();
+  //   updateSlider(input, slidersMemo);
+  //   notSavedAssessment=false;
+  //   $('#myModal').modal('hide');
+  //
+  // }
+  $('#myModal').modal('hide');
 }//SaveAssessment
 
 function CancelAssessment() {
-  if(tempAssessmentObject && tempAssessmentObject.sliderName)
+  if(tempAssessmentObject)
   {
-    var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
-    // updateSlider(input, slidersMemo);
-    updateSlider(input, tempAssessmentObject);
+    {
+      $.each(tempAssessmentObject, function (i, v) {
+        var input = $('input[name=' + i + ']');
+        console.log(tempAssessmentObject);
+        updateSlider(input, slidersMemo);
+      });
     notSavedAssessment=false;
-    $('#myModal').modal('hide')
-
   }
+
+  // if(tempAssessmentObject && tempAssessmentObject.sliderName)
+  // {
+  //   var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
+  //   // updateSlider(input, slidersMemo);
+  //   console.log(input)
+  //   updateSlider(input, slidersMemo);
+  //   notSavedAssessment=false;
+  //   $('#myModal').modal('hide')
+  }
+  $('#myModal').modal('hide');
 }//CancelAssessment
 
 function addClassNotCollapsed(classNameText){

@@ -99,32 +99,21 @@ function loadPage(isNextLoad){
           });
 
           $('.panel-heading .claim-hseq' + numberClass).on('click', function (e) {
-            console.log($(this).attr('name'))
-            var buttonClass = $(this).attr('name');
-            if(!SzybkaOcena){
-              console.log(SzybkaOcena)
+            // var buttonClass = $(this).attr('name');
+            if(notSavedAssessment && !SzybkaOcena){
 
-              notSavedAssessment=true;
               $('#myModal').modal('show');
-              console.log(notSavedAssessment)
 
               $('#saveAssessAlert').on('click', function () {
-                // SaveAssessment(buttonClass);
                 createPage(numberClass, true)
               });
 
               $('#removeAssessAlert').on('click', function () {
-                // SaveAssessment(buttonClass);
                 createPage(numberClass, true)
               });
 
-              // if(notSavedAssessment){
-              //   console.log(notSavedAssessment)
-              //   // createPage(numberClass, true)
-              // }
             }else {
               e.preventDefault();
-              console.log(SzybkaOcena)
               createPage(numberClass, true)
             }
           });
