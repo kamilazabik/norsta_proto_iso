@@ -10,7 +10,8 @@ var xmlDataArr = {},
   tempAssessmentObject = {},
   notSavedAssessment = false,
   evidences =  {},
-  selectAssessmentMemo;
+  selectAssessmentMemo,
+  firstEvidence = false;
 
 
   // {

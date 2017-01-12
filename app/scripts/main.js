@@ -3,7 +3,7 @@ $(document).ready( function(){
 
   console.log(isoObject);
   createPage('A', false);
-  attachEvidence();
+  saveEvidence();
 
 });//END of document.READY
 

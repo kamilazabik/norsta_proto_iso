@@ -128,7 +128,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col1 = $('<div class=\'col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-1 box-under-header-sx pull-left number\'></div>')
     , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 box-under-header-sx pull-left title\'></div>')
-    , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1]).addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
+    , col2a = $('<a></a>').addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
+    , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
     , col4 = $('<div class=\'col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 box-under-header-sx assessment-icon\'></div>')
     , col4row = $('<div class=\'row\'></div>')
     , col4rowCol1 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-6\'></div>')
@@ -138,11 +139,18 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4rowCol2h6per = $('<h5 class=\'numberValue-per' + numberOfChildren[i - 1] + '\' ></h5>')
     , col5 = $('<div class=\'col-xl-2-8 col-lg-2-8 col-md-3 col-sm-3 col-xs-6 box-under-header-sx bar-slider\'></div>')
     , max = childrenDegree[i-1]
-    , col6 = $('<div class=\'col-xl-1-2 col-lg-1-2 col-md-1-6 col-sm-1-4 col-xs-2 box-under-header-sx button-expand\'></div>')
+    , col6 = $('<div class=\'col-xl-1-2 col-lg-1-2 col-md-1-6 col-sm-1-4 col-xs-2 box-under-header-sx button-expand ' +numberOfChildren[i - 1] +'\'></div>')
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
     , col5input
-    , buttonEvidences = $('<button type=\'button\' class=\'btn btn-primary expand\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
+
+
+    , buttonAddNextEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChildren[i - 1] + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
     , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
+
+
+    , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' + numberOfChildren[i - 1]+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChildren[i - 1] + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
+
+
     ,buttonEvidencesIcon = $('<i class=\'fa fa-arrow-down\' aria-hidden=\'true\'></i>')
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
@@ -156,12 +164,19 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   // }
   else{
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChildren[i - 1] + '\' data-parent=\'' + numberClass + '\'  >');
-    col6.append(buttonEvidences)
+
+    if(isoObject[numberOfChildren[i - 1]]['numberOfEvidence'] != undefined){
+      col6.append(buttonAddFirstEvidence)
+      col6.append(buttonAddNextEvidences)
+    }else{
+      col6.append(buttonAddFirstEvidence)
+    }
   }
 
-  buttonEvidences.append(buttonEvidencesIcon);
+  buttonAddNextEvidences.append(buttonEvidencesIcon);
   col1.append(col1h5);
-  col2.append(col2h5);
+  col2a.append(col2h5);
+  col2.append(col2a);
   col4rowCol1.append(col4rowCol2pie);
   col4rowCol2.append(col4rowCol2h6, col4rowCol2h6per);
   col4row.append(col4rowCol1, col4rowCol2, col4rowCol2);
@@ -169,9 +184,11 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   col5.append(col5input);
   row.append(col1, col2, col4, col5, col6, evidenceID);
 
+
   return row;
 
 }//makeBodyPanel
+
 
 function addEvidencesToTheList(numberOfChildren,i){
   var evidence = $('<div class="well"></div>')
@@ -184,7 +201,7 @@ function addEvidencesToTheList(numberOfChildren,i){
     , evidenceTableTh3 = $('<th>Repozytorium</th>')
     , evidenceTableTh4 = $('<th>Nazwa dokumentu</th>')
     , evidenceTableTh5 = $('<th></th>')
-    , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
+    , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right ' + numberOfChildren[i - 1] + '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
   evidenceTableTh5.append(evidenceTableTh5AddEvidence );
   evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4, evidenceTableTh5);
@@ -212,7 +229,8 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol1 = $('<div class="col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-2 box-under-header pull-left number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
     , panelRowCol2 = $('<div class="col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 box-under-header pull-left title"></div>')
-    , panelRowCol2AH4 = $('<h4></h4>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#').text(nameOfChildMainPanel[j])
+    , panelRowCol2A = $('<a></a>').addClass('title-hseq' + numberOfChildMainPanel[j - 1]).attr('href', '#')
+    , panelRowCol2AH4 = $('<h4></h4>').text(nameOfChildMainPanel[j])
     , panelRowCol4 = $('<div class="col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 box-under-header assessment-icon"></div>')
     , panelRowCol4Row = $('<div class="row"></div>')
     , panelRowCol4RowC1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
@@ -230,7 +248,8 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol6Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn expand-main-page\'>Rozwiń</button>');
 
   panelRowCol1.append(panelRowCol1H4);
-  panelRowCol2.append(panelRowCol2AH4);
+  panelRowCol2A.append(panelRowCol2AH4);
+  panelRowCol2.append(panelRowCol2A);
   panelRowCol4RowC1.append(panelRowCol4RowC1Pie);
   panelRowCol4RowC2.append(panelRowCol4RowC2H6, panelRowCol4RowC2H6Per);
   panelRowCol4Row.append(panelRowCol4RowC1, panelRowCol4RowC2);

@@ -16,8 +16,6 @@ function createPage(numberClass, isNextLoad) {
   row.remove();
   content.prepend(makeMainPanel());
 
-  // var maxDegree = isoObject[numberClass].maxDegree;
-
   $('.sliderRightPanel').empty();
 
   if (numberClass == 'A') {

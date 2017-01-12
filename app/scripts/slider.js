@@ -85,10 +85,10 @@ function OnInputSlider(obj) {
 
     $ ('input').off('click');
 
-    // $('input').on('click', function (e) {
+    $('input').on('click', function (e) {
       notSavedAssessment=true;
-    //   e.stopPropagation()
-    // })
+      e.stopPropagation()
+    })
   }
 }//OnInputSlider
 
@@ -147,8 +147,7 @@ function updateSlider(passObj, memo) {
       // zapisanie oceny
       slidersMemo[obj[0].name] = value;
     }else{
-      tempAssessmentObject[obj[0].name] = value;
-
+      // tempAssessmentObject[obj[0].name] = value;
     }
 
     if(obj.attr('data-parent') != null){

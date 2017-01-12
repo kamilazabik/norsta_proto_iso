@@ -22,6 +22,7 @@ function loadTitle(){
     });
 
     if(isoObject[numberClass]['numberOfEvidence'] != undefined){
+      console.log()
       var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
       var z;
       for(z = numberOfEvid  ; z >= 0; z--){
@@ -78,7 +79,6 @@ function loadTitle(){
       //     // e.stopPropagation()
       //   })
       // }
-
 
       // if(notSavedAssessment && !SzybkaOcena) {
       //
@@ -161,17 +161,12 @@ function SaveAssessment() {
       var input = $('input[name=' + i + ']');
       slidersMemo[i] = v;
       updateTopSlider();
-      updateSlider(input, slidersMemo);
+      // updateSlider(input, slidersMemo);
     });
-
-   // var t = $('input.slider')[1].attributes[6].value;
-   // console.log(t);
-   //  updateSlider($('input[name=' + t + ']'), null);
 
     notSavedAssessment=false;
     tempAssessmentObject = {};
   }
-
   // if(tempAssessmentObject && tempAssessmentObject.sliderName)
   // {
   //   var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
@@ -182,7 +177,6 @@ function SaveAssessment() {
   //   updateSlider(input, slidersMemo);
   //   notSavedAssessment=false;
   //   $('#myModal').modal('hide');
-  //
   // }
   $('#myModal').modal('hide');
 }//SaveAssessment
@@ -193,7 +187,6 @@ function CancelAssessment() {
     {
       $.each(tempAssessmentObject, function (i, v) {
         var input = $('input[name=' + i + ']');
-        // console.log(tempAssessmentObject);
         updateSlider(input, slidersMemo);
       });
     notSavedAssessment=false;
@@ -214,7 +207,7 @@ function CancelAssessment() {
 function addClassNotCollapsed(classNameText){
   var clickedPanel = $('.panel-hseq' + classNameText+' div.number');
   var clickedPanelButton = $('.panel-hseq' + classNameText+' div.button-expand')
-    , clickedButton =$('.panel-hseq' + classNameText+' div.button-expand button')
+    , clickedButton =$('.panel-hseq' + classNameText+' div.button-expand button.btn.btn-primary.expand')
     , clickedButtonIcon =$('.panel-hseq' + classNameText+' div.button-expand button i')
     , collapseElement = $('#collapseExample' + classNameText).attr('aria-expanded');
 

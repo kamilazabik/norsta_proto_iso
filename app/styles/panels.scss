@@ -299,8 +299,18 @@ circle {
     @include border-right($panels-border, 3px);
     padding-left: 0 !important;
 
-    button.expand{
+    button.expand, .btn.btn-primary{
+      //margin-left: auto;
+    }
+
+    .btn.btn-primary.btn-sm{
       margin-left: auto;
+    }
+
+    .btn.btn-primary.add{
+      margin-right:7px;
+      margin-left: auto;
+      background-color: #86bfea;
     }
 
     .expand-main-page{
