@@ -17,7 +17,6 @@ function makeMainPanel(){
     , col1rowBarSpan = $('<span class="numberValueA numberValue"></span>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
 
-
     , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-left filter"></div>')
     , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
     , col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normalna ocena</option>')
@@ -143,13 +142,10 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
     , col5input
 
-
-    , buttonAddNextEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChildren[i - 1] + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
+    , buttonExpandEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChildren[i - 1] + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
     , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
 
-
     , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' + numberOfChildren[i - 1]+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChildren[i - 1] + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
-
 
     ,buttonEvidencesIcon = $('<i class=\'fa fa-arrow-down\' aria-hidden=\'true\'></i>')
 
@@ -167,13 +163,16 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
     if(isoObject[numberOfChildren[i - 1]]['numberOfEvidence'] != undefined){
       col6.append(buttonAddFirstEvidence)
-      col6.append(buttonAddNextEvidences)
+      col6.append(buttonExpandEvidences)
+      buttonExpandEvidences.on('click', function (e) {
+        addClassNotCollapsed(numberOfChildren[i - 1]);
+      });
     }else{
       col6.append(buttonAddFirstEvidence)
     }
   }
 
-  buttonAddNextEvidences.append(buttonEvidencesIcon);
+  buttonExpandEvidences.append(buttonEvidencesIcon);
   col1.append(col1h5);
   col2a.append(col2h5);
   col2.append(col2a);

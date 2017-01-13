@@ -47,6 +47,8 @@ function createPage(numberClass, isNextLoad) {
       }
     }
 
+
+
     titlePanel.text(titleClaim.text());
     label.text(numberClassWithDots);
 
@@ -83,8 +85,6 @@ function loadPage(isNextLoad){
         index = value.name;
         sliderTitle[index] = value
       });
-
-
 
       if (isNextLoad) {
           $('.panel-body .claim-hseq' + numberClass).on('click', function (e) {
@@ -134,7 +134,6 @@ function onLoadPage() {
 
   loadTitle();
   SetSelectAssessmentField();
-  SetAssessmentField();
 
   $(function () {
     var linksContent = $('div#content div.col-md-5').find('a');

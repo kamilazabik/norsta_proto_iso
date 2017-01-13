@@ -5,24 +5,17 @@ function loadTitle(){
     , label = $('.label-claim')
     , allInputs = $('.allPanels input')
     , slider = $('.sliderRightPanel input.slider');
-
   // console.log(slidersMemo);
-
 
   allElement.each(function(){
     var className = $(this)
       , numberClass = className.attr('class').split(' ')[1].replace('panel-hseq','').split('-')
       , panel = $('.panel-hseq' + numberClass.join('-'))
-      , clickedButton =$('.panel-hseq' + numberClass+' div.button-expand button');
 
-  clickOnClassName(numberClass, className,panel)
-
-    clickedButton.on('click', function (e) {
-      addClassNotCollapsed(numberClass);
-    });
+    clickOnClassName(numberClass, className,panel)
+    addEvidence(numberClass);
 
     if(isoObject[numberClass]['numberOfEvidence'] != undefined){
-      console.log()
       var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
       var z;
       for(z = numberOfEvid  ; z >= 0; z--){
@@ -61,7 +54,7 @@ function loadTitle(){
       panel.addClass('titleColor');
      $('.right-panel .panel-title').addClass('labelColor');
 
-      addEvidence(classNameText);
+
 
       if(!isoObject[numberClass].children && !SzybkaOcena){
         allInputs.each(function (v,i) {
@@ -79,11 +72,8 @@ function loadTitle(){
       //     // e.stopPropagation()
       //   })
       // }
-
       // if(notSavedAssessment && !SzybkaOcena) {
-      //
       //     $('#myModal').modal('show');
-      //
       //   //TODO:
       //   //Alert ze nie zapisana ocena z wyborem zapisz/anuluj
       //   // SaveAssessment();
@@ -157,15 +147,19 @@ function SetAssessmentField(buttonClass) {
 function SaveAssessment() {
   if(tempAssessmentObject)
   {
+    var sliderName;
     $.each(tempAssessmentObject, function (i, v) {
       var input = $('input[name=' + i + ']');
       slidersMemo[i] = v;
-      updateTopSlider();
-      // updateSlider(input, slidersMemo);
+      sliderName = i;
     });
-
     notSavedAssessment=false;
     tempAssessmentObject = {};
+
+    //Refresh parents
+    savingAssessment=true;
+    updateSlider($('input[name=' + sliderName + ']'), null);
+    savingAssessment=false;
   }
   // if(tempAssessmentObject && tempAssessmentObject.sliderName)
   // {
@@ -214,18 +208,18 @@ function addClassNotCollapsed(classNameText){
   clickedPanel.removeClass('number-not-collapsed');
   clickedPanelButton.removeClass('button-expand-not-collapsed');
 
-  $('.panel-body').off('click')
+  $('.panel-body').off('click');
 
     if(collapseElement == 'false' || collapseElement == undefined){
       clickedPanel.addClass('number-not-collapsed');
-      clickedPanelButton.addClass('button-expand-not-collapsed')
-      clickedButtonIcon.removeClass('fa-arrow-down')
-      clickedButtonIcon.addClass('fa-arrow-up')
-      clickedButton.attr('title','Zwiń dowody')
+      clickedPanelButton.addClass('button-expand-not-collapsed');
+      clickedButtonIcon.removeClass('fa-arrow-down');
+      clickedButtonIcon.addClass('fa-arrow-up');
+      clickedButton.attr('title','Zwiń dowody');
     }else{
-      clickedButtonIcon.removeClass('fa-arrow-up')
-      clickedButtonIcon.addClass('fa-arrow-down')
-      clickedButton.attr('title', 'Rozwiń dowody')
+      clickedButtonIcon.removeClass('fa-arrow-up');
+      clickedButtonIcon.addClass('fa-arrow-down');
+      clickedButton.attr('title', 'Rozwiń dowody');
     }
 }//addClassNotCollapsed
 

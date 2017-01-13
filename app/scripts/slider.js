@@ -92,7 +92,7 @@ function OnInputSlider(obj) {
   }
 }//OnInputSlider
 
-function updateSlider(passObj, memo) {
+function updateSlider(passObj, memo, isInit) {
 
   var obj = $(passObj)
     , value = obj.val()
@@ -129,7 +129,7 @@ function updateSlider(passObj, memo) {
         initVal=0;
       }
       $(passObj[idx]).val(initVal);
-      updateSlider(passObj[idx], null);
+      updateSlider(passObj[idx], null, true);
 
     });
     return;
@@ -143,11 +143,14 @@ function updateSlider(passObj, memo) {
     // console.log(tempAssessmentObject)
     // slidersMemo[obj[0].name] = value;
 
+    var xxx=obj[0].name;
     if(SzybkaOcena){
       // zapisanie oceny
       slidersMemo[obj[0].name] = value;
     }else{
-      // tempAssessmentObject[obj[0].name] = value;
+      if(savingAssessment || isInit) {
+        slidersMemo[obj[0].name] = value;
+      }
     }
 
     if(obj.attr('data-parent') != null){

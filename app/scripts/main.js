@@ -3,6 +3,7 @@ $(document).ready( function(){
 
   console.log(isoObject);
   createPage('A', false);
+  SetAssessmentField();
   saveEvidence();
 
 });//END of document.READY

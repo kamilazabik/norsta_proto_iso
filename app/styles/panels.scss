@@ -346,6 +346,10 @@ circle {
       thead{
         color: #aeaeae;
 
+        .btn.btn-primary.add{
+          background-color: #86bfea;
+        }
+
         tr {
           th{
             border-bottom: 0;
