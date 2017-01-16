@@ -23,7 +23,7 @@ function makeMainPanel(){
     , col1rowButtonsSelectOption2 = $('<option id="fastAssess">Szybka ocena</option>')
     , col1rowButtonsSelectOption3 = $('<option id="noAssessment">Brak oceny</option>');
 
-  col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,     col1rowButtonsSelectOption3)
+  col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,     col1rowButtonsSelectOption3);
   col1rowButtons.append(col1rowButtonsSelect);
   col1rowTitleMain.append(col1rowTitleMainH3);
   col1rowAssess.append(col1rowAssessPie);
@@ -41,30 +41,30 @@ function makeMainPanel(){
 function makePanelsTitle(numberClass, oneTitle){
 
   var numberClassWithDots = addDotsForLabels(numberClass)
-    ,paddingContent = $('.col-xl-9.col-lg-9.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content')
-    ,panelTitle= $('<div class="panel panel-default panels-title allPanels"></div>')
-    ,panelHeading = $('<div class="panel-heading"></div>')
-    ,rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header"></div>')
-    ,colNumber = $('<div class="col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-2 pull-left number"></div>')
-    ,colNumberH4 = $('<h4 class="lab-hseq"></h4>')
-    ,colTitle = $('<div class="col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 pull-left title"></div>')
-    ,colTitleH4 = $('<h4 class="title-hseq'+numberClass+'"></h4>').text(oneTitle)
-    ,colAssess = $('<div class="col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 assessment"></div>')
-    ,colAssesstRow = $('<div class="row"></div>')
-    ,colAssessRowCol1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
-    ,colAssessRowCol2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
-    ,colAssessRowColPie = $('<div class="pie pull-left"></div>')
-    ,colAssessRowColNumValue = $('<h5 class="text-left numberValue'+numberClass+'"></h5>')
-    ,colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
-    ,colBar = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-6 bar-slider"></div>')
-    ,colBarSpan = $('<span class="numberValueBig numberValue'+numberClass+'"></span>')
-    ,colButton = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2 button-expand-three"></div>')
-    ,colButtonRow1 = $('<div class="row"></div>')
-    ,colButtonRow1Col1 = $('<div class="col-xl-12 col-lg-12 col-md-12">')
-    ,colButtonRow2 = $('<div class="row"></div>')
-    ,colButtonRow2Col1 = $('<div class="col-xl-12 col-lg-12 col-md-12"></div>')
-    ,panelBody = $('<div class="panel-body panel-content panels"></div>')
-    ,colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
+    , paddingContent = $('.col-xl-9.col-lg-9.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content')
+    , panelTitle= $('<div class="panel panel-default panels-title allPanels"></div>')
+    , panelHeading = $('<div class="panel-heading"></div>')
+    , rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header"></div>')
+    , colNumber = $('<div class="col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-2 pull-left number"></div>')
+    , colNumberH4 = $('<h4 class="lab-hseq"></h4>')
+    , colTitle = $('<div class="col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 pull-left title"></div>')
+    , colTitleH4 = $('<h4 class="title-hseq'+numberClass+'"></h4>').text(oneTitle)
+    , colAssess = $('<div class="col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 assessment"></div>')
+    , colAssesstRow = $('<div class="row"></div>')
+    , colAssessRowCol1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
+    , colAssessRowCol2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
+    , colAssessRowColPie = $('<div class="pie pull-left"></div>')
+    , colAssessRowColNumValue = $('<h5 class="text-left numberValue'+numberClass+'"></h5>')
+    , colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
+    , colBar = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-6 bar-slider"></div>')
+    , colBarSpan = $('<span class="numberValueBig numberValue'+numberClass+'"></span>')
+    , colButton = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2 button-expand-three"></div>')
+    , colButtonRow1 = $('<div class="row"></div>')
+    , colButtonRow1Col1 = $('<div class="col-xl-12 col-lg-12 col-md-12">')
+    , colButtonRow2 = $('<div class="row"></div>')
+    , colButtonRow2Col1 = $('<div class="col-xl-12 col-lg-12 col-md-12"></div>')
+    , panelBody = $('<div class="panel-body panel-content panels"></div>')
+    , colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
 
   colButtonRow1.append(colButtonRow1Col1);
   colButtonRow2.append(colButtonRow2Col1);
@@ -147,7 +147,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
     , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' + numberOfChildren[i - 1]+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChildren[i - 1] + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
-    ,buttonEvidencesIcon = $('<i class=\'fa fa-arrow-down\' aria-hidden=\'true\'></i>')
+    , buttonEvidencesIcon = $('<i class=\'fa fa-arrow-down\' aria-hidden=\'true\'></i>')
 
   if (isoObject[numberOfChildren[i - 1]] && isoObject[numberOfChildren[i - 1]].children) {
     var children = isoObject[numberOfChildren[i - 1]].children;

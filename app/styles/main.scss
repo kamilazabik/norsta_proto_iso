@@ -127,6 +127,10 @@ button[name='search'] {
     height: 300px;
     overflow-y:auto;
 
+    th{
+      font-weight: normal;
+    }
+
     tr:nth-child(1){
       td{
         border-top:0;
@@ -140,16 +144,20 @@ button[name='search'] {
       td:nth-child(2){
         width: 45%;
       }
-      td:nth-child(3){
+      td:nth-child(4){
         width: 30%;
       }
-      td:nth-child(4){
+      td:nth-child(5){
         width: 15%;
       }
     }
     tr:hover {
       background-color: #ededed;
     }
+  }
+
+  .clicked-tr{
+    background-color: #ededed;
   }
 }
 

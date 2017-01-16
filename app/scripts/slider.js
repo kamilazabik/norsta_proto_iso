@@ -81,7 +81,7 @@ function OnInputSlider(obj) {
     // tempAssessmentObject.value=$(obj).val();
 
     tempAssessmentObject[obj.name]=$(obj).val();
-    console.log(tempAssessmentObject)
+    // console.log(tempAssessmentObject)
 
     $ ('input').off('click');
 

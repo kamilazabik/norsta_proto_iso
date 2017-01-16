@@ -12,7 +12,8 @@ var xmlDataArr = {},
   savingAssessment = false,
   evidences =  {},
   selectAssessmentMemo,
-  firstEvidence = false;
+  firstEvidence = false,
+  existingEvidence = false;
 
 
   // {
