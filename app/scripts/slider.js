@@ -84,9 +84,17 @@ function OnInputSlider(obj) {
     // console.log(tempAssessmentObject)
 
     $ ('input').off('click');
+    $ ('input').off('click touchend');
 
     $('input').on('click', function (e) {
       notSavedAssessment=true;
+      e.stopPropagation()
+    });
+
+    $('input').on('touchend ', function (e) {
+      notSavedAssessment=true;
+      console.log(this, e);
+      console.log(notSavedAssessment)
       e.stopPropagation()
     })
   }

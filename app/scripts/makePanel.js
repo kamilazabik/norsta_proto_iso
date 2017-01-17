@@ -14,7 +14,6 @@ function makeMainPanel(){
     , col1rowAssess1numValPer = $('<h4 class="text-left numberValue-perA"></h4>')
 
     , col1rowBar = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 bar-slider"></div>')
-    , col1rowBarSpan = $('<span class="numberValueA numberValue"></span>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
 
     , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-left filter"></div>')
@@ -28,7 +27,7 @@ function makeMainPanel(){
   col1rowTitleMain.append(col1rowTitleMainH3);
   col1rowAssess.append(col1rowAssessPie);
   col1rowAssess1.append(col1rowAssess1numVal,col1rowAssess1numValPer);
-  col1rowBar.append(col1rowBarSpan,col1rowBarInput);
+  col1rowBar.append(col1rowBarInput);
   col1row.append(col1rowTitleMain,col1rowAssess,col1rowAssess1,col1rowBar,col1rowButtons);
   col1.append(col1row);
   col.append(col1);
@@ -124,21 +123,21 @@ function addDotsForLabels(label){
 function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,numberClass ) {
   var numberOfChildrenWithDots = numberOfChildren.map(addDotsForLabels)
     , row = $('<div class=\'row panel-hseq'+ numberOfChildren[i - 1]+' hseq space\'></div>')
-    , col1 = $('<div class=\'col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-1 box-under-header-sx pull-left number\'></div>')
+    , col1 = $('<div class=\'col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-2 box-under-header-sx pull-left number\'></div>')
     , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 box-under-header-sx pull-left title\'></div>')
     , col2a = $('<a></a>').addClass('title-hseq' + numberOfChildren[i - 1]).attr('href', '#')
     , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
     , col4 = $('<div class=\'col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 box-under-header-sx assessment-icon\'></div>')
     , col4row = $('<div class=\'row\'></div>')
-    , col4rowCol1 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-6\'></div>')
-    , col4rowCol2 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-6\'></div>')
+    , col4rowCol1 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-7\'></div>')
+    , col4rowCol2 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-5\'></div>')
     , col4rowCol2pie = $('<div class=\' pie pull-left\'></div>').attr('data-name',numberOfChildren[i - 1])
     , col4rowCol2h6 = $('<h5 class=\'numberValue' + numberOfChildren[i - 1] + '\' ></h5>')
     , col4rowCol2h6per = $('<h5 class=\'numberValue-per' + numberOfChildren[i - 1] + '\' ></h5>')
-    , col5 = $('<div class=\'col-xl-2-8 col-lg-2-8 col-md-3 col-sm-3 col-xs-6 box-under-header-sx bar-slider\'></div>')
+    , col5 = $('<div class=\'col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5-2 box-under-header-sx bar-slider\'></div>')
     , max = childrenDegree[i-1]
-    , col6 = $('<div class=\'col-xl-1-2 col-lg-1-2 col-md-1-6 col-sm-1-4 col-xs-2 box-under-header-sx button-expand ' +numberOfChildren[i - 1] +'\'></div>')
+    , col6 = $('<div class=\'col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2-8 box-under-header-sx button-expand ' +numberOfChildren[i - 1] +'\'></div>')
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
     , col5input
 
@@ -232,18 +231,18 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol2AH4 = $('<h4></h4>').text(nameOfChildMainPanel[j])
     , panelRowCol4 = $('<div class="col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 box-under-header assessment-icon"></div>')
     , panelRowCol4Row = $('<div class="row"></div>')
-    , panelRowCol4RowC1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
+    , panelRowCol4RowC1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-7"></div>')
     , panelRowCol4RowC1Pie = $('<div class=\'pie pull-left\'></div>').attr('data-name',numberOfChildMainPanel[j - 1])
     , maxPanel = childDegreeMainPanel[j-1]
-    , panelRowCol4RowC2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
+    , panelRowCol4RowC2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-5"></div>')
     , panelRowCol4RowC2H6 = $('<h5 class=\'numberValue' + numberOfChildMainPanel[j - 1] + '\' ></h5>').text('0/' + maxPanel)
     , panelRowCol4RowC2H6Per = $('<h5 class=\'numberValue-per' +  numberOfChildMainPanel[j - 1] + '\' ></h5>').text('0%')
-    , panelRowCol5 = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-6 box-under-header bar-header"></div>')
+    , panelRowCol5 = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5-2 box-under-header bar-header"></div>')
     , panelRowCol5Span = $('<span class=\'numberValueBig' + numberOfChildMainPanel[j - 1] + ' numberValue\' ></span>')
     , panelChildren = isoObject[numberOfChildMainPanel[j - 1]].children
     , panelRowCol5Input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxPanel + ' name=\'' + numberOfChildMainPanel[j - 1] + '\' data-parent=\'A\' data-children=\'' + panelChildren + '\' disabled >')
 
-    , panelRowCol6 = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2 box-under-header button-expand"></div>')
+    , panelRowCol6 = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2-8 box-under-header button-expand"></div>')
     , panelRowCol6Button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn expand-main-page\'>Rozwiń</button>');
 
   panelRowCol1.append(panelRowCol1H4);

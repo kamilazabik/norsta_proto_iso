@@ -1,6 +1,7 @@
 function addEvidence(classNameText){
   var clickedButton = $('.panel-hseq' + classNameText+' div.button-expand button')
-    , buttonSubmit = $('button.save-new-evid');
+    , buttonSubmit = $('button.save-new-evid')
+    , textOfName = $('#textareaNameEvid')
 
     $('.btn.btn-primary.add.'+classNameText).on('click', function(){
       var dataEvidence = $(this).attr('data-evidence')
@@ -11,21 +12,21 @@ function addEvidence(classNameText){
       modalEvidence.removeAttr('data-name');
       modalEvidence.modal('show').attr('data-name', classNameText);
       buttonSave.attr('data-evidence', dataEvidence);
+      buttonSubmit.attr('disabled', 'disabled')
 
     if(dataEvidence){
-      var nameOfFile = $('#'+ classNameText  + ' tr.' + dataEvidence + ' .nameDocument').text();
-      console.log(nameOfFile);
+      var nameOfFile = $('#'+ classNameText  + ' tr.' + dataEvidence + ' .nameDocument').text()
+        , nameOfEvidence = $('#'+ classNameText  + ' tr.' + dataEvidence + ' .nameEvidence').text()
+
       $('.form-control.name-evid').val(nameOfFile);
+      textOfName.val(nameOfEvidence);
       buttonSubmit.removeAttr('disabled')
     }else{
-      $('.form-control.name-evid').val('')
+      $('.form-control.name-evid').val('');
+      textOfName.val('');
+      textOfName.attr('placeholder','Wpisz nazwę')
     }
   });
-
-  clickedButton.on('click', function (e) {
-    addClassNotCollapsed(classNameText);
-  });
-
 }//addEvidence
 
 function saveEvidence() {
@@ -36,7 +37,7 @@ function saveEvidence() {
     var file = $(this).parent().parent().parent().find('.file');
     event.preventDefault();
     file.trigger('click');
-    // buttonSubmit.removeAttr('disabled')
+    buttonSubmit.removeAttr('disabled');
     existingEvidence = false;
   });
   $(document).on('change', '.file', function(){
@@ -49,7 +50,7 @@ function saveEvidence() {
     $('tr').removeClass('clicked-tr');
     evidenceFromList = $(this);
     var clickedTr = evidenceFromList.parent();
-    // buttonSubmit.removeAttr('disabled')
+    buttonSubmit.removeAttr('disabled');
     existingEvidence = true;
     clickedTr.addClass('clicked-tr');
   });
@@ -62,17 +63,21 @@ function saveEvidence() {
       , nameOfEvidence = $('#textareaNameEvid').val()
       , rowCount = $('#' + className +' tbody').find('tr').length + 1
       , dataEvidence = $(this).attr('data-evidence')
-      , placeForButtonEvidence = $('.col-xl-1-2.col-lg-1-2.col-md-1-6.col-sm-1-4.col-xs-2.box-under-header-sx.button-expand.' + className)
+      , placeForButtonEvidence = $('.col-xl-1-2.col-lg-1-4.col-md-1-6.col-sm-1-6.col-xs-2-8.box-under-header-sx.button-expand.' + className)
       , buttonExpandEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + className + '\' data-toggle=\'collapse\' aria-expanded=\'true\'  name=\'search\' data-target=\'#collapseExample' + className + '\' aria-controls=\'collapseExample' + className + '\' title=\'Zwiń dowody\'></button>')
       , buttonEvidencesIcon = $('<i class=\'fa fa-arrow-up\' aria-hidden=\'true\'></i>')
       , buttonExpandAdded = $('.btn.btn-primary.expand.'+className)
       , rowInEvidenceWindow = $('#modalEvidence tbody')
       , rowCountInEvidenceWindow = rowInEvidenceWindow.find('tr').length + 1
       , nameOfEvidenceFromList
-      , nameOfFileFromList;
+      , nameOfFileFromList
+      , clickedPanel = $('.panel-hseq' + className+' div.number')
+      , clickedPanelButton = $('.panel-hseq' + className+' div.button-expand')
+      , textOfName = $('#textareaNameEvid');
+
+    console.log(placeForButtonEvidence)
 
     $('tr').removeClass('clicked-tr')
-console.log(nameOfFile)
 
       if(evidenceFromList){
         nameOfFileFromList = evidenceFromList.parent().children().eq(1).text();
@@ -113,13 +118,10 @@ console.log(nameOfFile)
           isoObject[className]['nameEvidence' + dataEvidence]= nameOfEvidence;
           isoObject[className]['numberOfEvidence']= rowCount - 2;
           replacedTr.replaceWith(makeTr(className,dataEvidence));
-          rowInEvidenceWindow.append(makeTrInEvidencesWidnow(className,rowCount, rowCountInEvidenceWindow));
+          // rowInEvidenceWindow.append(makeTrInEvidencesWidnow(className,rowCount, rowCountInEvidenceWindow));
         }
       }
-      console.log(nameOfEvidenceFromList);
-      console.log( isoObject[className]);
 
-      console.log("hhhhhhhhhhhhhhhh");
       modalEvidenceWindow.modal('hide');
 
       if(buttonExpandAdded.length == 0){
@@ -132,9 +134,11 @@ console.log(nameOfFile)
       buttonExpandEvidences.on('click', function (e) {
         addClassNotCollapsed(className);
       });
+
+    clickedPanel.addClass('number-not-collapsed');
+    clickedPanelButton.addClass('button-expand-not-collapsed');
       $('#collapseExample'+ className).attr('aria-expanded', true).addClass('in').addClass('collapse').css('height', '100%');
 
-    // buttonSubmit.attr('disabled', 'disabled')
   });
 }//attachEvidence
 
