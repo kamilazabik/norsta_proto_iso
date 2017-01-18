@@ -50,14 +50,13 @@ function makePanelsTitle(numberClass, oneTitle){
     , colTitleH4 = $('<h4 class="title-hseq'+numberClass+'"></h4>').text(oneTitle)
     , colAssess = $('<div class="col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 assessment"></div>')
     , colAssesstRow = $('<div class="row"></div>')
-    , colAssessRowCol1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
-    , colAssessRowCol2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>')
+    , colAssessRowCol1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-7"></div>')
+    , colAssessRowCol2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-5"></div>')
     , colAssessRowColPie = $('<div class="pie pull-left"></div>')
     , colAssessRowColNumValue = $('<h5 class="text-left numberValue'+numberClass+'"></h5>')
     , colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
-    , colBar = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-6 bar-slider"></div>')
-    , colBarSpan = $('<span class="numberValueBig numberValue'+numberClass+'"></span>')
-    , colButton = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2 button-expand-three"></div>')
+    , colBar = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5-2 bar-slider"></div>')
+    , colButton = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2-8 button-expand-three"></div>')
     , colButtonRow1 = $('<div class="row"></div>')
     , colButtonRow1Col1 = $('<div class="col-xl-12 col-lg-12 col-md-12">')
     , colButtonRow2 = $('<div class="row"></div>')
@@ -67,7 +66,6 @@ function makePanelsTitle(numberClass, oneTitle){
 
   colButtonRow1.append(colButtonRow1Col1);
   colButtonRow2.append(colButtonRow2Col1);
-  colBar.append(colBarSpan);
   colAssessRowCol2.append(colAssessRowColNumValue, colAssessRowColNumValuePer);
   colAssessRowCol1.append(colAssessRowColPie);
   colAssesstRow.append(colAssessRowCol1, colAssessRowCol2);
@@ -130,8 +128,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
     , col4 = $('<div class=\'col-xl-2 col-lg-2 col-md-2-2 col-sm-2-6 col-xs-4 box-under-header-sx assessment-icon\'></div>')
     , col4row = $('<div class=\'row\'></div>')
-    , col4rowCol1 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-7\'></div>')
-    , col4rowCol2 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-5\'></div>')
+    , col4rowCol1 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-6\'></div>')
+    , col4rowCol2 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-6 \'></div>')
     , col4rowCol2pie = $('<div class=\' pie pull-left\'></div>').attr('data-name',numberOfChildren[i - 1])
     , col4rowCol2h6 = $('<h5 class=\'numberValue' + numberOfChildren[i - 1] + '\' ></h5>')
     , col4rowCol2h6per = $('<h5 class=\'numberValue-per' + numberOfChildren[i - 1] + '\' ></h5>')
@@ -189,7 +187,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
 
 function addEvidencesToTheList(numberOfChildren,i){
-  var evidence = $('<div class="well"></div>')
+  var evidence = $('<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 well"></div>')
     , evidenceTable = $('<table id=\'' +  numberOfChildren[i - 1] + '\' class=\'table\'></table>')
     , evidenceTableHead = $('<thead></thead>')
     , evidenceTableBody = $('<tbody></tbody>')

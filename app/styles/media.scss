@@ -12,8 +12,8 @@
     @media (max-width: $screen-xs-max) {
       .col-xs-5-2 {
         @include make-xs-column( 5.2 );
-        padding-left: 5px;
-        padding-right: 5px;
+        padding-left: 15px;
+        padding-right: 10px;
       }
       .col-xs-2-8 {
         @include make-xs-column( 2.8 );
@@ -135,100 +135,68 @@
 //}
 
 
-@media (max-width: 400px){
+@media (max-width: 415px){
+
   #main-panel {
-    padding-right: 15px;
+    //padding-right: 15px;
   }
-  .box-header{
-    .assessment {
-      padding-left: 5px;
-    }
-    .filter{
-      padding-right: 5px;
-      padding-left: 5px;
 
-      select{
-        font-size: 12px;
-        padding-left: 3px;
-        padding-right: 3px;
-      }
+  .box-header {
+    height: 120px;
+    h3, h4, .numberValue {
+      font-size: 14px;
     }
+    svg, .pie {
+      @include pie-svg($pie-size-md, $pie-size-md);
+    }
+
     .bar-slider {
-      padding-left: 15px;
-      padding-right: 0;
+      @include padding-left-right(15px, 15px);
+    }
+
+    .assessment,
+    .filter,
+    .bar-slider,
+    .title-main {
+      height: 50%;
+    }
+    .assessment {
+      padding-left: 10px;
+    }
+    .filter select {
+      font-size: 12px;
+      @include padding-left-right(2px, 3px);
     }
   }
-  .padding-content {
-    padding-right: 30px;
+  .panels-title{
+    .panel-heading{
+      .number, .title {
+        height: 50px;
+        background-color: $panels-head;
 
+        h4, a {
+          color: #fff;
+        }
+      }
 
-    .assessment-icon {
-      padding-left: 5px;
-
-      .col-xs-5{
-        padding-left: 5px;
+      .button-expand-three{
+        .arrow:nth-child(1){
+          margin: 0 -3px 0 0;
+        }
+        .arrow:nth-child(2){
+          margin: 0 6px 0 0;
+        }
       }
     }
-  }
-}
-
-@media (max-width: $screen-xs-max){
-
-  .container {
-    max-width: 730px;
   }
 
   .panel-content {
     padding: 15px 10px 0 10px !important;
-  }
 
-  .space {
-    margin-bottom: 15px;
-  }
-
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .box-header{
-    height: 12rem;
-    h3,h4, .numberValue {
-      font-size: 14px;
-    }
-    svg, .pie {
-      @include pie-svg($pie-size-md,$pie-size-md) ;
+    .space {
+      margin-bottom: 15px;
     }
 
-    .bar-slider {
-      padding-left: 5px;
-      padding-right: 5px;
-    }
-  }
-
-  .number,
-  .title,
-  .assessment,
-  .filter,
-  .bar-header,
-  .bar-slider,
-  .title-main,
-  .assessment-icon  {
-    height: 50%;
-  }
-
-  .panel-heading{
-    .number, .title {
-      height: 3em;
-      color: #fff;
-    }
-
-  }
-
-  .panels {
     h4 {
       font-size: 14px;
     }
@@ -241,11 +209,11 @@
     }
 
     .box-under-header {
-      height: 4em;
+      height: 60px;
     }
     .title {
       background-color: $panels-head;
-      height: 3em;
+      height: 40px;
       border-top-right-radius: 3px;
       @include border-top-bottom($panels-head);
       h4, a{
@@ -254,7 +222,7 @@
 
     }
     .number {
-      height: 3em;
+      height: 40px;
       border-bottom-left-radius: 0;
       background-color: $panels-head;
       color: #fff;
@@ -262,10 +230,149 @@
     .assessment-icon {
       border-left: $panels-border;
       border-bottom-left-radius: 3px;
+
+      .col-xs-6:nth-child(2), .col-xs-7{
+        padding-left: 5px;
+      }
+      .col-xs-5 {
+        padding-left: 0;
+      }
     }
 
     .button-expand {
       border-top-right-radius: 0;
+    }
+
+    .hseq.space:hover{
+      div.title {
+        background: $panels-head;
+      }
+    }
+    .titleColor {
+      div.title {
+        background: $panels-head;
+      }
+    }
+    .labelColor {
+      background-color: $panels-head !important;
+
+    }
+
+  }
+}
+
+@media (min-width: 416px) and (max-width: $screen-xs-max) {
+  .container {
+    max-width: 730px;
+  }
+  .space {
+    margin-bottom: 15px;
+  }
+
+  .box-header{
+    height: 120px;
+    h3,h4, .numberValue {
+      font-size: 14px;
+    }
+    svg, .pie {
+      @include pie-svg($pie-size-md,$pie-size-md) ;
+    }
+
+    .bar-slider {
+      @include padding-left-right(5px, 5px);
+    }
+
+    .assessment,
+    .filter,
+    .bar-slider,
+    .title-main {
+      height: 50%;
+    }
+
+    .filter{
+      @include padding-left-right(5px, 5px);
+
+      select{
+        font-size: 12px;
+        @include padding-left-right(3px, 3px);
+      }
+    }
+    .bar-slider {
+      @include padding-left-right(15px, 0px);
+    }
+  }
+
+  .panels-title{
+    .panel-heading{
+      .number, .title {
+        height: 50px;
+        background-color: $panels-head;
+
+        h4, a {
+          color: #fff;
+        }
+      }
+      .button-expand-three{
+        .arrow:nth-child(2){
+          margin: 0 6px 0 0;
+        }
+      }
+    }
+  }
+
+  .panel-content {
+    padding: 15px 10px 0 10px !important;
+
+    .padding-content {
+      padding-right: 30px;
+    }
+
+    h4 {
+      font-size: 14px;
+    }
+    span.numberValue {
+      font-size: 14px;
+    }
+
+    .visible-xs {
+      display: flex !important;
+    }
+
+    .box-under-header {
+      height: 60px;
+    }
+    .title {
+      background-color: $panels-head;
+      height: 40px;
+      border-top-right-radius: 3px;
+      @include border-top-bottom($panels-head);
+      h4, a{
+        color: #fff;
+      }
+    }
+    .number {
+      height: 40px;
+      border-bottom-left-radius: 0;
+      background-color: $panels-head;
+      color: #fff;
+    }
+    .assessment-icon {
+      border-left: 1px solid #dedede;
+      border-bottom-left-radius: 3px;
+
+      .col-xs-5{
+        @include padding-left-right(5px, 20px);
+      }
+    }
+
+    .button-expand {
+      border-top-right-radius: 0;
+      .btn.btn-primary.add{
+        margin-right: 0;
+      }
+      button[name='search'] {
+        margin: 10px 0 10px 5px;
+      }
     }
 
     .hseq.space:hover{
@@ -280,7 +387,51 @@
     }
     .labelColor {
       background-color: $panels-head !important;
+    }
 
+
+
+    .well{
+      table{
+        thead, tbody{
+          tr{
+            th:nth-child(1) {
+              padding-left: 0;
+            }
+            th:nth-child(5), td:nth-child(5){
+              padding-right: 0;
+            }
+          }
+
+          th:nth-child(1){
+            width: 5%;
+          }
+          th:nth-child(2){
+            width: 35%;
+          }
+          th:nth-child(3){
+            width: 25%;
+          }
+          th:nth-child(4){
+            width: 25%;
+          }
+          th:nth-child(5){
+            width: 5%;
+          }
+
+        }
+        .buttons{
+          display: inline-block;
+        }
+        button:nth-child(1){
+          //margin: 5px 0 5px auto;
+          margin: 5px 0 5px 0;
+        }
+        button:nth-child(2){
+          margin: auto 0 5px 0px;
+          //width: 40px;
+        }
+      }
     }
 
   }
@@ -295,7 +446,6 @@
       @include pie-svg($pie-size-md,$pie-size-md);
     }
   }
-
 
   .panels {
     h4 {
