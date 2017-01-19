@@ -8,8 +8,27 @@ $(document).ready(function(){
 
   $('#menu-toggle-2').click(function(e) {
     e.preventDefault();
+    var widthOfContent = $('#content').width();
     $('#wrapper').toggleClass('toggled-2');
-    // $('#menu ul').hide();
+    console.log(parseInt($('#page-content-wrapper').css("margin-left")))
+
+    // if(parseInt($('#page-content-wrapper').css("margin-left")) == -315)
+    // {
+    //   $('#content').addClass('bigClass')
+    //   console.log('GGGGGGGGGGGG')
+    // } else if(!(parseInt($('#page-content-wrapper').css("margin-left") ===-315) ) || widthOfContent > 1200 )  {
+    //   $('#content').removeClass('bigClass');
+    //   console.log('fffffffff')
+    // }
+
+
+    if (window.matchMedia('(max-width: 1000px)').matches)
+    {
+      // do functionality on screens smaller than 768px
+      console.log('dsdsdsdsd')
+     $ ('#content').toggleClass('bigClass');
+    }
+
   });
 
 

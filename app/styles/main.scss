@@ -100,7 +100,7 @@ button[name='search'] {
 
 #modalEvidence{
   table {
-    table-layout:fixed;
+    //table-layout:fixed;
     margin-bottom: 0;
   }
 
@@ -124,7 +124,7 @@ button[name='search'] {
   }
 
   .div-table-content {
-    height: 300px;
+    height: 200px;
     overflow-y:auto;
 
     th{
@@ -167,3 +167,211 @@ button[name='search'] {
   position: absolute;
 }
 
+//.modal-dialog,
+//.modal-content {
+//  /* 80% of window height */
+//  height: 80%;
+//}
+//
+//.modal-body {
+//  /* 100% = dialog height, 120px = header + footer */
+//  //max-height: calc(100% - 120px);
+//  //overflow-y: scroll;
+//}
+
+
+.bigClass {
+  .container {
+    max-width: 730px;
+  }
+  .space {
+    margin-bottom: 15px;
+  }
+
+  .box-header{
+    height: 120px;
+    h3 {
+      font-size: 16px;
+    }
+
+    h4, .numberValue {
+      font-size: 14px;
+    }
+    svg, .pie {
+      @include pie-svg($pie-size-md,$pie-size-md) ;
+    }
+
+    .bar-slider {
+      @include padding-left-right(5px, 5px);
+    }
+
+    .assessment,
+    .filter,
+    .bar-slider,
+    .title-main {
+      height: 50%;
+    }
+
+    .filter{
+      @include padding-left-right(5px, 5px);
+
+      select{
+        font-size: 12px;
+        @include padding-left-right(3px, 3px);
+      }
+    }
+    .bar-slider {
+      @include padding-left-right(15px, 0px);
+    }
+  }
+
+  .panels-title{
+    .panel-heading{
+      .number, .title {
+        height: 50px;
+        background-color: $panels-head;
+
+        h4, a {
+          color: #fff;
+        }
+      }
+      .button-expand-three{
+        .arrow:nth-child(2){
+          margin: 0 6px 0 0;
+        }
+      }
+    }
+  }
+
+  .panel-content {
+    padding: 15px 10px 0 10px !important;
+
+    .padding-content {
+      padding-right: 30px;
+    }
+
+    h4 {
+      font-size: 14px;
+    }
+    span.numberValue {
+      font-size: 14px;
+    }
+
+    .visible-xs {
+      display: flex !important;
+    }
+
+    .box-under-header {
+      height: 60px;
+    }
+    .title {
+      background-color: $panels-head;
+      height: 40px;
+      border-top-right-radius: 3px;
+      @include border-top-bottom($panels-head);
+      h4, a{
+        color: #fff;
+      }
+    }
+    .number {
+      height: 40px;
+      border-bottom-left-radius: 0;
+      background-color: $panels-head;
+      color: #fff;
+    }
+    .assessment-icon {
+      border-left: 1px solid #dedede;
+      border-bottom-left-radius: 3px;
+
+      .col-xs-5{
+        @include padding-left-right(5px, 20px);
+      }
+    }
+
+    .button-expand {
+      border-top-right-radius: 0;
+      .btn.btn-primary.add{
+        margin-right: 0;
+      }
+      button[name='search'] {
+        margin: 10px 0 10px 5px;
+      }
+    }
+
+    .hseq.space:hover{
+      div.title {
+        background: $panels-head;
+      }
+    }
+    .titleColor {
+      div.title {
+        background: $panels-head;
+      }
+    }
+    .labelColor {
+      background-color: $panels-head !important;
+    }
+
+
+
+    .well{
+      table{
+        thead, tbody{
+          tr{
+            th:nth-child(1) {
+              padding-left: 0;
+            }
+            th:nth-child(5), td:nth-child(5){
+              padding-right: 0;
+            }
+          }
+
+          th:nth-child(1){
+            width: 5%;
+          }
+          th:nth-child(2){
+            width: 35%;
+          }
+          th:nth-child(3){
+            width: 25%;
+          }
+          th:nth-child(4){
+            width: 30%;
+          }
+          th:nth-child(5){
+            width: 5%;
+          }
+
+        }
+        .buttons{
+          display: inline-block;
+        }
+        button:nth-child(1){
+          //margin: 5px 0 5px auto;
+          margin: 5px 0 5px 0;
+        }
+        button:nth-child(2){
+          margin: auto 0 5px 0px;
+          //width: 40px;
+        }
+      }
+    }
+
+  }
+}
+
+
+@-moz-document url-prefix() {
+  select.form-control {
+    padding-right: 25px;
+    background-image: url("data:image/svg+xml,\
+      <svg version='1.1' xmlns='http://www.w3.org/2000/svg' width='10px'\
+           height='10px' viewBox='0 0 1200 1000' fill='rgb(85,85,85)'>\
+        <path d='M1100 411l-198 -199l-353 353l-353 -353l-197 199l551 551z'/>\
+      </svg>");
+    background-repeat: no-repeat;
+    background-position: calc(100% - 7px) 50%;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}

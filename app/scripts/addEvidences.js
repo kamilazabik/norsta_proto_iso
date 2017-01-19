@@ -33,14 +33,14 @@ function saveEvidence() {
   var modalEvidenceWindow1 = $('#modalEvidence')
     , buttonSubmit = $('button.save-new-evid');
 
-  $(document).on('click', '.browse', function(){
+  $(document).on('click', '.browse', function(event){
     var file = $(this).parent().parent().parent().find('.file');
     event.preventDefault();
     file.trigger('click');
     buttonSubmit.removeAttr('disabled');
     existingEvidence = false;
   });
-  $(document).on('change', '.file', function(){
+  $(document).on('change', '.file', function(event){
     $(this).parent().find('.form-control').val($(this).val().replace(/C:\\fakepath\\/i, ''));
     existingEvidence = false;
   });

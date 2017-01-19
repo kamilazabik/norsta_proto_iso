@@ -271,7 +271,11 @@
 
   .box-header{
     height: 120px;
-    h3,h4, .numberValue {
+    h3 {
+      font-size: 16px;
+    }
+
+    h4, .numberValue {
       font-size: 14px;
     }
     svg, .pie {
@@ -413,7 +417,7 @@
             width: 25%;
           }
           th:nth-child(4){
-            width: 25%;
+            width: 30%;
           }
           th:nth-child(5){
             width: 5%;
