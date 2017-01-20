@@ -4,15 +4,77 @@
 /* Toggle Styles */
 @import "mixins";
 
-.nav {
-  height: 56px;
+//.nav {
+//  height: 56px;
+//
+//  > li {
+//    height: 56px;
+//  }
+//  > li > a{
+//      height: 56px;
+//  }
+//}
 
-  > li {
-    height: 56px;
+#logo{
+  //float: left;
+}
+
+#menu-toggle,#menu-toggle-2, #main-menu{
+  height: 40px;
+  width: 40px;
+}
+
+#menu-toggle {
+  float: none;
+}
+
+#menu-toggle:focus, #menu-toggle-2:focus {
+  span {
+    color: #888;
   }
-  > li > a{
-      height: 56px;
+  background-color: #ddd;
+  border: 1px solid #ddd;
+}
+
+#menu-toggle,#menu-toggle-2 {
+  background-color: $panels-head;
+  border: 1px solid #fff;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+
+#main-menu{
+  background-color: transparent;
+  border: 1px solid #fff;
+  padding-left: 8px;
+  padding-right: 8px;
+  .icon-bar {
+    background-color: #fff;
   }
+}
+#main-menu:hover, #main-menu:focus {
+  background-color: #ddd;
+  border: 1px solid #ddd;
+  .icon-bar {
+    background-color: #888;
+  }
+}
+
+
+.navbar-nav > .open > a, .navbar-nav > .open > a:hover {
+  //color: #555;
+}
+
+.navbar-nav > .open > a, .navbar-nav > .open > a:focus{
+  color: #555;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  color: #555;
+}
+
+.navbar-fixed-top .navbar-collapse {
+  max-height: 100% !important;
 }
 
 .navbar-right{
@@ -21,18 +83,18 @@
 
 //navbar-defaul
 
-.navbar-default {
+nav {
   border: 0;
   border-bottom: 1px solid #e7e7e7;
   background: $panels-head !important;
   color: #fff;
 }
 
-.navbar-default .navbar-nav > li > a {
-  color: white !important;
+.navbar-nav > li > a {
+  color: white;
 }
 
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-toggle:hover, .navbar-toggle:focus {
   background-color: $content
 }
 

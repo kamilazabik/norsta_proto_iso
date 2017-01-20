@@ -20,7 +20,7 @@ function createPage(numberClass, isNextLoad) {
 
   if (numberClass == 'A') {
 
-    $('.col-md-9.col-sm-12.col-xs-12.pull-left.padding-content').append(makeFirstPartOfMainPage());
+    $('.padding-content').append(makeFirstPartOfMainPage());
 
     for (var j = 1; j <= numberOfChildMainPanel.length; j++) {
       $('.col-md-12.col-sm-12.col-sx-12').append(makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j))

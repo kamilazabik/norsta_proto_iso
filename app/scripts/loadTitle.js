@@ -203,7 +203,7 @@ function addClassNotCollapsed(classNameText){
     , clickedPanelButton = $('.panel-hseq' + classNameText+' div.button-expand')
     , clickedButton =$('.panel-hseq' + classNameText+' div.button-expand button.btn.btn-primary.expand')
     , clickedButtonIcon =$('.panel-hseq' + classNameText+' div.button-expand button i')
-    , collapseElement = $('#collapseExample' + classNameText).attr('aria-expanded');
+    , collapseElement = $('#collapseEvidence' + classNameText).attr('aria-expanded');
 
   clickedPanel.removeClass('number-not-collapsed');
   clickedPanelButton.removeClass('button-expand-not-collapsed');

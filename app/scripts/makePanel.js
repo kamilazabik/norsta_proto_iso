@@ -139,8 +139,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
     , col5input
 
-    , buttonExpandEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChildren[i - 1] + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseExample' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseExample' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
-    , evidenceID = $('<div id=\'collapseExample' + numberOfChildren[i - 1] + '\' class=\'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
+    , buttonExpandEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChildren[i - 1] + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseEvidence' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseEvidence' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
+    , evidenceID = $('<div id=\'collapseEvidence' + numberOfChildren[i - 1] + '\' class=\'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(addEvidencesToTheList(numberOfChildren, i))
 
     , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' + numberOfChildren[i - 1]+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChildren[i - 1] + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 

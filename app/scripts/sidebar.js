@@ -22,11 +22,12 @@ $(document).ready(function(){
     // }
 
 
-    if (window.matchMedia('(max-width: 1000px)').matches)
+    if (window.matchMedia('(max-width: 1200px)').matches)
     {
       // do functionality on screens smaller than 768px
       console.log('dsdsdsdsd')
-     $ ('#content').toggleClass('bigClass');
+     // $ ('#content').toggleClass('bigClass');
+     $('.padding-content').removeClass('col-md-9').addClass('col-md-12')
     }
 
   });
