@@ -10,7 +10,12 @@ $(document).ready(function(){
     e.preventDefault();
     var widthOfContent = $('#content').width();
     $('#wrapper').toggleClass('toggled-2');
-    console.log(parseInt($('#page-content-wrapper').css("margin-left")))
+    console.log(parseInt($('#page-content-wrapper').css("margin-left")));
+
+    if (window.matchMedia('(max-width: 1200px)').matches)
+    {
+      $('.padding-content').removeClass('col-md-9').addClass('col-md-12')
+    }
 
     // if(parseInt($('#page-content-wrapper').css("margin-left")) == -315)
     // {
@@ -20,18 +25,7 @@ $(document).ready(function(){
     //   $('#content').removeClass('bigClass');
     //   console.log('fffffffff')
     // }
-
-
-    if (window.matchMedia('(max-width: 1200px)').matches)
-    {
-      // do functionality on screens smaller than 768px
-      console.log('dsdsdsdsd')
-     // $ ('#content').toggleClass('bigClass');
-     $('.padding-content').removeClass('col-md-9').addClass('col-md-12')
-    }
-
   });
-
 
     $(function () {
         $('div#sidebar-wrapper li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');

@@ -109,18 +109,7 @@ button[name='search'] {
   }
 
   .table.table-condensed{
-    th:nth-child(1){
-      width: 10%;
-    }
-    th:nth-child(2){
-      width: 45%;
-    }
-    th:nth-child(3){
-      width: 30%;
-    }
-    th:nth-child(4){
-      width: 15% !important;
-    }
+    @include tr-size(10%, 45%, 30%, 15%, 0);
   }
 
   .div-table-content {
@@ -138,21 +127,10 @@ button[name='search'] {
     }
 
     tr {
-      td:nth-child(1){
-        width: 10%;
+      @include td-size(10%, 45%, 30%, 15%);
+      &:hover{
+        background-color: #ededed;
       }
-      td:nth-child(2){
-        width: 45%;
-      }
-      td:nth-child(4){
-        width: 30%;
-      }
-      td:nth-child(5){
-        width: 15%;
-      }
-    }
-    tr:hover {
-      background-color: #ededed;
     }
   }
 
@@ -198,7 +176,7 @@ button[name='search'] {
       font-size: 14px;
     }
     svg, .pie {
-      @include pie-svg($pie-size-md,$pie-size-md) ;
+      @include width-height ($pie-size-md,$pie-size-md) ;
     }
 
     .bar-slider {

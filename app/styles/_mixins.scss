@@ -25,12 +25,21 @@ $sidebar-max: 400px;
 $sidebar-md: 350px;
 $color-black: #000;
 $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow1, 0px 1px 5px 0px $color-shadow3;
+$xs-panel-height: 40px;
 
 // Generate the large columns
 
+@mixin font-size ($font-size){
+  font-size: $font-size;
+}
+
+@mixin height-background ($height, $background){
+  height: $height;
+  background-color: $background;
+}
 
 @mixin back-color($background, $color, $overflow){
-  background: $background;
+  background-color: $background;
   color: $color;
   overflow: $overflow;
 }
@@ -38,11 +47,6 @@ $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow
 @mixin font($font-weight, $line-height){
   font-weight: $font-weight;
   line-height: $line-height;
-}
-
-@mixin pie-svg ($height, $width){
-  height: $height;
-  width: $width;
 }
 
 @mixin border-top-bottom($border){
@@ -65,9 +69,7 @@ $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow
   transition-duration:1s;
 }
 
-@mixin border-radius($tl, $tr, $br, $bl){
-  border-radius:$tl, $tr, $br, $bl;
-}
+
 
 @mixin panel-heading($content, $position, $right, $top, $font, $transition, $transform){
   content: $content;
@@ -85,21 +87,36 @@ $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow
 }
 
 
-@mixin tr-size(){
+@mixin tr-size($th1,$th2, $th3, $th4, $th5){
   th:nth-child(1){
-    width: 5%;
+    width: $th1;
   }
   th:nth-child(2){
-    width: 35%;
+    width: $th2;
   }
   th:nth-child(3){
-    width: 25%;
+    width: $th3;
   }
   th:nth-child(4){
-    width: 25%;
+    width: $th4;
   }
   th:nth-child(5){
-    width: 10%;
+    width: $th5;
+  }
+}
+
+@mixin td-size($td1,$td2, $td3, $td4){
+  td:nth-child(1){
+    width: $td1;
+  }
+  td:nth-child(2){
+    width: $td2;
+  }
+  td:nth-child(3){
+    width: $td3;
+  }
+  td:nth-child(4){
+    width: $td4;
   }
 }
 
@@ -109,6 +126,11 @@ $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow
   -ms-#{$property}: $value;
   -o-#{$property}: $value;
 }
+//
+//@mixin border-radius($tl, $tr, $br, $bl){
+//  border-radius:$tl, $tr, $br, $bl;
+//  @include vendor-prefixes(border-radius, $tl, $tr, $br, $bl);
+//}
 
 @mixin border-radius($radius) {
   border-radius: $radius;
@@ -119,3 +141,20 @@ $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow
 //$sidebar-color: #001F2B;
 //$content: #D1D1D1;
 //$panels-content: #F7FAFD;
+
+@mixin background-border($background,$px, $border){
+  background-color: $background;
+  border: $px solid $border;
+}
+
+@mixin transition(){
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+@mixin width-height($width, $height){
+  width: $width;
+  height: $height;
+}

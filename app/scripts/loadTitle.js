@@ -19,7 +19,7 @@ function loadTitle(){
       var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
       var z;
       for(z = numberOfEvid  ; z >= 0; z--){
-        $('#collapseExample'+ numberClass +' .well table tbody').prepend(makeTr(numberClass, z + 1 ));
+        $('#collapseEvidence'+ numberClass +' .well table tbody').prepend(makeTr(numberClass, z + 1 ));
       }
     }
   });

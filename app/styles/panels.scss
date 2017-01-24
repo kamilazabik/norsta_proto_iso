@@ -6,7 +6,7 @@
 .panel {
   //box-shadow: $panels-shadow;
   box-shadow: $panels-shadow !important;
-  border-radius: 3px;
+  @include border-radius (3px);
   border: 0 !important;
 }
 
@@ -65,7 +65,7 @@ button{
 
 svg {
   background-color: #313547;
-  border-radius: 50%;
+  @include border-radius (50%);
   transform: rotate( -90deg );
 }
 
@@ -95,7 +95,8 @@ circle {
   //box-shadow: 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: $panels-shadow;
   height: 80px;
-  border-radius: 2px;
+  @include border-radius (2px);
+  //border-radius: 2px;
 
   h4 {
     @include font(400,1.4);
@@ -107,7 +108,7 @@ circle {
     padding: 10px 0;
   }
   svg {
-    @include pie-svg ($pie-size-big, $pie-size-big);
+    @include width-height ($pie-size-big, $pie-size-big);
   }
 
   .pie {
@@ -119,13 +120,19 @@ circle {
     color: #333;
     background-color: #fff;
     border-color: #fff;
+    &:hover{
+      color: #333;
+      background-color: #d4d4d4;
+      border-color: #8c8c8c;
+    }
+
   }
 
-  .btn-default:hover {
-    color: #333;
-    background-color: #d4d4d4;
-    border-color: #8c8c8c;
-  }
+  //.btn-default:hover {
+  //  color: #333;
+  //  background-color: #d4d4d4;
+  //  border-color: #8c8c8c;
+  //}
 
   .box-icon {
     background: #1e8fc6;
@@ -160,14 +167,15 @@ circle {
     @include back-color($panels-content, black, hidden);
     //-webkit-border-radius: 2px 2px 0 0;
     //-moz-border-radius: 2px 2px 0 0;
-    border-radius: 3px 3px 0 0;
+    //border-radius: 3px 3px 0 0;
+    @include border-radius (3px 3px 0 0);
 
     > div{
       height: 70px;
     }
 
     svg {
-      @include pie-svg ($pie-size-md, $pie-size-md);
+      @include width-height ($pie-size-md, $pie-size-md);
     }
 
     .pie {
@@ -240,7 +248,7 @@ circle {
   }
 
   svg {
-    @include pie-svg ($pie-size-md, $pie-size-md);
+    @include width-height ($pie-size-md, $pie-size-md);
   }
 
   .pie {
@@ -263,7 +271,7 @@ circle {
     }
 
     svg  {
-      @include pie-svg ($pie-size-sx, $pie-size-sx);
+      @include width-height ($pie-size-sx, $pie-size-sx);
     }
 
     .pie {
@@ -296,7 +304,7 @@ circle {
   }
 
   .number-not-collapsed {
-    border-bottom-left-radius: 0;
+    @include border-radius (3px 0px 0px 0);
   }
 
 
@@ -329,7 +337,7 @@ circle {
   }
 
   .button-expand-not-collapsed {
-    border-bottom-right-radius: 0;
+    @include border-radius (0px 3px 0px 0);
   }
 
   .collapse, .collapsing {
@@ -347,13 +355,12 @@ circle {
     min-height: 15px !important;
     padding: 5px 15px !important;
     background-color: #fff !important;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    //color: $panels-head;
+    @include border-radius (0px 0px 3px 3px);
 
     table{
       margin-bottom: 0;
       thead{
+        @include tr-size(5%,35%, 25%, 35%, 10%);
         color: #aeaeae;
 
         .btn.btn-primary.add{
@@ -366,22 +373,6 @@ circle {
             font-weight: normal;
             vertical-align: middle;
           }
-        }
-
-        th:nth-child(1){
-          width: 5%;
-        }
-        th:nth-child(2){
-          width: 35%;
-        }
-        th:nth-child(3){
-          width: 25%;
-        }
-        th:nth-child(4){
-          width: 25%;
-        }
-        th:nth-child(5){
-          width: 10%;
         }
       }
       tbody{
@@ -422,12 +413,13 @@ background-color: #86bfea !important;
 }
 
 
-.labelColor {
-  background-color: $label !important;
-  border-top: 1px solid $label !important;
-  border-bottom: 1px solid $label !important;
-  h4 {
-    color: white !important;
+.panel-content, .panel-heading{
+  .labelColor {
+    @include  border-top-bottom($label);
+    background-color: $label;
+    h4 {
+      color: white;
+    }
   }
 }
 

@@ -108,38 +108,11 @@
       @include make-xl-column(5.2);
     }
   }
-
   padding-right: 0;
 }
 
-//
-//@media screen and (max-width: 768px) {
-//  .box-header{
-//    h3{
-//      font-size: 18px;
-//    }
-//
-//    h4 {
-//      font-size: 16px;
-//    }
-//    //svg {
-//    //  height: $pie-size-md;
-//    //  width: $pie-size-md;
-//    //}
-//    //
-//    //.pie {
-//    //  width: $pie-size-md;
-//    //  height: $pie-size-md;
-//    //}
-//  }
-//}
-
 
 @media (max-width: 415px){
-
-  #main-panel {
-    //padding-right: 15px;
-  }
 
   .box-header {
     height: 120px;
@@ -147,13 +120,11 @@
       font-size: 14px;
     }
     svg, .pie {
-      @include pie-svg($pie-size-md, $pie-size-md);
+      @include width-height($pie-size-md, $pie-size-md);
     }
-
     .bar-slider {
       @include padding-left-right(15px, 15px);
     }
-
     .assessment,
     .filter,
     .bar-slider,
@@ -171,14 +142,11 @@
   .panels-title{
     .panel-heading{
       .number, .title {
-        height: 50px;
-        background-color: $panels-head;
-
+        @include height-background(50px, $panels-head);
         h4, a {
           color: #fff;
         }
       }
-
       .button-expand-three{
         .arrow:nth-child(1){
           margin: 0 -3px 0 0;
@@ -191,51 +159,35 @@
   }
 
   .panel-content {
-
     padding: 15px 10px 0 10px !important;
-
-    //.padding-content{
-    //  padding: 0 !important;
-    //}
-
-
     .space {
       margin-bottom: 15px;
     }
-
-    h4 {
+    h4, span.numberValue  {
       font-size: 14px;
     }
-    span.numberValue {
-      font-size: 14px;
-    }
-
     .visible-xs {
       display: flex !important;
     }
-
     .box-under-header {
       height: 60px;
     }
-    .title {
-      background-color: $panels-head;
-      height: 40px;
-      border-top-right-radius: 3px;
-      @include border-top-bottom($panels-head);
+    .title, .number {
+      @include height-background($xs-panel-height, $panels-head);
       h4, a{
         color: #fff;
       }
-
+    }
+    .title {
+      @include border-radius (0 3px 0 0);
+      @include border-top-bottom($panels-head);
     }
     .number {
-      height: 40px;
-      border-bottom-left-radius: 0;
-      background-color: $panels-head;
-      color: #fff;
+      @include border-radius (3px 0 0 0);
     }
     .assessment-icon {
       border-left: $panels-border;
-      border-bottom-left-radius: 3px;
+      @include border-radius (0 0 0 3px);
 
       .col-xs-6:nth-child(2), .col-xs-7{
         padding-left: 5px;
@@ -244,26 +196,17 @@
         padding-left: 0;
       }
     }
-
     .button-expand {
-      border-top-right-radius: 0;
+      @include border-radius (0 3px 0 0);
     }
-
-    .hseq.space:hover{
-      div.title {
-        background: $panels-head;
-      }
-    }
-    .titleColor {
+    .hseq.space:hover, .titleColor {
       div.title {
         background: $panels-head;
       }
     }
     .labelColor {
       background-color: $panels-head !important;
-
     }
-
   }
 }
 
@@ -274,7 +217,6 @@
   .space {
     margin-bottom: 15px;
   }
-
   .box-header{
     height: 120px;
     h3 {
@@ -285,20 +227,17 @@
       font-size: 14px;
     }
     svg, .pie {
-      @include pie-svg($pie-size-md,$pie-size-md) ;
+      @include width-height ($pie-size-md,$pie-size-md) ;
     }
-
     .bar-slider {
       @include padding-left-right(5px, 5px);
     }
-
     .assessment,
     .filter,
     .bar-slider,
     .title-main {
       height: 50%;
     }
-
     .filter{
       @include padding-left-right(5px, 5px);
 
@@ -315,9 +254,7 @@
   .panels-title{
     .panel-heading{
       .number, .title {
-        height: 50px;
-        background-color: $panels-head;
-
+        @include height-background(50px, $panels-head);
         h4, a {
           color: #fff;
         }
@@ -336,47 +273,39 @@
     .padding-content {
       padding-right: 30px;
     }
-
-    h4 {
+    h4, span.numberValue {
       font-size: 14px;
     }
-    span.numberValue {
-      font-size: 14px;
-    }
-
     .visible-xs {
       display: flex !important;
     }
-
     .box-under-header {
       height: 60px;
     }
-    .title {
-      background-color: $panels-head;
-      height: 40px;
-      border-top-right-radius: 3px;
-      @include border-top-bottom($panels-head);
+
+    .title, .number {
+      @include height-background($xs-panel-height, $panels-head);
       h4, a{
         color: #fff;
       }
     }
+    .title {
+      @include border-radius (0 3px 0 0);
+      @include border-top-bottom($panels-head);
+    }
     .number {
-      height: 40px;
-      border-bottom-left-radius: 0;
-      background-color: $panels-head;
-      color: #fff;
+      @include border-radius (3px 0 0 0);
     }
     .assessment-icon {
       border-left: 1px solid #dedede;
-      border-bottom-left-radius: 3px;
+      @include border-radius (0 0 0 3px);
 
       .col-xs-5{
         @include padding-left-right(5px, 20px);
       }
     }
-
     .button-expand {
-      border-top-right-radius: 0;
+      @include border-radius (0 3px 0 0);
       .btn.btn-primary.add{
         margin-right: 0;
       }
@@ -384,90 +313,60 @@
         margin: 10px 0 10px 5px;
       }
     }
-
-    .hseq.space:hover{
-      div.title {
-        background: $panels-head;
+    .hseq.space:hover, .titleColor, .labelColor{
+      div.title, div.number {
+        background-color: $panels-head;
       }
     }
-    .titleColor {
-       div.title {
-        background: $panels-head;
-        }
-    }
-    .labelColor {
-      background-color: $panels-head !important;
-    }
-
-
-
     .well{
       table{
         thead, tbody{
           tr{
-            th:nth-child(1) {
-              padding-left: 0;
-            }
-            th:nth-child(5), td:nth-child(5){
-              padding-right: 0;
+            @include tr-size(5%,35%,25%,30%,5%);
+            th:nth-child(1), th:nth-child(5), td:nth-child(5) {
+              padding: 8px 0;
             }
           }
-
-          th:nth-child(1){
-            width: 5%;
-          }
-          th:nth-child(2){
-            width: 35%;
-          }
-          th:nth-child(3){
-            width: 25%;
-          }
-          th:nth-child(4){
-            width: 30%;
-          }
-          th:nth-child(5){
-            width: 5%;
-          }
-
         }
         .buttons{
           display: inline-block;
         }
         button:nth-child(1){
-          //margin: 5px 0 5px auto;
           margin: 5px 0 5px 0;
         }
         button:nth-child(2){
-          margin: auto 0 5px 0px;
-          //width: 40px;
+          margin: auto 0 5px 0;
         }
       }
     }
-
   }
 }//768px
 
 @media (min-width: $screen-sm-min) and  (max-width: $screen-sm-max) {
+  .nav {
+    height: 56px;
+    > li {
+      height: 100%;
+      > a{
+        height: 100%;
+      }
+    }
+  }
+
   .box-header{
     h3, h4 {
       font-size: 16px;
     }
     svg, .pie {
-      @include pie-svg($pie-size-md,$pie-size-md);
+      @include width-height($pie-size-md,$pie-size-md);
     }
   }
 
   .panels {
-    h4 {
-      font-size: 14px;
-    }
-    span.numberValue {
+    h4,  span.numberValue {
       font-size: 14px;
     }
   }
-
-
-
 }//768px -992px
 
 
@@ -494,16 +393,67 @@
 
 
 @media (min-width: $screen-xl-min){
-
+  .sidebar-nav {
+    width: $sidebar-max;
+  }
+  #wrapper {
+    padding-left: $sidebar-max;
+  }
+  #sidebar-wrapper {
+    width: $sidebar-max;
+  }
+  #wrapper.toggled-2 #sidebar-wrapper {
+    width: 35px;
+  }
+  #wrapper.toggled {
+    #sidebar-wrapper  {
+      //width: 250px;
+      width: $sidebar-max;
+    }
+    #page-content-wrapper {
+      padding-left: $sidebar-max;
+    }
+  }
+  #wrapper.toggled-2 {
+    #sidebar-wrapper:hover {
+      //width: 250px;
+      width: $sidebar-max;
+    }
+    #page-content-wrapper {
+      margin-left: -365px;
+    }
+  }
 }//1440px
 
+@media all and (min-width:300px) and (max-width: $screen-lg-max) {
 
-//
-//@media (max-width: $container-lg){
-//  .box-header{
-//    h3 {
-//      font-size: 18px;
-//    }
-//  }
-//}
-
+  .sidebar-nav {
+    width: $sidebar-md;
+  }
+  #wrapper {
+    padding-left: $sidebar-md;
+  }
+  #sidebar-wrapper {
+    width: $sidebar-md;
+  }
+  #wrapper.toggled-2 #sidebar-wrapper {
+    width: 35px;
+  }
+  #wrapper.toggled {
+    #sidebar-wrapper  {
+      width: $sidebar-md;
+    }
+    #page-content-wrapper {
+      padding-left: $sidebar-md;
+    }
+  }
+  #wrapper.toggled-2 {
+    #sidebar-wrapper:hover {
+      //width: 250px;
+      width: $sidebar-md;
+    }
+    #page-content-wrapper {
+      margin-left: -315px;
+    }
+  }
+}
