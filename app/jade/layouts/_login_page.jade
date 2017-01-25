@@ -1,0 +1,73 @@
+doctype html
+html(lang="en")
+  head
+    title norsta-proto
+    meta(charset='utf-8')
+
+    meta(name='description', content='')
+
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    link(rel='argevide', href='images/argevide.png')
+    // Place favicon.ico in the root directory
+    // build:css styles/vendor.css
+    // bower:css
+    // endbower
+    // endbuild
+    // build:css styles/main.css
+    link(rel='stylesheet', href='styles/main.css')
+    //link(rel='stylesheet', href='styles/right-panels.css')
+    // endbuild
+
+
+    // build:js scripts/vendor/modernizr.js
+    script(src='../bower_components/modernizr/modernizr.js')
+    // endbuild
+
+
+  body.login-page(class=page)
+    header
+      //h1 Ahoi, norsta-proto!
+
+    block content
+
+    // Footer
+
+    // build:js scripts/vendor.js
+    // bower:js
+    script(src='../bower_components/jquery/dist/jquery.js')
+    // endbower
+    // endbuild
+    // build:js scripts/plugins.js
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js')
+    script(src='../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js')
+    script(src='../bower_components/jquery-bar-rating/dist/jquery.barrating.min.js')
+    // endbuild
+
+    // build:js scripts/main.js
+
+    script(type="text/javascript" src='scripts/takeXML.js')
+    script(type="text/javascript" src='scripts/iso.js')
+    script(type="text/javascript" src='scripts/globalVariable.js')
+    script(type="text/javascript" src='scripts/addEvidences.js')
+    script(type="text/javascript" src='scripts/makePanel.js')
+    script(type="text/javascript" src='scripts/panelContent.js')
+    script(type="text/javascript" src='scripts/loadTitle.js')
+    script(type="text/javascript" src='scripts/slider.js')
+    script(type="text/javascript" src='scripts/createPage.js')
+    script(type="text/javascript" src='scripts/main.js')
+    script(type="text/javascript" src='scripts/sidebar.js')
+    script(type="text/javascript" src='scripts/panels.js')
+    script(type="text/javascript" src='scripts/filters.js')
+    script#scriptAdded
+    // endbuild

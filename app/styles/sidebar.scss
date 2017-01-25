@@ -34,11 +34,11 @@
   .icon-bar {
     background-color: #fff;
   }
-}
-#main-menu:hover, #main-menu:focus {
-  @include background-border(#ddd,1px,#ddd);
-  .icon-bar {
-    background-color: #888;
+  &:hover, &:focus{
+    @include background-border(#ddd,1px,#ddd);
+    .icon-bar {
+      background-color: #888;
+    }
   }
 }
 
@@ -82,6 +82,7 @@ nav {
 #bs-example-navbar-collapse-1 {
   float: left;
 }
+
 
 
 //.navbar-default .navbar-toggle {
@@ -182,7 +183,6 @@ nav {
 #wrapper.toggled #page-content-wrapper {
   position: relative;
   margin-right: 0;
-  //padding-left: 250px;
 }
 #wrapper.toggled-2 #page-content-wrapper {
   @include transition;

@@ -381,6 +381,15 @@
 
 
 @media (min-width: $screen-lg-min) and  (max-width: $screen-lg-max){
+  .nav {
+    height: 56px;
+    > li {
+      height: 100%;
+      > a{
+        height: 100%;
+      }
+    }
+  }
   .box-header{
     h3 {
       font-size: 18px;
@@ -393,6 +402,16 @@
 
 
 @media (min-width: $screen-xl-min){
+  .nav {
+    height: 56px;
+    > li {
+      height: 100%;
+      > a{
+        height: 100%;
+      }
+    }
+  }
+
   .sidebar-nav {
     width: $sidebar-max;
   }

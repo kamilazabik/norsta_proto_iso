@@ -223,8 +223,15 @@ function addClassNotCollapsed(classNameText){
     }
 }//addClassNotCollapsed
 
+//
+function openProfile(){
 
+  $('#profile').on('click', function (e) {
+    $('footer').css('visibility', 'hidden')
+    console.log($('#profile'))
+  })
 
+}
 
 
 

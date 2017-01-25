@@ -12,6 +12,8 @@ $icon-font-path: '../fonts/';
 @import "sidebar.scss";
 @import "slider.scss";
 @import "media";
+@import "modals";
+@import "login-site";
 
 
 
@@ -54,13 +56,6 @@ h3 {
 }
 
 
-/* Responsive: Portrait tablets and up */
-
-
-//#example-movie {
-//  display: list-item !important;
-//}
-
 #logo {
   padding-top: 10px;
 
@@ -69,81 +64,8 @@ h3 {
   }
 }
 
-#removeAssessAlert, #saveAssessAlert {
-  margin: 10px;
-}
-
-#collapseExample {
-  z-index: 10000;
-  margin-right: -2px;
-}
-
-#collapseExample .well{
-  margin-top: 1px;
-  margin-bottom: 0 !important;
-  border-radius: 0 !important;
-  width: 100%;
-  //border: 1px solid #acacac !important;
-  color: #b3b3b3;
-  font-size: 16px;
-  min-height: 15px !important;
-  padding: 15px !important;
-  background-color: #fff !important;
-}
-
-button[name='search'] {
-  margin: 10px 7px 10px 0;
-  //background-color: $panels-head;
-  //border: 2px solid #fff;
-
-}
-
-#modalEvidence{
-  table {
-    //table-layout:fixed;
-    margin-bottom: 0;
-  }
-
-  .title{
-    font-size: 16px;
-  }
-
-  .table.table-condensed{
-    @include tr-size(10%, 45%, 30%, 15%, 0);
-  }
-
-  .div-table-content {
-    height: 200px;
-    overflow-y:auto;
-
-    th{
-      font-weight: normal;
-    }
-
-    tr:nth-child(1){
-      td{
-        border-top:0;
-      }
-    }
-
-    tr {
-      @include td-size(10%, 45%, 30%, 15%);
-      &:hover{
-        background-color: #ededed;
-      }
-    }
-  }
-
-  .clicked-tr{
-    background-color: #ededed;
-  }
-}
 
 
-.file {
-  visibility: hidden;
-  position: absolute;
-}
 
 //.modal-dialog,
 //.modal-content {

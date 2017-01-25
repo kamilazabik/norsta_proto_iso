@@ -1,0 +1,64 @@
+@import "mixins";
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+
+#modalEvidence{
+  table {
+    //table-layout:fixed;
+    margin-bottom: 0;
+  }
+
+  .title{
+    font-size: 16px;
+  }
+
+  .table.table-condensed{
+    @include tr-size(10%, 45%, 30%, 15%, 0);
+  }
+
+  .div-table-content {
+    height: 200px;
+    overflow-y:auto;
+
+    th{
+      font-weight: normal;
+    }
+
+    tr:nth-child(1){
+      td{
+        border-top:0;
+      }
+    }
+
+    tr {
+      @include td-size(10%, 45%,0, 30%, 15%);
+      &:hover{
+        background-color: #ededed;
+      }
+    }
+  }
+
+  .clicked-tr{
+    background-color: #ededed;
+  }
+}
+
+
+.file {
+  visibility: hidden;
+  position: absolute;
+}
+
+#myProfile {
+  .modal-body{
+    padding-bottom: 0;
+    .form-horizontal .control-label {
+      text-align: left;
+    }
+    input {
+      margin-right: 15px;
+    }
+  }
+}
+
+

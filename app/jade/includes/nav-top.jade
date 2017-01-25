@@ -55,11 +55,11 @@ nav.navbar.no-margin.navbar-fixed-top
         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Jan Kowalski
           span.caret
         ul.dropdown-menu
-          li
-            a(href='#') Profil
+          li#profile
+            a(href='#myProfile' data-target="#myProfile" data-toggle="modal") Profil
           li.divider(role='separator')
           li
-            a(href='#') Wyloguj
+            a(href='login-site.html') Wyloguj
     button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseExample', aria-expanded='false', aria-controls='collapseExample', name='search')
       span.glyphicon.glyphicon-search(aria-hidden='true')
 

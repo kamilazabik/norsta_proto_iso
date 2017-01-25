@@ -105,7 +105,7 @@ $xs-panel-height: 40px;
   }
 }
 
-@mixin td-size($td1,$td2, $td3, $td4){
+@mixin td-size($td1,$td2, $td3, $td4, $td5){
   td:nth-child(1){
     width: $td1;
   }
@@ -117,6 +117,9 @@ $xs-panel-height: 40px;
   }
   td:nth-child(4){
     width: $td4;
+  }
+  td:nth-child(5){
+    width: $td5;
   }
 }
 

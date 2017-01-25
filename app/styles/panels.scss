@@ -444,6 +444,34 @@ background-color: #86bfea !important;
 }
 
 
+#removeAssessAlert, #saveAssessAlert {
+  margin: 10px;
+}
+
+#collapseEvidence {
+  z-index: 10000;
+  margin-right: -2px;
+}
+
+#collapseEvidence .well{
+  margin-top: 1px;
+  margin-bottom: 0 !important;
+  border-radius: 0 !important;
+  width: 100%;
+  //border: 1px solid #acacac !important;
+  color: #b3b3b3;
+  font-size: 16px;
+  min-height: 15px !important;
+  padding: 15px !important;
+  background-color: #fff !important;
+}
+
+button[name='search'] {
+  margin: 10px 7px 10px 0;
+  //background-color: $panels-head;
+  //border: 2px solid #fff;
+}
+
 
 
 

@@ -56,6 +56,9 @@ function createPage(numberClass, isNextLoad) {
     loadDescription(numberClass);
     loadPage(isNextLoad);
     onLoadPage();
+
+
+
   }
 }//createPage
 
@@ -134,6 +137,9 @@ function onLoadPage() {
 
   loadTitle();
   SetSelectAssessmentField();
+  openProfile()
+  console.log($('#profile'))
+
 
   $(function () {
     var linksContent = $('div#content div.col-md-5').find('a');
