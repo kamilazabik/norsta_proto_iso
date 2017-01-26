@@ -33,9 +33,13 @@ function createPage(numberClass, isNextLoad) {
 
     var oneTitle = panelTitle['title-hseq' + numberClass];
 
-    makePanelsTitle(numberClass, oneTitle);
 
-    if (numberClass != 'A' && isoObject[numberClass].children) {
+
+    if (numberClass != 'A' && isoObject[numberClass].children && isoObject[numberClass].children != "") {
+      makePanelsTitle(numberClass, oneTitle);
+
+      console.log(numberClass)
+      console.log(isoObject[numberClass].children)
 
       var numberOfChildren = (isoObject[numberClass].children).split(',')
         , nameOfChildren = (isoObject[numberClass].childrenNames).split('.')
@@ -65,7 +69,7 @@ function createPage(numberClass, isNextLoad) {
 
 function loadPage(isNextLoad){
 
-  var links = $('[class*=\'claim\']')
+  var links = $('[class*=\'claim-h\']')
     , allTitles = $('[class^=\'title-hseq\']');
 
   links.each(function(i) {
@@ -137,8 +141,6 @@ function onLoadPage() {
 
   loadTitle();
   SetSelectAssessmentField();
-  openProfile()
-  console.log($('#profile'))
 
 
   $(function () {

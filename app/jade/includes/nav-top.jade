@@ -19,10 +19,43 @@ nav.navbar.no-margin.navbar-fixed-top
     // navbar-header
   #bs-example-navbar-collapse-2.collapse.navbar-collapse
     ul.nav.navbar-nav
-      li
-        a#menu-projects.claim-hseqA(href='', title='Projekty') Projekty
-      li
-        a(href='#') Widok
+
+      li.dropdown
+        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekty
+          span.caret
+        ul.dropdown-menu
+          li
+            a(href='#') Uzytkownicy
+          li
+            a(href='#') Zmiany
+
+      li.dropdown
+        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Widok
+          span.caret
+        ul.dropdown-menu
+          li
+            a(href='#') Odśwież
+          li
+            a(href='#') Rozwiń
+          li
+            a(href='#') Zwiń
+          li
+            a(href='#') Otwórz dowód
+          li.divider(role='separator')
+          li
+            a(href='#') Panel
+          li
+            a(href='#') Filtr
+          li
+            a(href='#') Stan z dnia
+          li
+            a(href='#') Szukaj
+          li.divider(role='separator')
+          li
+            a(href='#') Ocena
+          li
+            a(href='#') Porównaj oceny
+
       li.dropdown
         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Raporty
           span.caret

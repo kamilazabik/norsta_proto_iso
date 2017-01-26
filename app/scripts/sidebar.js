@@ -12,10 +12,10 @@ $(document).ready(function(){
     $('#wrapper').toggleClass('toggled-2');
     console.log(parseInt($('#page-content-wrapper').css("margin-left")));
 
-    if (window.matchMedia('(max-width: 1200px)').matches)
-    {
-      $('.padding-content').removeClass('col-md-9').addClass('col-md-12')
-    }
+    // if (window.matchMedia('(max-width: 1200px)').matches)
+    // {
+    //   $('.padding-content').removeClass('col-md-9').addClass('col-md-12')
+    // }
 
     // if(parseInt($('#page-content-wrapper').css("margin-left")) == -315)
     // {
