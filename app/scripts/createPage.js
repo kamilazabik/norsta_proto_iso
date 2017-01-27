@@ -63,6 +63,7 @@ function createPage(numberClass, isNextLoad) {
 
 
 
+
   }
 }//createPage
 
@@ -141,7 +142,6 @@ function onLoadPage() {
 
   loadTitle();
   SetSelectAssessmentField();
-
 
   $(function () {
     var linksContent = $('div#content div.col-md-5').find('a');

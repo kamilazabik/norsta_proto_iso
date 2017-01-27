@@ -4,15 +4,16 @@ function loadTitle(){
     , title = $('.title-claim')
     , label = $('.label-claim')
     , allInputs = $('.allPanels input')
-    , slider = $('.sliderRightPanel input.slider');
+    , slider = $('.sliderRightPanel input.slider')
+    , rightPanel = $('.right-panel .panel-title');
   // console.log(slidersMemo);
 
   allElement.each(function(){
     var className = $(this)
       , numberClass = className.attr('class').split(' ')[1].replace('panel-hseq','').split('-')
-      , panel = $('.panel-hseq' + numberClass.join('-'))
+      , panel = $('.panel-hseq' + numberClass.join('-'));
 
-    clickOnClassName(numberClass, className,panel)
+    clickOnClassName(numberClass, className,panel);
     addEvidence(numberClass);
 
     if(isoObject[numberClass]['numberOfEvidence'] != undefined){
@@ -24,6 +25,24 @@ function loadTitle(){
     }
   });
 
+
+  // $('#tabsPanels a').click(function (e) {
+  //   e.preventDefault()
+  //   var href = $(this).attr('href').slice(1)
+  //   var tabContent = $('#my-tab-content > div')
+  //   tabContent.removeClass('active')
+  //   $.each(tabContent, function (i,v) {
+  //     console.log(i)
+  //     console.log(v.className)
+  //
+  //     if(v.id == href){
+  //       v.className = 'active'
+  //     }
+  //   })
+  //   console.log(tabContent)
+  //   $(this).tab('show')
+  // })
+
   function clickOnClassName(numberClass,className,panel) {
 
     className.on('click', function (e) {
@@ -31,28 +50,24 @@ function loadTitle(){
 
       var classNameText = numberClass.join('.')
         , link = $('.title-hseq' + classNameText).text()
-        , inputs =$(this).children().find('input')
-        , inputName = inputs.attr('name')
         , numberClassWithDots = addDotsForLabels(numberClass.join(''))
-        , panel = $('.panel-hseq' + classNameText);
+        , panel = $('.panel-hseq' + classNameText );
+
 
       $('.hseq.space').removeClass('cursor');
       panel.addClass('cursor');
       $('.addedComment').attr('data-name', classNameText);
       $('.editable_text').on('click', divClicked);
       $('.panel-title').removeClass('labelColor');
+
+
       allElement.children().removeClass('labelColor');
       allElement.removeClass('titleColor');
-
       title.text(link);
       label.text(numberClassWithDots);
-
-      addComments (classNameText);
-      loadDescription(numberClass);
-
       panel.children(':first').addClass('labelColor');
       panel.addClass('titleColor');
-     $('.right-panel .panel-title').addClass('labelColor');
+      rightPanel.addClass('labelColor');
 
 
 
@@ -79,6 +94,8 @@ function loadTitle(){
       //   // SaveAssessment();
       //   // CancelAssessment();
       // }
+      addComments (classNameText);
+      loadDescription(numberClass);
     });
   }
 }//loadTitle
@@ -232,7 +249,6 @@ function addClassNotCollapsed(classNameText){
 //   })
 //
 // }
-
 
 
 

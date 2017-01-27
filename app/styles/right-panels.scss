@@ -1,5 +1,5 @@
 @import "mixins";
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+//@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 
 .right-panel {
@@ -223,17 +223,4 @@
 //  background-color: #1d395e
 //}
 
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  .right-panel {
-    padding-top: 0;
-    padding-right: 0;
-    padding-left: 0;
-  }
-  .panel.wrap {
-    margin-top: 15px !important;
-  }
 
-  //.panel:last-child {
-  //  margin-top: 15px;
-  //}
-}
