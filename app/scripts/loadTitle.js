@@ -26,23 +26,6 @@ function loadTitle(){
   });
 
 
-  // $('#tabsPanels a').click(function (e) {
-  //   e.preventDefault()
-  //   var href = $(this).attr('href').slice(1)
-  //   var tabContent = $('#my-tab-content > div')
-  //   tabContent.removeClass('active')
-  //   $.each(tabContent, function (i,v) {
-  //     console.log(i)
-  //     console.log(v.className)
-  //
-  //     if(v.id == href){
-  //       v.className = 'active'
-  //     }
-  //   })
-  //   console.log(tabContent)
-  //   $(this).tab('show')
-  // })
-
   function clickOnClassName(numberClass,className,panel) {
 
     className.on('click', function (e) {
@@ -69,8 +52,6 @@ function loadTitle(){
       panel.addClass('titleColor');
       rightPanel.addClass('labelColor');
 
-
-
       if(!isoObject[numberClass].children && !SzybkaOcena){
         allInputs.each(function (v,i) {
           var input = $(this);
@@ -80,20 +61,6 @@ function loadTitle(){
         clickedInput.removeAttr('disabled' )
       }
 
-      // if(!SzybkaOcena){
-      //   $('.button-expand-three div div button').on('click', function (e) {
-      //     notSavedAssessment=true;
-      //     $('#myModal').modal('show');
-      //     // e.stopPropagation()
-      //   })
-      // }
-      // if(notSavedAssessment && !SzybkaOcena) {
-      //     $('#myModal').modal('show');
-      //   //TODO:
-      //   //Alert ze nie zapisana ocena z wyborem zapisz/anuluj
-      //   // SaveAssessment();
-      //   // CancelAssessment();
-      // }
       addComments (classNameText);
       loadDescription(numberClass);
     });
@@ -178,17 +145,7 @@ function SaveAssessment() {
     updateSlider($('input[name=' + sliderName + ']'), null);
     savingAssessment=false;
   }
-  // if(tempAssessmentObject && tempAssessmentObject.sliderName)
-  // {
-  //   var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
-  //   // slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
-  //   slidersMemo[tempAssessmentObject.sliderName] = tempAssessmentObject.value;
-  //   console.log(tempAssessmentObject);
-  //   updateTopSlider();
-  //   updateSlider(input, slidersMemo);
-  //   notSavedAssessment=false;
-  //   $('#myModal').modal('hide');
-  // }
+
   $('#myModal').modal('hide');
 }//SaveAssessment
 
@@ -202,15 +159,6 @@ function CancelAssessment() {
       });
     notSavedAssessment=false;
   }
-
-  // if(tempAssessmentObject && tempAssessmentObject.sliderName)
-  // {
-  //   var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
-  //   // updateSlider(input, slidersMemo);
-  //   console.log(input)
-  //   updateSlider(input, slidersMemo);
-  //   notSavedAssessment=false;
-  //   $('#myModal').modal('hide')
   }
   $('#myModal').modal('hide');
 }//CancelAssessment
@@ -240,15 +188,6 @@ function addClassNotCollapsed(classNameText){
     }
 }//addClassNotCollapsed
 
-//
-// function openProfile(){
-//
-//   $('#profile').on('click', function (e) {
-//     $('footer').css('visibility', 'hidden')
-//     console.log($('#profile'))
-//   })
-//
-// }
 
 
 

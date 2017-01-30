@@ -485,7 +485,7 @@ button[name='search'] {
 
 
 
-[id^=collapsePanelDetails] {
+[id^=collapsePanelDetails], [id^=collapseEvidence] {
 
   [id^=tabsPanels]{
     padding: 15px 0;

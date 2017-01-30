@@ -1,17 +1,45 @@
+function makeButtonExpand(numberOfChildMainPanel, j){
+  var panelRowCol6Row1 = $('<div class="row"></div>')
+    , panelRowCol6Row1Col = $('<div class="col-xl-12 col-lg-12 col-md-12"></div>')
+    ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn expand-main-page\'>Rozwiń</button>')
+
+  panelRowCol6Row1Col.append(panelRowCol6Button);
+  panelRowCol6Row1.append(panelRowCol6Row1Col);
+
+ return panelRowCol6Row1;
+}
+
+function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j){
+  var panelRowCol6Row2 = $('<div class="row"></div>')
+    , panelRowCol6Row2Col = $('<div class="col-xl-12 col-lg-12 col-md-12"></div>')
+
+    , buttonExpandPanel = $('<button type=\'button\' class=\'hidden-lg hidden-xl btn btn-primary expand ' + numberOfChildMainPanel[j - 1] + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChildMainPanel[j - 1] + '\' aria-controls=\'collapsePanelDetails' + numberOfChildMainPanel[j - 1] + '\' title=\'Pokaż panel szczegółów\'></button>')
+    , buttonIcon = $('<i class="fa fa-arrow-down" aria-hidden="true"></i>')
+    , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' + numberOfChildMainPanel[j - 1]+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChildMainPanel[j - 1] + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
+
+  buttonExpandPanel.append(buttonIcon);
+  panelRowCol6Row2Col.append(buttonExpandPanel,buttonAddFirstEvidence);
+  panelRowCol6Row2.append(panelRowCol6Row2Col);
+
+  return panelRowCol6Row2;
+}
+
+
+
 function makeDetailsPanel(numberOfChildMainPanel, j){
-  var tabPanels = $('<div id =\'tabsPanels' +numberOfChildMainPanel[j - 1]+ '\' class=\'hidden-lg col-sm-12 col-xs-12\'></div>')
+  var tabPanels = $('<div id =\'tabsPanels' +numberOfChildMainPanel[j - 1]+ '\' class=\' col-md-12 col-sm-12 col-xs-12\'></div>')
     , tabPanelsCol = $('<div class=\'col-md-12 col-sm-12\'></div>')
     , tabPanelsColUl = $('<ul id =\'tabs' +numberOfChildMainPanel[j - 1]+ '\' data-tabs=\'tabs\' class=\'nav nav-pills\'></ul>')
-    , tabPanelsColUlLi1 = $('<li class=\'active\'></li>')
+    , tabPanelsColUlLi1 = $('<li class=\'active hidden-lg\'></li>')
     , tabPanelsColUlLi1a = $('<a href=\'#assessment' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Ocena</a>')
-    , tabPanelsColUlLi2 = $('<li></li>')
+    , tabPanelsColUlLi2 = $('<li class=\'hidden-lg\'></li>')
     , tabPanelsColUlLi2a = $('<a href=\'#details' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Szczegóły</a>')
     , tabPanelsColUlLi3 = $('<li></li>')
     , tabPanelsColUlLi3a = $('<a href=\'#evidences' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Dowody</a>')
 
     , tabContent = $('<div id =\'my-tab-content' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-content\'></div>')
-    , tabContentAssess = $('<div id =\'assessment' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane active\'></div>')
-    , tabContentDetails = $('<div id =\'details' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane\'></div>')
+    , tabContentAssess = $('<div id =\'assessment' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane active hidden-lg\'></div>')
+    , tabContentDetails = $('<div id =\'details' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane hidden-lg\'></div>')
     , tabContentEvidence = $('<div id =\'evidences' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane addedComment\'></div>')
 
     , tabContentAssessRow = $('<div class=\'row\'></div>')
@@ -59,6 +87,9 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
   tabContentDetailsRow2.append(tabContentDetailsRow2Col1, tabContentDetailsRow2Col2);
   tabContentDetailsRow1.append(tabContentDetailsRow1Col1, tabContentDetailsRow1Col2);
   tabContentDetails.append(tabContentDetailsRow1,tabContentDetailsRow2,tabContentDetailsRow3,tabContentDetailsRow4);
+
+  tabContentEvidence.append(addEvidencesToTheList(numberOfChildMainPanel, j))
+
   tabContentAssessRowCol.append(tabContentAssessRowColH);
   tabContentAssessRow.append(tabContentAssessRowCol);
   tabContentAssess.append(tabContentAssessRow,tabContentAssessRowEditText );
