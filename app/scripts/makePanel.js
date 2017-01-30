@@ -1,3 +1,8 @@
+/**
+ * Tworzy panel główny
+ *
+ */
+
 function makeMainPanel(){
   var mainPanel = $('<div id="main-panel"></div>')
     , col = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
@@ -37,8 +42,14 @@ function makeMainPanel(){
 
 }//makeMainPanel
 
-function makePanelsTitle(numberClass, oneTitle){
+/**
+ * Tworzy tytuł/panel rodzica
+ * @param {string} numberClass - etykieta/numer klasy
+ * @param {string} oneTitle - tytuł
+ *
+ */
 
+function makePanelsTitle(numberClass, oneTitle){
   var numberClassWithDots = addDotsForLabels(numberClass)
     , paddingContent = $('.col-xl-9.col-lg-9.col-md-12.col-sm-12.col-xs-12.pull-left.padding-content')
     , panelTitle= $('<div class="panel panel-default panels-title allPanels"></div>')
@@ -107,6 +118,16 @@ function makePanelsTitle(numberClass, oneTitle){
   return paddingContent;
 }//makePanelsTitle
 
+/**
+ * Tworzy panel pod rodzicem, funkcja wywoływana w pętli
+ * @param {object} numberOfChildren - tablica z etykietami/numerami klas dzieci
+ * @param {object} nameOfChildren - tablica z nazwami dzieci
+ * @param {object} childrenDegree - tablica z maksymalnymi ocenami dzieci
+ * @param {number} i - liczba dzieci,
+ * @param {string} numberClass - etykieta/numer klasy rodzica
+ *
+ */
+
 
 function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,numberClass ) {
   var numberOfChildrenWithDots = numberOfChildren.map(addDotsForLabels)
@@ -133,8 +154,11 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
     // , button = $('<button type=\'button\' class=\'claim-hseq' + numberOfChildren[i - 1] + ' btn btn-primary btn-sm custom-btn expand\'>Rozwiń</button>')
 
-    , buttonExpandEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChildren[i - 1] + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapseEvidence' + numberOfChildren[i - 1] + '\' aria-controls=\'collapseEvidence' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
-    , evidenceID = $('<div id=\'collapseEvidence' + numberOfChildren[i - 1] + '\' class=\'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(makeDetailsPanel(numberOfChildren, i))
+    , evidenceID = $('<div id=\'collapsePanelDetails' + numberOfChildren[i - 1] + '\' class=\'col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(makeDetailsPanel(numberOfChildren, i))
+    , buttonExpandEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChildren[i - 1] + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'search\' data-target=\'#collapsePanelDetails' + numberOfChildren[i - 1] + '\' aria-controls=\'collapsePanelDetails' + numberOfChildren[i - 1] + '\' title=\'Rozwiń dowody\'></button>')
+
+
+
 
     , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' + numberOfChildren[i - 1]+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChildren[i - 1] + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
@@ -173,6 +197,13 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
 }//makeBodyPanel
 
+/**
+ * Funkacją dodająca nagłówek tabeli z dowodami
+ * @param {object} numberOfChildren - tablica z etykietami/numerami klas dzieci
+ * @param {number} i - liczba dzieci,
+ *
+ */
+
 
 function addEvidencesToTheList(numberOfChildren,i){
   var evidence = $('<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 well"></div>')
@@ -195,6 +226,11 @@ function addEvidencesToTheList(numberOfChildren,i){
 
   return evidence
 }
+
+/**
+ * Funkacją
+ *
+ */
 
 function makeFirstPartOfMainPage(){
   var panelDefault = $('<div class="panel panel-default allPanels"></div>')
