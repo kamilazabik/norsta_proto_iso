@@ -129,14 +129,14 @@ function saveEvidence() {
       modalEvidenceWindow.modal('hide');
     console.log(buttonExpandAdded)
 
-      if(buttonExpandAdded.length == 0){
-        buttonExpandEvidences.append(buttonEvidencesIcon);
-        placeForButtonEvidence.append(buttonExpandEvidences)
-      }else {
+      // if(buttonExpandAdded.length == 0){
+      //   // buttonExpandEvidences.append(buttonEvidencesIcon);
+      //   // placeForButtonEvidence.append(buttonExpandEvidences)
+      // }else {
         buttonExpandAdded.attr('aria-expanded', true).removeClass('collapsed');
         $('.button-expand i').removeClass('fa-arrow-down').addClass('fa-arrow-up')
         buttonOpenDetails.removeClass('hidden-lg').removeClass('hidden-xl')
-      }
+      // }
       buttonExpandEvidences.on('click', function (e) {
         addClassNotCollapsed(className);
       });
