@@ -55,9 +55,9 @@ button{
 }
 
 .button-expand{
-  display: flex;
-  align-items: center;
-  height: 100%;
+  //display: flex;
+  //align-items: right;
+  //height: 100%;
   //align-self: center;
   //justify-content: center;
   //align-content: center;
@@ -256,7 +256,16 @@ circle {
     margin-top: 10px;
   }
 
-  .box-under-header-sx {
+  button[name=expand]{
+    float: right;
+    //margin: 3px 0;
+  }
+
+  //button[name=openPanelDetails] {
+  //  float: right;
+  //  padding: 5px 10px;
+  //}
+    .box-under-header-sx {
     @include back-color($panels-content, $color-black, hidden);
     //-webkit-border-radius: 2px 2px 0 0;
     //-moz-border-radius: 2px 2px 0 0;
@@ -332,7 +341,7 @@ circle {
     }
 
     .expand-main-page{
-      margin: 0 auto;
+      //margin: 0 auto;
     }
   }
 

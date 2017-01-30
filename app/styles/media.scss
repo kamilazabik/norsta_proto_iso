@@ -199,6 +199,17 @@
     .button-expand {
       @include border-radius (0 3px 0 0);
     }
+
+
+    button[name=expand]{
+      float: right;
+      margin: 3px 0;
+    }
+
+    button[name=openPanelDetails] {
+      float: right;
+      padding: 5px 10px;
+    }
     .hseq.space:hover, .titleColor {
       div.title {
         background: $panels-head;
@@ -313,6 +324,17 @@
         margin: 10px 0 10px 5px;
       }
     }
+
+    button[name=expand]{
+      float: right;
+      margin: 3px 0;
+    }
+
+    button[name=openPanelDetails] {
+      float: right;
+      padding: 5px 10px;
+    }
+
     .hseq.space:hover, .titleColor, .labelColor{
       div.title, div.number {
         background-color: $panels-head;
@@ -366,6 +388,17 @@
     h4,  span.numberValue {
       font-size: 14px;
     }
+
+
+    button[name=expand]{
+      float: right;
+      margin: 3px 0;
+    }
+
+    button[name=openPanelDetails] {
+      float: right;
+      padding: 5px 10px;
+    }
   }
 }//768px -992px
 
@@ -384,6 +417,17 @@
     h3 {
       font-size: 16px;
     }
+  }
+
+
+  button[name=expand]{
+    float: right;
+    margin: 3px 0;
+  }
+
+  button[name=openPanelDetails] {
+    float: right;
+    padding: 5px 10px;
   }
 
 }//992px - 1200px
@@ -406,6 +450,16 @@
   }
   .panels-title h4 {
     font-size: 16px;
+  }
+
+  //.button-expand{
+  //  display: flex;
+  //  align-items: center;
+  //  height: 100%;
+  //}
+
+  button[name=expand]{
+    margin: 19px 0;
   }
 }//1200px - 1440px
 
@@ -451,6 +505,15 @@
       margin-left: -365px;
     }
   }
+  //.button-expand{
+  //  display: flex;
+  //  align-items: center;
+  //  height: 100%;
+  //}
+  button[name=expand]{
+    margin: 19px 0;
+  }
+
 }//1440px
 
 @media all and (min-width:300px) and (max-width: $screen-lg-max) {
