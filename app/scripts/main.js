@@ -4,8 +4,7 @@ $(document).ready( function(){
   console.log(isoObject);
   createPage('A', false);
   SetAssessmentField();
-  saveEvidence();
-
+  addNewEvidence();
 
 
 });//END of document.READY

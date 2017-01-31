@@ -38,9 +38,6 @@ function createPage(numberClass, isNextLoad) {
     if (numberClass != 'A' && isoObject[numberClass].children && isoObject[numberClass].children != "") {
       makePanelsTitle(numberClass, oneTitle);
 
-      console.log(numberClass)
-      console.log(isoObject[numberClass].children)
-
       var numberOfChildren = (isoObject[numberClass].children).split(',')
         , nameOfChildren = (isoObject[numberClass].childrenNames).split('.')
         , childrenDegree = (isoObject[numberClass].childrenMaxDegree).split(',')
@@ -51,8 +48,6 @@ function createPage(numberClass, isNextLoad) {
       }
     }
 
-
-
     titlePanel.text(titleClaim.text());
     label.text(numberClassWithDots);
 
@@ -60,10 +55,6 @@ function createPage(numberClass, isNextLoad) {
     loadDescription(numberClass);
     loadPage(isNextLoad);
     onLoadPage();
-
-
-
-
   }
 }//createPage
 

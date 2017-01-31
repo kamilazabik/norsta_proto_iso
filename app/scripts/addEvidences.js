@@ -1,6 +1,5 @@
-function addEvidence(classNameText){
-  var clickedButton = $('.panel-hseq' + classNameText+' div.button-expand button')
-    , buttonSubmit = $('button.save-new-evid')
+function addAttrToEvidenceWindow(classNameText){
+  var buttonSubmit = $('button.save-new-evid')
     , textOfName = $('#textareaNameEvid')
 
     $('.btn.btn-primary.add.'+classNameText).on('click', function(){
@@ -16,7 +15,7 @@ function addEvidence(classNameText){
 
     if(dataEvidence){
       var nameOfFile = $('#'+ classNameText  + ' tr.' + dataEvidence + ' .nameDocument').text()
-        , nameOfEvidence = $('#'+ classNameText  + ' tr.' + dataEvidence + ' .nameEvidence').text()
+        , nameOfEvidence = $('#'+ classNameText  + ' tr.' + dataEvidence + ' .nameEvidence').text();
 
       $('.form-control.name-evid').val(nameOfFile);
       textOfName.val(nameOfEvidence);
@@ -29,9 +28,8 @@ function addEvidence(classNameText){
   });
 }//addEvidence
 
-function saveEvidence() {
-  var modalEvidenceWindow1 = $('#modalEvidence')
-    , buttonSubmit = $('button.save-new-evid');
+function addNewEvidence() {
+  var buttonSubmit = $('button.save-new-evid');
 
   $(document).on('click', '.browse', function(event){
     var file = $(this).parent().parent().parent().find('.file');
@@ -56,97 +54,82 @@ function saveEvidence() {
   });
 
   $(document).on('click','.save-new-evid', function( event ) {
-    event.preventDefault();
-    var modalEvidenceWindow = $('#modalEvidence')
-      , className = modalEvidenceWindow.attr('data-name')
-      , nameOfFile = $('.form-control.name-evid').val()
-      , nameOfEvidence = $('#textareaNameEvid').val()
-      , rowCount = $('#' + className +' tbody').find('tr').length + 1
-      , dataEvidence = $(this).attr('data-evidence')
-      , placeForButtonEvidence = $('.col-xl-1-2.col-lg-1-4.col-md-1-6.col-sm-1-6.col-xs-2-8.box-under-header-sx.button-expand.' + className)
-      // , buttonExpandEvidences = $('<button type=\'button\' class=\'btn btn-primary expand ' + className + '\' data-toggle=\'collapse\' aria-expanded=\'true\'  name=\'search\' data-target=\'#collapsePanelDetails' + className + '\' aria-controls=\'collapsePanelDetails' + className + '\' title=\'Zwiń dowody\'></button>')
-      , buttonExpandEvidences = $('.expand.' + className)
-
-
-      , buttonEvidencesIcon = $('<i class=\'fa fa-arrow-up\' aria-hidden=\'true\'></i>')
-      , buttonExpandAdded = $('.btn.btn-primary.expand.'+className)
-      , rowInEvidenceWindow = $('#modalEvidence tbody')
-      , rowCountInEvidenceWindow = rowInEvidenceWindow.find('tr').length + 1
-      , nameOfEvidenceFromList
-      , nameOfFileFromList
-      , clickedPanel = $('.panel-hseq' + className+' div.number')
-      , clickedPanelButton = $('.panel-hseq' + className+' div.button-expand')
-      , textOfName = $('#textareaNameEvid')
-      , buttonOpenDetails = $('button.expand.'+ className)
-
-    console.log(buttonOpenDetails)
-
-    $('tr').removeClass('clicked-tr')
-
-      if(evidenceFromList){
-        nameOfFileFromList = evidenceFromList.parent().children().eq(1).text();
-        nameOfEvidenceFromList = evidenceFromList.parent().children().eq(2).text();
-      }
-
-      if(dataEvidence == undefined){
-
-        if(existingEvidence && !nameOfFile)  {
-
-          isoObject[className]['nameDocument' + rowCount]= nameOfFileFromList;
-          isoObject[className]['nameEvidence' + rowCount]= nameOfEvidenceFromList;
-          isoObject[className]['numberOfEvidence']= rowCount - 1;
-          $('#collapsePanelDetails'+ className +' .well table tbody').append(makeTr(className,rowCount));
-          existingEvidence = false;
-
-        }else if(!existingEvidence && nameOfFile){
-          isoObject[className]['nameDocument' + rowCount]= nameOfFile;
-          isoObject[className]['nameEvidence' + rowCount]= nameOfEvidence;
-          isoObject[className]['numberOfEvidence']= rowCount - 1;
-
-          $('#collapsePanelDetails'+ className +' .well table tbody').append(makeTr(className,rowCount));
-          rowInEvidenceWindow.append(makeTrInEvidencesWidnow(className,rowCount, rowCountInEvidenceWindow));
-        }
-
-      }else if($('#collapsePanelDetails'+ className +' .well table tbody').find('tr.' + dataEvidence))
-      {
-        var replacedTr = $('#collapsePanelDetails'+ className +' .well table tbody').find('tr.' + dataEvidence);
-
-        if(existingEvidence){
-          isoObject[className]['nameDocument' + dataEvidence]= nameOfFileFromList;
-          isoObject[className]['nameEvidence' + dataEvidence]= nameOfEvidenceFromList;
-          isoObject[className]['numberOfEvidence']= rowCount - 2;
-          replacedTr.replaceWith(makeTr(className,dataEvidence));
-          existingEvidence = false;
-        }else{
-          isoObject[className]['nameDocument' + dataEvidence]= nameOfFile;
-          isoObject[className]['nameEvidence' + dataEvidence]= nameOfEvidence;
-          isoObject[className]['numberOfEvidence']= rowCount - 2;
-          replacedTr.replaceWith(makeTr(className,dataEvidence));
-          // rowInEvidenceWindow.append(makeTrInEvidencesWidnow(className,rowCount, rowCountInEvidenceWindow));
-        }
-      }
-
-      modalEvidenceWindow.modal('hide');
-    console.log(buttonExpandAdded)
-
-      // if(buttonExpandAdded.length == 0){
-      //   // buttonExpandEvidences.append(buttonEvidencesIcon);
-      //   // placeForButtonEvidence.append(buttonExpandEvidences)
-      // }else {
-        buttonExpandAdded.attr('aria-expanded', true).removeClass('collapsed');
-        $('.button-expand i').removeClass('fa-arrow-down').addClass('fa-arrow-up')
-        buttonOpenDetails.removeClass('hidden-lg').removeClass('hidden-xl')
-      // }
-      buttonExpandEvidences.on('click', function (e) {
-        addClassNotCollapsed(className);
-      });
-
-    clickedPanel.addClass('number-not-collapsed');
-    clickedPanelButton.addClass('button-expand-not-collapsed');
-      $('#collapsePanelDetails'+ className).attr('aria-expanded', true).addClass('in').addClass('collapse').css('height', '100%');
-
+    var dataEvidence = $(this).attr('data-evidence');
+    saveEvidence(evidenceFromList, dataEvidence)
   });
 }//attachEvidence
+
+function saveEvidence(evidenceFromList, dataEvidence){
+  var modalEvidenceWindow = $('#modalEvidence')
+    , className = modalEvidenceWindow.attr('data-name')
+    , nameOfFile = $('.form-control.name-evid').val()
+    , nameOfEvidence = $('#textareaNameEvid').val()
+    , rowCount = $('#' + className +' tbody').find('tr').length + 1
+    , buttonExpandAdded = $('.btn.btn-primary.expand.'+className)
+    , rowInEvidenceWindow = $('#modalEvidence tbody')
+    , rowCountInEvidenceWindow = rowInEvidenceWindow.find('tr').length + 1
+    , nameOfEvidenceFromList
+    , nameOfFileFromList
+    , clickedPanel = $('.panel-hseq' + className+' div.number')
+    , clickedPanelButton = $('.panel-hseq' + className+' div.button-expand')
+    , buttonOpenDetails = $('button.expand.'+ className)
+    , collapsePanelClass = $('#collapsePanelDetails' + className)
+
+  $('tr').removeClass('clicked-tr');
+
+  if(evidenceFromList){
+    nameOfFileFromList = evidenceFromList.parent().children().eq(1).text();
+    nameOfEvidenceFromList = evidenceFromList.parent().children().eq(2).text();
+  }
+
+  if(dataEvidence == undefined){
+
+    if(existingEvidence && !nameOfFile)  {
+
+      isoObject[className]['nameDocument' + rowCount]= nameOfFileFromList;
+      isoObject[className]['nameEvidence' + rowCount]= nameOfEvidenceFromList;
+      isoObject[className]['numberOfEvidence']= rowCount - 1;
+      $('#collapsePanelDetails'+ className +' .well table tbody').append(makeTr(className,rowCount));
+      existingEvidence = false;
+
+    }else if(!existingEvidence && nameOfFile){
+      isoObject[className]['nameDocument' + rowCount]= nameOfFile;
+      isoObject[className]['nameEvidence' + rowCount]= nameOfEvidence;
+      isoObject[className]['numberOfEvidence']= rowCount - 1;
+
+      $('#collapsePanelDetails'+ className +' .well table tbody').append(makeTr(className,rowCount));
+      rowInEvidenceWindow.append(makeTrInEvidencesWidnow(className,rowCount, rowCountInEvidenceWindow));
+    }
+
+  }else if($('#collapsePanelDetails'+ className +' .well table tbody').find('tr.' + dataEvidence))
+  {
+    var replacedTr = $('#collapsePanelDetails'+ className +' .well table tbody').find('tr.' + dataEvidence);
+
+    if(existingEvidence){
+      isoObject[className]['nameDocument' + dataEvidence]= nameOfFileFromList;
+      isoObject[className]['nameEvidence' + dataEvidence]= nameOfEvidenceFromList;
+      isoObject[className]['numberOfEvidence']= rowCount - 2;
+      replacedTr.replaceWith(makeTr(className,dataEvidence));
+      existingEvidence = false;
+    }else{
+      isoObject[className]['nameDocument' + dataEvidence]= nameOfFile;
+      isoObject[className]['nameEvidence' + dataEvidence]= nameOfEvidence;
+      isoObject[className]['numberOfEvidence']= rowCount - 2;
+      replacedTr.replaceWith(makeTr(className,dataEvidence));
+    }
+  }
+
+
+  modalEvidenceWindow.modal('hide');
+  collapsePanelClass.removeClass('hidden-xl hidden-lg');
+  buttonExpandAdded.attr('aria-expanded', true).removeClass('collapsed');
+  $('.button-expand i').removeClass('fa-arrow-down').addClass('fa-arrow-up');
+  buttonOpenDetails.removeClass('hidden-lg').removeClass('hidden-xl');
+  clickedPanel.addClass('number-not-collapsed');
+  clickedPanelButton.addClass('button-expand-not-collapsed');
+  collapsePanelClass.attr('aria-expanded', true).addClass('in').addClass('collapse').css('height', '100%');
+
+}
 
 
 function makeTr(className, rowCount ){
@@ -161,7 +144,7 @@ function makeTr(className, rowCount ){
     , buttonTr3EditEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' +className+ '\' data-evidence=\''+ rowCount+ '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Edytuj dowód\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
 
   buttonTr3EditEvidence.on('click', function () {
-    addEvidence(className)
+    addAttrToEvidenceWindow(className)
   });
 
   evidenceTr3Td5.append(buttonTr3OpenEvidence,buttonTr3EditEvidence);

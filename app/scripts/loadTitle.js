@@ -14,7 +14,7 @@ function loadTitle(){
       , panel = $('.panel-hseq' + numberClass.join('-'));
 
     clickOnClassName(numberClass, className,panel);
-    addEvidence(numberClass);
+    addAttrToEvidenceWindow(numberClass);
 
     if(isoObject[numberClass]['numberOfEvidence'] != undefined){
       var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
