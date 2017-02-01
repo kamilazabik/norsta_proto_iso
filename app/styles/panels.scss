@@ -1,8 +1,6 @@
 @import "mixins";
 //@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
-
-
 .panel {
   //box-shadow: $panels-shadow;
   box-shadow: $panels-shadow !important;
@@ -50,17 +48,7 @@ button{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  //align-items:center;
   height: 100%;
-}
-
-.button-expand{
-  //display: flex;
-  //align-items: right;
-  //height: 100%;
-  //align-self: center;
-  //justify-content: center;
-  //align-content: center;
 }
 
 svg {
@@ -86,17 +74,29 @@ circle {
   stroke: #45d666 !important;
 }
 
-
+.btn.btn-primary {
+  &.open {
+    padding: 5px 8px;
+  }
+  &.edit {
+    padding: 5px 10px;
+  }
+  &.add {
+    background-color: #86bfea;
+    margin-left: 5px;
+    padding: 5px 10px;
+  }
+  &.expand {
+    padding: 5px 9px;
+    float: right;
+  }
+}
 
 .box-header {
   @include back-color(#fff, $color-black, hidden);
-  //-webkit-border-radius: 2px 2px 0 0;
-  //-moz-border-radius: 2px 2px 0 0;
-  //box-shadow: 1px 1px rgba(0, 0, 0, 0.05);
   box-shadow: $panels-shadow;
   height: 80px;
   @include border-radius (2px);
-  //border-radius: 2px;
 
   h4 {
     @include font(400,1.4);
@@ -125,15 +125,7 @@ circle {
       background-color: #d4d4d4;
       border-color: #8c8c8c;
     }
-
   }
-
-  //.btn-default:hover {
-  //  color: #333;
-  //  background-color: #d4d4d4;
-  //  border-color: #8c8c8c;
-  //}
-
   .box-icon {
     background: #1e8fc6;
     float: right;
@@ -165,9 +157,6 @@ circle {
 
   .box-under-header {
     @include back-color($panels-content, black, hidden);
-    //-webkit-border-radius: 2px 2px 0 0;
-    //-moz-border-radius: 2px 2px 0 0;
-    //border-radius: 3px 3px 0 0;
     @include border-radius (3px 3px 0 0);
 
     > div{
@@ -190,6 +179,7 @@ circle {
     .assessment {
       padding-left: 12px;
     }
+
     .button-expand-three{
       height: 70px;
 
@@ -197,29 +187,27 @@ circle {
         padding-left: 0;
       }
 
-
-      button.up{
-        background: $panels-head;
-        margin: 4px 0 3px auto;
-        display: block;
-        border-color: $panels-head;
+      button {
+        &.up, &.arrow {
+          background: $panels-head;
+          border-color: $panels-head;
+          padding: 5px 12px
+        }
+        &.up {
+          margin: 4px 0 3px auto;
+          display: block;
+        }
+        &.arrow {
+          float: right;
+          &:disabled{
+            background-color: rgb(175, 175, 175);
+            border-color: rgb(152, 152, 152);
+          }
+          &:nth-child(2){
+            margin: 0 4px 0 6px;
+          }
+        }
       }
-
-      button.arrow{
-        background: $panels-head;
-        float: right;
-        border-color: $panels-head;
-      }
-
-      button.arrow:disabled{
-        background-color: rgb(175, 175, 175);
-        border-color: rgb(152, 152, 152);
-
-      }
-      .arrow:nth-child(2){
-        margin: 0 7px 0 6px;
-      }
-
     }
   }
 }
@@ -230,16 +218,15 @@ circle {
   padding-bottom: 0 !important;
   padding-top: 20px !important;
 
-
-  .hseq.space {
-    //cursor: pointer;
-  }
-
   .box-under-header {
     @include back-color($panels-content, $color-black, hidden);
-    //-webkit-border-radius: 2px 2px 0 0;
-    //-moz-border-radius: 2px 2px 0 0;
     height: 70px;
+
+    button[name=expand]{
+      float: right;
+      margin: 3px 0;
+      padding: 5px 13px;
+    }
   }
 
   button{
@@ -256,17 +243,17 @@ circle {
     margin-top: 10px;
   }
 
+  .children {
+    padding: 15px 0;
+  }
 
-
-  //button[name=openPanelDetails] {
-  //  float: right;
-  //  padding: 5px 10px;
-  //}
     .box-under-header-sx {
     @include back-color($panels-content, $color-black, hidden);
-    //-webkit-border-radius: 2px 2px 0 0;
-    //-moz-border-radius: 2px 2px 0 0;
-    height: 60px;
+    height: 65px;
+
+      &.children {
+        padding: 17px 15px 17px 0;
+      }
 
     h6 {
       @include font(400,0.8);
@@ -288,6 +275,11 @@ circle {
     button{
       background: $panels-head;
     }
+      button[name=expand]{
+        float: right;
+        margin: 2px 0;
+        padding: 5px 13px;
+      }
   }
 
   .number .title{
@@ -306,13 +298,11 @@ circle {
     align-items:center;
     background: $panels-head;
     color: #fff;
-    //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   }
 
   .number-not-collapsed {
     @include border-radius (3px 0px 0px 0);
   }
-
 
   .bar-slider {
     @include border-top-bottom($panels-border);
@@ -322,35 +312,8 @@ circle {
     @include border-right($panels-border, 3px);
     padding-left: 0 !important;
 
-    button.expand, .btn.btn-primary{
-      //margin-left: auto;
-    }
-
     .btn.btn-primary.btn-sm{
       margin-left: auto;
-
-    }
-
-    button[name=expand]{
-      float: right;
-      margin: 3px 0;
-    }
-
-    .btn.btn-primary.expand {
-      padding-left: 11px;
-      padding-right: 11px;
-      float: right;
-    }
-    .btn.btn-primary.add{
-      background-color: #86bfea;
-      margin-left:5px;
-      //padding: 4px 9px;
-      //padding-top: 4px;
-      //width: 37px;
-    }
-
-    .expand-main-page{
-      //margin: 0 auto;
     }
   }
 
@@ -361,59 +324,6 @@ circle {
   .collapse, .collapsing {
     padding-left: 0 !important;
     padding-right: 0 !important;
-  }
-
-  .well{
-    margin-top: 0;
-    border: 0;
-    margin-bottom: 0 !important;
-    width: 100%;
-    //color: #b3b3b3;
-    font-size: 14px;
-    min-height: 15px !important;
-    padding: 5px 15px !important;
-    background-color: #fff !important;
-    @include border-radius (0px 0px 3px 3px);
-
-    table{
-      margin-bottom: 0;
-      thead{
-        @include tr-size(5%,35%, 25%, 35%, 10%);
-        color: #aeaeae;
-
-        .btn.btn-primary.add{
-          background-color: #86bfea;
-        }
-
-        tr {
-          th{
-            border-bottom: 0;
-            font-weight: normal;
-            vertical-align: middle;
-          }
-        }
-      }
-      tbody{
-        tr {
-          th{
-            color: #aeaeae;
-          }
-        }
-      }
-    }
-    .buttons{
-      display: flex;
-    }
-
-    button {
-      width: 37px;
-    }
-    button:nth-child(1){
-        margin: 5px 0 5px auto;
-      }
-    button:nth-child(2){
-      margin: 5px 0 5px 5px;
-    }
   }
 }
 
@@ -426,10 +336,8 @@ circle {
 }
 
 .active-input {
-//background-color: #78afda !important;
-background-color: #86bfea !important;
+  background-color: #86bfea !important;
 }
-
 
 .panel-content, .panel-heading{
   .labelColor {
@@ -442,8 +350,6 @@ background-color: #86bfea !important;
 }
 
 .titleColor {
-  //border: 1px solid $label !important;
-  //box-shadow: 0 0 10px rgba(84, 166, 230, 0.5)
   > div:not(:first-child):not(:last-child)  {
     background-color: #f3f3f3;
   }
@@ -461,103 +367,112 @@ background-color: #86bfea !important;
   }
 }
 
-
 #removeAssessAlert, #saveAssessAlert {
   margin: 10px;
 }
 
-#collapseEvidence {
-  z-index: 10000;
-  margin-right: -2px;
-}
-
-#collapseEvidence .well{
-  margin-top: 1px;
-  margin-bottom: 0 !important;
-  border-radius: 0 !important;
-  width: 100%;
-  //border: 1px solid #acacac !important;
-  color: #b3b3b3;
-  font-size: 16px;
-  min-height: 15px !important;
-  padding: 15px !important;
-  background-color: #fff !important;
-
-}
-
 button[name='search'] {
   margin: 10px 7px 10px 0;
-  //background-color: $panels-head;
-  //border: 2px solid #fff;
 }
 
-
-
-
-[id^=collapsePanelDetails], [id^=collapseEvidence] {
+[id^=collapsePanelDetails] {
 
   [id^=tabsPanels]{
     padding: 15px 0;
-    margin-bottom: 0 !important;
+    margin: 0;
     width: 100%;
-    min-height: 15px !important;
-    background-color: #fff !important;
+    //min-height: 15px !important;
+    background-color: #fff;
     border: 1px solid #e3e3e3;
     border-radius: 3px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-    margin-top: 0;
     border-top: 0;
     font-size: 14px;
     @include border-radius (0px 0px 3px 3px);
-  }
 
-
-
-  .editable_text {
-    border: 1px solid rgb(185, 185, 185);
-    min-height: 50px;
-    padding: 2px;
-    margin-bottom: 5px;
-  }
-
-
-    .editable_text {
-      height: 100%;
-      padding: 5px;
-    }
-
-    textarea {
+    .well{
+      margin-top: 0;
+      border: 0;
+      margin-bottom: 0;
       width: 100%;
-      overflow: visible;
+      font-size: 14px;
+      //min-height: 15px !important;
+      padding: 5px 0;
+      background-color: #fff;
+      @include border-radius (0px 0px 3px 3px);
+      box-shadow: none;
+
+      table{
+        margin-bottom: 0;
+        thead{
+          @include tr-size(5%,35%, 25%, 35%, 10%);
+          color: #aeaeae;
+
+          .btn.btn-primary.add{
+            background-color: #86bfea;
+          }
+
+          tr {
+            th{
+              border-bottom: 0;
+              border-top: 0;
+              font-weight: normal;
+              vertical-align: middle;
+            }
+          }
+        }
+        tbody{
+          tr {
+            th{
+              color: #aeaeae;
+            }
+          }
+        }
+      }
+      .buttons{
+        display: flex;
+      }
+
+      button:nth-child(1){
+        margin: 5px 0 5px auto;
+      }
+      button:nth-child(2){
+        margin: 5px 0 5px 5px;
+      }
     }
 
+    .addedCom, .editable_text {
+      border: 1px solid rgb(185, 185, 185);
+      min-height: 50px;
+      padding: 5px;
+      margin-bottom: 5px;
+    }
 
-  .text:hover {
-    border: 1px solid #c9c9c9;
-  }
+      textarea {
+        width: 100%;
+        overflow: visible;
+      }
 
-  .addedComment {
-    word-wrap: break-word;
-  }
+    .text:hover {
+      border: 1px solid #c9c9c9;
+    }
 
-  #removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
-    margin: 10px;
-  }
+    .addedComment {
+      word-wrap: break-word;
+    }
 
-  .addedCom, .editable_text {
-    border: 1px solid rgb(185, 185, 185);
-    min-height: 50px;
-    padding: 2px;
-    margin-bottom: 5px;
-  }
-  li.active a {
-    background-color: $label !important;
-  }
+    #removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
+      margin: 10px;
+    }
 
-  .nav-pills > li > a {
-    border-radius: 3px;
-  }
+    li.active a {
+      background-color: $label !important;
+    }
 
+    .nav-pills > li > a {
+      border-radius: 3px;
+    }
+  }
 }
 
 

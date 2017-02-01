@@ -69,8 +69,6 @@ $xs-panel-height: 40px;
   transition-duration:1s;
 }
 
-
-
 @mixin panel-heading($content, $position, $right, $top, $font, $transition, $transform){
   content: $content;
   position: $position;
@@ -85,7 +83,6 @@ $xs-panel-height: 40px;
   padding-left: $left;
   padding-right:  $right;
 }
-
 
 @mixin tr-size($th1,$th2, $th3, $th4, $th5){
   th:nth-child(1){

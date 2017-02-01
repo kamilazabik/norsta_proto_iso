@@ -2,7 +2,6 @@
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
-
 .container-fluid {
   padding-left: 0;
 
@@ -112,7 +111,8 @@
 }
 
 
-@media (max-width: 415px){
+@media (max-width: 475px){
+  //font-size: 14px;
 
   .box-header {
     height: 120px;
@@ -123,7 +123,7 @@
       @include width-height($pie-size-md, $pie-size-md);
     }
     .bar-slider {
-      @include padding-left-right(15px, 15px);
+      @include padding-left-right(15px, 5px);
     }
     .assessment,
     .filter,
@@ -134,10 +134,15 @@
     .assessment {
       padding-left: 10px;
     }
-    .filter select {
-      font-size: 12px;
-      @include padding-left-right(2px, 3px);
+    .filter{
+      @include padding-left-right(5px, 5px);
+      select {
+        font-size: 12px;
+        @include padding-left-right(2px, 3px);
+      }
     }
+
+
   }
   .panels-title{
     .panel-heading{
@@ -147,12 +152,9 @@
           color: #fff;
         }
       }
-      .button-expand-three{
-        .arrow:nth-child(1){
-          margin: 0 -3px 0 0;
-        }
-        .arrow:nth-child(2){
-          margin: 0 6px 0 0;
+      .button-expand-three {
+        .row > div {
+          padding-right: 5px;
         }
       }
     }
@@ -166,11 +168,9 @@
     h4, span.numberValue  {
       font-size: 14px;
     }
+
     .visible-xs {
       display: flex !important;
-    }
-    .box-under-header {
-      height: 60px;
     }
     .title, .number {
       @include height-background($xs-panel-height, $panels-head);
@@ -189,27 +189,18 @@
       border-left: $panels-border;
       @include border-radius (0 0 0 3px);
 
-      .col-xs-6:nth-child(2), .col-xs-7{
+     .col-xs-6, .col-xs-5, .col-xs-7{
         padding-left: 5px;
       }
-      .col-xs-5 {
-        padding-left: 0;
-      }
     }
+
     .button-expand {
       @include border-radius (0 3px 0 0);
+      .row > div {
+        padding-right: 5px;
+      }
     }
 
-
-    button[name=expand]{
-      float: right;
-      margin: 3px 0;
-    }
-
-    button[name=openPanelDetails] {
-      float: right;
-      padding: 5px 10px;
-    }
     .hseq.space:hover, .titleColor {
       div.title {
         background: $panels-head;
@@ -218,10 +209,24 @@
     .labelColor {
       background-color: $panels-head !important;
     }
+
+    [id^=collapsePanelDetails] .well {
+      .buttons{
+        display: inline-block;
+      }
+      button{
+        &:nth-child(1){
+          margin: 5px 0 5px 0;
+        }
+        &:nth-child(2){
+          margin: auto 0 5px 0;
+        }
+      }
+    }
   }
 }
 
-@media (min-width: 416px) and (max-width: $screen-xs-max) {
+@media (min-width: 476px) and (max-width: $screen-xs-max) {
   .container {
     max-width: 730px;
   }
@@ -241,7 +246,7 @@
       @include width-height ($pie-size-md,$pie-size-md) ;
     }
     .bar-slider {
-      @include padding-left-right(5px, 5px);
+      @include padding-left-right(5px, 15px);
     }
     .assessment,
     .filter,
@@ -250,15 +255,12 @@
       height: 50%;
     }
     .filter{
-      @include padding-left-right(5px, 5px);
+      //@include padding-left-right(5px, 5px);
 
       select{
         font-size: 12px;
         @include padding-left-right(3px, 3px);
       }
-    }
-    .bar-slider {
-      @include padding-left-right(15px, 0px);
     }
   }
 
@@ -268,11 +270,7 @@
         @include height-background(50px, $panels-head);
         h4, a {
           color: #fff;
-        }
-      }
-      .button-expand-three{
-        .arrow:nth-child(2){
-          margin: 0 6px 0 0;
+          font-size: 14px !important;
         }
       }
     }
@@ -289,9 +287,6 @@
     }
     .visible-xs {
       display: flex !important;
-    }
-    .box-under-header {
-      height: 60px;
     }
 
     .title, .number {
@@ -317,22 +312,6 @@
     }
     .button-expand {
       @include border-radius (0 3px 0 0);
-      .btn.btn-primary.add{
-        margin-right: 0;
-      }
-      button[name='search'] {
-        margin: 10px 0 10px 5px;
-      }
-    }
-
-    button[name=expand]{
-      float: right;
-      margin: 3px 0;
-    }
-
-    button[name=openPanelDetails] {
-      float: right;
-      padding: 5px 10px;
     }
 
     .hseq.space:hover, .titleColor, .labelColor{
@@ -382,6 +361,10 @@
     svg, .pie {
       @include width-height($pie-size-md,$pie-size-md);
     }
+
+    .bar-slider {
+      padding-left: 40px;
+    }
   }
 
   .panels {
@@ -419,6 +402,9 @@
     }
   }
 
+  .bar-slider {
+    padding-left: 40px;
+  }
 
   button[name=expand]{
     float: right;

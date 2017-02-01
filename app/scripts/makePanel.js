@@ -10,12 +10,12 @@ function makeMainPanel(){
     , col1row = $('<div class="row fixedPos box-header"></div>')
     , col1rowTitleMain = $('<div class="col-lg-6 col-md-5 col-sm-5 col-xs-12 pull-left title-main"></div>')
     , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
-    , col1rowAssess = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
+    , col1rowAssess = $('<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
     , col1rowAssessPie = $('<div class="pie pull-left" data-name="A"></div>')
-    , col1rowAssess1 = $('<div class="col-lg-1 col-md-2 col-sm-2 col-xs-2 pull-left assessment"></div>')
+    , col1rowAssess1 = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 pull-left assessment"></div>')
     , col1rowAssess1numVal = $('<h4 class="text-left numberValueA"></h4>')
     , col1rowAssess1numValPer = $('<h4 class="text-left numberValue-perA"></h4>')
-    , col1rowBar = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 bar-slider"></div>')
+    , col1rowBar = $('<div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 bar-slider"></div>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
     , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-left filter"></div>')
     , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control" ></select>')
@@ -62,8 +62,8 @@ function makePanelsTitle(numberClass, oneTitle){
     , colAssessRowColPie = $('<div class="pie pull-left"></div>')
     , colAssessRowColNumValue = $('<h5 class="text-left numberValue'+numberClass+'"></h5>')
     , colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
-    , colBar = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5-2 bar-slider"></div>')
-    , colButton = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2-8 button-expand-three"></div>')
+    , colBar = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5 bar-slider"></div>')
+    , colButton = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-3 button-expand-three"></div>')
     , colButtonRow1 = $('<div class="row"></div>')
     , colButtonRow1Col1 = $('<div class="col-xl-12 col-lg-12 col-md-12">')
     , colButtonRow2 = $('<div class="row"></div>')
@@ -139,18 +139,20 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4rowCol2pie = $('<div class=\' pie pull-left\'></div>').attr('data-name',numberOfChild)
     , col4rowCol2h6 = $('<h5 class=\'numberValue' + numberOfChild + '\' ></h5>')
     , col4rowCol2h6per = $('<h5 class=\'numberValue-per' + numberOfChild + '\' ></h5>')
-    , col5 = $('<div class=\'col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5-2 box-under-header-sx bar-slider\'></div>')
+    , col5 = $('<div class=\'col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5 box-under-header-sx bar-slider\'></div>')
     , col5input
     , max = childrenDegree[i-1]
-    , col6 = $('<div class=\'col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2-8 box-under-header-sx button-expand ' +numberOfChild +'\'></div>')
+    , col6
     , col7;
 
 
   if (isoObject[numberOfChild].children) {
     var children = isoObject[numberOfChild].children;
+    col6 = $('<div class=\'col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-3 box-under-header-sx button-expand ' +numberOfChild +'\'></div>')
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChild + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
     col6.append(makeButtonExpand(numberOfChildren, i));
   }else{
+   col6 = $('<div class=\'col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-3 box-under-header-sx button-expand children ' +numberOfChild +'\'></div>')
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChild + '\' data-parent=\'' + numberClass + '\'  >');
   }
 
@@ -196,9 +198,9 @@ function addEvidencesToTheList(numberOfChildren,i){
     , evidenceTableTh3 = $('<th>Repozytorium</th>')
     , evidenceTableTh4 = $('<th>Nazwa dokumentu</th>')
     , evidenceTableTh5 = $('<th></th>')
-    , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right ' + numberOfChilderEvid + '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
+    // , evidenceTableTh5AddEvidence = $('<button type=\'button\' class=\'btn btn-primary add pull-right ' + numberOfChilderEvid + '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
 
-  evidenceTableTh5.append(evidenceTableTh5AddEvidence );
+  // evidenceTableTh5.append(evidenceTableTh5AddEvidence );
   evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4, evidenceTableTh5);
   evidenceTableHead.append(evidenceTableTr);
   evidenceTable.append(evidenceTableHead, evidenceTableBody);
@@ -240,11 +242,11 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol4RowC2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-5"></div>')
     , panelRowCol4RowC2H6 = $('<h5 class=\'numberValue' + numberOfChildMainPan + '\' ></h5>').text('0/' + maxPanel)
     , panelRowCol4RowC2H6Per = $('<h5 class=\'numberValue-per' +  numberOfChildMainPan + '\' ></h5>').text('0%')
-    , panelRowCol5 = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5-2 box-under-header bar-header"></div>')
+    , panelRowCol5 = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5 box-under-header bar-header"></div>')
     , panelRowCol5Span = $('<span class=\'numberValueBig' + numberOfChildMainPan + ' numberValue\' ></span>')
     , panelChildren = isoObject[numberOfChildMainPan].children
     , panelRowCol5Input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxPanel + ' name=\'' + numberOfChildMainPan + '\' data-parent=\'A\' data-children=\'' + panelChildren + '\' disabled >')
-    , panelRowCol6 = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-2-8 box-under-header button-expand"></div>')
+    , panelRowCol6 = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-3 box-under-header button-expand"></div>')
     , panelRowCol7;
     // , panelRowCol7 = $('<div id=\'collapsePanelDetails' + numberOfChildMainPan + '\' class=\'hidden-xl hidden-lg col-md-12 col-sm-12 col-xs-12 collapse evidences\'></div>').append(makeDetailsPanel(numberOfChildMainPanel, j))
 

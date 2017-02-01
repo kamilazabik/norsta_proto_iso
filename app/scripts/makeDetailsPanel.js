@@ -22,16 +22,14 @@ function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hidd
   if(hiddenClass == true){
     buttonExpandPanelHidden.append(buttonIcon);
     panelRowCol6Row2Col.append(buttonAddFirstEvidence,buttonExpandPanelHidden);
-    buttonExpandPanelHidden.on('click', function (e) {
+    buttonExpandPanelHidden.on('click', function () {
       addClassNotCollapsed(className);
-      // $('#collapsePanelDetails' + numberOfChild).toggleClass('hidden-xl hidden-lg')
     });
   }else{
     buttonExpandPanelNotHidden.append(buttonIcon);
     panelRowCol6Row2Col.append(buttonAddFirstEvidence, buttonExpandPanelNotHidden);
-    buttonExpandPanelNotHidden.on('click', function (e) {
+    buttonExpandPanelNotHidden.on('click', function () {
       addClassNotCollapsed(className);
-      // $('#collapsePanelDetails'+ numberOfChild).toggleClass('hidden-xl hidden-lg')
     });
   }
 
@@ -70,16 +68,17 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     , tabContentDetailsRow3 = $('<div class=\'row\'></div>')
     , tabContentDetailsRow4 = $('<div class=\'row\'></div>')
 
-    , tabContentDetailsRow1Col1 = $('<div class=\'col-xl-2 col-lg-3 col-md-3 col-sm-3\'></div>')
-    , tabContentDetailsRow2Col1 = $('<div class=\'col-xl-2 col-lg-3 col-md-3 col-sm-3\'></div>')
-    , tabContentDetailsRow3Col1 = $('<div class=\'col-xl-2 col-lg-3 col-md-3 col-sm-3\'></div>')
-    , tabContentDetailsRow4Col1 = $('<div class=\'col-xl-2 col-lg-3 col-md-3 col-sm-3\'></div>')
-    , tabContentDetailsRow1Col2 = $('<div class=\'col-xl-10 col-lg-9 col-md-9 col-sm-9\'></div>')
-    , tabContentDetailsRow2Col2 = $('<div class=\'col-xl-10 col-lg-9 col-md-9 col-sm-9\'></div>')
-    , tabContentDetailsRow3Col2 = $('<div class=\'col-xl-10 col-lg-9 col-md-9 col-sm-9\'></div>')
-    , tabContentDetailsRow4Col2 = $('<div class=\'col-xl-10 col-lg-9 col-md-9 col-sm-9\'></div>')
+    , tabContentDetailsRow1Col1 = $('<div class=\'col-md-1 col-sm-2 col-xs-3\'></div>')
+    , tabContentDetailsRow2Col1 = $('<div class=\'col-md-1 col-sm-2 col-xs-3\'></div>')
+    , tabContentDetailsRow3Col1 = $('<div class=\'col-md-1 col-sm-2 col-xs-3\'></div>')
+    , tabContentDetailsRow4Col1 = $('<div class=\'col-md-1 col-sm-2 col-xs-3\'></div>')
+    , tabContentDetailsRow1Col2 = $('<div class=\'col-md-11 col-sm-10 col-xs-9\'></div>')
+    , tabContentDetailsRow2Col2 = $('<div class=\'col-md-11 col-sm-10 col-xs-9\'></div>')
+    , tabContentDetailsRow3Col2 = $('<div class=\'col-md-11 col-sm-10 col-xs-9\'></div>')
+    , tabContentDetailsRow4Col2 = $('<div class=\'col-md-11 col-sm-10 col-xs-9\'></div>')
 
-    , tabContentDetailsRow1Col1H = $('<h5></h5>').text('Nazwa')
+    , tabContentDetailsRow1Col1H = $('<h5 class="hidden-xs"></h5>').text('Nazwa')
+    , tabContentDetailsRow1Col1Ha = $('<h6 class="hidden-sm hidden-md hidden-lg hidden-xl"></h6>').text('Nazwa')
     , tabContentDetailsRow2Col1H = $('<h5></h5>').text('Etykieta')
     , tabContentDetailsRow3Col1H = $('<h5></h5>').text('Tagi')
     , tabContentDetailsRow4Col1H = $('<h5></h5>').text('Opis')
@@ -93,7 +92,7 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
   tabContentDetailsRow2Col2.append(tabContentDetailsRow2Col2H);
   tabContentDetailsRow3Col2.append(tabContentDetailsRow3Col2H);
   tabContentDetailsRow4Col2.append(tabContentDetailsRow4Col2H);
-  tabContentDetailsRow1Col1.append(tabContentDetailsRow1Col1H);
+  tabContentDetailsRow1Col1.append(tabContentDetailsRow1Col1H, tabContentDetailsRow1Col1Ha);
   tabContentDetailsRow2Col1.append(tabContentDetailsRow2Col1H);
   tabContentDetailsRow3Col1.append(tabContentDetailsRow3Col1H);
   tabContentDetailsRow4Col1.append(tabContentDetailsRow4Col1H);
