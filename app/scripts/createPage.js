@@ -6,7 +6,6 @@ function createPage(numberClass, isNextLoad) {
     , mainPanel = $('#main-panel')
     , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
-    // , description = isoObject[numberClass].description.split('^')
     , titleClaim = $('.title-hseq' + numberClass)
     , titlePanel = $('.title-claim')
     , label = $('.label-claim');
@@ -32,8 +31,6 @@ function createPage(numberClass, isNextLoad) {
   }else{
 
     var oneTitle = panelTitle['title-hseq' + numberClass];
-
-
 
     if (numberClass != 'A' && isoObject[numberClass].children && isoObject[numberClass].children != "") {
       makePanelsTitle(numberClass, oneTitle);
@@ -124,7 +121,8 @@ function loadPage(isNextLoad){
           createPage(numberClass, true)
         })
       }
-    }
+    },
+  $(window).scrollTop(0)
   );
 }//loadPage
 

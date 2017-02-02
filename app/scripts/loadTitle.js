@@ -1,12 +1,8 @@
 function loadTitle(){
-  var links = $('[class*=\'title-hseq\']')
-    , allElement = $('[class*=\'panel-hseq\']')
-    , title = $('.title-claim')
+  var allElement = $('[class*=\'panel-hseq\']')
+    // , title = $('.title-claim')
     , label = $('.label-claim')
-    , allInputs = $('.allPanels input')
-    , slider = $('.sliderRightPanel input.slider')
-    , rightPanel = $('.right-panel .panel-title');
-  // console.log(slidersMemo);
+    , slider = $('.sliderRightPanel input.slider');
 
   allElement.each(function(){
     var className = $(this)
@@ -15,58 +11,67 @@ function loadTitle(){
 
     clickOnClassName(numberClass, className,panel);
     addAttrToEvidenceWindow(numberClass);
+    loadPageWithEvidences(numberClass)
 
-    if(isoObject[numberClass]['numberOfEvidence'] != undefined){
-      var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
-      var z;
-      for(z = numberOfEvid  ; z >= 0; z--){
-        $('#collapsePanelDetails'+ numberClass +' .well table tbody').prepend(makeTr(numberClass, z + 1 ));
-      }
-    }
   });
-
-
-  function clickOnClassName(numberClass,className,panel) {
-
-    className.on('click', function (e) {
-      e.preventDefault();
-
-      var classNameText = numberClass.join('.')
-        , link = $('.title-hseq' + classNameText).text()
-        , numberClassWithDots = addDotsForLabels(numberClass.join(''))
-        , panel = $('.panel-hseq' + classNameText );
-
-
-      $('.hseq.space').removeClass('cursor');
-      panel.addClass('cursor');
-      $('.addedComment').attr('data-name', classNameText);
-      $('.editable_text').on('click', divClicked);
-      $('.panel-title').removeClass('labelColor');
-
-
-      allElement.children().removeClass('labelColor');
-      allElement.removeClass('titleColor');
-      title.text(link);
-      label.text(numberClassWithDots);
-      panel.children(':first').addClass('labelColor');
-      panel.addClass('titleColor');
-      rightPanel.addClass('labelColor');
-
-      if(!isoObject[numberClass].children && !SzybkaOcena){
-        allInputs.each(function (v,i) {
-          var input = $(this);
-          input.attr('disabled', 'disabled')
-        });
-        var clickedInput = $('input[name='+classNameText +']');
-        clickedInput.removeAttr('disabled' )
-      }
-
-      addComments (classNameText);
-      loadDescription(numberClass);
-    });
-  }
 }//loadTitle
 
+function loadPageWithEvidences(numberClass){
+  if(isoObject[numberClass]['numberOfEvidence'] != undefined){
+    var numberOfEvid = isoObject[numberClass]['numberOfEvidence'];
+    var z;
+    for(z = numberOfEvid  ; z >= 0; z--){
+      $('#collapsePanelDetails'+ numberClass +' .well table tbody').prepend(makeTr(numberClass, z + 1 ));
+    }
+  }
+}//loadPageWithEvidences
+
+
+function clickOnClassName(numberClass,className,panel) {
+  var allElement = $('[class*=\'panel-hseq\']')
+    , title = $('.title-claim')
+    , label = $('.label-claim')
+    , allInputs = $('.allPanels input')
+    , rightPanel = $('.right-panel .panel-title');
+
+  className.on('click', function (e) {
+    e.preventDefault();
+
+    var classNameText = numberClass.join('.')
+      , link = $('.title-hseq' + classNameText).text()
+      , numberClassWithDots = addDotsForLabels(numberClass.join(''))
+      , panel = $('.panel-hseq' + classNameText );
+
+    $('.hseq.space').removeClass('cursor');
+    panel.addClass('cursor');
+    $('.addedComment').attr('data-name', classNameText);
+    $('.editable_text').on('click', divClicked);
+    $('.panel-title').removeClass('labelColor');
+
+    allElement.children().removeClass('labelColor');
+    allElement.removeClass('titleColor');
+    title.text(link);
+    label.text(numberClassWithDots);
+    panel.children(':first').addClass('labelColor');
+    panel.addClass('titleColor');
+    rightPanel.addClass('labelColor');
+
+    blockInput(numberClass, allInputs);
+    addComments (classNameText);
+    loadDescription(numberClass);
+  });
+}//clickOnClassName
+
+function blockInput(numberClass, allInputs){
+  if(!isoObject[numberClass].children && !SzybkaOcena){
+    allInputs.each(function (v,i) {
+      var input = $(this);
+      input.attr('disabled', 'disabled')
+    });
+    var clickedInput = $('input[name='+classNameText +']');
+    clickedInput.removeAttr('disabled' )
+  }
+}
 
 function addComments (classNameText){
   var comment = $('.addedCom');

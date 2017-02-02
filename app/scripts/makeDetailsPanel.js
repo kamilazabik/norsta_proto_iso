@@ -78,14 +78,14 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     , tabContentDetailsRow4Col2 = $('<div class=\'col-md-11 col-sm-10 col-xs-9\'></div>')
 
     , tabContentDetailsRow1Col1H = $('<h5 class="hidden-xs"></h5>').text('Nazwa')
-    , tabContentDetailsRow1Col1Ha = $('<h6 class="hidden-sm hidden-md hidden-lg hidden-xl"></h6>').text('Nazwa')
+    , tabContentDetailsRow1Col1Ha = $('<h5 class="hidden-sm hidden-md hidden-lg hidden-xl"></h5>').text('Nazwa')
     , tabContentDetailsRow2Col1H = $('<h5></h5>').text('Etykieta')
     , tabContentDetailsRow3Col1H = $('<h5></h5>').text('Tagi')
     , tabContentDetailsRow4Col1H = $('<h5></h5>').text('Opis')
-    , tabContentDetailsRow1Col2H = $('<h5 class=\'title-claim\'></h5>')
-    , tabContentDetailsRow2Col2H = $('<h5 class=\'label-claim\'></h5>')
-    , tabContentDetailsRow3Col2H = $('<h5 class=\'\'></h5>')
-    , tabContentDetailsRow4Col2H = $('<h5 class=\'description\'></h5>')
+    , tabContentDetailsRow1Col2H = $('<p class=\'title-claim\'></p>')
+    , tabContentDetailsRow2Col2H = $('<p class=\'label-claim\'></p>')
+    , tabContentDetailsRow3Col2H = $('<p class=\'\'></p>')
+    , tabContentDetailsRow4Col2H = $('<p class=\'description\'></p>')
 
 
   tabContentDetailsRow1Col2.append(tabContentDetailsRow1Col2H);

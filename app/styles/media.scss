@@ -112,7 +112,21 @@
 
 
 @media (max-width: 475px){
-  //font-size: 14px;
+
+  .padding-content {font-size: 10px;}
+
+  h4{
+      font-size: 1.4em;
+    }
+  h5{
+    font-size: 1.3em;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  p{
+    font-size: 1.3em;
+  }
 
   .box-header {
     height: 120px;
@@ -151,6 +165,9 @@
         h4, a {
           color: #fff;
         }
+       h4 {
+          line-height: 1.1;
+        }
       }
       .button-expand-three {
         .row > div {
@@ -161,6 +178,15 @@
   }
 
   .panel-content {
+
+    .col-xs-2.number {
+      @include make-xs-column( 2.6 );
+    }
+
+    .col-xs-10.title {
+      @include make-xs-column( 9.4 );
+    }
+
     padding: 15px 10px 0 10px !important;
     .space {
       margin-bottom: 15px;
@@ -210,16 +236,21 @@
       background-color: $panels-head !important;
     }
 
-    [id^=collapsePanelDetails] .well {
-      .buttons{
-        display: inline-block;
+    [id^=collapsePanelDetails]  {
+      a {
+        font-size: 1.3em;
       }
-      button{
-        &:nth-child(1){
-          margin: 5px 0 5px 0;
+      .well{
+        .buttons{
+          display: inline-block;
         }
-        &:nth-child(2){
-          margin: auto 0 5px 0;
+        button{
+          &:nth-child(1){
+            margin: 5px 0 5px 0;
+          }
+          &:nth-child(2){
+            margin: auto 0 5px 0;
+          }
         }
       }
     }
@@ -227,6 +258,12 @@
 }
 
 @media (min-width: 476px) and (max-width: $screen-xs-max) {
+  .padding-content {font-size: 10px;}
+
+  .panels-title h4{
+    font-size: 1.6em;
+  }
+
   .container {
     max-width: 730px;
   }
@@ -236,11 +273,12 @@
   .box-header{
     height: 120px;
     h3 {
+      //line-height: 1;
       font-size: 16px;
     }
 
     h4, .numberValue {
-      font-size: 14px;
+      //font-size: 14px;
     }
     svg, .pie {
       @include width-height ($pie-size-md,$pie-size-md) ;
@@ -270,14 +308,26 @@
         @include height-background(50px, $panels-head);
         h4, a {
           color: #fff;
-          font-size: 14px !important;
+          //font-size: 14px;
         }
       }
+
     }
+
+
+
   }
 
   .panel-content {
     padding: 15px 10px 0 10px !important;
+
+    p, a {
+      font-size: 1.4em;
+    }
+
+    .panels-title h4{
+      font-size: 1.6em;
+    }
 
     .padding-content {
       padding-right: 30px;
