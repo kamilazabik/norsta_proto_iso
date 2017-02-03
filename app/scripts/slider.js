@@ -81,7 +81,6 @@ function OnInputSlider(obj) {
     // tempAssessmentObject.value=$(obj).val();
 
     tempAssessmentObject[obj.name]=$(obj).val();
-    // console.log(tempAssessmentObject)
 
     $ ('input').off('click');
     $ ('input').off('click touchend');
@@ -147,9 +146,7 @@ function updateSlider(passObj, memo, isInit) {
       slidersMemo={};
     }
 
-    // console.log(slidersMemo)
-    // console.log(tempAssessmentObject)
-    // slidersMemo[obj[0].name] = value;
+
 
     var xxx=obj[0].name;
     if(SzybkaOcena){

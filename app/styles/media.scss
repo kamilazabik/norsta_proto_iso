@@ -113,26 +113,23 @@
 
 @media (max-width: 475px){
 
-  .padding-content {font-size: 10px;}
+  .panel-content, .box-header {font-size: 10px;}
 
-  h4{
+  h4, h3, .numberValue {
       font-size: 1.4em;
     }
+
   h5{
-    font-size: 1.3em;
     font-weight: 400;
     line-height: 1;
   }
 
-  p{
+  p, h5{
     font-size: 1.3em;
   }
 
   .box-header {
     height: 120px;
-    h3, h4, .numberValue {
-      font-size: 14px;
-    }
     svg, .pie {
       @include width-height($pie-size-md, $pie-size-md);
     }
@@ -167,6 +164,7 @@
         }
        h4 {
           line-height: 1.1;
+          font-size: 14px;
         }
       }
       .button-expand-three {
@@ -190,9 +188,6 @@
     padding: 15px 10px 0 10px !important;
     .space {
       margin-bottom: 15px;
-    }
-    h4, span.numberValue  {
-      font-size: 14px;
     }
 
     .visible-xs {
@@ -258,11 +253,15 @@
 }
 
 @media (min-width: 476px) and (max-width: $screen-xs-max) {
-  .padding-content {font-size: 10px;}
+  .padding-content, .box-header {font-size: 10px;}
 
-  .panels-title h4{
-    font-size: 1.6em;
+  .panels-title {
+    h4{
+      font-size: 1.6em;
+    }
   }
+
+
 
   .container {
     max-width: 730px;
@@ -274,11 +273,11 @@
     height: 120px;
     h3 {
       //line-height: 1;
-      font-size: 16px;
+      font-size: 1.6em;
     }
 
     h4, .numberValue {
-      //font-size: 14px;
+      font-size: 1.4em;
     }
     svg, .pie {
       @include width-height ($pie-size-md,$pie-size-md) ;
@@ -308,14 +307,9 @@
         @include height-background(50px, $panels-head);
         h4, a {
           color: #fff;
-          //font-size: 14px;
         }
       }
-
     }
-
-
-
   }
 
   .panel-content {
