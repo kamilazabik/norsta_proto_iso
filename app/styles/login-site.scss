@@ -16,20 +16,6 @@ body.login-page {
   }
 }
 
-@media screen and ( max-height: 650px ){
-
-  body.login-page {
-    //background-color: #2e69a1;
-    overflow-y: scroll;
-  }
-
-}
-
-
-//.container-fluid.login {
-//  background-color: #2e69a1;
-//}
-
 .container{
   //background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;
   //-webkit-background-size: cover;
@@ -38,10 +24,6 @@ body.login-page {
   //background-size: cover;
   //background-color: $sidebar-color;
   background-color: #2e69a1;
-  //background-color: #337ab7;
-  //background-color: $panels-head;
-  //background-color: #286090;
-  //height: 100%;
   flex-basis:40%;
 }
 
@@ -90,12 +72,13 @@ body.login-page {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-  }
+
   form[role=login] img {
     display: block;
     margin: 0 auto;
     margin-bottom: 35px;
   }
+}
   form[role=login] input.form-control,
   form[role=login] button {
     font-size: 18px;
@@ -109,9 +92,10 @@ body.login-page {
     text-align: center;
     margin-top: 1em;
     margin-bottom: 50px;
-  }
-  .form-links a {
-    color: #fff;
+
+    .form-links a {
+      color: #fff;
+    }
   }
   .checkbox {
     margin-bottom: 10px;

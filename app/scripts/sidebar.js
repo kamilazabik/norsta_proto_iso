@@ -49,6 +49,24 @@ $(document).ready(function(){
         });
     });
 
+  // $('#bs-collapse').click(function(e) {
+  //   e.preventDefault();
+  //   $('#wrapper').toggleClass('toggled');
+  //   // $('#wrapper').toggleClass('toggled');
+  // });
+  //
+  // $('#bs-collapse').click(function(e) {
+  //   e.preventDefault();
+  //   var widthOfContent = $('#content').width();
+  //   $('#wrapper').toggleClass('toggled-2');
+  //   console.log(parseInt($('#page-content-wrapper').css("margin-left")));
+  // });
+
+
+
+
+
+
 });
 
 

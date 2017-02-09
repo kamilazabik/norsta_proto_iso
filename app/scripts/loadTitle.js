@@ -68,7 +68,7 @@ function blockInput(numberClass, allInputs){
       var input = $(this);
       input.attr('disabled', 'disabled')
     });
-    var clickedInput = $('input[name='+classNameText +']');
+    var clickedInput = $('input[name='+numberClass +']');
     clickedInput.removeAttr('disabled' )
   }
 }

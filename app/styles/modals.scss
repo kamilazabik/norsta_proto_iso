@@ -12,6 +12,15 @@
     font-size: 16px;
   }
 
+  .clicked-tr{
+    background-color: #ededed;
+  }
+
+  .file {
+    visibility: hidden;
+    position: absolute;
+  }
+
   .table.table-condensed{
     @include tr-size(10%, 45%, 30%, 15%, 0);
   }
@@ -37,17 +46,9 @@
       }
     }
   }
-
-  .clicked-tr{
-    background-color: #ededed;
-  }
 }
 
 
-.file {
-  visibility: hidden;
-  position: absolute;
-}
 
 #myProfile {
   .modal-body{

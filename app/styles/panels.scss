@@ -1,32 +1,31 @@
 @import "mixins";
 //@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
-.panel {
-  //box-shadow: $panels-shadow;
+
+.allPanels {
   box-shadow: $panels-shadow !important;
   @include border-radius (3px);
   border: 0 !important;
-}
-
-.allPanels {
   margin-top: 20px;
   margin-bottom: 16px;
-   .title h4{
-     color: $panels-head;
-   }
+ .title h4{
+   color: $panels-head;
+  }
+  a:hover, a:focus {
+    text-decoration: none;
+  }
+  h3 {
+    margin-bottom: 20px;
+  }
 }
 
 .padding-content {
   padding: 14px 0 0 15px;
 }
 
-.space {
-  margin-bottom: 20px;
-}
-
-span.numberValue {
-  font-size: 16px;
-}
+//span.numberValue {
+//  font-size: 16px;
+//}
 
 button{
   background-color: $panels-head;
@@ -110,7 +109,15 @@ circle {
 
   h3 {
     line-height: 1.3;
+    margin-top: 10px;
   }
+
+  p{
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 10px;
+  }
+
   svg {
     @include width-height ($pie-size-big, $pie-size-big);
   }
@@ -121,13 +128,9 @@ circle {
   }
 
   .btn-default {
-    color: #333;
-    background-color: #fff;
-    border-color: #fff;
+    @include color-back-border(#333, #fff, #fff);
     &:hover{
-      color: #333;
-      background-color: #d4d4d4;
-      border-color: #8c8c8c;
+      @include color-back-border(#333, #d4d4d4, #8c8c8c);
     }
   }
   .box-icon {
@@ -157,6 +160,12 @@ circle {
   h4 {
     @include font(400,1.4);
     color: $panels-head;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1;
+    margin-top: 10px;
   }
 
   .box-under-header {
@@ -222,9 +231,33 @@ circle {
   padding-bottom: 0 !important;
   padding-top: 20px !important;
 
+  p {
+    font-size: 14px;
+    line-height: 1;
+    margin-top: 10px;
+  }
+
+  .space {
+    margin-bottom: 20px;
+  }
+
+  button{
+    background: $panels-head;
+    border: $panels-head;
+  }
+
   .box-under-header {
     @include back-color($panels-content, $color-black, hidden);
     height: 70px;
+
+    svg {
+      @include width-height ($pie-size-md, $pie-size-md);
+    }
+
+    .pie {
+      @extend svg;
+      margin-top: 10px;
+    }
 
     button[name=expand]{
       float: right;
@@ -233,58 +266,48 @@ circle {
     }
   }
 
-  button{
-    background: $panels-head;
-    border: $panels-head;
-  }
-
-  svg {
-    @include width-height ($pie-size-md, $pie-size-md);
-  }
-
-  .pie {
-    @extend svg;
-    margin-top: 10px;
-  }
-
-  .children {
-    padding: 15px 0;
-  }
+  //.children {
+  //  padding: 15px 0;
+  //}
 
     .box-under-header-sx {
-    @include back-color($panels-content, $color-black, hidden);
-    height: 65px;
+      @include back-color($panels-content, $color-black, hidden);
+      height: 65px;
 
       &.children {
         padding: 17px 15px 17px 0;
       }
 
-    h6 {
-      @include font(400,0.8);
-    }
-
-    .pie.pull-left {
-      margin-top: 15px;
-    }
-
-    svg  {
-      @include width-height ($pie-size-sx, $pie-size-sx);
-    }
-
-    .pie {
-      @extend svg;
-      align-items:center;
-    }
-
-    button{
-      background: $panels-head;
-    }
-      button[name=expand]{
-        float: right;
-        margin: 2px 0;
-        padding: 5px 13px;
+      h6 {
+        @include font(400,0.8);
       }
-  }
+
+      .pie.pull-left {
+        margin-top: 15px;
+      }
+
+      svg  {
+        @include width-height ($pie-size-sx, $pie-size-sx);
+      }
+
+      .pie {
+        @extend svg;
+        align-items:center;
+      }
+
+      .active-input {
+        background-color: #86bfea !important;
+      }
+
+      button{
+        background: $panels-head;
+      }
+        button[name=expand]{
+          float: right;
+          margin: 2px 0;
+          padding: 5px 13px;
+        }
+    }
 
   .number .title{
     h5 {
@@ -312,6 +335,11 @@ circle {
     @include border-top-bottom($panels-border);
   }
 
+  .bar-header {
+    @include border-top-bottom($panels-border);
+  }
+
+
   .button-expand {
     @include border-right($panels-border, 3px);
     padding-left: 0 !important;
@@ -331,17 +359,6 @@ circle {
   }
 }
 
-.bar-header {
-  @include border-top-bottom($panels-border);
-}
-
-.panel-shadow {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-}
-
-.active-input {
-  background-color: #86bfea !important;
-}
 
 .panel-content, .panel-heading{
   .labelColor {
@@ -351,23 +368,17 @@ circle {
       color: white;
     }
   }
-}
-
-.titleColor {
-  > div:not(:first-child):not(:last-child)  {
-    background-color: #f3f3f3;
-  }
-}
-
-.hseq.space:hover{
- >  div:not(:first-child):not(:last-child) {
-    background-color: #f3f3f3;
-  }
-}
-
-@keyframes fillup {
-  to {
-    stroke-dasharray: 158 158;
+  .hseq.space:hover, .titleColor {
+    .title,
+    .assessment-icon,
+    .assessment,
+    .bar-header,
+    .bar-slider,
+    .button-expand,
+    .button-expand-three,
+    .evidences {
+      background-color: #f3f3f3;
+    }
   }
 }
 
@@ -385,13 +396,11 @@ button[name='search'] {
     padding: 15px 0;
     margin: 0;
     width: 100%;
-    //min-height: 15px !important;
     background-color: #fff;
     border: 1px solid #e3e3e3;
     border-radius: 3px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     border-top: 0;
-    //font-size: 14px;
     @include border-radius (0px 0px 3px 3px);
 
     p {
@@ -404,7 +413,6 @@ button[name='search'] {
       margin-bottom: 0;
       width: 100%;
       font-size: 14px;
-      //min-height: 15px !important;
       padding: 5px 0;
       background-color: #fff;
       @include border-radius (0px 0px 3px 3px);
@@ -483,5 +491,8 @@ button[name='search'] {
   }
 }
 
-
-
+//@keyframes fillup {
+//  to {
+//    stroke-dasharray: 158 158;
+//  }
+//}

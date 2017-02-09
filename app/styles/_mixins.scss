@@ -129,7 +129,7 @@ $xs-panel-height: 40px;
 //
 //@mixin border-radius($tl, $tr, $br, $bl){
 //  border-radius:$tl, $tr, $br, $bl;
-//  @include vendor-prefixes(border-radius, $tl, $tr, $br, $bl);
+//  @include vendor-prefixes(border-rtradius, $tl, $tr, $br, $bl);
 //}
 
 @mixin border-radius($radius) {
@@ -157,4 +157,10 @@ $xs-panel-height: 40px;
 @mixin width-height($width, $height){
   width: $width;
   height: $height;
+}
+
+@mixin color-back-border($color,$background, $border){
+  color: $color;
+  background-color: $background;
+  border-color: $border;
 }

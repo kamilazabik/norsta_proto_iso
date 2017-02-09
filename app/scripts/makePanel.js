@@ -60,8 +60,8 @@ function makePanelsTitle(numberClass, oneTitle){
     , colAssessRowCol1 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-7"></div>')
     , colAssessRowCol2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-5"></div>')
     , colAssessRowColPie = $('<div class="pie pull-left"></div>')
-    , colAssessRowColNumValue = $('<h5 class="text-left numberValue'+numberClass+'"></h5>')
-    , colAssessRowColNumValuePer = $('<h5 class="text-left numberValue-per'+numberClass+'"></h5>')
+    , colAssessRowColNumValue = $('<p class="text-left numberValue'+numberClass+'"></p>')
+    , colAssessRowColNumValuePer = $('<p class="text-left numberValue-per'+numberClass+'"></p>')
     , colBar = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5 bar-slider"></div>')
     , colButton = $('<div class="col-xl-1-2 col-lg-1-4 col-md-1-6 col-sm-1-6 col-xs-3 button-expand-three"></div>')
     , colButtonRow1 = $('<div class="row"></div>')
@@ -137,8 +137,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4rowCol1 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-6\'></div>')
     , col4rowCol2 = $('<div class=\'col-lg-6 col-md-6 col-sm-6 col-xs-6 \'></div>')
     , col4rowCol2pie = $('<div class=\' pie pull-left\'></div>').attr('data-name',numberOfChild)
-    , col4rowCol2h6 = $('<h5 class=\'numberValue' + numberOfChild + '\' ></h5>')
-    , col4rowCol2h6per = $('<h5 class=\'numberValue-per' + numberOfChild + '\' ></h5>')
+    , col4rowCol2h6 = $('<p class=\'numberValue' + numberOfChild + '\' ></p>')
+    , col4rowCol2h6per = $('<p class=\'numberValue-per' + numberOfChild + '\' ></p>')
     , col5 = $('<div class=\'col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5 box-under-header-sx bar-slider\'></div>')
     , col5input
     , max = childrenDegree[i-1]
@@ -240,8 +240,8 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
     , panelRowCol4RowC1Pie = $('<div class=\'pie pull-left\'></div>').attr('data-name',numberOfChildMainPan)
     , maxPanel = childDegreeMainPanel[j-1]
     , panelRowCol4RowC2 = $('<div class="col-lg-6 col-md-6 col-sm-6 col-xs-5"></div>')
-    , panelRowCol4RowC2H6 = $('<h5 class=\'numberValue' + numberOfChildMainPan + '\' ></h5>').text('0/' + maxPanel)
-    , panelRowCol4RowC2H6Per = $('<h5 class=\'numberValue-per' +  numberOfChildMainPan + '\' ></h5>').text('0%')
+    , panelRowCol4RowC2H6 = $('<p class=\'numberValue' + numberOfChildMainPan + '\' ></p>').text('0/' + maxPanel)
+    , panelRowCol4RowC2H6Per = $('<p class=\'numberValue-per' +  numberOfChildMainPan + '\' ></p>').text('0%')
     , panelRowCol5 = $('<div class="col-xl-2-8 col-lg-2-6 col-md-3 col-sm-2-8 col-xs-5 box-under-header bar-header"></div>')
     , panelRowCol5Span = $('<span class=\'numberValueBig' + numberOfChildMainPan + ' numberValue\' ></span>')
     , panelChildren = isoObject[numberOfChildMainPan].children
