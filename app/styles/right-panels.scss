@@ -18,7 +18,7 @@
   }
 
   #bs-collapse.panel-group {
-    margin-bottom: 70px;
+    //margin-bottom: 70px;
   }
 
   #bs-collapse {
@@ -67,7 +67,7 @@
     }
 
     .last-panel .panel {
-      margin-top: 20px;
+      //margin-top: 20px;
     }
 
     .panel-heading {
@@ -76,6 +76,17 @@
       border: none;
       color: #fff;
       padding: 0;
+      //
+      .row {
+        margin-right: 0;
+        margin-left: 0;
+      }
+      //
+      [class^=col-md-]{
+        padding-right: 0;
+        padding-left: 0;
+      }
+
     }
 
     .panel-title a {
@@ -106,22 +117,8 @@
 
     .panel:last-child .panel-heading.active {
       border-radius: 0;
-      transition: border-radius linear 0s;
+      //transition: border-radius linear 0s;
     }
-    /* #bs-collapse icon scale option */
-
-    .panel-heading a:before {
-      @include panel-heading ('\e146', absolute, 5px, 10px, 24px, all 0.5s, scale(1));
-    }
-
-    .panel-heading a:after {
-      @include panel-heading (' ', absolute, 5px, 10px, 24px, all 0.5s, scale(0));
-    }
-
-    .panel-heading.active a:after {
-      @include panel-heading ('\e909 ', null, null, null, null, all 0.5s, scale(1));
-    }
-    /* #accordion rotate icon option */
   }
 
   .wrap {
@@ -129,8 +126,12 @@
     @include border-radius(4px);
   }
 
-  div.panel:first-child {
-    margin: 20px 0 16px 0;
+  .first-panel .panel {
+    margin: 20px 0 0 0;
+  }
+
+  .last-panel .panel {
+    margin: 15px 0 15px 0;
   }
 
   .hide {
@@ -175,8 +176,9 @@
   }
 }
 
-.fa.fa-pie-chart{
+.fa.fa-pie-chart, .fa.fa-file-text-o{
   padding: 10px;
+  font-size: 28px;
 
 }
 

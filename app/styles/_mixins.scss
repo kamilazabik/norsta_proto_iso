@@ -27,7 +27,6 @@ $color-black: #000;
 $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow1, 0px 1px 5px 0px $color-shadow3;
 $xs-panel-height: 40px;
 
-// Generate the large columns
 
 @mixin font-size ($font-size){
   font-size: $font-size;
@@ -126,21 +125,11 @@ $xs-panel-height: 40px;
   -ms-#{$property}: $value;
   -o-#{$property}: $value;
 }
-//
-//@mixin border-radius($tl, $tr, $br, $bl){
-//  border-radius:$tl, $tr, $br, $bl;
-//  @include vendor-prefixes(border-rtradius, $tl, $tr, $br, $bl);
-//}
 
 @mixin border-radius($radius) {
   border-radius: $radius;
   @include vendor-prefixes(border-radius, $radius);
 }
-
-//$panels-head: #007BA9;
-//$sidebar-color: #001F2B;
-//$content: #D1D1D1;
-//$panels-content: #F7FAFD;
 
 @mixin background-border($background,$px, $border){
   background-color: $background;
