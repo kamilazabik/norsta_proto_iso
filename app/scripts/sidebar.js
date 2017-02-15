@@ -10,7 +10,7 @@ $(document).ready(function(){
     e.preventDefault();
     var widthOfContent = $('#content').width();
     $('#wrapper').toggleClass('toggled-2');
-    console.log(parseInt($('#page-content-wrapper').css("margin-left")));
+    console.log(parseInt($('#page-content-wrapper').css('margin-left')));
 
     // if (window.matchMedia('(max-width: 1200px)').matches)
     // {

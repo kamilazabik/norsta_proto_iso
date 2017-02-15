@@ -104,9 +104,9 @@ function SetSelectAssessmentField(){
 
     $('#selectAssessment option').each(function() {
       var selectId = $(this).attr('id');
-      if (selectId == "normalAssess" && $(this).is(':selected')) {
+      if (selectId == 'normalAssess' && $(this).is(':selected')) {
         SzybkaOcena = false;
-      }else if (selectId == "fastAssess" && $(this).is(':selected')){
+      }else if (selectId == 'fastAssess' && $(this).is(':selected')){
         SzybkaOcena = true;
 
         allInputs.each(function (v,i) {
@@ -115,7 +115,7 @@ function SetSelectAssessmentField(){
             input.removeAttr('disabled')
           }
         });
-      }else if(selectId == "noAssessment" && $(this).is(':selected')){
+      }else if(selectId == 'noAssessment' && $(this).is(':selected')){
 
       }
     })

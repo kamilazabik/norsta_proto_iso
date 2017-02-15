@@ -1,17 +1,4 @@
 @import "mixins";
-//@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-
-
-.allPanels {
-  box-shadow: $panels-shadow !important;
-  @include border-radius (3px);
-  border: 0 !important;
-  margin-top: 20px;
-  margin-bottom: 16px;
-  a:hover, a:focus {
-    text-decoration: none;
-  }
-}
 
 .padding-content {
   padding: 14px 0 0 15px;
@@ -55,278 +42,220 @@ circle {
   fill: #e2282b !important;
   stroke: #45d666 !important;
 }
-button{
+button.btn{
   background-color: $panels-head;
   border-color: $panels-head;
-}
 
-.btn.btn-primary {
-  &.open {
-    padding: 5px 8px;
+  &.btn-primary {
+    &.open {
+      padding: 5px 8px;
+    }
+    &.edit {
+      padding: 5px 10px;
+    }
+    &.add {
+      border-color: #86bfea;
+      background-color: #86bfea;
+      margin-left: 3px;
+      padding: 4px 10px;
+    }
+    &.expand {
+      padding: 4px 9px;
+      float: right;
+    }
   }
-  &.edit {
-    padding: 5px 10px;
+  &.up, &.arrow {
+    padding: 5px 12px
   }
-  &.add {
-    background-color: #86bfea;
-    margin-left: 5px;
-    padding: 5px 10px;
+  &.up {
+    margin: 4px 0 3px auto;
+    display: block;
   }
-  &.expand {
-    padding: 5px 9px;
+  &.arrow {
     float: right;
+    &:disabled {
+      background-color: rgb(175, 175, 175);
+      border-color: rgb(152, 152, 152);
+    }
+    &:nth-child(2) {
+      margin: 0 3px 0 0;
+    }
+  }
+
+  &[name=expand] {
+    float: right;
+    margin: 3px 0;
+    padding: 5px 13px;
   }
 }
 
 .box-header {
   @include back-color(#fff, $color-black, hidden);
+  @include border-radius (2px);
   box-shadow: $panels-shadow;
   height: 120px;
-  @include border-radius (2px);
 
-  svg {
-    @include width-height($pie-size-md, $pie-size-md);
-  }
-
-  .pie {
-    @extend svg;
-    margin-top: 0;
-  }
-
-  .btn-default {
-    @include color-back-border(#333, #fff, #fff);
-    &:hover{
-      @include color-back-border(#333, #d4d4d4, #8c8c8c);
-    }
-  }
-  .box-icon {
-    background: #1e8fc6;
-    float: right;
-  }
-  .filter {
-    align-items: center;
-    .form-control {
-      width: 100%;
-    }
-  }
-  #fastAsses {
-    margin-top: 5px;
-  }
-
-  .bar-slider {
-    @include padding-left-right(15px, 5px);
-  }
   .assessment,
   .filter,
   .bar-slider,
   .title-main {
     height: 50%;
   }
+
   .assessment {
     padding-left: 10px;
+    svg {
+      @include width-height($pie-size-md, $pie-size-md);
+    }
+    .pie {
+      @extend svg;
+      margin-top: 0;
+    }
   }
-  .filter{
+
+  .bar-slider {
+    @include padding-left-right(15px, 5px);
+  }
+
+  .filter {
+    align-items: center;
     @include padding-left-right(5px, 5px);
+    .form-control {
+      width: 100%;
+    }
     select {
       font-size: 1.2em;
       @include padding-left-right(2px, 3px);
+      #fastAsses {
+        margin-top: 5px;
+      }
+    }
+  }
+  .btn-default {
+    @include color-back-border(#333, #fff, #fff);
+    &:hover{
+      @include color-back-border(#333, #d4d4d4, #8c8c8c);
     }
   }
 }
 
 .allPanels {
+  @include border-radius (3px);
+  box-shadow: $panels-shadow !important;
+  border: 0 !important;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  a:hover, a:focus {
+    text-decoration: none;
+  }
   > .row {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
   }
   .panel-heading{
     padding: 0 15px 0 15px;
   }
+  .assessment,
+  .assessment-icon,
+  .bar-slider,
+  .bar-header,
+  .button-expand,
+  .button-expand-three,
+  .filter {
+    background-color: $panels-content;
+  }
+
+  .title {
+    @include border-radius (0 3px 0 0);
+  }
+
+  .number {
+     @include border-radius (3px 0 0 0);
+     align-items: center;
+     background: $panels-head;
+     color: #fff;
+
+   }
+
+  .title, .number {
+    @include height-background($xs-panel-height, $panels-head);
+    h4, a {
+      color: #fff;
+    }
+  }
+
+  .assessment,
+  .assessment-icon {
+    div:nth-child(2) {
+        padding: 10px 15px 0 5px;
+    }
+  }
 
   .box-under-header {
-    @include back-color($panels-content, black, hidden);
-    @include border-radius (3px 3px 0 0);
+    &.assessment,
+    &.assessment-icon,
+    &.assessment-icon .row > div,
+    &.bar-slider,
+    &.bar-header,
+    &.button-expand,
+    .assessment,
+    .assessment .row > div,
+    .assessment-icon,
+    .bar-slider,
+    .bar-header,
+    .button-expand,
+    .button-expand-three,
+    .filter{
+      height: 70px;
+    }
 
     &.assessment,
     &.assessment-icon,
-    &.bar-slider,
-    &.bar-header,
-    &.button-expand {
-      height: 70px;
+    .assessment,
+    .assessment-icon {
+      svg {
+        @include width-height ($pie-size-xs, $pie-size-xs);
+      }
+      .pie {
+        @extend svg;
+        margin-top: 15px;
+      }
     }
 
     &.bar-header {
       @include border-top-bottom($panels-border);
     }
 
-    .number, .title {
-      @include height-background(50px, $panels-head);
-
-      h4, a {
-        color: #fff;
-      }
-    }
-    .assessment,
-    .assessment-icon,
-    .bar-slider,
-    .bar-header,
-    .button-expand,
-    .filter {
-      height: 70px;
-    }
-
-    .assessment, .assessment-icon {
-      .row {
-        div:nth-child(2) {
-          padding: 10px 15px 0 5px;
-        }
-      }
-    }
-
-    svg {
-      @include width-height ($pie-size-md, $pie-size-md);
-    }
-
-    .pie {
-      @extend svg;
-      margin-top: 15px;
-    }
-    .number {
-      align-items: center;
-    }
-
-    .assessment {
-      padding-left: 12px;
-    }
-
-    button[name=expand] {
-      float: right;
-      margin: 3px 0;
-      padding: 5px 13px;
-    }
-
     .button-expand-three {
-      height: 70px;
-
       .row > div {
         padding-left: 0;
         padding-right: 5px;
       }
-
-      button {
-        &.up, &.arrow {
-          background: $panels-head;
-          border-color: $panels-head;
-          padding: 5px 12px
-        }
-        &.up {
-          margin: 4px 0 3px auto;
-          display: block;
-        }
-        &.arrow {
-          float: right;
-          &:disabled {
-            background-color: rgb(175, 175, 175);
-            border-color: rgb(152, 152, 152);
-          }
-          &:nth-child(2) {
-            margin: 0 3px 0 0;
-          }
-        }
-      }
-
     }
   }
 
   .panel-content {
-    margin-right: 5px !important;
-    margin-left: 5px !important;
-    //padding-bottom: 0 !important;
-    //padding-top: 20px !important;
-
-    padding: 15px 10px 0 10px !important;
-
-    .space {
-      margin-bottom: 15px;
-    }
-
-    button {
-      background: $panels-head;
-      border: $panels-head;
-    }
-
-    .box-under-header-sx {
-      @include back-color($panels-content, $color-black, hidden);
-      height: 65px;
-
-      &.children {
-        padding: 17px 15px 17px 0;
-      }
-
-      .pie.pull-left {
-        margin-top: 20px;
-      }
-
-      svg {
-        @include width-height ($pie-size-sx, $pie-size-sx);
-      }
-
-      .pie {
-        @extend svg;
-        align-items: center;
-      }
-
-      .active-input {
-        background-color: #86bfea !important;
-      }
-
-      button {
-        background: $panels-head;
-      }
-      button[name=expand] {
-        float: right;
-        margin: 2px 0;
-        padding: 5px 13px;
-      }
-    }
-
-    .title {
-      @include border-radius (0 3px 0 0);
-      @include border-top-bottom($panels-head);
-    }
-
-    .number {
-      @include border-radius (3px 0 0 0);
-      align-items: center;
-      background: $panels-head;
-      color: #fff;
-    }
-
-    .title, .number {
-      @include height-background($xs-panel-height, $panels-head);
-      h4, a {
-        color: #fff;
-      }
-    }
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+    padding: 10px 10px 0 10px !important;
 
     .assessment-icon {
       border-left: $panels-border;
       @include border-radius (0 0 0 3px);
 
       .col-xs-6, .col-xs-5, .col-xs-7 {
-        padding-left: 5px;
+        padding-left: 10px;
       }
     }
 
-    .assessment-icon, .filter, .button-expand {
+    .assessment-icon,
+    .filter,
+    .button-expand,
+    .bar-slider {
       @include border-top-bottom($panels-border);
     }
 
     .number-not-collapsed {
       @include border-radius (3px 0px 0px 0);
-    }
-
-    .bar-slider {
-      @include border-top-bottom($panels-border);
     }
 
     .button-expand {
@@ -336,9 +265,6 @@ button{
       .btn.btn-primary.btn-sm {
         margin-left: auto;
       }
-    }
-
-    .button-expand {
       @include border-radius (0 0 3px 0);
       .row > div {
         padding-right: 5px;
@@ -352,6 +278,41 @@ button{
     .collapse, .collapsing {
       padding-left: 0 !important;
       padding-right: 0 !important;
+    }
+
+    .space {
+      margin-bottom: 10px;
+    }
+
+    .box-under-header-sx {
+      &.assessment-icon,
+      &.assessment-icon .row > div,
+      &.bar-slider,
+      &.bar-header,
+      &.button-expand {
+        height: 70px;
+      }
+
+      &.assessment-icon {
+        .pie.pull-left {
+          margin-top: 15px;
+          svg {
+            @include width-height ($pie-size-xs, $pie-size-xs);
+          }
+          .pie {
+            @extend svg;
+            //align-items: center;
+          }
+        }
+      }
+
+      &.children {
+        padding: 17px 15px 17px 0;
+      }
+
+      .active-input {
+        background-color: #86bfea !important;
+      }
     }
   }
 }
@@ -371,14 +332,15 @@ button{
     }
   }
 
-  .hseq.space:hover, .titleColor {
-    .assessment-icon,
-    .assessment,
-    .bar-header,
-    .bar-slider,
-    .button-expand,
-    .button-expand-three,
-    .evidences {
+  .hseq.space:hover,
+  .titleColor {
+  .assessment-icon,
+  .assessment,
+  .bar-header,
+  .bar-slider,
+  .button-expand,
+  .button-expand-three,
+  .evidences {
       background-color: #f3f3f3;
     }
   }
@@ -504,497 +466,3 @@ button[name='search'] {
 
 
 
-
-//.allPanels {
-//  box-shadow: $panels-shadow !important;
-//  @include border-radius (3px);
-//  border: 0 !important;
-//  margin-top: 20px;
-//  margin-bottom: 16px;
-// .title h4{
-//   color: $panels-head;
-//  }
-//  a:hover, a:focus {
-//    text-decoration: none;
-//  }
-//  h3 {
-//    margin-bottom: 20px;
-//  }
-//}
-//
-//.padding-content {
-//  padding: 14px 0 0 15px;
-//}
-//
-//button{
-//  background-color: $panels-head;
-//  border-color: $panels-head;
-//}
-//
-//.cursor{
-//  cursor: pointer;
-//}
-//
-//.number,
-//.title,
-//.assessment,
-//.filter,
-//.bar-header,
-//.bar-slider,
-//.title-main,
-//.assessment-icon  {
-//  display: flex;
-//  flex-direction: column;
-//  justify-content: center;
-//  height: 100%;
-//}
-//
-//svg {
-//  background-color: #313547;
-//  @include border-radius (50%);
-//  transform: rotate( -90deg );
-//}
-//
-//.pie {
-//  display: inline-block;
-//  margin-right: 10px;
-//  transform: rotate(-90deg );
-//}
-//
-//circle {
-//  fill: #aeaeae;
-//  stroke-width: 32;
-//}
-//
-//.circle {
-//  fill: #e2282b !important;
-//  stroke: #45d666 !important;
-//}
-//
-//.btn.btn-primary {
-//  &.open {
-//    padding: 5px 8px;
-//  }
-//  &.edit {
-//    padding: 5px 10px;
-//  }
-//  &.add {
-//    background-color: #86bfea;
-//    margin-left: 5px;
-//    padding: 5px 10px;
-//  }
-//  &.expand {
-//    padding: 5px 9px;
-//    float: right;
-//  }
-//}
-//
-//.box-header {
-//  @include back-color(#fff, $color-black, hidden);
-//  box-shadow: $panels-shadow;
-//  height: 85px;
-//  @include border-radius (2px);
-//
-//  h4 {
-//    @include font(400,1.4);
-//    margin: 5px;
-//  }
-//
-//  h2 {
-//    float: left;
-//    padding: 10px 0;
-//  }
-//
-//  h3 {
-//    line-height: 1.3;
-//    margin-top: 10px;
-//  }
-//
-//  p{
-//    font-size: 18px;
-//    line-height: 1;
-//    margin-top: 10px;
-//  }
-//
-//  svg {
-//    @include width-height ($pie-size-big, $pie-size-big);
-//  }
-//
-//  .pie {
-//    @extend svg;
-//    margin-top: 0;
-//  }
-//
-//  .btn-default {
-//    @include color-back-border(#333, #fff, #fff);
-//    &:hover{
-//      @include color-back-border(#333, #d4d4d4, #8c8c8c);
-//    }
-//  }
-//  .box-icon {
-//    background: #1e8fc6;
-//    float: right;
-//  }
-//  .filter {
-//    align-items: center;
-//    .form-control {
-//      width: 100%;
-//    }
-//  }
-//  #fastAsses {
-//    margin-top: 5px;
-//  }
-//}
-//
-//.panels-title {
-//  .panel-heading {
-//    padding: 0 15px !important;
-//  }
-//
-//    > .row {
-//    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-//  }
-//
-//  h4 {
-//    @include font(400,1.4);
-//    color: $panels-head;
-//  }
-//
-//  p {
-//    font-size: 16px;
-//    line-height: 1;
-//    margin-top: 10px;
-//  }
-//
-//  .box-under-header {
-//    @include back-color($panels-content, black, hidden);
-//    @include border-radius (3px 3px 0 0);
-//
-//    > div{
-//      height: 70px;
-//    }
-//
-//    svg {
-//      @include width-height ($pie-size-md, $pie-size-md);
-//    }
-//
-//    .pie {
-//      @extend svg;
-//      margin-top: 10px;
-//    }
-//
-//    .number {
-//      align-items: center;
-//    }
-//
-//    .assessment {
-//      padding-left: 12px;
-//    }
-//
-//    .button-expand-three{
-//      height: 70px;
-//
-//      .row > div {
-//        padding-left: 0;
-//      }
-//
-//      button {
-//        &.up, &.arrow {
-//          background: $panels-head;
-//          border-color: $panels-head;
-//          padding: 5px 12px
-//        }
-//        &.up {
-//          margin: 4px 0 3px auto;
-//          display: block;
-//        }
-//        &.arrow {
-//          float: right;
-//          &:disabled{
-//            background-color: rgb(175, 175, 175);
-//            border-color: rgb(152, 152, 152);
-//          }
-//          &:nth-child(2){
-//            margin: 0 4px 0 6px;
-//          }
-//        }
-//      }
-//    }
-//  }
-//}
-//
-//.panel-content {
-//  margin-right: 5px !important;
-//  margin-left: 5px !important;
-//  padding-bottom: 0 !important;
-//  padding-top: 20px !important;
-//
-//  p {
-//    font-size: 14px;
-//    line-height: 1;
-//    margin-top: 10px;
-//  }
-//
-//  .space {
-//    margin-bottom: 20px;
-//  }
-//
-//  button{
-//    background: $panels-head;
-//    border: $panels-head;
-//  }
-//
-//  .box-under-header {
-//    @include back-color($panels-content, $color-black, hidden);
-//    height: 70px;
-//
-//    svg {
-//      @include width-height ($pie-size-md, $pie-size-md);
-//    }
-//
-//    .pie {
-//      @extend svg;
-//      margin-top: 10px;
-//    }
-//
-//    button[name=expand]{
-//      float: right;
-//      margin: 3px 0;
-//      padding: 5px 13px;
-//    }
-//  }
-//
-//
-//    .box-under-header-sx {
-//      @include back-color($panels-content, $color-black, hidden);
-//      height: 65px;
-//
-//      &.children {
-//        padding: 17px 15px 17px 0;
-//      }
-//
-//      h6 {
-//        @include font(400,0.8);
-//      }
-//
-//      .pie.pull-left {
-//        margin-top: 15px;
-//      }
-//
-//      svg  {
-//        @include width-height ($pie-size-sx, $pie-size-sx);
-//      }
-//
-//      .pie {
-//        @extend svg;
-//        align-items:center;
-//      }
-//
-//      .active-input {
-//        background-color: #86bfea !important;
-//      }
-//
-//      button{
-//        background: $panels-head;
-//      }
-//        button[name=expand]{
-//          float: right;
-//          margin: 2px 0;
-//          padding: 5px 13px;
-//        }
-//    }
-//
-//  .number .title{
-//    h5 {
-//      @include font(400,1.3);
-//    }
-//  }
-//
-//  .title, .assessment-icon, .filter, .button-expand {
-//    @include border-top-bottom($panels-border);
-//  }
-//
-//  .number {
-//    @include border-top-bottom($panels-head-border);
-//    @include border-left(3px);
-//    align-items:center;
-//    background: $panels-head;
-//    color: #fff;
-//  }
-//
-//  .number-not-collapsed {
-//    @include border-radius (3px 0px 0px 0);
-//  }
-//
-//  .bar-slider {
-//    @include border-top-bottom($panels-border);
-//  }
-//
-//  .bar-header {
-//    @include border-top-bottom($panels-border);
-//  }
-//
-//
-//  .button-expand {
-//    @include border-right($panels-border, 3px);
-//    padding-left: 0 !important;
-//
-//    .btn.btn-primary.btn-sm{
-//      margin-left: auto;
-//    }
-//  }
-//
-//  .button-expand-not-collapsed {
-//    @include border-radius (0px 3px 0px 0);
-//  }
-//
-//  .collapse, .collapsing {
-//    padding-left: 0 !important;
-//    padding-right: 0 !important;
-//  }
-//}
-//
-//
-//.panel-content, .right-panel #bs-collapse {
-//
-//  .panel-heading.labelColor, .labelColor {
-//    @include  border-top-bottom($label);
-//    background-color: $label;
-//    h4 {
-//      color: white;
-//    }
-//  }
-//
-//  .hseq.space:hover, .titleColor {
-//    .title,
-//    .assessment-icon,
-//    .assessment,
-//    .bar-header,
-//    .bar-slider,
-//    .button-expand,
-//    .button-expand-three,
-//    .evidences {
-//      background-color: #f3f3f3;
-//    }
-//  }
-//}
-//
-//
-//
-//
-//#removeAssessAlert, #saveAssessAlert {
-//  margin: 10px;
-//}
-//
-//button[name='search'] {
-//  margin: 10px 7px 10px 0;
-//}
-//
-//[id^=collapsePanelDetails] {
-//
-//  [id^=tabsPanels]{
-//    padding: 15px 0;
-//    margin: 0;
-//    width: 100%;
-//    background-color: #fff;
-//    border: 1px solid #e3e3e3;
-//    border-radius: 3px;
-//    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-//    border-top: 0;
-//    @include border-radius (0px 0px 3px 3px);
-//
-//    p {
-//      margin-top: 10px;
-//    }
-//
-//    .well{
-//      margin-top: 0;
-//      border: 0;
-//      margin-bottom: 0;
-//      width: 100%;
-//      font-size: 14px;
-//      padding: 5px 0;
-//      background-color: #fff;
-//      @include border-radius (0px 0px 3px 3px);
-//      box-shadow: none;
-//
-//      table{
-//        margin-bottom: 0;
-//        thead{
-//          @include tr-size(5%,35%, 25%, 35%, 10%);
-//          color: #aeaeae;
-//
-//          .btn.btn-primary.add{
-//            background-color: #86bfea;
-//          }
-//
-//          tr {
-//            th{
-//              border-bottom: 0;
-//              border-top: 0;
-//              font-weight: normal;
-//              vertical-align: middle;
-//            }
-//          }
-//        }
-//        tbody{
-//          tr {
-//            th{
-//              color: #aeaeae;
-//            }
-//          }
-//        }
-//      }
-//      .buttons{
-//        display: flex;
-//      }
-//
-//      button:nth-child(1){
-//        margin: 5px 0 5px auto;
-//      }
-//      button:nth-child(2){
-//        margin: 5px 0 5px 5px;
-//      }
-//    }
-//
-//    .addedCom, .editable_text {
-//      border: 1px solid rgb(185, 185, 185);
-//      min-height: 50px;
-//      padding: 5px;
-//      margin-bottom: 5px;
-//    }
-//
-//      textarea {
-//        width: 100%;
-//        overflow: visible;
-//      }
-//
-//    .text:hover {
-//      border: 1px solid #c9c9c9;
-//    }
-//
-//    .addedComment {
-//      word-wrap: break-word;
-//    }
-//
-//    #removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
-//      margin: 10px;
-//    }
-//
-//    li.active a {
-//      background-color: $label !important;
-//    }
-//
-//    .nav-pills > li > a {
-//      border-radius: 3px;
-//    }
-//  }
-//}
-
-
-
-//@keyframes fillup {
-//  to {
-//    stroke-dasharray: 158 158;
-//  }
-//}

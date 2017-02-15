@@ -61,7 +61,7 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
 
     , tabContentAssessRow = $('<div class=\'row\'></div>')
     , tabContentAssessRowCol = $('<div class=\'col-md-12\'></div>')
-    , tabContentAssessRowColH = $('<h class=\'comment\'></h>').text('Opis')
+    , tabContentAssessRowColH = $('<p class=\'comment\'></p>').text('Opis')
     , tabContentAssessRowEditText = $('<div class=\'editable_text\'></div>')
     , tabContentDetailsRow1 = $('<div class=\'row\'></div>')
     , tabContentDetailsRow2 = $('<div class=\'row\'></div>')

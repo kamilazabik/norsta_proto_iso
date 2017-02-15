@@ -32,7 +32,7 @@ function createPage(numberClass, isNextLoad) {
 
     var oneTitle = panelTitle['title-hseq' + numberClass];
 
-    if (numberClass != 'A' && isoObject[numberClass].children && isoObject[numberClass].children != "") {
+    if (numberClass != 'A' && isoObject[numberClass].children && isoObject[numberClass].children != '') {
       makePanelsTitle(numberClass, oneTitle);
 
       var numberOfChildren = (isoObject[numberClass].children).split(',')

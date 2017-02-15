@@ -13,8 +13,8 @@ function makeMainPanel(){
     , col1rowAssess = $('<div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 col-xs-2 assessment pull-left"></div>')
     , col1rowAssessPie = $('<div class="pie pull-left" data-name="A"></div>')
     , col1rowAssess1 = $('<div class="col-lg-1 col-md-1 col-sm-1 col-xs-2 pull-left assessment"></div>')
-    , col1rowAssess1numVal = $('<h4 class="text-left numberValueA"></h4>')
-    , col1rowAssess1numValPer = $('<h4 class="text-left numberValue-perA"></h4>')
+    , col1rowAssess1numVal = $('<h3 class="text-left numberValueA"></h3>')
+    , col1rowAssess1numValPer = $('<h3 class="text-left numberValue-perA"></h3>')
     , col1rowBar = $('<div class="col-lg-2 col-md-3 col-sm-3 col-xs-4 bar-slider"></div>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
     , col1rowButtons = $('<div class="col-lg-2 col-md-2 col-sm-2 col-xs-4 pull-left filter"></div>')
@@ -275,11 +275,11 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
 
 function addDotsForLabels(label){
   if(label[1] == 1 && label.length >= 4){
-    label = label.slice(0,3) + "." + label.charAt(3) + "." + label.slice(4,6)
+    label = label.slice(0,3) + '.' + label.charAt(3) + '.' + label.slice(4,6)
   }else if(label[1] == 1 && label.length < 4){
     return label
   } else if(label[1] != 1 && label.length >= 3){
-    label = label.slice(0,2) + "." + label.charAt(2) + "." + label.slice(3,5)
+    label = label.slice(0,2) + '.' + label.charAt(2) + '.' + label.slice(3,5)
   }
   return label
 }//addDotsForLabels
