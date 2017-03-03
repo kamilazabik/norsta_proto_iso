@@ -2,7 +2,7 @@
 @import "grid";
 
 @media all and (min-width: 100px){
-  .allPanels, .box-header, .right-panel {font-size: 10px;}
+ #content {font-size: 10px;}
 
  h4, h3{
    font-size: 1.4em;
@@ -28,7 +28,7 @@
 }
 
 @media all and (min-width: 460px) {
-  .allPanels, .box-header, .right-panel {font-size: 10px;}
+  .allPanels, .box-header, .right-panel, .mainPagePanels {font-size: 10px;}
 
   h4, h3 {
     font-size: 1.6em;
@@ -97,7 +97,8 @@
     .assessment,
     .filter,
     .bar-slider,
-    .title-main {
+    .title-main,
+    .select{
       height: 100%;
     }
 
@@ -120,7 +121,7 @@
       }
     }
 
-    .box-under-header {
+    .box-under-header,.box-under-header-title {
       &.assessment,
       &.assessment-icon,
       .assessment,
@@ -338,7 +339,11 @@
           height: 100%;
         }
         .first-panel{
-          margin-bottom: 215px;
+          margin-bottom: 15px;
+          &.margin-panel {
+            margin-bottom: 215px;
+          }
+
         }
         .last-panel .panel.wrap {
           margin: 0;
@@ -348,7 +353,7 @@
 
     #two, #one {
       position: fixed;
-      -webkit-transition: all 0.5s ease;
+      //-webkit-transition: all 0.5s ease;
       transition: all 0.5s ease;
       overflow: hidden;
       z-index: 1000;

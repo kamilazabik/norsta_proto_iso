@@ -1,7 +1,7 @@
 .col-lg-3.pull-right.right-panel
   #bs-collapse.panel-group.fixed-panel
     .panel-right
-      .first-panel
+      .first-panel.margin-panel
         .panel.wrap
           .panel-heading
             .row
@@ -30,7 +30,7 @@
                 i.fa.fa-file-text-o(aria-hidden='true')
               .col-md-10.col-sm-10.col-xs-10
                 h4.panel-title
-                  a
+                  a(data-toggle='collapse', data-parent='', href='#one')
                     | Szczegóły
           #one.panel-collapse.collapse.in
             .panel-body

@@ -5,6 +5,7 @@ $(document).ready( function(){
   createPage('A', false);
   SetAssessmentField();
   addNewEvidence();
+  goToProjectList()
 
 
 });//END of document.READY

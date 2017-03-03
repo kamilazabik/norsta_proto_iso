@@ -177,3 +177,16 @@ function loadDescription(numberClass){
 
 }//loadDescription
 
+
+function goToProjectList(){
+ var closeProjectMenu = $('.close-project')
+
+  closeProjectMenu.on('click', function () {
+
+    $('#content').load('./jade/pages/project-list.html', function() {
+      // $('#content').append('<div id="panel-content" />');
+
+    })
+  })
+
+}

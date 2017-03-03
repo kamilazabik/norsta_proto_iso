@@ -50,7 +50,7 @@ function makePanelsTitle(numberClass, oneTitle){
     , paddingContent = $('.col-xl-9.col-lg-9.col-md-12.col-sm-12.col-xs-12.pull-left.padding-content')
     , panelTitle= $('<div class="panel panel-default panels-title allPanels"></div>')
     , panelHeading = $('<div class="panel-heading"></div>')
-    , rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header"></div>')
+    , rowPanel = $('<div class="row panel-hseq' + numberClass+' panels box-under-header-title"></div>')
     , colNumber = $('<div class="col-xl-0-8 col-lg-1 col-md-1-2 col-sm-1 col-xs-2 pull-left number"></div>')
     , colNumberH4 = $('<h4 class="lab-hseq"></h4>')
     , colTitle = $('<div class="col-xl-5-2 col-lg-5 col-md-4 col-sm-4 col-xs-10 pull-left title"></div>')

@@ -14,11 +14,12 @@
 .filter,
 .bar-header,
 .bar-slider,
-.title-main {
+.title-main,
+.select{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100%;
+  //height: 100%;
 }
 
 svg {
@@ -98,7 +99,8 @@ button.btn{
   .assessment,
   .filter,
   .bar-slider,
-  .title-main {
+  .title-main,
+  .select{
     height: 50%;
   }
 
@@ -190,7 +192,8 @@ button.btn{
     }
   }
 
-  .box-under-header {
+
+  .box-under-header, .box-under-header-title {
     &.assessment,
     &.assessment-icon,
     &.assessment-icon .row > div,

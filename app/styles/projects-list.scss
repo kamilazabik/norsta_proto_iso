@@ -1,0 +1,44 @@
+@import "mixins";
+
+#project-list {
+  .row.project-list-panel{
+    margin: 0;
+  }
+}
+
+
+.mainPagePanels {
+  margin-top: 20px;
+  padding-top: 14px;
+
+    > div:nth-child(1) {
+      padding-right: 0;
+      > div:nth-child(1) {
+        padding-right: 0;
+      }
+    }
+
+    > div:nth-child(2) {
+      padding-left: 0;
+    }
+
+  .folders {
+    //.list-group-item:hover, a.list-group-item:focus {text-decoration: none;background-color: rgb(245, 245, 245);}
+    //.list-group { margin-bottom:0; }
+
+    .table {
+      @include tr-td-size(50%, 20%, 30%)
+    }
+
+    .panel-primary .panel-heading {
+      padding: 0;
+      table {
+        margin-bottom: 0;
+        thead tr th {
+          border: 0;
+        }
+      }
+    }
+  }
+}
+

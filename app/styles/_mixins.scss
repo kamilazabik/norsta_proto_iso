@@ -119,6 +119,28 @@ $xs-panel-height: 40px;
   }
 }
 
+@mixin tr-td-size($t1,$t2, $t3){
+  th:nth-child(1){
+    width: $t1;
+  }
+  th:nth-child(2){
+    width: $t2;
+  }
+  th:nth-child(3){
+    width: $t3;
+  }
+  td:nth-child(1){
+    width: $t1;
+  }
+  td:nth-child(2){
+    width: $t2;
+  }
+  td:nth-child(3){
+    width: $t3;
+  }
+
+}
+
 @mixin vendor-prefixes($property, $value) {
   -webkit-#{$property}: $value;
   -moz-#{$property}: $value;

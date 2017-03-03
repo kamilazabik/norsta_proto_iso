@@ -48,13 +48,28 @@ function setComment(className) {
     console.log(isoObject[className]);
   });
 
+}
 
+function moveRightBottomPanelUp(){
+  var firstPanelHeading = $('.first-panel .panel-heading');
+  var firstPanel = $('.first-panel');
+
+  firstPanelHeading.on('click', function () {
+    firstPanel.toggleClass('margin-panel', 5000 );
+    console.log('kliknięty')
+
+  })
 }
 
 
 $(document).ready(function() {
   $('.editable_text').click(divClicked);
+  moveRightBottomPanelUp()
 });
+
+
+
+
 
 
 // (function () {
