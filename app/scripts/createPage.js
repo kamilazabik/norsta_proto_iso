@@ -185,6 +185,7 @@ function goToProjectList(){
 
     $('#content').load('./jade/pages/project-list.html', function() {
       // $('#content').append('<div id="panel-content" />');
+      $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>')
 
     })
   })
