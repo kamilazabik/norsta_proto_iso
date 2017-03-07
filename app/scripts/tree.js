@@ -14,14 +14,19 @@ $(function () {
     parents[i].style.paddingLeft = '20px';
   }
 
-  $('.folders.tree li.parent_li > span').on('click', function (e) {
-    var children = $(this).parent('li.parent_li').find(' > ul > li')
-      , childrenSpan = $(this).parent('li.parent_li').find('> ul > li > span')
-      , paddingOfParent = ($(this)[0].style.paddingLeft).replace('px', '');
+  $('.folders.tree li.parent_li > span a').on('click', function (e) {
+    console.log($(this).parent());
+
+    var children = $(this).parent().parent('li.parent_li').find(' > ul > li')
+      , childrenSpan = $(this).parent().parent('li.parent_li').find('> ul > li > span')
+      , paddingOfParent = ($(this)[0].parentNode.style.paddingLeft).replace('px', '');
+
+
 
     if (children.is(":visible")) {
+      console.log($(this));
       children.hide('fast');
-      $(this).attr('title', 'Expand this branch').find(' > i').addClass('fa-folder-o').removeClass('fa-folder-open-o').attr('aria-hidden', 'true');
+      $(this).parent().attr('title', 'Expand this branch').find(' > i').addClass('fa-folder-o').removeClass('fa-folder-open-o').attr('aria-hidden', 'true');
     } else {
       children.show('fast');
       for(var i = 0; i <= childrenSpan.length-1; i++) {
@@ -31,7 +36,7 @@ $(function () {
           childrenSpan[i].style.paddingLeft = parseInt(paddingOfParent) + 20 + 'px';
         }
       }
-      $(this).attr('title', 'Collapse this branch').find(' > i').addClass('fa-folder-open-o').removeClass('fa-folder-o').attr('aria-hidden', 'true');
+      $(this).parent().attr('title', 'Collapse this branch').find(' > i').addClass('fa-folder-open-o').removeClass('fa-folder-o').attr('aria-hidden', 'true');
     }
     e.stopPropagation();
   });

@@ -19,15 +19,18 @@ nav.navbar.no-margin.navbar-fixed-top
     // navbar-header
   #bs-navbar-collapse-2.collapse.navbar-collapse
     ul.nav.navbar-nav
-
       li.dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekty
+        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekt
           span.caret
         ul.dropdown-menu
           li
-            a(href='#') Uzytkownicy
+            a(href='#') Właściwości
           li
-            a(href='#') Zmiany
+            a(href='#') Pełny widok projektu
+          li.divider(role='separator')
+          li
+            a(href='#') Administracja
+          li.divider(role='separator')
           li.close-project
             a(href='#') Zamknij
       li.dropdown
@@ -37,35 +40,11 @@ nav.navbar.no-margin.navbar-fixed-top
           li
             a(href='#') Odśwież
           li
-            a(href='#') Rozwiń
-          li
-            a(href='#') Zwiń
-          li
-            a(href='#') Otwórz dowód
-          li.divider(role='separator')
-          li
-            a(href='#') Panel
-          li
-            a(href='#') Filtr
-          li
-            a(href='#') Stan z dnia
-          li
             a(href='#') Szukaj
-          li.divider(role='separator')
-          li
-            a(href='#') Ocena
-          li
-            a(href='#') Porównaj oceny
-
       li.dropdown
         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Raporty
           span.caret
         ul.dropdown-menu
-          li
-            a(href='#') Zrzut ekranu
-          li
-            a(href='#') Lista zmian
-          li.divider(role='separator')
           li
             a(href='#') Raport XML/HTML
           li
@@ -74,14 +53,19 @@ nav.navbar.no-margin.navbar-fixed-top
           li
             a(href='#') Metryki projektu
           li
-            a(href='#') Lista odwołań
+      li.dropdown
+        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Pomoc
+          span.caret
+        ul.dropdown-menu
           li
-            a(href='#') Lista dowodów
+            a(href='#') Podręcznik
           li
-            a(href='#') Raport argumentu
+            a(href='#') Kontakt
           li.divider(role='separator')
           li
-            a(href='#') Lista ocen
+            a(href='#') Strona Argevide
+          li
+            a(href='#') O NOR-STA
     ul.nav.navbar-nav.navbar-right
       li.dropdown
         a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Jan Kowalski
@@ -92,6 +76,9 @@ nav.navbar.no-margin.navbar-fixed-top
           li.divider(role='separator')
           li
             a(href='login-site.html') Wyloguj
-    button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseExample', aria-expanded='false', aria-controls='collapseExample', name='search')
+    //button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseSearch', aria-expanded='false', aria-controls='collapseSearch', name='search')
+    //  span.glyphicon.glyphicon-search(aria-hidden='true')
+    button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#filter-panel',name='search')
       span.glyphicon.glyphicon-search(aria-hidden='true')
+
 

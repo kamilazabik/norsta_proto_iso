@@ -248,6 +248,20 @@
     font-size: 1.4em;
   }
 
+  .mainPagePanels {
+    .tree {
+      li {
+        span{
+          a{
+            width: 46%;
+          }
+          h4 {
+            width: 23%;
+          }
+        }
+      }
+    }
+  }
 }//992px - 1200px
 
 
@@ -255,6 +269,21 @@
   h3 {
     font-size: 2em;
     margin-top: 0px
+  }
+
+  .mainPagePanels {
+    .tree {
+      li {
+        span{
+          a{
+            width: 47%;
+          }
+          h4 {
+            width: 23%;
+          }
+        }
+      }
+    }
   }
 
 

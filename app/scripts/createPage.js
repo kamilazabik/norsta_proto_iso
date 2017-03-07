@@ -180,12 +180,17 @@ function loadDescription(numberClass){
 
 function goToProjectList(){
  var closeProjectMenu = $('.close-project')
+   , navbarFolders = $('.navbar-folders')
+   , nav = $('nav');
 
   closeProjectMenu.on('click', function () {
 
+    nav.load('./jade/includes/nav-top-folders.html')
+
     $('#content').load('./jade/pages/project-list.html', function() {
       // $('#content').append('<div id="panel-content" />');
-      $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>')
+      $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>');
+
 
     })
   })

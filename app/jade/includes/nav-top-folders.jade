@@ -1,0 +1,63 @@
+// Brand and toggle get grouped for better mobile display
+.navbar-header.fixed-brand.navbar-folders
+  button#menu-toggle.navbar-toggle.collapsed(type='button', data-toggle='collapse'  )
+    span.glyphicon.glyphicon-forward(aria-hidden='true')
+  a#logo.navbar-brand(href='#')
+    img(alt='Brand', src='images/argevide_logo.png')
+  button#main-menu.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-navbar-collapse-2', aria-expanded='false')
+    span.sr-only Toggle navigation
+    span.icon-bar
+    span.icon-bar
+    span.icon-bar
+// navbar-header
+#bs-example-navbar-collapse-1.collapse.navbar-collapse
+  ul.nav.navbar-nav
+    li.active
+      button#menu-toggle-2.navbar-toggle.collapse.in(data-toggle='collapse')
+        span.glyphicon.glyphicon-forward(aria-hidden='true')
+  // navbar-header
+#bs-navbar-collapse-2.collapse.navbar-collapse
+  ul.nav.navbar-nav
+
+    li.dropdown
+      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekt
+        span.caret
+      ul.dropdown-menu
+        li
+          a(href='#') Administracja
+        li
+          a(href='#') Otwórz w widoku podstawowym
+        li
+          a(href='#') Otwórz w widoku pełnym
+    li.dropdown
+      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Pomoc
+        span.caret
+      ul.dropdown-menu
+        li
+          a(href='#') Podręcznik
+        li
+          a(href='#') Kontakt
+        li.divider(role='separator')
+        li
+          a(href='#') Strona Argevide
+        li
+          a(href='#') O NOR-STA
+  ul.nav.navbar-nav.navbar-right
+    li.dropdown
+      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Jan Kowalski
+        span.caret
+      ul.dropdown-menu
+        li#profile
+          a(href='#myProfile' data-target="#myProfile" data-toggle="modal") Profil
+        li.divider(role='separator')
+        li
+          a(href='login-site.html') Preferencje
+        li.divider(role='separator')
+        li
+          a(href='login-site.html') Przejdź do administracji
+        li.divider(role='separator')
+        li
+          a(href='login-site.html') Wyloguj
+  button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseSearch', aria-expanded='false', aria-controls='collapseSearch', name='search')
+    span.glyphicon.glyphicon-search(aria-hidden='true')
+

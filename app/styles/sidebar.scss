@@ -22,6 +22,9 @@
 #menu-toggle,#menu-toggle-2 {
   @include background-border($panels-head,1px,#fff);
   @include padding-left-right (13px, 13px);
+  color: #fff;
+  background-color: #286090;
+  border-color: #204d74;
 }
 
 #main-menu{

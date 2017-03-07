@@ -1,0 +1,64 @@
+.panel.panel-default
+  .panel-body
+    form.form-inline(role='form')
+      .row
+        .col-xl-3.col-lg-4.col-md-5.col-sm-7.col-xs-9
+          .input-group
+            .input-group-btn.search-panel
+              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown') Szukaj
+                //span#search_concept Szukaj
+                span.caret
+              ul.dropdown-menu(role='menu')
+                li
+                  a(href='#') tekst
+                li
+                  a(href='#') tagi
+            input#search_param(type='hidden', name='search_param', value='all')
+            input.form-control(type='text', name='x', placeholder='Search term...')
+            span.input-group-btn
+              button.btn.btn-default(type='button')
+                i.fa.fa-angle-double-right
+        .col-xl-2.col-lg-2.col-md-5.col-sm-5.col-xs-3
+          button.btn.btn-default(type='button')
+            i.fa.fa-angle-double-left
+          span 1/9
+          button.btn.btn-default(type='button')
+            i.fa.fa-angle-double-right
+        .col-xl-5.col-lg-5.col-md-12.col-sm-12.col-xs-12
+          .form-group
+            .row
+              .col-xl-4.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                .checkbox
+                  label Pokaż elementy
+                    input(type='checkbox')
+                    |  wszystkie
+              .col-xl-4.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                .checkbox
+                  label
+                    input(type='checkbox')
+                    |  nieocenione
+              .col-xl-4.col-lg-4.col-md-4.col-sm-4.col-xs-4
+                .checkbox
+                  label
+                    input(type='checkbox')
+                    |  ocenione
+          //button.btn.btn-default.filter-col(type='submit')
+          //  span.glyphicon.glyphicon-record
+          //  |  Zamknij
+
+
+        //.form-group
+             //  label.filter-col(style='margin-right:0;', for='pref-perpage') Szukaj
+             //  select#pref-perpage.form-control
+             //    option(selected='selected', value='tekst') tekst
+             //    option(value='tagi') tagi
+             //// form group [rows]
+             //.form-group
+             //  label.filter-col(style='margin-right:0;', for='pref-search')
+             //  input#pref-search.form-control.input-sm(type='text')
+             //// form group [search]
+             ////.form-group
+             ////  label.filter-col(style='margin-right:0;', for='pref-orderby') Order by:
+             ////  select#pref-orderby.form-control
+             ////    option Descendent
+             //// form group [order by]
