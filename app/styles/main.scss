@@ -122,6 +122,14 @@ button[name='search']:focus {
   }
 }
 
+.allPanels .title h4 span,.allPanels .title h5 span {
+  text-decoration:underline;
+  background-color:yellow;
+}
+
+span.caret {
+  margin-left: 5px !important;
+}
 //
 //
 //@-moz-document url-prefix() {

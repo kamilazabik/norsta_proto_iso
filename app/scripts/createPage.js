@@ -52,6 +52,7 @@ function createPage(numberClass, isNextLoad) {
     loadDescription(numberClass);
     loadPage(isNextLoad);
     onLoadPage();
+    searchText();
   }
 }//createPage
 
@@ -190,9 +191,43 @@ function goToProjectList(){
     $('#content').load('./jade/pages/project-list.html', function() {
       // $('#content').append('<div id="panel-content" />');
       $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>');
-
-
     })
   })
-
 }
+
+function searchTextTags() {
+  $('.search-panel .dropdown-menu').find('a').click(function(e) {
+    e.preventDefault();
+    var param = $(this).attr("href").replace("#","")
+      , concept = $(this).text()
+      , option = $(this).parent().parent().prev().first().text();
+
+    $('.search-panel span#search_concept').text(concept);
+    $('.input-group #search_param').val(param);
+    $('.search-panel .dropdown-menu').find('a').text(option)
+  });
+}
+
+function searchText() {
+  var allTextH4 = $('.allPanels .title h4')
+    , allTextH5 = $('.allPanels .title h5')
+    , pageText
+    , searchedText
+    , theRegEx
+    , newHtml;
+
+  function markText(index, value) {
+    pageText = value.innerText.replace("<span>","").replace("</span>");
+    theRegEx = new RegExp("("+searchedText+")", "igm");
+    newHtml = pageText.replace(theRegEx ,"<span>$1</span>");
+    value.innerHTML = newHtml;
+  }
+
+
+  $('#searchfor').keyup(function(){
+    searchedText = $('#searchfor').val();
+    allTextH4.each(markText) ;
+    allTextH5.each(markText);
+  });
+}
+

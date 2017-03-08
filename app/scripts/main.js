@@ -5,9 +5,9 @@ $(document).ready( function(){
   createPage('A', false);
   SetAssessmentField();
   addNewEvidence();
-  goToProjectList()
-
-
+  goToProjectList();
+  searchTextTags();
+  searchText()
 });//END of document.READY
 
 
