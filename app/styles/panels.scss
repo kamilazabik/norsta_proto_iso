@@ -55,8 +55,8 @@ button.btn{
       padding: 5px 10px;
     }
     &.add {
-      border-color: #86bfea;
-      background-color: #86bfea;
+      border-color: $buttonsAdd;
+      background-color: $buttonsAdd;
       margin-left: 3px;
       padding: 4px 10px;
     }
@@ -314,7 +314,7 @@ button.btn{
       }
 
       .active-input {
-        background-color: #86bfea !important;
+        background-color: $buttonsAdd !important;
       }
     }
   }
@@ -344,7 +344,8 @@ button.btn{
   .button-expand,
   .button-expand-three,
   .evidences {
-      background-color: #f3f3f3;
+      //background-color: #f3f3f3;
+      background-color: $panels-hover;
     }
   }
 }
@@ -356,7 +357,7 @@ button.btn{
     margin: 0;
     width: 100%;
     background-color: #fff;
-    border: 1px solid #e3e3e3;
+    border: 1px solid $panels-border-color;
     border-radius: 3px;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     border-top: 0;
@@ -371,7 +372,7 @@ button.btn{
       border: 0;
       margin-bottom: 0;
       width: 100%;
-      font-size: 14px;
+      font-size: 1.3em;
       padding: 5px 0;
       background-color: #fff;
       @include border-radius (0px 0px 3px 3px);
@@ -381,10 +382,10 @@ button.btn{
         margin-bottom: 0;
         thead{
           @include tr-size(5%,35%, 25%, 35%, 10%);
-          color: #aeaeae;
+          color: $menu-color-icon;
 
           .btn.btn-primary.add{
-            background-color: #86bfea;
+            background-color: $buttonsAdd;
           }
 
           tr {
@@ -399,7 +400,7 @@ button.btn{
         tbody{
           tr {
             th{
-              color: #aeaeae;
+              color: $menu-color-icon;
             }
           }
         }

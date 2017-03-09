@@ -40,61 +40,43 @@ $icon-font-path: '../fonts/';
   background-color: $content;
   padding-right: 0;
   padding-left: 0;
-  border-top: 1px solid #9b9b9b;
+  border-top: 1px solid $content-border;
 }
 
 #panel-content {
   height: 100%;
-  background-color: #fcfcfc;
+  //background-color: #fcfcfc;
   margin-top: 80px;
 }
 
 .footer {
   padding-bottom: 15px;
   padding-left: 20px !important;
-  background-color: #f8f8f8;
+  //background-color: #f8f8f8;
   padding-right: 15px;
   padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+  //color: #888;
+  //border-top: 1px solid #e5e5e5;
 }
 
 #removeAssessAlert, #saveAssessAlert {
   margin: 10px;
 }
-
-button[name='search'] {
-  margin: 10px 7px 10px 0;
-  color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
-  width: 40px;
-  height: 40px;
-}
-
-button[name='search']:focus {
-  @include background-border(#ddd,1px,#ddd);
-  outline: none;
-  span {
-    color: #888;
-  }
-}
-
-#collapseSearch {
-  input.search {
-    min-height: 20px;
-    padding: 19px;
-    background-color: #f5f5f5;
-    border: 1px solid #e3e3e3;
-    width: 100%;
-    //border-radius: 4px;
-    //box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-
-    &:focus {
-      border: none;
-    }
-  }
-}
+//#collapseSearch {
+//  input.search {
+//    min-height: 20px;
+//    padding: 19px;
+//    background-color: #f5f5f5;
+//    border: 1px solid #e3e3e3;
+//    width: 100%;
+//    //border-radius: 4px;
+//    //box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+//
+//    &:focus {
+//      border: none;
+//    }
+//  }
+//}
 
 #filter-panel {
   .panel {
@@ -106,10 +88,10 @@ button[name='search']:focus {
     }
     button {
       background-color: #fff;
-      border-color: #ccc;
+      border-color: $content;
       &:hover {
-        color: #333;
-        background-color: #d4d4d4;
+        color: #000;
+        background-color: $content;
       }
     }
   }
@@ -130,6 +112,24 @@ button[name='search']:focus {
 span.caret {
   margin-left: 5px !important;
 }
+
+#modalEvidence {
+  font-size: 1.4em;
+  #textareaNameEvid {
+    height: 100% !important;
+  }
+}
+
+//All textarea
+.addedCom, .editable_text,textarea {
+  border: 1px solid rgb(185, 185, 185);
+  min-height: 50px;
+  padding: 2px;
+  margin-bottom: 5px;
+  font-size: 1.4em;
+}
+
+
 //
 //
 //@-moz-document url-prefix() {

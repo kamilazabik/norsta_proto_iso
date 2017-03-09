@@ -12,19 +12,19 @@
   float: none;
 }
 
-#menu-toggle:focus, #menu-toggle-2:focus {
-  @include background-border(#ddd,1px,#ddd);
+#menu-toggle:focus, #menu-toggle-2:focus, #menu-toggle:hover,#menu-toggle-2:hover {
+  @include background-border($menu-color-hover,1px,$menu-color-hover);
+}
+#menu-toggle:focus, #menu-toggle-2:focus{
   span {
-    color: #888;
+    color: $menu-color-icon;
   }
 }
 
 #menu-toggle,#menu-toggle-2 {
-  @include background-border($panels-head,1px,#fff);
   @include padding-left-right (13px, 13px);
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  font-size: 18px;
 }
 
 #main-menu{
@@ -34,23 +34,62 @@
     background-color: #fff;
   }
   &:hover, &:focus{
-    @include background-border(#ddd,1px,#ddd);
+    @include background-border($menu-color-hover,1px,$menu-color-hover);
+  }
+
+  &:focus {
     .icon-bar {
-      background-color: #888;
+      background-color: $menu-color-icon;
     }
   }
 }
+
+nav {
+  .btn-primary:focus{
+    &:focus {
+      @include background-border($menu-color-hover,1px,$menu-color-hover);
+      outline: none;
+    }
+  }
+
+  button[name='search'] {
+    padding: 7px 14px 5px 10px;
+    position: absolute;
+    top:0;
+    right: 60px;
+    margin: 8px 7px 10px 0;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    &:focus {
+      @include background-border($menu-color-hover,1px,$menu-color-hover);
+      outline: none;
+      span {
+        color: $menu-color-icon;
+      }
+    }
+    &:hover {
+      @include background-border($menu-color-hover,1px,$menu-color-hover);
+      outline: none;
+    }
+    &:active {
+      box-shadow: none;
+    }
+  }
+}
+
 
 .navbar-nav > .open > a, .navbar-nav > .open > a:hover {
   //color: #555;
 }
 
 .navbar-nav > .open > a, .navbar-nav > .open > a:focus{
-  color: #555;
+  color: $main-color-font;
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
-  color: #555;
+  color: $main-color-font;
 }
 
 .navbar-fixed-top .navbar-collapse {
@@ -65,7 +104,6 @@
 
 nav {
   border: 0;
-  border-bottom: 1px solid #e7e7e7;
   background: $panels-head !important;
   color: #fff;
 }
@@ -143,7 +181,7 @@ nav {
 }
 
 #sidebar-wrapper:hover::-webkit-scrollbar-thumb {
-  background:rgba(176,176,176,0.6) !important;
+  background: $sidebar-scroll-bar !important;
   border-radius: 10px;
   opacity: 0.5;
 }
@@ -233,7 +271,7 @@ nav {
         outline: 0;
         color: #000;
         background: rgba(255,255,255,0.2);
-        border-left: #337ab7 2px solid;
+        //border-left: #337ab7 2px solid;
       }
       &:active,  &:focus {
         text-decoration: none;
@@ -283,7 +321,7 @@ nav {
 }
 
 .sidebar-nav > .sidebar-brand a {
-  color: #999999;
+  //color: #999999;
 }
 
 .sidebar-nav > .sidebar-brand a:hover {

@@ -11,16 +11,6 @@
     padding-right: 0;
   }
 
-  #bs-collapse .panel-default > .panel-heading {
-    background-color: #1e73be;
-    color: #fff;
-    border-color: #1e5da9;
-  }
-
-  #bs-collapse.panel-group {
-    //margin-bottom: 70px;
-  }
-
   #bs-collapse {
 
     .container {
@@ -138,23 +128,6 @@
     display: none;
   }
 
-  .text {
-    .editable_text {
-      height: 100%;
-      padding: 5px;
-    }
-
-    textarea {
-      width: 100%;
-      overflow: visible;
-    }
-
-    &:hover{
-      border: 1px solid #c9c9c9;
-    }
-  }
-
-
   .addedComment {
     word-wrap: break-word;
   }
@@ -163,12 +136,7 @@
     margin: 10px;
   }
 
-  .addedCom, .editable_text {
-    border: 1px solid rgb(185, 185, 185);
-    min-height: 50px;
-    padding: 2px;
-    margin-bottom: 5px;
-  }
+
 
   button{
     background-color: $panels-head;
@@ -181,5 +149,4 @@
   font-size: 28px;
 
 }
-
 

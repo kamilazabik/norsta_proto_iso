@@ -2,9 +2,8 @@
 //@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 body.login-page {
-  background-color: #2e69a1;
+  background-color: $login-page;
   overflow: hidden;
-
 }
 
 .container-fluid.login{
@@ -13,6 +12,8 @@ body.login-page {
 
   .container {
     margin-top: 110px;
+    background-color: $login-page;
+    flex-basis:40%;
   }
 }
 
@@ -23,8 +24,6 @@ body.login-page {
   //-o-background-size: cover;
   //background-size: cover;
   //background-color: $sidebar-color;
-  background-color: #2e69a1;
-  flex-basis:40%;
 }
 
 
@@ -34,9 +33,9 @@ body.login-page {
   over-ride "Weak" message, show font in dark grey
   */
 
-  .progress-bar {
-    color: #333;
-  }
+  //.progress-bar {
+  //  color: #333;
+  //}
 
   /*
   Reference:
@@ -66,8 +65,8 @@ body.login-page {
   }
 
   form[role=login] {
-    color: #5d5d5d;
-    background: #f2f2f2;
+    color: $main-color-font;
+    background: $menu-color-hover;
     padding: 26px;
     border-radius: 10px;
     -moz-border-radius: 10px;

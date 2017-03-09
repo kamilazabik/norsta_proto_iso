@@ -20,9 +20,23 @@
     font-size: 1.3em;
   }
 
-  [id^=collapsePanelDetails]  {
-    a {
-      font-size: 1.3em;
+  [id^=collapsePanelDetails] {
+    [id^=tabsPanels] {
+      .well, a {
+        font-size: 1.3em;
+      }
+      table{
+        thead {
+          @include tr-size(5%, 35%, 25%, 25%, 10%);
+        }
+      }
+
+    }
+  }
+  #modalEvidence, #myProfile label   {
+    font-size: 1.3em;
+    #textareaNameEvid {
+      height: 100% !important;
     }
   }
 }
@@ -35,8 +49,7 @@
   }
 
   h5{
-    font-size: 1.4em;
-    font-weight: 400;
+    @include font(400,1.4);
     line-height: 1;
   }
 
@@ -76,9 +89,22 @@
     margin-top: 10px;
   }
 
-  p{
+  p, h5{
     line-height: 1;
     margin-top: 10px;
+    font-size: 1.4em;
+  }
+
+  [id^=collapsePanelDetails] {
+    [id^=tabsPanels] {
+      .well, a {
+        font-size: 1.4em;
+      }
+    }
+  }
+
+  #modalEvidence, #myProfile label   {
+    font-size: 1.4em;
   }
 
   #bs-navbar-collapse-2 .nav{
@@ -88,6 +114,12 @@
       > a{
         height: 100%;
       }
+    }
+  }
+
+  nav {
+    button[name='search'] {
+      right: 110px;
     }
   }
 
@@ -152,7 +184,7 @@
       }
 
       &.number, .number {
-        @include height-background(70px, $panels-head);
+        height: 70px;
         color: #fff;
       }
     }
@@ -197,7 +229,7 @@
 
         &.number {
           @include border-radius (3px 0 0 3px);
-          @include height-background(70px,  $panels-head);
+          height: 70px;
           color: #fff;
         }
       }
@@ -218,7 +250,7 @@
   .allPanels .panel-content, .right-panel #bs-collapse {
     .hseq.space:hover, .titleColor {
       .title {
-        background-color: #f3f3f3;
+        background-color: #ffff99;
       }
     }
   }
@@ -258,6 +290,19 @@
           h4 {
             width: 23%;
           }
+        }
+      }
+    }
+  }
+
+  [id^=collapsePanelDetails] {
+    [id^=tabsPanels] {
+      .well {
+        table {
+          thead{
+            //@include tr-size(5%,35%, 25%, 28%, 10%);
+          }
+
         }
       }
     }
