@@ -216,6 +216,8 @@ function searchText() {
     , theRegEx
     , newHtml;
 
+  console.log('tekst')
+
   function markText(index, value) {
     pageText = value.innerText.replace("<span>","").replace("</span>");
     theRegEx = new RegExp("("+searchedText+")", "igm");

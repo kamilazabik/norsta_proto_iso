@@ -2,7 +2,7 @@
 @import "grid";
 
 @media all and (min-width: 100px){
- #content {font-size: 10px;}
+ body {font-size: 10px;}
 
  h4, h3{
    font-size: 1.4em;
@@ -16,7 +16,7 @@
     line-height: 1;
   }
 
-  p{
+  p, label, span button span{
     font-size: 1.3em;
   }
 
@@ -39,6 +39,13 @@
       height: 100% !important;
     }
   }
+
+  //#filter-panel {
+  //  font-size: 10px;
+  //  p, label, button span {
+  //    font-size: 1.4em;
+  //  }
+  //}
 }
 
 @media all and (min-width: 460px) {
@@ -53,7 +60,7 @@
     line-height: 1;
   }
 
-  p{
+  p, label, span button span{
     font-size: 1.4em;
   }
 
@@ -120,6 +127,18 @@
   nav {
     button[name='search'] {
       right: 110px;
+    }
+  }
+
+  #filter-panel {
+    .panel {
+      .form-inline {
+        > .row {
+          > div:nth-child(2){
+            margin-top: 0 !important;
+          }
+        }
+      }
     }
   }
 
@@ -193,7 +212,6 @@
       margin-right: 5px !important;
       margin-left: 5px !important;
       padding: 15px 10px 0 10px !important;
-
 
       .padding-content {
         padding-right: 30px;
@@ -299,10 +317,18 @@
     [id^=tabsPanels] {
       .well {
         table {
-          thead{
-            //@include tr-size(5%,35%, 25%, 28%, 10%);
+          tbody {
+            @include td-size(5%,35%, 25%, 25%, 10%);
           }
+        }
 
+        button{
+          &:nth-child(1){
+            margin: 0 0 5px 5px;
+          }
+          &:nth-child(2){
+            margin: auto 0 5px 0;
+          }
         }
       }
     }
@@ -313,7 +339,7 @@
 @media all and (min-width: $screen-lg-min){
   h3 {
     font-size: 2em;
-    margin-top: 0px
+    margin-top: 0;
   }
 
   .mainPagePanels {
@@ -330,8 +356,6 @@
       }
     }
   }
-
-
 }//1200px - 1440px
 
 

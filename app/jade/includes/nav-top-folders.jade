@@ -18,7 +18,6 @@
   // navbar-header
 #bs-navbar-collapse-2.collapse.navbar-collapse
   ul.nav.navbar-nav
-
     li.dropdown
       a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekt
         span.caret
@@ -29,8 +28,15 @@
           a(href='#') Otwórz w widoku podstawowym
         li
           a(href='#') Otwórz w widoku pełnym
+    li.only-icon
+      a(href='#' title="Odśwież")
+        i.fa.fa-refresh(aria-hidden='true')
+    li.only-icon
+      a(href='#' title="Widok listy wszystkich projektów")
+        i.fa.fa-th-list(aria-hidden='true')
     li.dropdown
-      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Pomoc
+      a.dropdown-toggle.only-icon(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' title="Pomoc")
+        i.fa.fa-question-circle(aria-hidden='true')
         span.caret
       ul.dropdown-menu
         li
@@ -58,6 +64,6 @@
         li.divider(role='separator')
         li
           a(href='login-site.html') Wyloguj
-  button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseSearch', aria-expanded='false', aria-controls='collapseSearch', name='search')
+  //button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#filter-panel',name='search')
     span.glyphicon.glyphicon-search(aria-hidden='true')
 

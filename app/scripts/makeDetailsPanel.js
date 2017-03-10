@@ -16,7 +16,7 @@ function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hidd
     , buttonIcon = $('<i class="fa fa-arrow-down" aria-hidden="true"></i>')
     , buttonExpandPanelHidden = $('<button type=\'button\' class=\' hidden-lg hidden-xl btn btn-primary expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\'></button>')
     , buttonExpandPanelNotHidden = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\'></button>')
-    , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' + numberOfChild+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChild + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>')
+    , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-primary add ' + numberOfChild+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChild + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
 
 
   if(hiddenClass == true){

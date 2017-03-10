@@ -381,7 +381,7 @@ button.btn{
       table{
         margin-bottom: 0;
         thead{
-          @include tr-size(5%,35%, 25%, 35%, 10%);
+          @include tr-size(5%,35%, 25%, 25%, 10%);
           color: $menu-color-icon;
 
           .btn.btn-primary.add{
@@ -398,23 +398,29 @@ button.btn{
           }
         }
         tbody{
+        @include td-size(5%,35%, 25%, 30%, 5%);
           tr {
             th{
               color: $menu-color-icon;
+            }
+            td.buttons {
+              padding-right: 0;
             }
           }
         }
       }
       .buttons{
         //display: flex;
-        display: inline-block;
+        //display: inline-block;
       }
 
       button{
         &:nth-child(1){
+          float: right;
           margin: 5px 0 5px 0;
         }
         &:nth-child(2){
+          float: right;
           margin: auto 0 5px 0;
         }
       }
