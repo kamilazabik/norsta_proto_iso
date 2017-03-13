@@ -2,87 +2,131 @@
 @import "grid";
 
 @media all and (min-width: 100px){
- body {font-size: 10px;}
+ #content, #pwd-container {
+   font-size: 10px;
 
- h4, h3{
-   font-size: 1.4em;
-   margin-top: 5px;
-   margin-bottom: 5px;
-  }
+   h4, h3 {
+     font-size: 1.4em;
+     margin-top: 5px;
+     margin-bottom: 5px;
+   }
 
-  h5{
-    font-size: 1.3em;
-    font-weight: 400;
-    line-height: 1;
-  }
+   h5 {
+     font-size: 1.3em;
+     font-weight: 400;
+     line-height: 1;
+   }
 
-  p, label, span button span{
-    font-size: 1.3em;
-  }
+   p, label, span button span {
+     font-size: 1.3em;
+   }
 
-  [id^=collapsePanelDetails] {
-    [id^=tabsPanels] {
-      .well, a {
-        font-size: 1.3em;
-      }
-      table{
-        thead {
-          @include tr-size(5%, 35%, 25%, 25%, 10%);
-        }
-      }
+   [id^=collapsePanelDetails] {
+     [id^=tabsPanels] {
+       //font-size: 10px;
 
+       b, span {
+         font-family: sans-serif !important;
+       }
+       .well, a {
+         font-size: 1.3em;
+       }
+
+       p p span, b {
+         font-size: 13px;
+       }
+
+       table {
+         thead {
+           @include tr-size(5%, 35%, 25%, 25%, 10%);
+         }
+       }
+     }
+   }
+ }
+
+  #myModal {
+    span {
+      font-size: 1.3em;
     }
   }
-  #modalEvidence, #myProfile label   {
-    font-size: 1.3em;
+
+  #modalEvidence  {
+    table {
+      font-size: 1.3em;
+    }
+
     #textareaNameEvid {
       height: 100% !important;
     }
   }
-
-  //#filter-panel {
-  //  font-size: 10px;
-  //  p, label, button span {
-  //    font-size: 1.4em;
-  //  }
-  //}
 }
 
 @media all and (min-width: 460px) {
-  .allPanels, .box-header, .right-panel, .mainPagePanels {font-size: 10px;}
+  .allPanels, .box-header, .right-panel, .mainPagePanels {
+    font-size: 10px;
 
-  h4, h3 {
-    font-size: 1.6em;
-  }
+    h4, h3 {
+      font-size: 1.6em;
+    }
 
-  h5{
-    @include font(400,1.4);
-    line-height: 1;
-  }
+    h5 {
+      @include font(400, 1.4);
+      line-height: 1;
+    }
 
-  p, label, span button span{
-    font-size: 1.4em;
-  }
+    p, label, span button span {
+      font-size: 1.4em;
+    }
 
-  .number {
-    h4 {
-      font-weight: 500;
+    .number {
+      h4 {
+        font-weight: 500;
+      }
+    }
+
+    .assessment {
+      h3 {
+        margin: 5px;
+      }
     }
   }
 
-  .assessment {
-    h3 {
-      margin: 5px;
+  #modalEvidence {
+    table {
+      font-size: 1.4em;
     }
   }
+  #myProfile, #preferences {
+    span {
+      font-size: 1.3em;
+    }
+  }
+
+  button.btn{
+    &.arrow {
+      &:nth-child(2) {
+        margin: 0 3px 0 0;
+      }
+    }
+  }
+ .allPanels .box-under-header-title {
+   .button-expand-three {
+     .row div {
+       padding-left: 0;
+       padding-right: 5px;
+     }
+   }
+ }
 }
-
 @media all and (min-width: $screen-sm-min) {
-  .allPanels, .box-header, .right-panel {font-size: 10px;}
+  //.allPanels, .box-header, .right-panel {font-size: 10px;}
+  #content {
+    font-size: 10px;
 
   h3, h4 {
     font-size: 1.6em;
-    @include font(400,1.4);
+    @include font(400, 1.4);
     margin: 5px;
   }
 
@@ -96,7 +140,7 @@
     margin-top: 10px;
   }
 
-  p, h5{
+  p, h5 {
     line-height: 1;
     margin-top: 10px;
     font-size: 1.4em;
@@ -107,11 +151,17 @@
       .well, a {
         font-size: 1.4em;
       }
+      p p span, b {
+        font-size: 14px;
+      }
     }
   }
-
-  #modalEvidence, #myProfile label   {
-    font-size: 1.4em;
+}
+  #myProfile, #preferences{
+    font-size: 10px;
+    span {
+      font-size: 1.4em;
+    }
   }
 
   #bs-navbar-collapse-2 .nav{
@@ -342,6 +392,18 @@
     margin-top: 0;
   }
 
+  #filter-panel {
+  .panel {
+    .form-inline {
+      > .row {
+        > div:nth-child(2), > div:nth-child(3) {
+          margin-top: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
   .mainPagePanels {
     .tree {
       li {
@@ -391,6 +453,21 @@
   }
 }
 
+@media all and (max-width: $screen-sm-min) {
+  .right-panel{
+    .fixed-panel {
+     top: 205px;
+    }
+  }
+}
+
+@media all and (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+  .right-panel{
+    .fixed-panel {
+      top: 170px;
+    }
+  }
+}
 
 @media all and (min-width: 476px) and (max-width: $screen-md-max) {
   .right-panel{

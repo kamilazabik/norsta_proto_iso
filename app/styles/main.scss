@@ -122,6 +122,11 @@ $icon-font-path: '../fonts/';
       margin-left: 10px;
       margin-right: 10px;
     }
+
+    span.number-of-results {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
   }
 }
 
@@ -135,7 +140,7 @@ span.caret {
 }
 
 #modalEvidence {
-  font-size: 1.4em;
+  //font-size: 1.4em;
   #textareaNameEvid {
     height: 100% !important;
   }

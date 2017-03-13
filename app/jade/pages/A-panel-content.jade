@@ -7,7 +7,8 @@
             button.close(type='button', data-dismiss='modal', aria-label='Close')
               span(aria-hidden='true') ×
             h4#myModalLabel.modal-title Potwierdzenie
-          .modal-body Czy chcesz zapisać zmiany?
+          .modal-body
+            span Czy chcesz zapisać zmiany?
           .modal-footer
             button(type="button" id="removeAssessAlert" class="btn btn-primary btn-sm pull-right") Anuluj ocenę
             button(type="button" id="saveAssessAlert" class="btn btn-primary btn-sm pull-right") Zapisz ocenę
@@ -19,7 +20,7 @@
       .modal-header
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
-        h4#modalEvidenceLabel.modal-title Załączanie dowodu
+        h3#modalEvidenceLabel.modal-title Załączanie dowodu
       .modal-body
         p.title Wybierz nowy dowód
         .form-group
@@ -126,10 +127,10 @@
                   label.col-sm-4.control-label Autoryzacja
                   .col-sm-4
                     input(type='checkbox')
-                    |Active Directory
+                    span Active Directory
                   .col-sm-4
                     input(type='checkbox')
-                    |NOR-STA
+                    span NOR-STA
                 .form-group
                   label.col-sm-4.control-label Zmień hasło
                   .col-sm-8
@@ -152,15 +153,61 @@
                 .form-group
                   .col-sm-12.control-label
                     input(type='checkbox')
-                    | Pokaż ocenę przy otwarciu argumentu
+                    span Pokaż ocenę przy otwarciu argumentu
                 .form-group
                   .col-sm-12.control-label
                     input(type='checkbox')
-                    | Pokaż panel zmian przy wejściu do projekt
+                    span Pokaż panel zmian przy wejściu do projekt
       .modal-footer
-        button.btn.btn-default(type='submit', data-dismiss='modal') OK
+        button.btn.btn-primary(type='submit', data-dismiss='modal') OK
         button.btn.btn-primary(type='submit') Zastosuj
         button.btn.btn-primary(type='submit') Anuluj
 
-
+#preferences.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+        h4#myPreferencesLabel.modal-title Profil
+      .modal-body
+        .row
+          .col-md-12.col-ms-12.col-xs-12
+            form.form-horizontal(role='form')
+              fieldset
+                .form-group
+                  label.col-sm-4.control-label(for='name') Nazwa uzytkownika
+                  .col-sm-8
+                    input#user.form-control(type='text', placeholder='Nazwa uzytkownika')
+                // Text input
+                .form-group
+                  label.col-sm-4.control-label(for='language') Język
+                  .col-sm-8
+                    select#languages.form-control(name='languages')
+                      option(value='PL') polski
+                      option(value='EN') angielski
+                .form-group
+                  label.col-sm-4.control-label(for='project') Domyślny projekt
+                  .col-sm-8
+                    select#defaultProject.form-control(name='project')
+                      option(value='') Projekt 1
+                      option(value='') Projekt 2
+                      option(value='') Projekt 3
+                      option(value='') Projekt 4
+                      option(value='') Projekt 5
+                .form-group
+                  .col-sm-12.control-label
+                    input(type='checkbox')
+                    span Pokaż ocenę przy otwarciu argumentu
+                  .col-sm-12.control-label
+                    input(type='checkbox')
+                    span Pokaż panel zmian przy wejściu do projekt
+                .form-group
+                  label.col-sm-4.control-label Panel szczegółów
+                  .col-sm-8
+                    button.btn.btn-primary(type='button') Przywróć ustawienia domyślne
+      .modal-footer
+        button.btn.btn-primary(type='submit', data-dismiss='modal') OK
+        button.btn.btn-primary(type='submit') Zastosuj
+        button.btn.btn-primary(type='submit') Anuluj
 

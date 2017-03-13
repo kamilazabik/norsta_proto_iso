@@ -8,9 +8,9 @@
     margin-bottom: 0;
   }
 
-  .title{
-    font-size: 16px;
-  }
+  //.title{
+  //  font-size: 16px;
+  //}
 
   .clicked-tr{
     background-color: #ededed;
@@ -50,7 +50,7 @@
 
 
 
-#myProfile {
+#myProfile, #preferences {
   .modal-body{
     padding-bottom: 0;
     .form-horizontal .control-label {

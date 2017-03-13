@@ -39,6 +39,8 @@
 
     .panel-title {
       @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
+      margin-top: 0;
+      margin-bottom: 0;
     }
     .panel:last-child {
       border-bottom: none;
@@ -54,10 +56,6 @@
 
     .panel-group .panel + .panel {
       margin-top: 0;
-    }
-
-    .last-panel .panel {
-      //margin-top: 20px;
     }
 
     .panel-heading {
@@ -94,6 +92,10 @@
 
       div[class*='col-'] {
         padding: 0 15px;
+      }
+      .description p span, b {
+        font-size: 14px;
+        font-family: sans-serif !important;
       }
     }
 
