@@ -216,8 +216,6 @@ function searchText() {
     , theRegEx
     , newHtml;
 
-  console.log('tekst')
-
   function markText(index, value) {
     pageText = value.innerText.replace("<span>","").replace("</span>");
     theRegEx = new RegExp("("+searchedText+")", "igm");
@@ -233,17 +231,20 @@ function searchText() {
   });
 }
 
-$(window).scroll(function() {
-  console.log($(window).scrollTop());
-  var windowScroll = $(window).scrollTop()
-    , mql = window.matchMedia("(min-width: 768px)");
+function moveRightPanel() {
+  $(window).scroll(function() {
+    var windowScroll = $(window).scrollTop()
+      , mql = window.matchMedia("(min-width: 768px)");
 
-  if(windowScroll > 100) {
-    $('.panel-group.fixed-panel').css('top', '45px')
-  }else if (windowScroll < 100 && mql.matches){
-    $('.panel-group.fixed-panel').css('top', '170px')
-    console.log('vvvvvvv')
-  }else if(windowScroll < 100 && !mql.matches){
-    $('.panel-group.fixed-panel').css('top', '205px')
-  }
-});
+    if(windowScroll > 100) {
+      $('.panel-group.fixed-panel').css('top', '45px')
+    }else if (windowScroll < 100 && mql.matches){
+      $('.panel-group.fixed-panel').css('top', '170px')
+    }else if(windowScroll < 100 && !mql.matches){
+      $('.panel-group.fixed-panel').css('top', '205px')
+    }
+  });
+}
+
+
+

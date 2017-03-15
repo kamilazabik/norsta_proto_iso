@@ -7,7 +7,8 @@ $(document).ready( function(){
   addNewEvidence();
   goToProjectList();
   searchTextTags();
-  searchText()
+  searchText();
+  moveRightPanel();
 });//END of document.READY
 
 
