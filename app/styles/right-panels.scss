@@ -4,8 +4,8 @@
 
 .right-panel {
   right: 0;
-  height: 100%;
-  padding: 14px 15px 0 0 !important;
+  //height: 100%;
+  padding: 0 15px 0 0 !important;
 
   .panel-margin {
     padding-right: 0;
@@ -118,10 +118,6 @@
     @include border-radius(4px);
   }
 
-  .first-panel .panel {
-    margin: 20px 0 0 0;
-  }
-
   .last-panel .panel {
     margin: 15px 0 15px 0;
   }
@@ -137,8 +133,6 @@
   #removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
     margin: 10px;
   }
-
-
 
   button{
     background-color: $panels-head;

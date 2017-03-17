@@ -186,11 +186,13 @@ function goToProjectList(){
 
   closeProjectMenu.on('click', function () {
 
-    nav.load('./jade/includes/nav-top-folders.html')
+    nav.load('./jade/includes/nav-top-folders.html');
 
     $('#content').load('./jade/pages/project-list.html', function() {
       // $('#content').append('<div id="panel-content" />');
       $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>');
+      changeViewOfFolderList();
+      moveSidebar();
     })
   })
 }
@@ -237,14 +239,32 @@ function moveRightPanel() {
       , mql = window.matchMedia("(min-width: 768px)");
 
     if(windowScroll > 100) {
-      $('.panel-group.fixed-panel').css('top', '45px')
+      $('.panel-group.fixed-panel').css('top', '60px')
     }else if (windowScroll < 100 && mql.matches){
-      $('.panel-group.fixed-panel').css('top', '170px')
+      $('.panel-group.fixed-panel').css('top', '185px')
     }else if(windowScroll < 100 && !mql.matches){
-      $('.panel-group.fixed-panel').css('top', '205px')
+      $('.panel-group.fixed-panel').css('top', '220px')
     }
   });
 }
 
+function changeViewOfFolderList(){
+  var buttonSimpleList = $('.simple-list')
+    , buttonTreeList = $('.tree-list')
+    , nav = $('.nav.navbar-nav')
+    , foldersTree = $('.folders.tree')
+    , foldersSimple = $('.simple');
+
+  buttonSimpleList.on('click', function (e) {
+    foldersSimple.removeClass('display');
+    foldersTree.addClass('display')
+  });
+
+  buttonTreeList.on('click', function (e) {
+    foldersTree.removeClass('display');
+    foldersSimple.addClass('display')
+  })
+
+}
 
 

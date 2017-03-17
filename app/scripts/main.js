@@ -3,12 +3,14 @@ $(document).ready( function(){
 
   console.log(isoObject);
   createPage('A', false);
+  moveSidebar();
   SetAssessmentField();
   addNewEvidence();
   goToProjectList();
   searchTextTags();
   searchText();
   moveRightPanel();
+  changeViewOfFolderList();
 });//END of document.READY
 
 

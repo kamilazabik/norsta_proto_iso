@@ -1,7 +1,7 @@
 @import "mixins";
 
 .padding-content {
-  padding: 14px 0 0 15px;
+  padding: 0 0 0 15px;
 }
 
 .cursor{
@@ -145,7 +145,6 @@ button.btn{
   @include border-radius (3px);
   box-shadow: $panels-shadow !important;
   border: 0 !important;
-  margin-top: 20px;
   margin-bottom: 16px;
   a:hover, a:focus {
     text-decoration: none;

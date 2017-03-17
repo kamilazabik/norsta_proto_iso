@@ -4,7 +4,7 @@
  */
 
 function makeMainPanel(){
-  var mainPanel = $('<div id="main-panel"></div>')
+  var mainPanel = $('<div id="main-panel" class="row"></div>')
     , col = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1 = $('<div class="col-md-12 col-sm-12 col-xs-12"></div>')
     , col1row = $('<div class="row fixedPos box-header"></div>')

@@ -121,6 +121,10 @@
 }
 @media all and (min-width: $screen-sm-min) {
   //.allPanels, .box-header, .right-panel {font-size: 10px;}
+  .navbar-right {
+    margin-right: 0;
+  }
+
   #content {
     font-size: 10px;
 
@@ -176,7 +180,7 @@
 
   nav {
     button[name='search'] {
-      right: 110px;
+      right: 125px;
     }
   }
 
@@ -383,6 +387,12 @@
       }
     }
   }
+  .mainPagePanels {
+    &.row {
+      margin-right: -15px;
+    }
+  }
+
 }//992px - 1200px
 
 
@@ -464,7 +474,7 @@
 @media all and (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
   .right-panel{
     .fixed-panel {
-      top: 170px;
+      top: 185px;
     }
   }
 }
@@ -492,7 +502,7 @@
 }
 
 @media all and (max-width: $screen-md-max) {
-  #panels {
+  #panels, .mainPagePanels {
     padding-right: 50px;
   }
 
