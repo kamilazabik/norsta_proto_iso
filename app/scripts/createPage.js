@@ -236,15 +236,19 @@ function searchText() {
 function moveRightPanel() {
   $(window).scroll(function() {
     var windowScroll = $(window).scrollTop()
-      , mql = window.matchMedia("(min-width: 768px)");
+      , mql = window.matchMedia("(min-width: 768px)")
+      , paddingContent = $('.padding-content').offset();
 
     if(windowScroll > 100) {
       $('.panel-group.fixed-panel').css('top', '60px')
-    }else if (windowScroll < 100 && mql.matches){
-      $('.panel-group.fixed-panel').css('top', '185px')
-    }else if(windowScroll < 100 && !mql.matches){
-      $('.panel-group.fixed-panel').css('top', '220px')
+    }else {
+      $('.panel-group.fixed-panel').css('top', paddingContent.top)
     }
+    // else if (windowScroll < 100 && mql.matches){
+    //   $('.panel-group.fixed-panel').css('top', paddingContent.top)
+    // }else if(windowScroll < 100 && !mql.matches){
+    //   $('.panel-group.fixed-panel').css('top', paddingContent.top)
+    // }
   });
 }
 
@@ -254,6 +258,7 @@ function changeViewOfFolderList(){
     , nav = $('.nav.navbar-nav')
     , foldersTree = $('.folders.tree')
     , foldersSimple = $('.simple');
+
 
   buttonSimpleList.on('click', function (e) {
     foldersSimple.removeClass('display');

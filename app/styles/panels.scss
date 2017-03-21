@@ -94,14 +94,14 @@ button.btn{
   @include back-color(#fff, $color-black, hidden);
   @include border-radius (2px);
   box-shadow: $panels-shadow;
-  height: 120px;
+  min-height: 120px;
 
   .assessment,
   .filter,
   .bar-slider,
   .title-main,
   .select{
-    height: 50%;
+    min-height: 60px;
   }
 
   .assessment {
@@ -259,7 +259,6 @@ button.btn{
     .number-not-collapsed {
       @include border-radius (3px 0px 0px 0);
     }
-
     .button-expand {
       @include border-right($panels-border, 3px);
       padding-left: 0 !important;
