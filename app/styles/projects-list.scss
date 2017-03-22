@@ -22,7 +22,7 @@
     padding-left: 0;
 
     .table {
-      @include tr-td-size(50%, 20%, 30%)
+      @include tr-td-size(50%, 20%, 25%, 5%);
     }
 
     .panel {
@@ -38,6 +38,19 @@
         margin-bottom: 0;
         thead tr th {
           border: 0;
+        }
+      }
+    }
+    .panel-primary {
+      tbody{
+        tr{
+          td {
+            vertical-align: middle;
+            i.fa.fa-arrow-down {
+              font-size: 14px;
+              color: #fff;
+            }
+          }
         }
       }
     }

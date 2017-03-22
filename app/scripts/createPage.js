@@ -8,7 +8,9 @@ function createPage(numberClass, isNextLoad) {
     , row = $('.row.mainPagePanels')
     , titleClaim = $('.title-hseq' + numberClass)
     , titlePanel = $('.title-claim')
-    , label = $('.label-claim');
+    , label = $('.label-claim')
+    , panelContent = $('<div id="panel-content" class="row"></div>')
+    , paddingContent = $('<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12 pull-left padding-content"></div>');
 
   mainPanel.remove();
   panels.remove();
@@ -18,6 +20,8 @@ function createPage(numberClass, isNextLoad) {
   $('.sliderRightPanel').empty();
 
   if (numberClass == 'A') {
+    panelContent.append(paddingContent);
+    content.append(panelContent);
 
     $('.padding-content').append(makeFirstPartOfMainPage());
 
@@ -27,6 +31,7 @@ function createPage(numberClass, isNextLoad) {
 
     loadPage(isNextLoad);
     onLoadPage();
+
 
   }else{
 
@@ -53,6 +58,7 @@ function createPage(numberClass, isNextLoad) {
     loadPage(isNextLoad);
     onLoadPage();
     searchText();
+
   }
 }//createPage
 
@@ -61,6 +67,11 @@ function loadPage(isNextLoad){
 
   var links = $('[class*=\'claim-h\']')
     , allTitles = $('[class^=\'title-hseq\']');
+  //
+  // $('#panel-content').load('jade/right-panels.html')
+
+
+
 
   links.each(function(i) {
       var className = $(this)
@@ -132,6 +143,7 @@ function onLoadPage() {
 
   loadTitle();
   SetSelectAssessmentField();
+  loadRightPanel()
 
   $(function () {
     var linksContent = $('div#content div.col-md-5').find('a');
@@ -170,6 +182,15 @@ function onLoadPage() {
 
 }//onLoadPage
 
+function loadRightPanel() {
+  var twoRightPanels = $('.col-lg-3.right-panel');
+  console.log(twoRightPanels)
+  if(twoRightPanels.length == 0){
+    $('#panel-content').append(rightPanels)
+  }
+
+}
+
 function loadDescription(numberClass){
   var labelDescription = $('.description')
     , arrayDescription = isoObject[numberClass].description;
@@ -177,7 +198,6 @@ function loadDescription(numberClass){
   labelDescription.html(arrayDescription);
 
 }//loadDescription
-
 
 function goToProjectList(){
  var closeProjectMenu = $('.close-project')
@@ -193,6 +213,7 @@ function goToProjectList(){
       $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>');
       changeViewOfFolderList();
       moveSidebar();
+      openProject();
     })
   })
 }
@@ -255,19 +276,28 @@ function moveRightPanel() {
 function changeViewOfFolderList(){
   var buttonSimpleList = $('.simple-list')
     , buttonTreeList = $('.tree-list')
+    , buttonProjectList = $('.projects-list')
     , nav = $('.nav.navbar-nav')
     , foldersTree = $('.folders.tree')
-    , foldersSimple = $('.simple');
-
+    , foldersSimple = $('.simple')
+    , projectList = $('.view-project-list');
 
   buttonSimpleList.on('click', function (e) {
     foldersSimple.removeClass('display');
     foldersTree.addClass('display')
+    projectList.addClass('display')
+  });
+
+  buttonProjectList.on('click', function (e) {
+    projectList.removeClass('display');
+    foldersTree.addClass('display')
+    foldersSimple.addClass('display')
   });
 
   buttonTreeList.on('click', function (e) {
     foldersTree.removeClass('display');
     foldersSimple.addClass('display')
+    projectList.addClass('display')
   })
 
 }
