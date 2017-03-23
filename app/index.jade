@@ -9,7 +9,8 @@ block content
         a(href='http://browsehappy.com/') upgrade your browser
           to improve your experience.
     #main-page.container-fluid
-      include jade/includes/nav-top
+      nav.navbar.no-margin.navbar-fixed-top
+        include jade/includes/nav-top
       #wrapper.toggled-2
         #sidebar-wrapper.tree
           include jade/includes/sidebar
@@ -18,8 +19,9 @@ block content
           //  input.search(type="text" value="Wpisz szukaną frazę..." )
           #filter-panel.collapse.filter-panel
             include jade/includes/search
+          include jade/pages/A-panel-content
           #content.container-fluid.xyz.marginPanelContentBig
-            include jade/pages/A-panel-content
+
             //#panel-content.row
               //include jade/pages/A-panel-content
               //include jade/right-panels

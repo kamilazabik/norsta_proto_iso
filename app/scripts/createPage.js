@@ -20,8 +20,15 @@ function createPage(numberClass, isNextLoad) {
   $('.sliderRightPanel').empty();
 
   if (numberClass == 'A') {
+
+    var paddingContentExisted = $('.padding-content')
+      , panelContentExisted = $('#panel-content');
+
+  if(paddingContentExisted.length == 0 || panelContentExisted == 0){
+
     panelContent.append(paddingContent);
     content.append(panelContent);
+  }
 
     $('.padding-content').append(makeFirstPartOfMainPage());
 
@@ -69,9 +76,6 @@ function loadPage(isNextLoad){
     , allTitles = $('[class^=\'title-hseq\']');
   //
   // $('#panel-content').load('jade/right-panels.html')
-
-
-
 
   links.each(function(i) {
       var className = $(this)
@@ -143,7 +147,7 @@ function onLoadPage() {
 
   loadTitle();
   SetSelectAssessmentField();
-  loadRightPanel()
+  loadRightPanel();
 
   $(function () {
     var linksContent = $('div#content div.col-md-5').find('a');
