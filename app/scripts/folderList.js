@@ -1,19 +1,3 @@
-function clickFolder(){
-  var bodyTable = $('.table.table-hover tbody')
-
-  bodyTable.on('click', function () {
-
-  })
-}
-
-
-
-function changeFolderList(){
-
-  var bodyTable = $('.table.table-hover tbody')
-}
-
-
 function openProject() {
   var buttonOpen = $('.mainPagePanels .expand')
     , content = $('#content')

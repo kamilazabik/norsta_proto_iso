@@ -203,6 +203,44 @@ function loadDescription(numberClass){
 
 }//loadDescription
 
+
+var module = (function(modul){
+
+    var closeProjectMenu = $('.close-project')
+      , nav = $('nav');
+
+
+    var closeProject = function () {
+      nav.load('./jade/includes/nav-top-folders.html');
+      $('#content').load('./jade/pages/project-list.html', function() {
+        // $('#content').append('<div id="panel-content" />');
+        $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>');
+        // changeViewOfFolderList();
+        // myModule.init();
+        moveSidebar();
+        openProject();
+
+      })
+    };
+
+    var bindEvents  = function(){
+      closeProjectMenu.on('click',closeProject )
+    };
+
+  var _init = function () {
+    bindEvents();
+  };
+
+  console.log('działa')
+
+  return {
+    init: _init
+  }
+}());
+
+
+
+
 function goToProjectList(){
  var closeProjectMenu = $('.close-project')
    , navbarFolders = $('.navbar-folders')
@@ -215,7 +253,8 @@ function goToProjectList(){
     $('#content').load('./jade/pages/project-list.html', function() {
       // $('#content').append('<div id="panel-content" />');
       $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>');
-      changeViewOfFolderList();
+      // changeViewOfFolderList();
+      // myModule.init();
       moveSidebar();
       openProject();
     })
@@ -250,7 +289,6 @@ function searchText() {
     value.innerHTML = newHtml;
   }
 
-
   $('#searchfor').keyup(function(){
     searchedText = $('#searchfor').val();
     allTextH4.each(markText) ;
@@ -277,6 +315,50 @@ function moveRightPanel() {
   });
 }
 
+var changeListView= (function(){
+  var  foldersTree = $('.folders.tree')
+    , foldersSimple = $('.simple')
+    , projectList = $('.view-project-list');
+
+  var changeSimpleList= function(){
+    foldersSimple.removeClass('display');
+    foldersTree.addClass('display');
+    projectList.addClass('display')
+  };
+
+  var changeProjectList = function () {
+    projectList.removeClass('display');
+    foldersTree.addClass('display');
+    foldersSimple.addClass('display')
+  };
+  var changeTreeList = function () {
+    foldersTree.removeClass('display');
+    foldersSimple.addClass('display');
+    projectList.addClass('display')
+  };
+
+  var bindEvents = function () {
+    var buttonSimpleList = $('.simple-list')
+      , buttonTreeList = $('.tree-list')
+      , buttonProjectList = $('.projects-list');
+
+    buttonSimpleList.on('click',changeSimpleList);
+    buttonTreeList.on('click',changeSimpleList);
+    buttonProjectList.on('click',changeSimpleList);
+  };
+  var _init = function () {
+    bindEvents();
+  };
+
+
+  return {
+    init: _init
+  }
+
+}());
+
+
+
 function changeViewOfFolderList(){
   var buttonSimpleList = $('.simple-list')
     , buttonTreeList = $('.tree-list')
@@ -288,19 +370,19 @@ function changeViewOfFolderList(){
 
   buttonSimpleList.on('click', function (e) {
     foldersSimple.removeClass('display');
-    foldersTree.addClass('display')
+    foldersTree.addClass('display');
     projectList.addClass('display')
   });
 
   buttonProjectList.on('click', function (e) {
     projectList.removeClass('display');
-    foldersTree.addClass('display')
+    foldersTree.addClass('display');
     foldersSimple.addClass('display')
   });
 
   buttonTreeList.on('click', function (e) {
     foldersTree.removeClass('display');
-    foldersSimple.addClass('display')
+    foldersSimple.addClass('display');
     projectList.addClass('display')
   })
 

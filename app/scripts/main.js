@@ -10,8 +10,13 @@ $(document).ready( function(){
   searchTextTags();
   searchText();
   moveRightPanel();
-  changeViewOfFolderList();
+  // changeViewOfFolderList();
+
+  changeListView.init();
+  module.init()
+
 });//END of document.READY
+
 
 
 
