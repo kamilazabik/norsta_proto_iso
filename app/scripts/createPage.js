@@ -10,7 +10,7 @@ function createPage(numberClass, isNextLoad) {
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
     , panelContent = $('<div id="panel-content" class="row"></div>')
-    , paddingContent = $('<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12 pull-left padding-content"></div>');
+    , paddingContent = $('<div class=" col-lg-9 col-xs-12 pull-left padding-content"></div>');
 
   mainPanel.remove();
   panels.remove();
@@ -33,7 +33,7 @@ function createPage(numberClass, isNextLoad) {
     $('.padding-content').append(makeFirstPartOfMainPage());
 
     for (var j = 1; j <= numberOfChildMainPanel.length; j++) {
-      $('.col-md-12.col-sm-12.col-sx-12').append(makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j))
+      $('#panels').append(makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j))
     }
 
     loadPage(isNextLoad);
@@ -188,7 +188,7 @@ function onLoadPage() {
 
 function loadRightPanel() {
   var twoRightPanels = $('.col-lg-3.right-panel');
-  console.log(twoRightPanels)
+  console.log(twoRightPanels);
   if(twoRightPanels.length == 0){
     $('#panel-content').append(rightPanels)
   }
@@ -269,11 +269,6 @@ function moveRightPanel() {
     }else {
       $('.panel-group.fixed-panel').css('top', paddingContent.top)
     }
-    // else if (windowScroll < 100 && mql.matches){
-    //   $('.panel-group.fixed-panel').css('top', paddingContent.top)
-    // }else if(windowScroll < 100 && !mql.matches){
-    //   $('.panel-group.fixed-panel').css('top', paddingContent.top)
-    // }
   });
 }
 

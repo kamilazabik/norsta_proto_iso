@@ -95,16 +95,20 @@ button.btn{
   @include border-radius (2px);
   box-shadow: $panels-shadow;
   min-height: 120px;
+}
 
-  .assessment,
-  .filter,
-  .bar-slider,
-  .title-main,
-  .select{
-    min-height: 60px;
+.box-header {
+  &__assessment,
+  &__filter,
+  &__bar-slider,
+  &__title-main,
+  &__select{
+    min-height: 60px !important;
   }
+}
 
-  .assessment {
+.box-header {
+  &__assessment{
     padding-left: 10px;
     svg {
       @include width-height($pie-size-md, $pie-size-md);
@@ -114,12 +118,16 @@ button.btn{
       margin-top: 0;
     }
   }
+}
 
-  .bar-slider {
+.box-header {
+  &__bar-slider {
     @include padding-left-right(15px, 5px);
   }
+}
 
-  .filter {
+.box-header {
+  &__filter {
     align-items: center;
     @include padding-left-right(5px, 5px);
     .form-control {
@@ -132,19 +140,71 @@ button.btn{
       }
     }
   }
-  .btn-default {
-    @include color-back-border(#333, #fff, #fff);
-    &:hover{
-      @include color-back-border(#333, #d4d4d4, #8c8c8c);
-    }
-  }
+
+  //.btn-default {
+  //  @include color-back-border(#333, #fff, #fff);
+  //  &:hover {
+  //    @include color-back-border(#333, #d4d4d4, #8c8c8c);
+  //  }
+  //}
 }
 
-.allPanels {
+
+.allPanels{
   @include border-radius (3px);
   box-shadow: $panels-shadow !important;
   border: 0 !important;
   margin-bottom: 16px;
+}
+
+.allPanels {
+  &__assessment,
+  &__assessment-icon,
+  &__assessment-icon .row > div,
+  &__bar-slider,
+  &__bar-header,
+  &__button-expand {
+    height: 70px;
+    background-color: $panels-content;
+  }
+
+  &__number {
+    @include border-radius (3px 0 0 0);
+    align-items: center;
+    background: $panels-head;
+    color: #fff;
+  }
+
+
+  &__title {
+    @include height-background($xs-panel-height, $panels-head);
+    h4, a {
+      color: #fff;
+    }
+  }
+
+  &__number {
+    @include height-background($xs-panel-height, $panels-head);
+    @include border-radius (0 3px 0 0);
+    h4, a {
+      color: #fff;
+    }
+  }
+
+  &__assessment,
+  &__assessment-icon {
+    div:nth-child(2) {
+      padding: 10px 15px 0 5px;
+    }
+    svg {
+      @include width-height ($pie-size-xs, $pie-size-xs);
+    }
+    .pie {
+      @extend svg;
+      margin-top: 15px;
+    }
+  }
+
   a:hover, a:focus {
     text-decoration: none;
   }
@@ -154,60 +214,25 @@ button.btn{
   .panel-heading{
     padding: 0 15px 0 15px;
   }
-  .assessment,
-  .assessment-icon,
-  .bar-slider,
-  .bar-header,
-  .button-expand,
-  .button-expand-three,
-  .filter {
-    background-color: $panels-content;
-  }
 
-  .title {
-    @include border-radius (0 3px 0 0);
-  }
 
-  .number {
-     @include border-radius (3px 0 0 0);
-     align-items: center;
-     background: $panels-head;
-     color: #fff;
 
-   }
 
-  .title, .number {
-    @include height-background($xs-panel-height, $panels-head);
-    h4, a {
-      color: #fff;
-    }
-  }
 
-  .assessment,
-  .assessment-icon {
-    div:nth-child(2) {
-        padding: 10px 15px 0 5px;
-    }
-  }
+
 
 
   .box-under-header, .box-under-header-title {
-    &.assessment,
-    &.assessment-icon,
-    &.assessment-icon .row > div,
-    &.bar-slider,
-    &.bar-header,
-    &.button-expand,
-    .assessment,
-    .assessment .row > div,
-    .assessment-icon,
-    .bar-slider,
-    .bar-header,
-    .button-expand,
-    .button-expand-three,
-    .filter{
-      height: 70px;
-    }
+    //.assessment,
+    //.assessment .row > div,
+    //.assessment-icon,
+    //.bar-slider,
+    //.bar-header,
+    //.button-expand,
+    //.button-expand-three,
+    //.filter{
+    //  height: 70px;
+    //}
 
     &.assessment,
     &.assessment-icon,

@@ -1,7 +1,7 @@
 function makeButtonExpand(numberOfChildMainPanel, j){
   var panelRowCol6Row1 = $('<div class="row"></div>')
-    , panelRowCol6Row1Col = $('<div class="col-xl-12 col-lg-12 col-md-12"></div>')
-    ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn expand-main-page\'>Rozwiń</button>')
+    , panelRowCol6Row1Col = $('<div class="col-md-12"></div>')
+    ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-primary btn-sm custom-btn expand-main-page\'>Rozwiń</button>');
 
   panelRowCol6Row1Col.append(panelRowCol6Button);
   panelRowCol6Row1.append(panelRowCol6Row1Col);
@@ -12,7 +12,7 @@ function makeButtonExpand(numberOfChildMainPanel, j){
 function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hiddenClass){
   var numberOfChild = numberOfChildMainPanel[j - 1]
     , panelRowCol6Row2 = $('<div class="row"></div>')
-    , panelRowCol6Row2Col = $('<div class="col-xl-12 col-lg-12 col-md-12"></div>')
+    , panelRowCol6Row2Col = $('<div class="col-md-12"></div>')
     , buttonIcon = $('<i class="fa fa-arrow-down" aria-hidden="true"></i>')
     , buttonExpandPanelHidden = $('<button type=\'button\' class=\' hidden-lg hidden-xl btn btn-primary expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\'></button>')
     , buttonExpandPanelNotHidden = $('<button type=\'button\' class=\'btn btn-primary expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\'></button>')
@@ -45,7 +45,7 @@ function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hidd
 
 function makeDetailsPanel(numberOfChildMainPanel, j){
   var tabPanels = $('<div id =\'tabsPanels' +numberOfChildMainPanel[j - 1]+ '\' class=\' col-md-12 col-sm-12 col-xs-12\'></div>')
-    , tabPanelsCol = $('<div class=\'col-md-12 col-sm-12\'></div>')
+    , tabPanelsCol = $('<div class=\'col-sm-12\'></div>')
     , tabPanelsColUl = $('<ul id =\'tabs' +numberOfChildMainPanel[j - 1]+ '\' data-tabs=\'tabs\' class=\'nav nav-pills\'></ul>')
     , tabPanelsColUlLi1 = $('<li class=\'active hidden-lg\'></li>')
     , tabPanelsColUlLi1a = $('<a href=\'#assessment' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Ocena</a>')
