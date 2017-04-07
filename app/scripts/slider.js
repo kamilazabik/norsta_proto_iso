@@ -55,7 +55,7 @@ function updateTopSlider() {
     topSlider.val(topValue);
     updateSlider(topSlider, null);
   }
-}
+}//updateTopSlider
 
 $.fn.rangeslider = function (options) {
   var obj = this
@@ -72,7 +72,7 @@ $.fn.rangeslider = function (options) {
   updateSlider(this, slidersMemo);
 
   return obj;
-};//updateTopSlider
+};
 
 function OnInputSlider(obj) {
   updateSlider(obj);
@@ -93,7 +93,7 @@ function OnInputSlider(obj) {
     $('input').on('touchend ', function (e) {
       notSavedAssessment=true;
       console.log(this, e);
-      console.log(notSavedAssessment)
+      console.log(notSavedAssessment);
       e.stopPropagation()
     })
   }
