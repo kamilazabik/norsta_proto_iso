@@ -3,32 +3,32 @@
 
 @media all and (min-width: 100px){
 
-   h4, h3 {
-     font-size: 14px;
-     margin-top: 5px;
-     margin-bottom: 5px;
-   }
+  h4, h3 {
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 
-   h5 {
-     @include font(400, 1);
-     font-size: 13px;
-   }
+  h5 {
+    @include font(400, 1);
+    font-size: 13px;
+  }
 
-   p, label, a, .form-control, table {
-     font-size: 13px;
-   }
+  p, label, a, .form-control, table {
+    font-size: 13px;
+  }
 
   font-family: sans-serif !important;
 
-   [id^=collapsePanelDetails] {
-     [id^=tabsPanels] {
-       table {
-         thead {
-           @include tr-size(5%, 35%, 25%, 25%, 10%);
-         }
-       }
-     }
-   }
+  [id^=collapsePanelDetails] {
+    [id^=tabsPanels] {
+      table {
+        thead {
+          @include tr-size(5%, 35%, 25%, 25%, 10%);
+        }
+      }
+    }
+  }
 
   #modalEvidence  {
     #textareaNameEvid {
@@ -38,30 +38,30 @@
 }
 
 @media all and (min-width: 460px) {
-    h4, h3 {
-      font-size: 16px;
-    }
+  h4, h3 {
+    font-size: 16px;
+  }
 
-    h5 {
-      @include font(400, 1.4);
-      font-size: 14px;
-    }
+  h5 {
+    @include font(400, 1.4);
+    font-size: 14px;
+  }
 
-    p, label, a, .form-control, table {
-      font-size: 14px;
-    }
+  p, label, a, .form-control, table {
+    font-size: 14px;
+  }
 
-    .number {
-      h4 {
-        //font-weight: 500;
-      }
+  .number {
+    h4 {
+      //font-weight: 500;
     }
+  }
 
-    .assessment {
-      h3 {
-        margin: 5px;
-      }
+  .assessment {
+    h3 {
+      margin: 5px;
     }
+  }
 
   #myProfile, #preferences {
     span {
@@ -76,14 +76,14 @@
       }
     }
   }
- .allPanels .box-under-header-title {
-   .button-expand-three {
-     .row div {
-       padding-left: 0;
-       padding-right: 5px;
-     }
-   }
- }
+  .allPanels .box-under-header-title {
+    .button-expand-three {
+      .row div {
+        padding-left: 0;
+        padding-right: 5px;
+      }
+    }
+  }
 }
 @media all and (min-width: $screen-sm-min) {
   .navbar-right {
@@ -351,11 +351,11 @@
   }
 
   #filter-panel {
-  .panel {
-    .form-inline {
-      > .row {
-        > div:nth-child(2), > div:nth-child(3) {
-          margin-top: 0 !important;
+    .panel {
+      .form-inline {
+        > .row {
+          > div:nth-child(2), > div:nth-child(3) {
+            margin-top: 0 !important;
           }
         }
       }
@@ -414,7 +414,7 @@
 @media all and (max-width: $screen-sm-min) {
   .right-panel{
     .fixed-panel {
-     top: 205px;
+      top: 205px;
     }
   }
 }
