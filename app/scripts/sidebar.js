@@ -1,5 +1,34 @@
 // $(document).ready(function(){
 
+var moduleSidebar = (function () {
+
+  var moveSidebar = function () {
+    $('#menu-toggle').click(function(e) {
+      e.preventDefault();
+      $('#wrapper').toggleClass('toggled');
+      // $('#wrapper').toggleClass('toggled');
+    });
+
+    $('#menu-toggle-2').click(function(e) {
+      e.preventDefault();
+      var widthOfContent = $('#content').width();
+      $('#wrapper').toggleClass('toggled-2');
+      console.log(parseInt($('#page-content-wrapper').css('margin-left')));
+    });
+  };
+
+  var _init = function () {
+    moveSidebar();
+  };
+
+  console.log('działa');
+
+  return {
+    init: _init
+  }
+
+})();
+
 function moveSidebar(){
   $('#menu-toggle').click(function(e) {
     e.preventDefault();

@@ -7,7 +7,7 @@ function openProject() {
   buttonOpen.on('click', function () {
     nav.load('./jade/includes/nav-top.html', function () {
       createPage('A', false);
-      goToProjectList();
+      // goToProjectList();
       moveSidebar();
     });
 

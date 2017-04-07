@@ -6,14 +6,15 @@ $(document).ready( function(){
   moveSidebar();
   SetAssessmentField();
   addNewEvidence();
-  goToProjectList();
+  // goToProjectList();
   searchTextTags();
   searchText();
   moveRightPanel();
   // changeViewOfFolderList();
 
+  closeProjectMenu.init();
   changeListView.init();
-  module.init()
+
 
 });//END of document.READY
 

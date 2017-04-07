@@ -204,7 +204,7 @@ function loadDescription(numberClass){
 }//loadDescription
 
 
-var module = (function(modul){
+var closeProjectMenu = (function(){
 
     var closeProjectMenu = $('.close-project')
       , nav = $('nav');
@@ -217,7 +217,7 @@ var module = (function(modul){
         $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>');
         // changeViewOfFolderList();
         // myModule.init();
-        moveSidebar();
+        // moveSidebar();
         openProject();
 
       })
@@ -236,7 +236,7 @@ var module = (function(modul){
   return {
     init: _init
   }
-}());
+})(changeListView);
 
 
 
@@ -315,7 +315,7 @@ function moveRightPanel() {
   });
 }
 
-var changeListView= (function(){
+var changeListView = (function(){
   var  foldersTree = $('.folders.tree')
     , foldersSimple = $('.simple')
     , projectList = $('.view-project-list');
@@ -355,7 +355,7 @@ var changeListView= (function(){
     init: _init
   }
 
-}());
+})();
 
 
 
