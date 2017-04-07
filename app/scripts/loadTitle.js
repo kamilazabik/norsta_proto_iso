@@ -52,7 +52,7 @@ function changeBackgroundToRightPanel(numberClass,classNameText) {
       // , rightPanel = $('.right-panel .panel-title')
       , rightPanel = $('.right-panel .panel-heading');
 
-  $('.hseq.space').removeClass('cursor');
+  $('.space').removeClass('cursor');
   panel.addClass('cursor');
   $('.addedComment').attr('data-name', classNameText);
   $('.editable_text').on('click', divClicked);

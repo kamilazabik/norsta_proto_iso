@@ -104,7 +104,7 @@ function makePanelsTitle(numberClass, oneTitle){
   }
 
   $('.lab-hseq').text(numberClassWithDots);
-  $('.panel-heading .bar-slider').append(sliderTitle[numberClass]);
+  $('.allPanels__bar-slider').append(sliderTitle[numberClass]);
 
   colButtonRow1Col1.append(buttonUp);
   colButtonRow2Col1.append(buttonRight, buttonLeft);
