@@ -8,20 +8,6 @@
   cursor: pointer;
 }
 
-.number,
-.title,
-.assessment,
-.filter,
-.bar-header,
-.bar-slider,
-.title-main,
-.select{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  //height: 100%;
-}
-
 svg {
   background-color: #313547;
   @include border-radius (50%);
@@ -95,19 +81,18 @@ button.btn{
   @include border-radius (2px);
   box-shadow: $panels-shadow;
   min-height: 120px;
-}
 
-.box-header {
+  &__title,
   &__assessment,
   &__filter,
   &__bar-slider,
-  &__title-main,
-  &__select{
+  &__form-control{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     min-height: 60px !important;
   }
-}
 
-.box-header {
   &__assessment{
     padding-left: 10px;
     svg {
@@ -118,15 +103,11 @@ button.btn{
       margin-top: 0;
     }
   }
-}
 
-.box-header {
   &__bar-slider {
     @include padding-left-right(15px, 5px);
   }
-}
 
-.box-header {
   &__filter {
     align-items: center;
     @include padding-left-right(5px, 5px);
@@ -139,16 +120,14 @@ button.btn{
         margin-top: 5px;
       }
     }
-  }
 
   //.btn-default {
   //  @include color-back-border(#333, #fff, #fff);
   //  &:hover {
   //    @include color-back-border(#333, #d4d4d4, #8c8c8c);
   //  }
-  //}
+  }
 }
-
 
 .allPanels{
   @include border-radius (3px);
@@ -158,41 +137,40 @@ button.btn{
 }
 
 .allPanels {
-  &__assessment,
-  &__assessment-icon,
-  &__assessment-icon .row > div,
+  &__assessment .row > div,
   &__bar-slider,
-  &__bar-header,
   &__button-expand {
     height: 70px;
     background-color: $panels-content;
   }
 
+  &__number,
+  &__title,
+  &__assessment,
+  &__filter,
+  &__bar-slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   &__number {
+    @include height-background($xs-panel-height, $panels-head);
     @include border-radius (3px 0 0 0);
     align-items: center;
     background: $panels-head;
     color: #fff;
   }
 
-
   &__title {
     @include height-background($xs-panel-height, $panels-head);
-    h4, a {
-      color: #fff;
-    }
-  }
-
-  &__number {
-    @include height-background($xs-panel-height, $panels-head);
     @include border-radius (0 3px 0 0);
-    h4, a {
+    &--font-color  {
       color: #fff;
     }
   }
 
-  &__assessment,
-  &__assessment-icon {
+  &__assessment {
     div:nth-child(2) {
       padding: 10px 15px 0 5px;
     }
@@ -205,6 +183,43 @@ button.btn{
     }
   }
 
+  &__assessment--md {
+    border-left: $panels-border;
+    @include border-radius (0 0 0 3px);
+
+    .col-xs-6, .col-xs-5, .col-xs-7 {
+      padding-left: 10px;
+    }
+
+    .pie.pull-left {
+      margin-top: 15px;
+      svg {
+        @include width-height ($pie-size-xs, $pie-size-xs);
+      }
+      .pie {
+        @extend svg;
+      }
+    }
+  }
+
+  &__button-expand-three {
+    .row > div {
+      padding-left: 0;
+      padding-right: 2px;
+    }
+  }
+
+  &__button-expand--xs {
+    padding: 17px 15px 17px 0;
+  }
+
+
+
+
+
+  .active-input {
+    background-color: $buttonsAdd !important;
+  }
   a:hover, a:focus {
     text-decoration: none;
   }
@@ -215,70 +230,11 @@ button.btn{
     padding: 0 15px 0 15px;
   }
 
-
-
-
-
-
-
-
-  .box-under-header, .box-under-header-title {
-    //.assessment,
-    //.assessment .row > div,
-    //.assessment-icon,
-    //.bar-slider,
-    //.bar-header,
-    //.button-expand,
-    //.button-expand-three,
-    //.filter{
-    //  height: 70px;
-    //}
-
-    &.assessment,
-    &.assessment-icon,
-    .assessment,
-    .assessment-icon {
-      svg {
-        @include width-height ($pie-size-xs, $pie-size-xs);
-      }
-      .pie {
-        @extend svg;
-        margin-top: 15px;
-      }
-    }
-
-    &.bar-header {
-      @include border-top-bottom($panels-border);
-    }
-
-    .button-expand-three {
-      .row > div {
-        padding-left: 0;
-        padding-right: 2px;
-      }
-    }
-  }
-
   .panel-content {
     margin-right: 0 !important;
     margin-left: 0 !important;
     padding: 10px 10px 0 10px !important;
 
-    .assessment-icon {
-      border-left: $panels-border;
-      @include border-radius (0 0 0 3px);
-
-      .col-xs-6, .col-xs-5, .col-xs-7 {
-        padding-left: 10px;
-      }
-    }
-
-    .assessment-icon,
-    .filter,
-    .button-expand,
-    .bar-slider {
-      @include border-top-bottom($panels-border);
-    }
 
     .number-not-collapsed {
       @include border-radius (3px 0px 0px 0);
@@ -310,36 +266,11 @@ button.btn{
       margin-bottom: 10px;
     }
 
-    .box-under-header-sx {
-      &.assessment-icon,
-      &.assessment-icon .row > div,
-      &.bar-slider,
-      &.bar-header,
-      &.button-expand {
-        height: 70px;
-      }
 
-      &.assessment-icon {
-        .pie.pull-left {
-          margin-top: 15px;
-          svg {
-            @include width-height ($pie-size-xs, $pie-size-xs);
-          }
-          .pie {
-            @extend svg;
-            //align-items: center;
-          }
-        }
-      }
 
-      &.children {
-        padding: 17px 15px 17px 0;
-      }
 
-      .active-input {
-        background-color: $buttonsAdd !important;
-      }
-    }
+
+
   }
 }
 
