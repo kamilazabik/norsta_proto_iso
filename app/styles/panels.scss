@@ -120,12 +120,6 @@ button.btn{
         margin-top: 5px;
       }
     }
-
-  //.btn-default {
-  //  @include color-back-border(#333, #fff, #fff);
-  //  &:hover {
-  //    @include color-back-border(#333, #d4d4d4, #8c8c8c);
-  //  }
   }
 }
 
@@ -139,7 +133,8 @@ button.btn{
 .allPanels {
   &__assessment .row > div,
   &__bar-slider,
-  &__button-expand {
+  &__button-expand,
+  &__button-expand-three{
     height: 70px;
     background-color: $panels-content;
     @include border-top-bottom($panels-border);
