@@ -4,6 +4,10 @@
   padding: 0 0 0 15px;
 }
 
+.active-input {
+  background-color: $buttonsAdd !important;
+}
+
 .cursor{
   cursor: pointer;
 }
@@ -29,52 +33,87 @@ circle {
   fill: #e2282b !important;
   stroke: #45d666 !important;
 }
-button.btn{
+
+a, a:hover, a:focus {
+  text-decoration: none !important;
+}
+
+.btn {
   background-color: $panels-head;
   border-color: $panels-head;
-
-  &.btn-primary {
-    &.open {
-      padding: 5px 8px;
-    }
-    &.edit {
-      padding: 5px 10px;
-    }
-    &.add {
-      border-color: $buttonsAdd;
-      background-color: $buttonsAdd;
-      margin-left: 3px;
-      padding: 4px 10px;
-    }
-    &.expand {
-      padding: 4px 9px;
-      float: right;
-    }
-  }
-  &.up, &.arrow {
-    padding: 5px 12px
-  }
-  &.up {
-    margin: 4px 0 3px auto;
-    display: block;
-  }
-  &.arrow {
-    float: right;
-    &:disabled {
-      background-color: rgb(175, 175, 175);
-      border-color: rgb(152, 152, 152);
-    }
-    &:nth-child(2) {
-      margin: 0 2px 0 0;
-    }
-  }
-
-  &[name=expand] {
-    float: right;
-    margin: 3px 0;
-    padding: 5px 13px;
-  }
+  color: #fff;
 }
+.btn-open {
+  padding: 5px 8px;
+}
+
+.btn-edit {
+  padding: 5px 10px;
+}
+
+.btn-add {
+  border-color: $buttonsAdd;
+  background-color: $buttonsAdd;
+  margin-left: 3px;
+  padding: 4px 10px;
+}
+
+.btn-expand {
+  padding: 4px 9px;
+  float: right;
+}
+
+.btn-up, .btn-arrow {
+  padding: 5px 12px
+}
+
+.btn-up {
+  margin: 4px 0 3px auto;
+  display: block !important;
+}
+
+.btn-arrow {
+  float: right;
+}
+
+.btn-arrow--disabled {
+  background-color: rgb(175, 175, 175);
+  border-color: rgb(152, 152, 152);
+}
+
+.btn-expand-panel {
+  float: right;
+  margin: 3px 0;
+  padding: 5px 13px;
+}
+
+
+
+  //&.btn-primary {
+  //
+  //}
+  //&.up, &.arrow {
+  //  padding: 5px 12px
+  //}
+  //&.up {
+  //
+  //}
+  //&.arrow {
+  //  float: right;
+  //  &:disabled {
+  //
+  //  }
+  //  &:nth-child(2) {
+  //    margin: 0 2px 0 0;
+  //  }
+  //}
+  //
+  //&[name=expand] {
+  //  float: right;
+  //  margin: 3px 0;
+  //  padding: 5px 13px;
+  //}
+
 
 .box-header {
   @include back-color(#fff, $color-black, hidden);
@@ -126,13 +165,94 @@ button.btn{
   margin-bottom: 16px;
 }
 
-.allPanels {
-  &__assessment .row > div,
+.panel-heading {
+  padding: 0 15px 0 15px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  &__assess-icon,
+  &__assess-value,
+  &__assess-body,
   &__bar-slider,
-  &__button-expand,
-  &__button-expand-three{
+  &__button-expand {
     height: 70px;
     background-color: $panels-content;
+  }
+
+  &__number,
+  &__title,
+  &__assessment,
+  &__filter,
+  &__bar-slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__number {
+    @include height-background($xs-panel-height, $panels-head);
+    @include border-radius (3px 0 0 0);
+    align-items: center;
+    background: $panels-head;
+    color: #fff;
+  }
+
+  &__title {
+    @include height-background($xs-panel-height, $panels-head);
+    @include border-radius (0 3px 0 0);
+    &--font-color  {
+      color: #fff;
+    }
+  }
+
+  &__assessment {
+    border-left: $panels-border;
+    @include border-radius (0 0 0 3px);
+  }
+
+  &__pie {
+    margin-top: 15px;
+  }
+
+  &__pie, svg {
+    @include width-height($pie-size-xs, $pie-size-xs);
+  }
+
+  &__assess-icon {
+    padding-left: 10px;
+  }
+
+  &__assess-value {
+    padding-left: 10px;
+  }
+
+  &__button-expand {
+    @include border-right($panels-border, 3px);
+    padding-left: 0 !important;
+  }
+
+  &__buttons-title {
+    padding-left: 0;
+    padding-right: 2px;
+  }
+
+
+
+}
+
+.panel-content {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding: 10px 10px 0 10px !important;
+
+  &__assess-icon,
+  &__assess-value,
+  &__assess-body,
+  &__bar-slider,
+  &__button-expand {
+    height: 70px;
+    background-color: $panels-content;
+    border-bottom:$panels-border;
     @include border-top-bottom($panels-border);
   }
 
@@ -183,70 +303,20 @@ button.btn{
     padding-left: 10px;
   }
 
-  //&__assessment--md {
-  //  div:nth-child(2) {
-  //    padding: 10px 15px 0 5px;
-  //  }
-  //  svg {
-  //    //@include width-height ($pie-size-xs, $pie-size-xs);
-  //  }
-  //  .pie {
-  //    @extend svg;
-  //    margin-top: 15px;
-  //  }
-  //}
-
-
-
-
   &__button-expand {
     @include border-right($panels-border, 3px);
     padding-left: 0 !important;
-
-    .btn.btn-primary.btn-sm {
-      margin-left: auto;
-    }
-
-    .row > div {
-      padding-right: 5px;
-      padding-left: 5px;
-    }
   }
 
-
-  &__button-expand-three {
-    .row > div {
-      padding-left: 0;
-      padding-right: 2px;
-    }
+  &__buttons-body {
+    padding-right: 5px !important;
+    padding-left: 5px !important;
   }
 
   &__button-expand--xs {
     padding: 17px 15px 17px 0;
   }
 
-
-
-
-
-  .active-input {
-    background-color: $buttonsAdd !important;
-  }
-  a:hover, a:focus {
-    text-decoration: none;
-  }
-  > .row {
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-  }
-  .panel-heading{
-    padding: 0 15px 0 15px;
-    border: 0;
-  }
-
-  .panel-content {
-    margin-right: 0 !important;
-    margin-left: 0 !important;
-    padding: 10px 10px 0 10px !important;
 
 
     .number-not-collapsed {
@@ -265,10 +335,13 @@ button.btn{
 
     .space {
       margin-bottom: 10px;
+      //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
     }
 
-  }
+
 }
+
+
 
 .allPanels .panel-content, .right-panel #bs-collapse {
 

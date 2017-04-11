@@ -2,10 +2,10 @@ function addAttrToEvidenceWindow(classNameText){
   var buttonSubmit = $('button.save-new-evid')
     , textOfName = $('#textareaNameEvid')
 
-    $('.btn.btn-primary.add.'+classNameText).on('click', function(){
+    $('.btn.btn-add.'+classNameText).on('click', function(){
       var dataEvidence = $(this).attr('data-evidence')
         , modalEvidence = $('#modalEvidence')
-        , buttonSave = $('.save-new-evid.btn.btn-primary');
+        , buttonSave = $('.save-new-evid.btn');
 
       buttonSave.removeAttr('data-evidence');
       modalEvidence.removeAttr('data-name');
@@ -65,14 +65,14 @@ function saveEvidence(evidenceFromList, dataEvidence){
     , nameOfFile = $('.form-control.name-evid').val()
     , nameOfEvidence = $('#textareaNameEvid').val()
     , rowCount = $('#' + className +' tbody').find('tr').length + 1
-    , buttonExpandAdded = $('.btn.btn-primary.expand.'+className)
+    , buttonExpandAdded = $('.btn.btn-expand.'+className)
     , rowInEvidenceWindow = $('#modalEvidence tbody')
     , rowCountInEvidenceWindow = rowInEvidenceWindow.find('tr').length + 1
     , nameOfEvidenceFromList
     , nameOfFileFromList
     , clickedPanel = $('.panel-hseq' + className+' div.number')
     , clickedPanelButton = $('.panel-hseq' + className+' div.button-expand')
-    , buttonOpenDetails = $('button.expand.'+ className)
+    , buttonOpenDetails = $('button.btn-expand.'+ className)
     , collapsePanelClass = $('#collapsePanelDetails' + className)
 
   $('tr').removeClass('clicked-tr');
@@ -140,8 +140,8 @@ function makeTr(className, rowCount ){
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td class="nameDocument"></td>').text( isoObject[className]['nameDocument' + rowCount])
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-primary open\' ></button>').append('<i class="fa fa-folder-open" data-toggle=\'tooltip\' data-placement=\'top\' title=\'Otwórz dowód\' aria-hidden="true"></i>')
-    , buttonTr3EditEvidence = $('<button type=\'button\' class=\'btn btn-primary edit ' +className+ '\' data-evidence=\''+ rowCount+ '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Edytuj dowód\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
+    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-open\' ></button>').append('<i class="fa fa-folder-open" data-toggle=\'tooltip\' data-placement=\'top\' title=\'Otwórz dowód\' aria-hidden="true"></i>')
+    , buttonTr3EditEvidence = $('<button type=\'button\' class=\'btn btn-edit ' +className+ '\' data-evidence=\''+ rowCount+ '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Edytuj dowód\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
 
   buttonTr3EditEvidence.on('click', function () {
     addAttrToEvidenceWindow(className)
@@ -163,7 +163,7 @@ function makeTrInEvidencesWidnow(className, rowCount,rowCountInEvidenceWindow){
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td></td>').text( isoObject[className]['nameDocument' + rowCount])
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3SeeEvidence = $('<button type=\'button\' class=\'btn btn-primary btn-sm\' ></button>').text('Podgląd');
+    , buttonTr3SeeEvidence = $('<button type=\'button\' class=\'btn btn-sm\' ></button>').text('Podgląd');
 
   evidenceTr3Td5.append(buttonTr3SeeEvidence);
   evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td4,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td5);

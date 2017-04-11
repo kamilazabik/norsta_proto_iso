@@ -30,7 +30,7 @@
     }
   }
 
-  .allPanels {
+  .panel-content, .panel-heading {
     @include make-row();
 
     &__number {
@@ -84,6 +84,9 @@
     &__assess-value {
       @include make-xs-column(5);
       @include make-sm-column(6);
+    }
+    &__assess-body {
+      @include make-xs-column(6);
     }
   }
 }

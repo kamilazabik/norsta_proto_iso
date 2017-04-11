@@ -178,8 +178,8 @@ function CancelAssessment() {
 
 function addClassNotCollapsed(classNameText){
   var clickedPanel = $('.panel-hseq' + classNameText+' div.number')
-    , clickedPanelButton = $('.panel-hseq' + classNameText+' div.button-expand')
-    , clickedButton =$('.panel-hseq' + classNameText+' div.button-expand button.btn.btn-primary.expand')
+    , clickedPanelButton = $('.panel-hseq' + classNameText+' div.panel-content__button-expand')
+    , clickedButton =$('.panel-hseq' + classNameText+' div.panel-content__button-expand button.btn.btn-primary.expand')
     , clickedButtonIcon =$('.panel-hseq' + classNameText+' div.button-expand button i')
     , collapseElement = $('#collapsePanelDetails' + classNameText).attr('aria-expanded');
 
