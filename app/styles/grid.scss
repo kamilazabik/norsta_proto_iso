@@ -3,29 +3,28 @@
 @import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
 .container-fluid {
-  //padding-left: 0;
 
   .box-header {
     @include make-row();
 
-    .box-header__title {
+    &__title {
       @include make-xs-column(12);
       @include make-sm-column(5);
       @include make-lg-column(6);
     }
 
-    .box-header__assessment{
+    &__assessment{
       @include make-xs-column(2);
       @include make-sm-column(1);
     }
 
-    .box-header__bar-slider {
+    &__bar-slider {
       @include make-xs-column(4);
       @include make-sm-column(3);
       @include make-lg-column(2);
     }
 
-    .box-header__filter{
+    &__filter{
       @include make-xs-column(4);
       @include make-sm-column(2);
     }
@@ -34,47 +33,57 @@
   .allPanels {
     @include make-row();
 
-    .allPanels__number {
+    &__number {
       @include make-xs-column(2);
       @include make-sm-column(1);
       @include make-md-column(1.2);
       @include make-lg-column(1);
       @include make-xl-column(0.8);
         }
-    .allPanels__title {
+    &__title {
       @include make-xs-column(10);
       @include make-sm-column(4);
       @include make-md-column(4);
       @include make-lg-column(5);
       @include make-xl-column(5.2);
     }
-    .allPanels__assessment {
+    &__assessment {
       @include make-xs-column(4);
       @include make-sm-column(2.6);
       @include make-md-column(2.2);
       @include make-lg-column(2);
       @include make-xl-column(2);
     }
-    .allPanels__bar-slider {
+    &__bar-slider {
       @include make-xs-column(5);
       @include make-sm-column(2.8);
       @include make-md-column(3);
       @include make-lg-column(2.6);
       @include make-xl-column(2.8);
     }
-    .allPanels__button-expand {
+    &__button-expand {
       @include make-xs-column(3);
       @include make-sm-column(1.6);
       @include make-md-column(1.6);
       @include make-lg-column(1.4);
       @include make-xl-column(1.2);
     }
-    .allPanels__button-expand-three {
+    &__button-expand-three {
       @include make-xs-column(3);
       @include make-sm-column(1.6);
       @include make-md-column(1.6);
       @include make-lg-column(1.4);
       @include make-xl-column(1.2);
+    }
+
+    &__assess-icon {
+      @include make-xs-column(7);
+      @include make-sm-column(6);
+    }
+
+    &__assess-value {
+      @include make-xs-column(5);
+      @include make-sm-column(6);
     }
   }
 }

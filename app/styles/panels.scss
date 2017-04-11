@@ -86,7 +86,7 @@ button.btn{
   &__assessment,
   &__filter,
   &__bar-slider,
-  &__form-control{
+  &__filter{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -95,13 +95,11 @@ button.btn{
 
   &__assessment{
     padding-left: 10px;
-    svg {
-      @include width-height($pie-size-md, $pie-size-md);
-    }
-    .pie {
-      @extend svg;
-      margin-top: 0;
-    }
+  }
+
+  &__pie, svg {
+    @include width-height($pie-size-md, $pie-size-md);
+    margin-top: 0;
   }
 
   &__bar-slider {
@@ -111,14 +109,12 @@ button.btn{
   &__filter {
     align-items: center;
     @include padding-left-right(5px, 5px);
-    .form-control {
-      width: 100%;
-    }
-    select {
-      @include padding-left-right(2px, 3px);
-      #fastAsses {
-        margin-top: 5px;
-      }
+  }
+
+  &__form-control {
+    @include padding-left-right(2px, 3px);
+    #fastAsses {
+      margin-top: 5px;
     }
   }
 }
@@ -169,24 +165,22 @@ button.btn{
   &__assessment {
     border-left: $panels-border;
     @include border-radius (0 0 0 3px);
+  }
 
-    .col-xs-6, .col-xs-5, .col-xs-7 {
-      padding-left: 10px;
-    }
+  &__pie {
+    margin-top: 15px;
+  }
 
-    .pie.pull-left {
-      margin-top: 15px;
-      svg {
-        @include width-height ($pie-size-xs, $pie-size-xs);
-      }
-      .pie {
-        @extend svg;
-      }
-    }
+  &__pie, svg {
+    @include width-height($pie-size-xs, $pie-size-xs);
   }
 
   &__assess-icon {
+    padding-left: 10px;
+  }
 
+  &__assess-value {
+    padding-left: 10px;
   }
 
   //&__assessment--md {
