@@ -39,14 +39,10 @@ function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hidd
 }
 
 
-
-
-
-
 function makeDetailsPanel(numberOfChildMainPanel, j){
-  var tabPanels = $('<div id =\'tabsPanels' +numberOfChildMainPanel[j - 1]+ '\' class=\' col-md-12 col-sm-12 col-xs-12\'></div>')
+  var tabPanels = $('<div id =\'tabsPanels' +numberOfChildMainPanel[j - 1]+ '\' class=\'panel-block__evidences-details\'></div>')
     , tabPanelsCol = $('<div class=\'col-sm-12\'></div>')
-    , tabPanelsColUl = $('<ul id =\'tabs' +numberOfChildMainPanel[j - 1]+ '\' data-tabs=\'tabs\' class=\'nav nav-pills\'></ul>')
+    , tabPanelsColUl = $('<ul id =\'tabs' +numberOfChildMainPanel[j - 1]+ '\' data-tabs=\'tabs\' class=\'nav nav-pills evidences-tab\'></ul>')
     , tabPanelsColUlLi1 = $('<li class=\'active hidden-lg\'></li>')
     , tabPanelsColUlLi1a = $('<a href=\'#assessment' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Ocena</a>')
     , tabPanelsColUlLi2 = $('<li class=\'hidden-lg\'></li>')
@@ -54,7 +50,7 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     , tabPanelsColUlLi3 = $('<li></li>')
     , tabPanelsColUlLi3a = $('<a href=\'#evidences' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Dowody</a>')
 
-    , tabContent = $('<div id =\'my-tab-content' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-content\'></div>')
+    , tabContent = $('<div id =\'my-tab-content' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-content evidences-content \'></div>')
     , tabContentAssess = $('<div id =\'assessment' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane active hidden-lg\'></div>')
     , tabContentDetails = $('<div id =\'details' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane hidden-lg\'></div>')
     , tabContentEvidence = $('<div id =\'evidences' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane addedComment\'></div>')

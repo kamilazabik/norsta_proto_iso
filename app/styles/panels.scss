@@ -1,7 +1,7 @@
 @import "mixins";
 
 .padding-content {
-  padding: 0 0 0 15px;
+  padding: 0 0 0 0px;
 }
 
 .active-input {
@@ -45,10 +45,14 @@ a, a:hover, a:focus {
 }
 .btn-open {
   padding: 5px 8px;
+  float: right;
+  margin: 5px 0 5px 0;
 }
 
 .btn-edit {
   padding: 5px 10px;
+  float: right;
+  margin: auto 0 5px 0;
 }
 
 .btn-add {
@@ -74,6 +78,7 @@ a, a:hover, a:focus {
 
 .btn-arrow {
   float: right;
+  margin-left: 3px;
 }
 
 .btn-arrow--disabled {
@@ -87,35 +92,26 @@ a, a:hover, a:focus {
   padding: 5px 13px;
 }
 
+.btn {
+  &:hover,
+  &-add:hover,
+  &-arrow:hover,
+  &-edit:hover,
+  &-expand:hover,
+  &-expand-panel:hover,
+  &-open:hover,
+  &:focus,
+  &-add:focus,
+  &-arrow:focus,
+  &-edit:focus,
+  &-expand:focus,
+  &-expand-panel:focus,
+  &-open:focus {
+    color: #fff;
+  }
+}
 
-
-  //&.btn-primary {
-  //
-  //}
-  //&.up, &.arrow {
-  //  padding: 5px 12px
-  //}
-  //&.up {
-  //
-  //}
-  //&.arrow {
-  //  float: right;
-  //  &:disabled {
-  //
-  //  }
-  //  &:nth-child(2) {
-  //    margin: 0 2px 0 0;
-  //  }
-  //}
-  //
-  //&[name=expand] {
-  //  float: right;
-  //  margin: 3px 0;
-  //  padding: 5px 13px;
-  //}
-
-
-.box-header {
+.panel-header {
   @include back-color(#fff, $color-black, hidden);
   @include border-radius (2px);
   box-shadow: $panels-shadow;
@@ -165,11 +161,19 @@ a, a:hover, a:focus {
   margin-bottom: 16px;
 }
 
-.panel-heading {
+.allPanels__panel-content {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding: 10px 10px 0 10px !important
+}
+
+.allPanels__panel-heading {
   padding: 0 15px 0 15px !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
 
+.panel-title {
   &__assess-icon,
   &__assess-value,
   &__assess-body,
@@ -235,15 +239,22 @@ a, a:hover, a:focus {
     padding-left: 0;
     padding-right: 2px;
   }
-
-
-
 }
 
-.panel-content {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-  padding: 10px 10px 0 10px !important;
+.panel-title:hover {
+  .panel-title__assess-icon,
+  .panel-title__assess-value,
+  .panel-title__assess-body,
+  .panel-title__filter,
+  .panel-title__bar-slider,
+  .panel-title__button-expand{
+    background-color: $panels-hover;
+  }
+}
+
+
+.panel-block{
+  margin-bottom: 10px;
 
   &__assess-icon,
   &__assess-value,
@@ -317,65 +328,21 @@ a, a:hover, a:focus {
     padding: 17px 15px 17px 0;
   }
 
+  &__number--not-collapsed {
+    @include border-radius (3px 0px 0px 0);
+  }
 
+  &__button-expand--not-collapsed {
+    @include border-radius (0px 3px 0px 0);
+  }
 
-    .number-not-collapsed {
-      @include border-radius (3px 0px 0px 0);
-    }
-
-
-    .button-expand-not-collapsed {
-      @include border-radius (0px 3px 0px 0);
-    }
-
-    .collapse, .collapsing {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-
-    .space {
-      margin-bottom: 10px;
+  .collapse, .collapsing {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
       //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-    }
 
-
-}
-
-
-
-.allPanels .panel-content, .right-panel #bs-collapse {
-
-  .panel-heading.labelColor, .labelColor {
-    @include  border-top-bottom($label);
-    background-color: $label;
-    h4 {
-      color: white;
-    }
-  }
-  .titleColor {
-    .title{
-      background-color: $label;
-    }
-  }
-
-  .hseq.space:hover,
-  .titleColor {
-  .assessment-icon,
-  .assessment,
-  .bar-header,
-  .bar-slider,
-  .button-expand,
-  .button-expand-three,
-  .evidences {
-      //background-color: #f3f3f3;
-      background-color: $panels-hover;
-    }
-  }
-}
-
-[id^=collapsePanelDetails] {
-
-  [id^=tabsPanels]{
+  &__evidences-details {
     padding: 15px 0;
     margin: 0;
     width: 100%;
@@ -385,78 +352,85 @@ a, a:hover, a:focus {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
     border-top: 0;
     @include border-radius (0px 0px 3px 3px);
+  }
+}
 
+.panel-block:hover {
+  .panel-block__assess-icon,
+  .panel-block__assess-value,
+  .panel-block__assess-body,
+  .panel-block__filter,
+  .panel-block__bar-slider,
+  .panel-block__button-expand{
+    background-color: $panels-hover;
+  }
+}
+
+.evidences-tab {
+
+}
+
+.evidences-content {
+
+}
+
+.well {
+  margin-top: 0;
+  border: 0;
+  margin-bottom: 0;
+  width: 100%;
+  font-size: 1.3em;
+  padding: 5px 0;
+  background-color: #fff;
+  @include border-radius (0px 0px 3px 3px);
+  box-shadow: none;
+}
+
+.evidences-table {
+    margin-bottom: 0;
+
+  &__thead {
+    @include tr-size(5%, 35%, 25%, 25%, 10%);
+    color: $menu-color-icon;
+  }
+
+  &__thead-th {
+    display: table-cell;
+    border-bottom: 0;
+    border-top: 0;
+    font-weight: normal;
+    vertical-align: middle;
+  }
+
+  &__tbody {
+    @include td-size(5%, 35%, 25%, 30%, 5%);
+  }
+
+  &__tbody-th {
+    display: table-cell;
+    color: $menu-color-icon;
+  }
+
+  &__tbody-td {
+    display: table-cell
+  }
+
+  &__tbody-td--buttons {
+    padding-right: 0;
+  }
+}
+
+
+
+
+[id^=collapsePanelDetails] {
+
+  [id^=tabsPanels] {
     p {
       margin-top: 10px;
     }
 
-    .well{
-      margin-top: 0;
-      border: 0;
-      margin-bottom: 0;
-      width: 100%;
-      font-size: 1.3em;
-      padding: 5px 0;
-      background-color: #fff;
-      @include border-radius (0px 0px 3px 3px);
-      box-shadow: none;
 
-      table{
-        margin-bottom: 0;
-        th, td {
-          display: table-cell
-        }
-        thead{
-          @include tr-size(5%,35%, 25%, 25%, 10%);
-          color: $menu-color-icon;
-
-          .btn.btn-primary.add{
-            background-color: $buttonsAdd;
-          }
-
-          tr {
-            th{
-              border-bottom: 0;
-              border-top: 0;
-              font-weight: normal;
-              vertical-align: middle;
-            }
-          }
-        }
-        tbody{
-        @include td-size(5%,35%, 25%, 30%, 5%);
-          tr {
-            th{
-              color: $menu-color-icon;
-            }
-            td.buttons {
-              padding-right: 0;
-            }
-          }
-        }
-      }
-      .buttons{
-        //display: flex;
-        //display: inline-block;
-      }
-
-      button{
-        &:nth-child(1){
-          float: right;
-          margin: 5px 0 5px 0;
-        }
-        &:nth-child(2){
-          float: right;
-          margin: auto 0 5px 0;
-        }
-      }
-      //button:nth-child(1){
-      //  margin: 5px 0 5px auto;
-      //}
-      //button:nth-child(2){
-      //  margin: 5px 0 5px 5px;
-      //}
-    }
 
     .addedCom, .editable_text {
       border: 1px solid rgb(185, 185, 185);
@@ -490,60 +464,23 @@ a, a:hover, a:focus {
       border-radius: 3px;
     }
   }
-
-
-  @media only screen and (max-width: 400px) {
-
-    /* Force table to not be like tables anymore */
-    table,
-     thead,
-   tbody,
-  th,
-   td,
-    tr {
-      display: block;
-    }
-
-    /* Hide table headers (but not display: none;, for accessibility) */
-     thead tr {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
-
-    tr { border: 1px solid #ccc; }
-
-     td {
-      /* Behave  like a "row" */
-      border: none;
-      border-bottom: 1px solid #eee;
-      position: relative;
-      padding-left: 50%;
-      white-space: normal;
-      text-align:left;
-    }
-
-    td:before {
-      /* Now like a table header */
-      position: absolute;
-      /* Top/left values mimic padding */
-      top: 6px;
-      left: 6px;
-      width: 45%;
-      padding-right: 10px;
-      white-space: nowrap;
-      text-align:left;
-      font-weight: bold;
-    }
-
-    /*
-      Label the data
-      */
-     td:before { content: attr(data-title); }
-  }
 }
 
 
+.allPanels .panel-content, .right-panel #bs-collapse {
 
+  .panel-heading.labelColor, .labelColor {
+    @include  border-top-bottom($label);
+    background-color: $label;
+    h4 {
+      color: white;
+    }
+  }
+  .titleColor {
+    .title{
+      background-color: $label;
+    }
+  }
+}
 
 

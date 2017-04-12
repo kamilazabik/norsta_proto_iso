@@ -3,19 +3,21 @@ $icon-font-path: '../fonts/';
 
 // bower:scss
 //@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-//@import "bower_components/font-awesome/scss/font-awesome.scss";
-@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+@import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
+
 
 @import "projects-list";
 @import "mixins";
-@import "panels.scss";
 @import "right-panels.scss";
 @import "sidebar.scss";
 @import "slider.scss";
 @import "modals";
 @import "login-site";
-@import "media-sidebar";
+@import "media";
+@import "panels.scss";
+
+
 
 
 

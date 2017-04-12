@@ -4,7 +4,7 @@
 
 .container-fluid {
 
-  .box-header {
+  .panel-header {
     @include make-row();
 
     &__title {
@@ -30,7 +30,7 @@
     }
   }
 
-  .panel-content, .panel-heading {
+  .panel-block, .panel-title {
     @include make-row();
 
     &__number {
@@ -87,6 +87,9 @@
     }
     &__assess-body {
       @include make-xs-column(6);
+    }
+    &__evidences-details {
+      @include make-xs-column(12)
     }
   }
 }

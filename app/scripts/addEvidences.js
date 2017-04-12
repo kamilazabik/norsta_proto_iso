@@ -134,12 +134,12 @@ function saveEvidence(evidenceFromList, dataEvidence){
 
 function makeTr(className, rowCount ){
   var evidenceTr3 = $('<tr class=\'' + rowCount +'\'></tr>')
-    , evidenceTr3Td1 = $('<th></th>').text(rowCount)
-    , evidenceTr3Td2 = $('<td class="nameEvidence"></td>').text(isoObject[className]['nameEvidence' + rowCount])
+    , evidenceTr3Td1 = $('<th class="evidences-tbody-th"></th>').text(rowCount)
+    , evidenceTr3Td2 = $('<td class="nameEvidence evidences-tbody-td"></td>').text(isoObject[className]['nameEvidence' + rowCount])
 
-    , evidenceTr3Td3 = $('<td></td>')
-    , evidenceTr3Td4 = $('<td class="nameDocument"></td>').text( isoObject[className]['nameDocument' + rowCount])
-    , evidenceTr3Td5 = $('<td class="buttons"></td>')
+    , evidenceTr3Td3 = $('<td class="evidences-tbody-td"></td>')
+    , evidenceTr3Td4 = $('<td class="nameDocument evidences-tbody-td"></td>').text( isoObject[className]['nameDocument' + rowCount])
+    , evidenceTr3Td5 = $('<td class="evidences-tbody-td evidences-tbody-td--buttons"></td>')
     , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-open\' ></button>').append('<i class="fa fa-folder-open" data-toggle=\'tooltip\' data-placement=\'top\' title=\'Otwórz dowód\' aria-hidden="true"></i>')
     , buttonTr3EditEvidence = $('<button type=\'button\' class=\'btn btn-edit ' +className+ '\' data-evidence=\''+ rowCount+ '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Edytuj dowód\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
 
