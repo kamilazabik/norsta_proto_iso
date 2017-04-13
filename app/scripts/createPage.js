@@ -74,8 +74,10 @@ function createPage(numberClass, isNextLoad) {
 
 function loadPage(isNextLoad){
 
-  var links = $('[class*=\'claim-h\']')
+  var links = $('button[class*=\'claim-h\']')
     , allTitles = $('[class^=\'title-hseq\']');
+
+  console.log(links)
   //
   // $('#panel-content').load('jade/right-panels.html')
 
@@ -87,6 +89,7 @@ function loadPage(isNextLoad){
       allTitles.each(function (index, value) {
         if (!panelTitle) {
           panelTitle = {}
+          console.log(panelTitle)
         }
         index = value.className;
         panelTitle[index] = value.textContent
@@ -95,6 +98,7 @@ function loadPage(isNextLoad){
       allRangeSlider.each(function (index, value) {
         if (!sliderTitle) {
           sliderTitle = {}
+          console.log(sliderTitle)
         }
         index = value.name;
         sliderTitle[index] = value

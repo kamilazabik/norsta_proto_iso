@@ -420,7 +420,14 @@ a, a:hover, a:focus {
   }
 }
 
-
+.evidences-content-assess {
+  &__added-comment, &__editable-text {
+    border: 1px solid rgb(185, 185, 185);
+    min-height: 50px;
+    padding: 5px;
+    margin-bottom: 5px;
+  }
+}
 
 
 [id^=collapsePanelDetails] {
