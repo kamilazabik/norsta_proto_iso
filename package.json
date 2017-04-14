@@ -44,5 +44,8 @@
         "single"
       ]
     }
+  },
+  "dependencies": {
+    "bower-requirejs": "^1.2.0"
   }
 }
