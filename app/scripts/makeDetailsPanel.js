@@ -49,7 +49,6 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     , tabPanelsColUlLi2a = $('<a href=\'#details' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Szczegóły</a>')
     , tabPanelsColUlLi3 = $('<li></li>')
     , tabPanelsColUlLi3a = $('<a href=\'#evidences' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Dowody</a>')
-
     , tabContent = $('<div id =\'my-tab-content' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-content evidences-content\'></div>')
     , tabContentAssess = $('<div id =\'assessment' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane active hidden-lg evidences-content-assess\'></div>')
     , tabContentDetails = $('<div id =\'details' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane hidden-lg\'></div>')
@@ -58,7 +57,7 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     , tabContentAssessRow = $('<div class=\'row\'></div>')
     , tabContentAssessRowCol = $('<div class=\'col-md-12\'></div>')
     , tabContentAssessRowColH = $('<p class=\'comment\'></p>').text('Opis')
-    , tabContentAssessRowEditText = $('<div class=\'editable_text\'></div>')
+    , tabContentAssessRowEditText = $('<div class=\'evidences-content-assess__editable-text\'></div>')
     , tabContentDetailsRow1 = $('<div class=\'row\'></div>')
     , tabContentDetailsRow2 = $('<div class=\'row\'></div>')
     , tabContentDetailsRow3 = $('<div class=\'row\'></div>')

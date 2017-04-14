@@ -1,6 +1,9 @@
 @import "mixins";
 //@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+#removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
+  margin: 10px;
+}
 
 .right-panel {
   right: 0;

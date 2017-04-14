@@ -1,6 +1,6 @@
   function divClicked() {
     var divHtml = $(this).html();
-    var editableText = $('<textarea />');
+    var editableText = $('<textarea class="evidences-content-assess__edit-comment"/>');
     editableText.val(divHtml);
     $(this).replaceWith(editableText);
     editableText.focus();
@@ -11,7 +11,7 @@
       $(e).css({'height': 'auto', 'overflow-y': 'hidden', 'width' : '100%'}).height(e.scrollHeight);
     }
 
-    $('textarea').each(function () {
+    $('.evidences-content-assess__edit-comment').each(function () {
       setHeight(this);
     }).on('input', function () {
       setHeight(this);
@@ -21,7 +21,7 @@
   function editableTextBlurred() {
     var numberClass = $('.addedComment').attr('data-name');
     var html = $(this).val();
-    var viewableText = $('<div class="addedCom">')
+    var viewableText = $('<div class="evidences-content-assess__added-comment">')
     viewableText.html(html);
 
     // setup the click event for this new div
@@ -42,7 +42,7 @@
 
 function setComment(className) {
 
-  $('.editable_text').on('click', divClicked, function(){
+  $('.evidences-content-assess__editable-text').on('click', divClicked, function(){
     console.log(className);
     isoObject[className].comment = newComment;
     console.log(isoObject[className]);
@@ -63,7 +63,7 @@ function moveRightBottomPanelUp(){
 
 
 $(document).ready(function() {
-  $('.editable_text').click(divClicked);
+  $('.evidences-content-assess__editable-text').click(divClicked);
   moveRightBottomPanelUp()
 });
 

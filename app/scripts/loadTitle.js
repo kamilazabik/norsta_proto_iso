@@ -82,7 +82,7 @@ function blockInput(numberClass, allInputs){
 }
 
 function addComments (classNameText){
-  var comment = $('.addedCom');
+  var comment = $('.evidences-content-assess__added-comment');
 
   if(!isoObject[classNameText] ||!isoObject[classNameText].comment ){
     comment.text('');

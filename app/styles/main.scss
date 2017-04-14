@@ -6,7 +6,7 @@ $icon-font-path: '../fonts/';
 @import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 
-
+@import "grid";
 @import "projects-list";
 @import "mixins";
 @import "right-panels.scss";
@@ -14,8 +14,8 @@ $icon-font-path: '../fonts/';
 @import "slider.scss";
 @import "modals";
 @import "login-site";
-@import "media";
 @import "panels.scss";
+@import "media";
 
 
 

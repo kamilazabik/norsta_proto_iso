@@ -11,6 +11,22 @@
 .cursor{
   cursor: pointer;
 }
+.labelColor {
+  @include  border-top-bottom($label);
+  background-color: $label;
+  h4 {
+    color: white;
+  }
+}
+.titleColor {
+  .title{
+    background-color: $label;
+  }
+}
+
+p {
+  margin-top: 10px;
+}
 
 svg {
   background-color: #313547;
@@ -58,7 +74,7 @@ a, a:hover, a:focus {
 .btn-add {
   border-color: $buttonsAdd;
   background-color: $buttonsAdd;
-  margin-left: 3px;
+  margin: 0 3px;
   padding: 4px 10px;
 }
 
@@ -88,7 +104,7 @@ a, a:hover, a:focus {
 
 .btn-expand-panel {
   float: right;
-  margin: 3px 0;
+  margin: 3px;
   padding: 5px 13px;
 }
 
@@ -125,6 +141,16 @@ a, a:hover, a:focus {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  &__assessment,
+  &__filter,
+  &__bar-slider,
+  &__filter{
+    height: 60px;
+  }
+
+  &__title {
     min-height: 60px !important;
   }
 
@@ -212,6 +238,7 @@ a, a:hover, a:focus {
   &__assessment {
     border-left: $panels-border;
     @include border-radius (0 0 0 3px);
+    background-color: $panels-content;
   }
 
   &__pie {
@@ -223,11 +250,11 @@ a, a:hover, a:focus {
   }
 
   &__assess-icon {
-    padding-left: 10px;
+    padding-left: 10px !important;
   }
 
   &__assess-value {
-    padding-left: 10px;
+    padding-left: 10px !important;
   }
 
   &__button-expand {
@@ -307,21 +334,27 @@ a, a:hover, a:focus {
   }
 
   &__assess-icon {
-    padding-left: 10px;
+    padding-left: 10px !important;
   }
 
   &__assess-value {
-    padding-left: 10px;
+    padding-left: 5px !important;
+  }
+
+  &__assess-body {
+    padding-left: 10px !important;
   }
 
   &__button-expand {
-    @include border-right($panels-border, 3px);
+    //@include border-right($panels-border, 3px);
+    border-bottom-right-radius: 3px;
+    border-right: $panels-border;
     padding-left: 0 !important;
   }
 
   &__buttons-body {
-    padding-right: 5px !important;
-    padding-left: 5px !important;
+    //padding-right: 10px !important;
+    //padding-left: 5px !important;
   }
 
   &__button-expand--xs {
@@ -353,6 +386,13 @@ a, a:hover, a:focus {
     border-top: 0;
     @include border-radius (0px 0px 3px 3px);
   }
+  li.active a {
+    background-color: $label !important;
+  }
+  .nav-pills > li > a {
+    border-radius: 3px;
+  }
+
 }
 
 .panel-block:hover {
@@ -427,67 +467,30 @@ a, a:hover, a:focus {
     padding: 5px;
     margin-bottom: 5px;
   }
-}
-
-
-[id^=collapsePanelDetails] {
-
-  [id^=tabsPanels] {
-    p {
-      margin-top: 10px;
-    }
-
-
-
-    .addedCom, .editable_text {
-      border: 1px solid rgb(185, 185, 185);
-      min-height: 50px;
-      padding: 5px;
-      margin-bottom: 5px;
-    }
-
-    textarea {
-      width: 100%;
-      overflow: visible;
-    }
-
-    .text:hover {
-      border: 1px solid #c9c9c9;
-    }
-
-    .addedComment {
-      word-wrap: break-word;
-    }
-
-    #removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
-      margin: 10px;
-    }
-
-    li.active a {
-      background-color: $label !important;
-    }
-
-    .nav-pills > li > a {
-      border-radius: 3px;
-    }
+  &__added-comment {
+    word-wrap: break-word;
+  }
+  &__edit-comment{
+    width: 100%;
+    overflow: visible;
   }
 }
 
 
-.allPanels .panel-content, .right-panel #bs-collapse {
+//[id^=collapsePanelDetails] {
+//
+//  [id^=tabsPanels] {
+//    p {
+//      margin-top: 10px;
+//    }
+//    .text:hover {
+//      //border: 1px solid #c9c9c9;
+//    }
+//  }
+//}
 
-  .panel-heading.labelColor, .labelColor {
-    @include  border-top-bottom($label);
-    background-color: $label;
-    h4 {
-      color: white;
-    }
-  }
-  .titleColor {
-    .title{
-      background-color: $label;
-    }
-  }
-}
+
+
+
 
 

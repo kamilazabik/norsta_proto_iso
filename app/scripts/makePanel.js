@@ -54,7 +54,7 @@ function makePanelsTitle(numberClass, oneTitle){
     , colNumber = $('<div class="panel-title__number"></div>')
     , colNumberH4 = $('<h4 class="lab-hseq"></h4>')
     , colTitle = $('<div class="panel-title__title"></div>')
-    , colTitleH4 = $('<h4 class="title-hseq'+numberClass+'"></h4>').text(oneTitle)
+    , colTitleH4 = $('<h4 class="title-hseq'+numberClass+' panel-title__title--font-color "></h4>').text(oneTitle)
     , colAssess = $('<div class="panel-title__assessment"></div>')
     , colAssesstRow = $('<div class="row"></div>')
     , colAssessRowCol1 = $('<div class="panel-title__assess-icon"></div>')
