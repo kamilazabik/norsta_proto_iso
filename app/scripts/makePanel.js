@@ -9,7 +9,7 @@ function makeMainPanel(){
     , col1 = $('<div class="col-xs-12"></div>')
     , col1row = $('<div class="row fixedPos panel-header"></div>')
     , col1rowTitleMain = $('<div class="panel-header__title"></div>')
-    , col1rowTitleMainH3 = $('<h3 class="title-hseqA0"></h3>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
+    , col1rowTitleMainH3 = $('<h3></h3>').attr('data-title', 'A0').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
     , col1rowAssess = $('<div class="panel-header__assessment"></div>')
     , col1rowAssessPie = $('<div class="pie panel-header__pie pull-left" data-name="A"></div>')
     , col1rowAssess1 = $('<div class="panel-header__assessment"></div>')
@@ -47,14 +47,14 @@ function makeMainPanel(){
 
 function makePanelsTitle(numberClass, oneTitle){
   var numberClassWithDots = addDotsForLabels(numberClass)
-    , paddingContent = $('.col-lg-9.col-xs-12.pull-left.padding-content')
+    , paddingContent = $('.panels-list')
     , panelTitle= $('<div class="panel panel-default allPanels"></div>')
     , panelHeading = $('<div class="panel-heading allPanels__panel-heading"></div>')
-    , rowPanel = $('<div class="row panel-hseq' + numberClass+'"></div>')
+    , rowPanel = $('<div class="row" data-panel="'+numberClass+'"></div>')
     , colNumber = $('<div class="panel-title__number"></div>')
     , colNumberH4 = $('<h4 class="lab-hseq"></h4>')
     , colTitle = $('<div class="panel-title__title"></div>')
-    , colTitleH4 = $('<h4 class="title-hseq'+numberClass+' panel-title__title--font-color "></h4>').text(oneTitle)
+    , colTitleH4 = $('<h4 class="panel-title__title--font-color"></h4>').attr('data-title', numberClass).text(oneTitle)
     , colAssess = $('<div class="panel-title__assessment"></div>')
     , colAssesstRow = $('<div class="row"></div>')
     , colAssessRowCol1 = $('<div class="panel-title__assess-icon"></div>')
@@ -69,7 +69,7 @@ function makePanelsTitle(numberClass, oneTitle){
     , colButtonRow2 = $('<div class="row"></div>')
     , colButtonRow2Col1 = $('<div class="panel-title__buttons-title"></div>')
     , panelBody = $('<div class="panel-body panel-content allPanels__panel-content panels"></div>')
-    , colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
+    // , colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
 
   colButtonRow1.append(colButtonRow1Col1);
   colButtonRow2.append(colButtonRow2Col1);
@@ -79,7 +79,7 @@ function makePanelsTitle(numberClass, oneTitle){
   colAssess.append(colAssesstRow);
   colNumber.append(colNumberH4);
   colTitle.append(colTitleH4);
-  panelBody.append(colFilterGroup);
+  // panelBody.append(colFilterGroup);
   rowPanel.append(colNumber, colTitle,colAssess,colBar, colButton);
   panelHeading.append(rowPanel);
   panelTitle.append(panelHeading).append(panelBody);
@@ -92,9 +92,9 @@ function makePanelsTitle(numberClass, oneTitle){
     , pie = $('.panel-title .pie').attr('data-name', numberClass)
     , arrowLeft = $('<i class=\'fa fa-angle-double-left\' aria-hidden=\'true\'></i>')
     , arrowRight = $('<i class=\'fa fa-angle-double-right\' aria-hidden=\'true\'></i>')
-    , buttonUp = $('<button type=\'button\' class=\'claim-hseq' + isoObject[numberClass].parent + ' btn btn-sm custom-btn btn-up\' name=\''+ isoObject[numberClass].parent+'\'>Do góry</button>');
-  var buttonLeft = $('<button type=\'button\' class=\'claim-hseq' + prevSibling + ' btn btn-sm custom-btn btn-arrow\'></button>').append(arrowLeft);
-  var buttonRight = $('<button type=\'button\' class=\'claim-hseq' + nextSibling + ' btn btn-sm custom-btn btn-arrow\'></button>').append(arrowRight);
+    , buttonUp = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-up\' data-button=\'' + isoObject[numberClass].parent + '\' name=\''+ isoObject[numberClass].parent+'\'>Do góry</button>');
+  var buttonLeft = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-arrow\' data-button=\'' + prevSibling + '\'></button>').append(arrowLeft);
+  var buttonRight = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-arrow\' data-button=\'' + nextSibling + '\'></button>').append(arrowRight);
 
   if(prevSibling == undefined) {
     buttonLeft.attr('disabled', 'disabled')
@@ -126,11 +126,13 @@ function makePanelsTitle(numberClass, oneTitle){
 function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,numberClass ) {
   var numberOfChild = numberOfChildren[i - 1]
     , numberOfChildrenWithDots = numberOfChildren.map(addDotsForLabels)
-    , row = $('<div class=\'row panel-hseq'+ numberOfChild+' panel-block\'></div>')
-    , col1 = $('<div class=\'pull-left panel-block__number\'></div>')
+    , row = $('<div class=\'row panel-block \' data-panel=\''+ numberOfChild+'\'></div>')
+    , col1 = $('<div class=\'panel-block__number\'></div>')
     , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'panel-block__title\'></div>')
-    , col2a = $('<a></a>').addClass('title-hseq' + numberOfChild).attr('href', '#')
+    , col2a = $('<a class="panel-block__title--font-color"></a>').attr('href', '#').attr('data-title', numberOfChild )
+// class="title-hseq'+numberClass+' panel-title__title--font-color"
+
     , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
     , col4 = $('<div class=\'panel-block__assessment\'></div>')
     , col4row = $('<div class=\'row\'></div>')
@@ -216,9 +218,9 @@ function addEvidencesToTheList(numberOfChildren,i){
 function makeFirstPartOfMainPage(){
   var panelDefault = $('<div class="panel panel-default allPanels"></div>')
     , panelContent = $('<div class="panel-body panel-content allPanels__panel-content "></div>')
-    , panelCol = $('<div id="panels" class="col-sx-12 col-sm-12 col-md-12"></div>');
+    // , panelCol = $('<div id="panels" class="col-sx-12 col-sm-12 col-md-12"></div>');
 
-  panelContent.append(panelCol);
+  // panelContent.append(panelCol);
   panelDefault.append(panelContent);
 
   return panelDefault;
@@ -227,11 +229,11 @@ function makeFirstPartOfMainPage(){
 
 function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j ){
   var numberOfChildMainPan=  numberOfChildMainPanel[j - 1]
-    , panelRow = $('<div class=\'row panel-hseq'+ numberOfChildMainPan+' panel-block\'></div>')
+    , panelRow = $('<div class=\'row panel-block\' data-panel=\''+ numberOfChildMainPan+'\'></div>')
     , panelRowCol1 = $('<div class="panel-block__number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
     , panelRowCol2 = $('<div class="panel-block__title"></div>')
-    , panelRowCol2A = $('<a></a>').addClass('title-hseq' + numberOfChildMainPan).attr('href', '#')
+    , panelRowCol2A = $('<a></a>').attr('href', '#').attr('data-title', numberOfChildMainPan)
     , panelRowCol2AH4 = $('<h4 class="panel-block__title--font-color"></h4>').text(nameOfChildMainPanel[j])
     , panelRowCol4 = $('<div class="panel-block__assessment"></div>')
     , panelRowCol4Row = $('<div class="row"></div>')
@@ -287,59 +289,60 @@ function addDotsForLabels(label){
 
 
 
-// function makeRightPanel(){
-//   var rightPanel = $('<div class="col-md-3 col-sm-12 pull-right right-panel"></div>')
-//     , bsCollapse = $('<div id="bs-collapse" class="panel-group"></div>')
-//     , firstPanel = $('<div class="col-md-12 col-sm-6 first-panel"></div>')
-//     , firstPanelWrap = $('<div class="panel wrap"></div>')
-//     , firstPanelWrapHead = $('<div class="panel-heading"></div>')
-//     , firstPanelWrapHeadH4 = $('<h4 class="panel-title"></h4>')
-//     , firstPanelWrapHeadH4a = $('<a data-toggle="collapse" data-parent="" href=#one"></a>').text('Szczegóły')
-//     , firstPanelWrapOne = $('<div id="one" class="panel-collapse collapse in"></div>')
-//     , firstPanelWrapOneBody = $('<div class="panel-body"></div>')
-//     , firstPanelWrapOneBodyRow1 = $('<div class="row"></div>')
-//     , firstPanelWrapOneBodyRow1C1 = $('<div class="col-md-2"></div>')
-//     , firstPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa')
-//     , firstPanelWrapOneBodyRow1C2 = $('<div class="col-md-9"></div>')
-//     , firstPanelWrapOneBodyRow1C2H5 = $('<h5></h5>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
-//
-//     , firstPanelWrapOneBodyRow2 = $('<div class="row"></div>')
-//     , firstPanelWrapOneBodyRow2C1 = $('<div class="col-md-2"></div>')
-//     , firstPanelWrapOneBodyRow2C1H5 = $('<h5></h5>').text('Etykieta:')
-//     , firstPanelWrapOneBodyRow2C2 = $('<div class="col-md-9"></div>')
-//     , firstPanelWrapOneBodyRow2C2H5 = $('<h5 class="label-claim"></h5>')
-//
-//     , firstPanelWrapOneBodyRow3 = $('<div class="row"></div>')
-//     , firstPanelWrapOneBodyRow3C1 = $('<div class="col-md-2"></div>')
-//     , firstPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tagi')
-//     , firstPanelWrapOneBodyRow3C2 = $('<div class="col-md-9"></div>')
-//
-//
-//     , lastPanel = $('<div class="col-md-12 col-sm-6 last-panel"></div>')
-//     , lastPanelWrap = $('<div class="panel wrap"></div>')
-//
-//
-//     , firstPanelWrapOneBodyText = $('<div data-name="panel1"></div>')
-//
-//
-//   firstPanelWrapOneBodyRow2C1.append(firstPanelWrapOneBodyRow2C1H5);
-//   firstPanelWrapOneBodyRow2C2.append(firstPanelWrapOneBodyRow2C2H5);
-//   firstPanelWrapOneBodyRow2.append(firstPanelWrapOneBodyRow2C1,firstPanelWrapOneBodyRow2C2 );
-//
-//   firstPanelWrapOneBodyRow1C2.append(firstPanelWrapOneBodyRow1C2H5);
-//   firstPanelWrapOneBodyRow1C1.append(firstPanelWrapOneBodyRow1C1H5);
-//   firstPanelWrapOneBodyRow1.append(firstPanelWrapOneBodyRow1C1,firstPanelWrapOneBodyRow1C2);
-//   firstPanelWrapOneBody.append(firstPanelWrapOneBodyRow1,firstPanelWrapOneBodyRow2,firstPanelWrapOneBodyRow3);
-//   firstPanelWrapOne.append(firstPanelWrapOneBody);
-//
-//
-//   firstPanelWrapHeadH4.append(firstPanelWrapHeadH4a);
-//   firstPanelWrapHead.append(firstPanelWrapHeadH4);
-//   firstPanelWrap.append(firstPanelWrapHead, firstPanelWrapOne);
-//   firstPanel.append(firstPanelWrap);
-//   bsCollapse.append(firstPanel);
-//   rightPanel.append(bsCollapse);
-//
-//
-//   return rightPanel;
-// }
+function makeRightPanel(){
+  var rightPanel = $('<div class="right-panel"></div>')
+    , bsCollapse = $('<div id="bs-collapse" class="panel-group fixed-panel"></div>')
+    , firstPanel = $('<div class="first-panel margin-panel"></div>')
+    , firstPanelWrap = $('<div class="panel wrap"></div>')
+    , firstPanelWrapHead = $('<div class="panel-heading"></div>')
+    , firstPanelWrapHeadRow = $('<div class="row"></div>')
+    , firstPanelWrapHeadH4 = $('<h4 class="panel-title"></h4>')
+    , firstPanelWrapHeadH4a = $('<a data-toggle="collapse" data-parent="" href=#one"></a>').text('Szczegóły')
+    , firstPanelWrapOne = $('<div id="one" class="panel-collapse collapse in"></div>')
+    , firstPanelWrapOneBody = $('<div class="panel-body"></div>')
+    , firstPanelWrapOneBodyRow1 = $('<div class="row"></div>')
+    , firstPanelWrapOneBodyRow1C1 = $('<div class="col-md-2"></div>')
+    , firstPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa')
+    , firstPanelWrapOneBodyRow1C2 = $('<div class="col-md-9"></div>')
+    , firstPanelWrapOneBodyRow1C2H5 = $('<h5></h5>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
+
+    , firstPanelWrapOneBodyRow2 = $('<div class="row"></div>')
+    , firstPanelWrapOneBodyRow2C1 = $('<div class="col-md-2"></div>')
+    , firstPanelWrapOneBodyRow2C1H5 = $('<h5></h5>').text('Etykieta:')
+    , firstPanelWrapOneBodyRow2C2 = $('<div class="col-md-9"></div>')
+    , firstPanelWrapOneBodyRow2C2H5 = $('<h5 class="label-claim"></h5>')
+
+    , firstPanelWrapOneBodyRow3 = $('<div class="row"></div>')
+    , firstPanelWrapOneBodyRow3C1 = $('<div class="col-md-2"></div>')
+    , firstPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tagi')
+    , firstPanelWrapOneBodyRow3C2 = $('<div class="col-md-9"></div>')
+
+
+    , lastPanel = $('<div class="col-md-12 col-sm-6 last-panel"></div>')
+    , lastPanelWrap = $('<div class="panel wrap"></div>')
+
+
+    , firstPanelWrapOneBodyText = $('<div data-name="panel1"></div>')
+
+
+  firstPanelWrapOneBodyRow2C1.append(firstPanelWrapOneBodyRow2C1H5);
+  firstPanelWrapOneBodyRow2C2.append(firstPanelWrapOneBodyRow2C2H5);
+  firstPanelWrapOneBodyRow2.append(firstPanelWrapOneBodyRow2C1,firstPanelWrapOneBodyRow2C2 );
+
+  firstPanelWrapOneBodyRow1C2.append(firstPanelWrapOneBodyRow1C2H5);
+  firstPanelWrapOneBodyRow1C1.append(firstPanelWrapOneBodyRow1C1H5);
+  firstPanelWrapOneBodyRow1.append(firstPanelWrapOneBodyRow1C1,firstPanelWrapOneBodyRow1C2);
+  firstPanelWrapOneBody.append(firstPanelWrapOneBodyRow1,firstPanelWrapOneBodyRow2,firstPanelWrapOneBodyRow3);
+  firstPanelWrapOne.append(firstPanelWrapOneBody);
+
+
+  firstPanelWrapHeadH4.append(firstPanelWrapHeadH4a);
+  firstPanelWrapHead.append(firstPanelWrapHeadH4);
+  firstPanelWrap.append(firstPanelWrapHead, firstPanelWrapOne);
+  firstPanel.append(firstPanelWrap);
+  bsCollapse.append(firstPanel);
+  rightPanel.append(bsCollapse);
+
+
+  return rightPanel;
+}

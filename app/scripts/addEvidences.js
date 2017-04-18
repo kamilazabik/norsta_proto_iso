@@ -1,17 +1,19 @@
 function addAttrToEvidenceWindow(classNameText){
   var buttonSubmit = $('button.save-new-evid')
     , textOfName = $('#textareaNameEvid')
+    , buttonAdd = $('[data-add = \'' + classNameText + '\']');
 
     $('.btn.btn-add.'+classNameText).on('click', function(){
       var dataEvidence = $(this).attr('data-evidence')
         , modalEvidence = $('#modalEvidence')
         , buttonSave = $('.save-new-evid.btn');
+      console.log(buttonAdd)
 
       buttonSave.removeAttr('data-evidence');
       modalEvidence.removeAttr('data-name');
       modalEvidence.modal('show').attr('data-name', classNameText);
       buttonSave.attr('data-evidence', dataEvidence);
-      buttonSubmit.attr('disabled', 'disabled')
+      buttonSubmit.attr('disabled', 'disabled');
 
     if(dataEvidence){
       var nameOfFile = $('#'+ classNameText  + ' tr.' + dataEvidence + ' .nameDocument').text()

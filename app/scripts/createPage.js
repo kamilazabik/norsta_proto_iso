@@ -6,24 +6,26 @@ function createPage(numberClass, isNextLoad) {
     , mainPanel = $('#main-panel')
     , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
-    , titleClaim = $('.title-hseq' + numberClass)
+    // , titleClaim = $('.title-hseq' + numberClass)
+    , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
     , panelContent = $('<div id="panel-content" class="row"></div>')
-    , paddingContent = $('<div class=" col-lg-9 col-xs-12 pull-left padding-content"></div>');
+    , paddingContent = $('<div class="panels-list"></div>');
 
   mainPanel.remove();
   panels.remove();
   row.remove();
   content.prepend(makeMainPanel());
 
-  console.log(titleClaim.text())
+  // console.log(titleClaim.text())
+  // console.log(titleClaim1);
 
   $('.sliderRightPanel').empty();
 
   if (numberClass == 'A') {
 
-    var paddingContentExisted = $('.padding-content')
+    var paddingContentExisted = $('.panels-list')
       , panelContentExisted = $('#panel-content');
 
   if(paddingContentExisted.length == 0 || panelContentExisted == 0){
@@ -32,10 +34,10 @@ function createPage(numberClass, isNextLoad) {
     content.append(panelContent);
   }
 
-    $('.padding-content').append(makeFirstPartOfMainPage());
+    $('.panels-list').append(makeFirstPartOfMainPage());
 
     for (var j = 1; j <= numberOfChildMainPanel.length; j++) {
-      $('#panels').append(makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j))
+      $('.panel-content').append(makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j))
     }
 
     loadPage(isNextLoad);
@@ -44,7 +46,7 @@ function createPage(numberClass, isNextLoad) {
 
   }else{
 
-    var oneTitle = panelTitle['title-hseq' + numberClass];
+    var oneTitle = panelTitle[numberClass];
 
     if (numberClass != 'A' && isoObject[numberClass].children && isoObject[numberClass].children != '') {
       makePanelsTitle(numberClass, oneTitle);
@@ -55,7 +57,7 @@ function createPage(numberClass, isNextLoad) {
         , numberClassWithDots = addDotsForLabels(numberClass);
 
       for (var i = 1; i <= numberOfChildren.length; i++) {
-        $('.col-md-12.filter-group').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
+        $('.allPanels__panel-content').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
       }
     }
 
@@ -74,30 +76,33 @@ function createPage(numberClass, isNextLoad) {
 
 function loadPage(isNextLoad){
 
-  var links = $('button[class*=\'claim-h\']')
-    , allTitles = $('[class^=\'title-hseq\']');
+  var links = $('[data-button]')
+    , allTitles = $('[data-title]')
 
-  console.log(links)
   //
   // $('#panel-content').load('jade/right-panels.html')
 
   links.each(function(i) {
       var className = $(this)
-        , numberClass = className.attr('class').split(' ')[0].replace('claim-hseq', '')
-        , allRangeSlider = $('.slider');
+        , numberClass = className.attr('data-button')
+        , allRangeSlider = $('.slider')
+        , clickedButton = $('[data-button = \'' + numberClass + '\']')
+        , clickedPanel = $('[data-panel = \'' + numberClass + '\']');
 
       allTitles.each(function (index, value) {
         if (!panelTitle) {
-          panelTitle = {}
+          panelTitle = {};
           console.log(panelTitle)
         }
-        index = value.className;
+
+        // index = value.className;
+        index = value.attributes['data-title'].value;
         panelTitle[index] = value.textContent
       });
 
       allRangeSlider.each(function (index, value) {
         if (!sliderTitle) {
-          sliderTitle = {}
+          sliderTitle = {};
           console.log(sliderTitle)
         }
         index = value.name;
@@ -105,16 +110,17 @@ function loadPage(isNextLoad){
       });
 
       if (isNextLoad) {
-          $('.panel-body .claim-hseq' + numberClass).on('click', function (e) {
-            e.preventDefault();
-            createPage(numberClass, true)
-          });
-          $('.panel-hseq' + numberClass).on('dblclick', function (e) {
+        clickedButton.on('click', function (e) {
             e.preventDefault();
             createPage(numberClass, true)
           });
 
-          $('.panel-heading .claim-hseq' + numberClass).on('click', function (e) {
+        clickedPanel.on('dblclick', function (e) {
+            e.preventDefault();
+            createPage(numberClass, true)
+          });
+
+        clickedButton.on('click', function (e) {
             // var buttonClass = $(this).attr('name');
             if(notSavedAssessment && !SzybkaOcena){
 
@@ -134,11 +140,11 @@ function loadPage(isNextLoad){
             }
           });
       } else {
-        $('.claim-hseq' + numberClass).on('click', function (e) {
+        clickedButton.on('click', function (e) {
           e.preventDefault();
           createPage(numberClass, true)
         });
-        $('.panel-hseq' + numberClass).on('dblclick', function (e) {
+        clickedPanel.on('dblclick', function (e) {
           e.preventDefault();
           createPage(numberClass, true)
         })
@@ -193,7 +199,7 @@ function onLoadPage() {
 }//onLoadPage
 
 function loadRightPanel() {
-  var twoRightPanels = $('.col-lg-3.right-panel');
+  var twoRightPanels = $('.right-panel');
   console.log(twoRightPanels);
   if(twoRightPanels.length == 0){
     $('#panel-content').append(rightPanels)
@@ -268,7 +274,7 @@ function moveRightPanel() {
   $(window).scroll(function() {
     var windowScroll = $(window).scrollTop()
       , mql = window.matchMedia("(min-width: 768px)")
-      , paddingContent = $('.padding-content').offset();
+      , paddingContent = $('.panels-list').offset();
 
     if(windowScroll > 100) {
       $('.panel-group.fixed-panel').css('top', '60px')

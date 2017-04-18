@@ -1,7 +1,7 @@
 function makeButtonExpand(numberOfChildMainPanel, j){
   var panelRowCol6Row1 = $('<div class="row"></div>')
     , panelRowCol6Row1Col = $('<div class="allPanels__buttons-body"></div>')
-    ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\'claim-hseq' + numberOfChildMainPanel[j - 1] + ' btn btn-sm custom-btn expand-main-page btn-expand-panel\'>Rozwiń</button>');
+    ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\' btn btn-sm custom-btn expand-main-page btn-expand-panel\' data-button=\'' + numberOfChildMainPanel[j - 1] + '\'>Rozwiń</button>');
 
   panelRowCol6Row1Col.append(panelRowCol6Button);
   panelRowCol6Row1.append(panelRowCol6Row1Col);
@@ -14,9 +14,9 @@ function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hidd
     , panelRowCol6Row2 = $('<div class="row"></div>')
     , panelRowCol6Row2Col = $('<div class="allPanels__buttons-body"></div>')
     , buttonIcon = $('<i class="fa fa-arrow-down" aria-hidden="true"></i>')
-    , buttonExpandPanelHidden = $('<button type=\'button\' class=\' hidden-lg hidden-xl btn btn-expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\'></button>')
-    , buttonExpandPanelNotHidden = $('<button type=\'button\' class=\'btn btn-expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\'></button>')
-    , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-add ' + numberOfChild+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChild + '\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
+    , buttonExpandPanelHidden = $('<button type=\'button\' class=\' hidden-lg hidden-xl btn btn-expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\' data-expand=\''+ numberOfChild+'\'></button>')
+    , buttonExpandPanelNotHidden = $('<button type=\'button\' class=\'btn btn-expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\'  data-expand=\''+ numberOfChild+'\'></button>')
+    , buttonAddFirstEvidence = $('<button type=\'button\' class=\'btn btn-add ' + numberOfChild+' pull-right\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Dodaj nowy dowód\' name=\'' + numberOfChild + '\'  data-add=\''+ numberOfChild+'\'></button>').append ('<i class="fa fa-plus" aria-hidden="true"></i>');
 
 
   if(hiddenClass == true){

@@ -151,83 +151,67 @@
     &__bar-slider,
     &__button-expand {
       height: 75px;
-      background-color: $panels-content;
+    }
+    &__number {
+      height: 75px;
     }
 
     &__title {
+      background-color: $panels-content;
       border-radius: 0;
       &--font-color  {
         color: $panels-head;
       }
     }
 
-    &__number {
-      height: 75px;
-    }
-
-    &__assessment{
-      padding: 5px 15px 0 5px;
-    }
-
     &__pie, svg {
       @include width-height($pie-size-md, $pie-size-md);
     }
+
+    &__button-expand {
+      border-bottom-right-radius: 0;
+    }
   }
 
+  .panel-block{
 
+    &__number,
+    &__title {
+      height: 70px;
+    }
+
+    &__number{
+      @include border-radius (3px 0 0 3px);
+    }
+
+    &__title {
+      background-color: $panels-content;
+      @include border-top-bottom($panels-border);
+      @include border-radius (0 0 0 0);
+      &--font-color  {
+        color: $panels-head;
+      }
+    }
+    &__assessment {
+      border-left: 0;
+      @include border-radius (0 0 0 0);
+    }
+    &__button-expand {
+      border-top-right-radius: 3px;
+    }
+
+  }
 
   .allPanels {
-    .assessment,
-    .assessment-icon {
-      div:nth-child(2) {
-        padding: 5px 15px 0 5px;
-      }
-    }
 
-    .box-under-header,.box-under-header-title {
-      &.assessment,
-      &.assessment-icon,
-      .assessment,
-      .assessment-icon {
-        svg, .pie {
-          @include width-height ($pie-size-md, $pie-size-md);
-        }
-        .pie {
-          margin-top: 15px;
-        }
-      }
-      &.title {
-        @include border-top-bottom($panels-border);
-      }
 
-      &.title, .title {
-        @include height-background(70px, $panels-content);
-        border-radius: 0;
 
-        h4 {
-          color: $panels-head;
-        }
-      }
 
-      .button-expand-three {
-        border-top-right-radius: 3px;
-      }
-
-      &.number {
-        border-top-left-radius: 3px;
-        border-bottom-left-radius: 3px;
-      }
-
-      &.number, .number {
-        height: 70px;
-        color: #fff;
-      }
-    }
 
     .panel-content {
-      margin-right: 5px !important;
-      margin-left: 5px !important;
-      padding: 15px 10px 0 10px !important;
+      //margin-right: 5px !important;
+      //margin-left: 5px !important;
+      //padding: 15px 10px 0 10px !important;
 
       .padding-content {
         padding-right: 30px;
@@ -269,18 +253,6 @@
       }
     }
   }
-
-  .panels {
-    button[name=expand]{
-      float: right;
-      margin: 3px 0;
-    }
-
-    button[name=openPanelDetails] {
-      float: right;
-      //padding: 5px 10px;
-    }
-  }
   .allPanels .panel-content, .right-panel #bs-collapse {
     .hseq.space:hover, .titleColor {
       .title {
@@ -302,13 +274,13 @@
   }
 
   button[name=expand]{
-    float: right;
-    margin: 3px 0;
+    //float: right;
+    //margin: 3px 0;
   }
 
   button[name=openPanelDetails] {
-    float: right;
-    padding: 5px 10px;
+    //float: right;
+    //padding: 5px 10px;
   }
 
   .box-header .filter select {
@@ -465,7 +437,7 @@
 
 @media all and (max-width: 1200px) {
   #panel-content, .mainPagePanels {
-    padding-right: 50px;
+    padding-right: 35px;
   }
 
   .right-panel{

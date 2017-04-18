@@ -1,9 +1,5 @@
 @import "mixins";
 
-.padding-content {
-  padding: 0 0 0 0px;
-}
-
 .active-input {
   background-color: $buttonsAdd !important;
 }
@@ -188,15 +184,13 @@ a, a:hover, a:focus {
 }
 
 .allPanels__panel-content {
-  margin-right: 0 !important;
-  margin-left: 0 !important;
-  padding: 10px 10px 0 10px !important
+  padding: 15px 15px 0 15px;
 }
 
 .allPanels__panel-heading {
-  padding: 0 15px 0 15px !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+  padding: 0 15px 0 15px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .panel-title {
@@ -236,7 +230,6 @@ a, a:hover, a:focus {
   }
 
   &__assessment {
-    border-left: $panels-border;
     @include border-radius (0 0 0 3px);
     background-color: $panels-content;
   }
@@ -250,16 +243,16 @@ a, a:hover, a:focus {
   }
 
   &__assess-icon {
-    padding-left: 10px !important;
+    padding-left: 10px;
   }
 
   &__assess-value {
-    padding-left: 10px !important;
+    padding-left: 10px;
   }
 
   &__button-expand {
     @include border-right($panels-border, 3px);
-    padding-left: 0 !important;
+    padding-left: 0;
   }
 
   &__buttons-title {
@@ -281,7 +274,8 @@ a, a:hover, a:focus {
 
 
 .panel-block{
-  margin-bottom: 10px;
+  margin: 0 0 15px 0;
+
 
   &__assess-icon,
   &__assess-value,
@@ -334,27 +328,22 @@ a, a:hover, a:focus {
   }
 
   &__assess-icon {
-    padding-left: 10px !important;
+    padding-left: 10px;
   }
 
   &__assess-value {
-    padding-left: 5px !important;
+    padding-left: 5px;
   }
 
   &__assess-body {
-    padding-left: 10px !important;
+    padding-left: 10px;
   }
 
   &__button-expand {
     //@include border-right($panels-border, 3px);
     border-bottom-right-radius: 3px;
     border-right: $panels-border;
-    padding-left: 0 !important;
-  }
-
-  &__buttons-body {
-    //padding-right: 10px !important;
-    //padding-left: 5px !important;
+    padding-left: 0;
   }
 
   &__button-expand--xs {

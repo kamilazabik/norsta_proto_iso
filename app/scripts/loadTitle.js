@@ -1,13 +1,14 @@
 function loadTitle(){
-  var allElement = $('[class*=\'panel-hseq\']')
-    // , title = $('.title-claim')
+  var allElement = $('[data-panel]')
     , label = $('.label-claim')
     , slider = $('.sliderRightPanel input.slider');
 
+  console.log(allElement)
+
   allElement.each(function(){
     var className = $(this)
-      , numberClass = className.attr('class').split(' ')[1].replace('panel-hseq','').split('-')
-      , panel = $('.panel-hseq' + numberClass.join('-'));
+      , numberClass = className.attr('data-panel')
+      , panel = $('[data-button = \'' + numberClass + '\']');
 
     clickOnClassName(numberClass, className,panel);
     addAttrToEvidenceWindow(numberClass);
@@ -28,12 +29,12 @@ function loadPageWithEvidences(numberClass){
 
 
 function clickOnClassName(numberClass,className,panel) {
-    var allInputs = $('.allPanels input')
+    var allInputs = $('.allPanels input');
 
 
   className.on('click', function (e) {
     e.preventDefault();
-    var classNameText = numberClass.join('.');
+    var classNameText = numberClass;
     changeBackgroundToRightPanel(numberClass,classNameText);
 
     blockInput(numberClass, allInputs);
@@ -43,10 +44,10 @@ function clickOnClassName(numberClass,className,panel) {
 }//clickOnClassName
 
 function changeBackgroundToRightPanel(numberClass,classNameText) {
-    var link = $('.title-hseq' + classNameText).text()
-      , numberClassWithDots = addDotsForLabels(numberClass.join(''))
-      , panel = $('.panel-hseq' + classNameText )
-      , allElement = $('[class*=\'panel-hseq\']')
+    var link = $('[data-title = \'' + classNameText + '\']').text()
+      , numberClassWithDots = addDotsForLabels(numberClass)
+      , panel = $('[data-panel = \'' + classNameText + '\']')
+      , allElement = $('[data-panel]')
       , title = $('.title-claim')
       , label = $('.label-claim')
       // , rightPanel = $('.right-panel .panel-title')
