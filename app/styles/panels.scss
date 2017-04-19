@@ -1,12 +1,11 @@
 @import "mixins";
 
+
+
 .active-input {
   background-color: $buttonsAdd !important;
 }
 
-.cursor{
-  cursor: pointer;
-}
 .labelColor {
   @include  border-top-bottom($label);
   background-color: $label;
@@ -128,6 +127,8 @@ a, a:hover, a:focus {
   @include border-radius (2px);
   box-shadow: $panels-shadow;
   min-height: 120px;
+  margin-left: 15px;
+  margin-right: 15px;
 
   &__title,
   &__assessment,
@@ -174,6 +175,11 @@ a, a:hover, a:focus {
       margin-top: 5px;
     }
   }
+}
+
+.panels-list {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .allPanels{
@@ -275,6 +281,7 @@ a, a:hover, a:focus {
 
 .panel-block{
   margin: 0 0 15px 0;
+  cursor: pointer;
 
 
   &__assess-icon,

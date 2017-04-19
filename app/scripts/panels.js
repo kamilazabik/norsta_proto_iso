@@ -19,7 +19,7 @@
   }
 
   function editableTextBlurred() {
-    var numberClass = $('.addedComment').attr('data-name');
+    var numberClass = $('[data-comment]').attr('data-name');
     var html = $(this).val();
     var viewableText = $('<div class="evidences-content-assess__added-comment">')
     viewableText.html(html);
@@ -43,9 +43,7 @@
 function setComment(className) {
 
   $('.evidences-content-assess__editable-text').on('click', divClicked, function(){
-    console.log(className);
     isoObject[className].comment = newComment;
-    console.log(isoObject[className]);
   });
 
 }
@@ -56,8 +54,6 @@ function moveRightBottomPanelUp(){
 
   firstPanelHeading.on('click', function () {
     firstPanel.toggleClass('margin-panel', 5000 );
-    console.log('kliknięty')
-
   })
 }
 
@@ -69,9 +65,19 @@ $(document).ready(function() {
 
 
 
-
-
-
+  // $(document).ready(function() {
+  //   $('.collapse.in').prev('.panel-heading').addClass('active');
+  //   $('#bs-collapse')
+  //     .on('show.bs.collapse', function(a) {
+  //       $(a.target).prev('.panel-heading').addClass('active');
+  //     })
+  //     .on('hide.bs.collapse', function(a) {
+  //       $(a.target).prev('.panel-heading').removeClass('active');
+  //     });
+  // });
+//
+//
+//
 // (function () {
 //   // hold onto the drop down menu
 //   var dropdownMenu;

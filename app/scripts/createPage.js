@@ -200,11 +200,10 @@ function onLoadPage() {
 
 function loadRightPanel() {
   var twoRightPanels = $('.right-panel');
-  console.log(twoRightPanels);
   if(twoRightPanels.length == 0){
-    $('#panel-content').append(rightPanels)
+    $('#panel-content').append(  makeRightPanel());
+    // $('#panel-content').append(rightPanels);
   }
-
 }
 
 function loadDescription(numberClass){

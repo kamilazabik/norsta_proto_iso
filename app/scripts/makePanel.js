@@ -5,8 +5,8 @@
 
 function makeMainPanel(){
   var mainPanel = $('<div id="main-panel" class="row"></div>')
-    , col = $('<div class="col-xs-12"></div>')
-    , col1 = $('<div class="col-xs-12"></div>')
+    // , col = $('<div class="col-xs-12"></div>')
+    // , col1 = $('<div class="col-xs-12"></div>')
     , col1row = $('<div class="row fixedPos panel-header"></div>')
     , col1rowTitleMain = $('<div class="panel-header__title"></div>')
     , col1rowTitleMainH3 = $('<h3></h3>').attr('data-title', 'A0').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
@@ -30,9 +30,9 @@ function makeMainPanel(){
   col1rowAssess1.append(col1rowAssess1numVal,col1rowAssess1numValPer);
   col1rowBar.append(col1rowBarInput);
   col1row.append(col1rowTitleMain,col1rowAssess,col1rowAssess1,col1rowBar,col1rowButtons);
-  col1.append(col1row);
-  col.append(col1);
-  mainPanel.append(col);
+  // col1.append(col1row);
+  // col.append(col1);
+  mainPanel.append(col1row);
 
   return mainPanel;
 
@@ -126,7 +126,7 @@ function makePanelsTitle(numberClass, oneTitle){
 function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,numberClass ) {
   var numberOfChild = numberOfChildren[i - 1]
     , numberOfChildrenWithDots = numberOfChildren.map(addDotsForLabels)
-    , row = $('<div class=\'row panel-block \' data-panel=\''+ numberOfChild+'\'></div>')
+    , row = $('<div class=\'row panel-block\' data-panel=\''+ numberOfChild+'\'></div>')
     , col1 = $('<div class=\'panel-block__number\'></div>')
     , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'panel-block__title\'></div>')
@@ -290,57 +290,115 @@ function addDotsForLabels(label){
 
 
 function makeRightPanel(){
-  var rightPanel = $('<div class="right-panel"></div>')
-    , bsCollapse = $('<div id="bs-collapse" class="panel-group fixed-panel"></div>')
+  var rightPanel = $('<div class="col-lg-3 right-panel"></div>')
+    , bsCollapse = $('<div id="bs-collapse" class="panel-group fixed-panel "></div>')
     , firstPanel = $('<div class="first-panel margin-panel"></div>')
-    , firstPanelWrap = $('<div class="panel wrap"></div>')
-    , firstPanelWrapHead = $('<div class="panel-heading"></div>')
+    , firstPanelWrap = $('<div class="panel first-panel__panel wrap"></div>')
+    , firstPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
     , firstPanelWrapHeadRow = $('<div class="row"></div>')
-    , firstPanelWrapHeadH4 = $('<h4 class="panel-title"></h4>')
-    , firstPanelWrapHeadH4a = $('<a data-toggle="collapse" data-parent="" href=#one"></a>').text('Szczegóły')
-    , firstPanelWrapOne = $('<div id="one" class="panel-collapse collapse in"></div>')
-    , firstPanelWrapOneBody = $('<div class="panel-body"></div>')
+
+    , firstPanelWrapHeadRowCol1 = $('<div class="right-panel-heading__icon"></div>')
+    , firstPanelWrapHeadRowCol1Icon = $('<i class="fa fa-pie-chart" aria-hidden="true"></i>')
+
+    , firstPanelWrapHeadRowCol2 = $('<div class="right-panel-heading__title"></div>')
+    , firstPanelWrapHeadRowCol2H4 = $('<h4 class="right-panel-heading__title--title"></h4>')
+    , firstPanelWrapHeadRowCol2H4a = $('<a class="right-panel-heading__title--link" data-toggle="collapse" data-parent="" href="#two"></a>').text('Ocena')
+
+    , firstPanelWrapOne = $('<div  id="two"  class="panel-collapse collapse in" aria-expanded="true"></div>')
+    , firstPanelWrapOneBody = $('<div class="panel-body right-panel-body addedComment" data-comment="comment"></div>')
     , firstPanelWrapOneBodyRow1 = $('<div class="row"></div>')
-    , firstPanelWrapOneBodyRow1C1 = $('<div class="col-md-2"></div>')
-    , firstPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa')
-    , firstPanelWrapOneBodyRow1C2 = $('<div class="col-md-9"></div>')
-    , firstPanelWrapOneBodyRow1C2H5 = $('<h5></h5>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
-
-    , firstPanelWrapOneBodyRow2 = $('<div class="row"></div>')
-    , firstPanelWrapOneBodyRow2C1 = $('<div class="col-md-2"></div>')
-    , firstPanelWrapOneBodyRow2C1H5 = $('<h5></h5>').text('Etykieta:')
-    , firstPanelWrapOneBodyRow2C2 = $('<div class="col-md-9"></div>')
-    , firstPanelWrapOneBodyRow2C2H5 = $('<h5 class="label-claim"></h5>')
-
+    , firstPanelWrapOneBodyRow1Col1 = $('<div class="col-md-12"></div>')
+    , firstPanelWrapOneBodyRow1Col1H5 = $('<h5 class="comment"></h5>').text('Opis')
+    , firstPanelWrapOneBodyRow2 = $('<div class="evidences-content-assess__editable-text"></div>')
     , firstPanelWrapOneBodyRow3 = $('<div class="row"></div>')
-    , firstPanelWrapOneBodyRow3C1 = $('<div class="col-md-2"></div>')
-    , firstPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tagi')
-    , firstPanelWrapOneBodyRow3C2 = $('<div class="col-md-9"></div>')
+    , firstPanelWrapOneBodyRow3Col = $('<div class="col-md-12"></div>')
+    , firstPanelWrapOneBodyRow3ColButton = $('<button class="btn btn-primary btn-sm pull-right" type="button" id="removeAssess"></button>').text('Anuluj ocenę')
+    , firstPanelWrapOneBodyRow3ColButton2 = $('<button class="btn btn-primary btn-sm pull-right" type="button" id="saveAssess"></button>').text('Zapisz ocenę');
 
 
-    , lastPanel = $('<div class="col-md-12 col-sm-6 last-panel"></div>')
-    , lastPanelWrap = $('<div class="panel wrap"></div>')
+  firstPanelWrapHeadRowCol2H4.append(firstPanelWrapHeadRowCol2H4a);
+  firstPanelWrapHeadRowCol2.append(firstPanelWrapHeadRowCol2H4);
+  firstPanelWrapHeadRowCol1.append(firstPanelWrapHeadRowCol1Icon);
+  firstPanelWrapHeadRow.append(firstPanelWrapHeadRowCol1, firstPanelWrapHeadRowCol2);
+  firstPanelWrapHead.append(firstPanelWrapHeadRow);
 
-
-    , firstPanelWrapOneBodyText = $('<div data-name="panel1"></div>')
-
-
-  firstPanelWrapOneBodyRow2C1.append(firstPanelWrapOneBodyRow2C1H5);
-  firstPanelWrapOneBodyRow2C2.append(firstPanelWrapOneBodyRow2C2H5);
-  firstPanelWrapOneBodyRow2.append(firstPanelWrapOneBodyRow2C1,firstPanelWrapOneBodyRow2C2 );
-
-  firstPanelWrapOneBodyRow1C2.append(firstPanelWrapOneBodyRow1C2H5);
-  firstPanelWrapOneBodyRow1C1.append(firstPanelWrapOneBodyRow1C1H5);
-  firstPanelWrapOneBodyRow1.append(firstPanelWrapOneBodyRow1C1,firstPanelWrapOneBodyRow1C2);
+  firstPanelWrapOneBodyRow3Col.append(firstPanelWrapOneBodyRow3ColButton, firstPanelWrapOneBodyRow3ColButton2);
+  firstPanelWrapOneBodyRow3.append(firstPanelWrapOneBodyRow3Col);
+  firstPanelWrapOneBodyRow1Col1.append(firstPanelWrapOneBodyRow1Col1H5);
+  firstPanelWrapOneBodyRow1.append(firstPanelWrapOneBodyRow1Col1);
   firstPanelWrapOneBody.append(firstPanelWrapOneBodyRow1,firstPanelWrapOneBodyRow2,firstPanelWrapOneBodyRow3);
   firstPanelWrapOne.append(firstPanelWrapOneBody);
 
-
-  firstPanelWrapHeadH4.append(firstPanelWrapHeadH4a);
-  firstPanelWrapHead.append(firstPanelWrapHeadH4);
   firstPanelWrap.append(firstPanelWrapHead, firstPanelWrapOne);
   firstPanel.append(firstPanelWrap);
-  bsCollapse.append(firstPanel);
+
+
+
+
+  var secondPanel = $('<div class="second-panel"></div>')
+    , secondPanelWrap = $('<div class="panel wrap second-panel__panel"></div>')
+    , secondPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
+    , secondPanelWrapHeadRow = $('<div class="row"></div>')
+    , secondPanelWrapHeadRowCol1 = $('<div class="panel-heading__icon"></div>')
+    , secondPanelWrapHeadRowCol1Icon = $('<i class="fa fa-file-text-o" aria-hidden="true"></i>')
+
+    , secondPanelWrapHeadRowCol2 = $('<div class="right-panel-heading__title"></div>')
+    , secondPanelWrapHeadRowCol2H4 = $('<h4 class="right-panel-heading__title--title"></h4>')
+    , secondPanelWrapHeadRowCol2H4a = $('<a class="right-panel-heading__title--link" data-toggle="collapse" data-parent="" href="#one" aria-expanded="true"></a>').text('Szczegóły')
+
+    , secondPanelWrapOne = $('<div id="one" class="panel-collapse collapse in" aria-expanded="true"></div>')
+    , secondPanelWrapOneBody = $('<div class="panel-body right-panel-body"></div>')
+
+    , secondPanelWrapOneBodyRow1 = $('<div class="row"></div>')
+    , secondPanelWrapOneBodyRow1C1 = $('<div class="col-xl-2 col-lg-3 col-md-3 col-sm-3"></div>')
+    , secondPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa')
+    , secondPanelWrapOneBodyRow1C2 = $('<div class="col-xl-10 col-lg-9 col-md-9 col-sm-9"></div>')
+    , secondPanelWrapOneBodyRow1C2H5 = $('<h5 class="title-claim"></h5>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
+
+    , secondPanelWrapOneBodyRow2 = $('<div class="row"></div>')
+    , secondPanelWrapOneBodyRow2C1 = $('<div class="col-xl-2 col-lg-3 col-md-3 col-sm-3"></div>')
+    , secondPanelWrapOneBodyRow2C1H5 = $('<h5></h5>').text('Etykieta:')
+    , secondPanelWrapOneBodyRow2C2 = $('<div class="col-xl-10 col-lg-9 col-md-9 col-sm-9"></div>')
+    , secondPanelWrapOneBodyRow2C2H5 = $('<h5 class="label-claim"></h5>')
+
+    , secondPanelWrapOneBodyRow3 = $('<div class="row"></div>')
+    , secondPanelWrapOneBodyRow3C1 = $('<div class="col-xl-2 col-lg-3 col-md-3 col-sm-3"></div>')
+    , secondPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tagi')
+    , secondPanelWrapOneBodyRow3C2 = $('<div class="col-xl-10 col-lg-9 col-md-9 col-sm-9"></div>')
+
+    , secondPanelWrapOneBodyRow4 = $('<div class="row"></div>')
+    , secondPanelWrapOneBodyRow4C1 = $('<div class="col-xl-2 col-lg-3 col-md-3 col-sm-3"></div>')
+    , secondPanelWrapOneBodyRow4C1H5 = $('<h5></h5>').text('Opis')
+    , secondPanelWrapOneBodyRow4C2 = $('<div class="col-xl-10 col-lg-9 col-md-9 col-sm-9"></div>')
+    , secondPanelWrapOneBodyRow4C2H5 = $('<h5 class="description"></h5>');
+
+
+  secondPanelWrapOneBodyRow4C2.append(secondPanelWrapOneBodyRow4C2H5);
+  secondPanelWrapOneBodyRow4C1.append(secondPanelWrapOneBodyRow4C1H5);
+  secondPanelWrapOneBodyRow4.append(secondPanelWrapOneBodyRow4C1, secondPanelWrapOneBodyRow4C2);
+
+  secondPanelWrapOneBodyRow3C1.append(secondPanelWrapOneBodyRow3C1H5);
+  secondPanelWrapOneBodyRow3.append(secondPanelWrapOneBodyRow3C1, secondPanelWrapOneBodyRow3C2);
+
+  secondPanelWrapOneBodyRow2C2.append(secondPanelWrapOneBodyRow2C2H5);
+  secondPanelWrapOneBodyRow2C1.append(secondPanelWrapOneBodyRow2C1H5);
+  secondPanelWrapOneBodyRow2.append(secondPanelWrapOneBodyRow2C1, secondPanelWrapOneBodyRow2C2);
+
+  secondPanelWrapOneBodyRow1C2.append(secondPanelWrapOneBodyRow1C2H5);
+  secondPanelWrapOneBodyRow1C1.append(secondPanelWrapOneBodyRow1C1H5);
+  secondPanelWrapOneBodyRow1.append(secondPanelWrapOneBodyRow1C1, secondPanelWrapOneBodyRow1C2);
+  secondPanelWrapOneBody.append(secondPanelWrapOneBodyRow1, secondPanelWrapOneBodyRow2, secondPanelWrapOneBodyRow3, secondPanelWrapOneBodyRow4 );
+  secondPanelWrapOne.append(secondPanelWrapOneBody);
+
+  secondPanelWrapHeadRowCol2H4.append(secondPanelWrapHeadRowCol2H4a);
+  secondPanelWrapHeadRowCol2.append(secondPanelWrapHeadRowCol2H4);
+  secondPanelWrapHeadRowCol1.append(secondPanelWrapHeadRowCol1Icon);
+  secondPanelWrapHeadRow.append(secondPanelWrapHeadRowCol1, secondPanelWrapHeadRowCol2);
+  secondPanelWrapHead.append(secondPanelWrapHeadRow);
+  secondPanelWrap.append(secondPanelWrapHead, secondPanelWrapOne);
+  secondPanel.append(secondPanelWrap);
+
+  bsCollapse.append(firstPanel, secondPanel);
   rightPanel.append(bsCollapse);
 
 

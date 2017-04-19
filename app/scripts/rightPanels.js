@@ -1,4 +1,4 @@
-var rightPanels = '<div class="right-panel"> ' +
+var rightPanels = '<div class="col-lg-3 right-panel"> ' +
   '<div class="panel-group fixed-panel" id="bs-collapse"> ' +
   '<div class="panel-right"> ' +
   '<div class="first-panel margin-panel"> ' +
@@ -8,7 +8,7 @@ var rightPanels = '<div class="right-panel"> ' +
   '<div class="col-md-2 col-sm-2 col-xs-2">' +
   '<i class="fa fa-pie-chart" aria-hidden="true"></i></div> ' +
   '<div class="col-md-10 col-sm-10 col-xs-10"> ' +
-  '<h4 class="panel-title">' +
+  '<h4 class="right-panel-title">' +
   '<a data-toggle="collapse" data-parent="" href="#two">Ocena</a></h4> ' +
   '</div> </div> </div> ' +
   '<div class="panel-collapse collapse in" id="two"> ' +
@@ -26,7 +26,7 @@ var rightPanels = '<div class="right-panel"> ' +
   '<div class="col-md-2 col-sm-2 col-xs-2">' +
   '<i class="fa fa-file-text-o" aria-hidden="true"></i></div> ' +
   '<div class="col-md-10 col-sm-10 col-xs-10"> ' +
-  '<h4 class="panel-title">' +
+  '<h4 class="right-panel-title">' +
   '<a data-toggle="collapse" data-parent="" href="#one">Szczegóły</a></h4> </div> </div> </div> ' +
   '<div class="panel-collapse collapse in" id="one"> ' +
   '<div class="panel-body"> <div class="row"> ' +

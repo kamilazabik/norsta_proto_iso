@@ -3,16 +3,10 @@
 @import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
 
-
 .panels-list {
   @include make-row();
   @include make-xs-column(12);
   @include make-lg-column(9);
-}
-
-.right-panel {
-  @include make-row();
-  @include make-lg-column(3);
 }
 
 .panel-header {
@@ -103,5 +97,17 @@
     @include make-xs-column(12)
   }
 }
+
+.panel-heading__icon {
+  @include make-row();
+  @include make-xs-column(2);
+}
+
+.panel-heading__title {
+  @include make-row();
+  @include make-xs-column(10);
+}
+
+
 
 

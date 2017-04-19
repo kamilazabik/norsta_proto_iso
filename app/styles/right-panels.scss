@@ -7,19 +7,19 @@
 
 .right-panel {
   right: 0;
-  //padding: 0 15px 0 0 !important;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
 
   .panel-margin {
     padding-right: 0;
   }
 
-  #bs-collapse {
+    //.container {
+    //  max-width: 970px;
+    //}
 
-    .container {
-      max-width: 970px;
-    }
-
-    .last-panel, .first-panel {
+    .second-panel, .first-panel {
       padding: 0 0;
     }
 
@@ -30,7 +30,7 @@
       text-decoration: none;
     }
 
-    .panel {
+    .first-panel__panel, .second-panel__panel {
       border: {
         width: 0 0 1px 0;
         style: solid;
@@ -39,7 +39,7 @@
       background: none;
     }
 
-    .panel-title {
+    .right-panel-heading__title--title {
       @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
       margin-top: 0;
       margin-bottom: 0;
@@ -60,7 +60,7 @@
       margin-top: 0;
     }
 
-    .panel-heading {
+    .right-panel-heading {
       background-color: $panels-head;
       @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
       border: none;
@@ -87,10 +87,10 @@
 
     }
 
-    .panel-title {
+    .right-panel-heading__title--title {
       //display:flex;
       //justify-content:center;
-      a {
+      .right-panel-heading__title--link {
         display: block;
         color: #fff;
         //padding: 15px;
@@ -103,7 +103,7 @@
 
 
 
-    .panel-body {
+    .right-panel-body {
       background: #fff;
       min-height: 200px !important;
 
@@ -127,14 +127,14 @@
     .panel:last-child .panel-heading.active {
       border-radius: 0;
     }
-  }
+
 
   .wrap {
     box-shadow: $right-panels-shadow;
     @include border-radius(4px);
   }
 
-  .last-panel .panel {
+  .second-panel .panel {
     margin: 15px 0 15px 0;
   }
 

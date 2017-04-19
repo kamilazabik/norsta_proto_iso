@@ -199,7 +199,12 @@
     &__button-expand {
       border-top-right-radius: 3px;
     }
+  }
 
+  .panel-block:hover {
+    .panel-block__title {
+      background-color: $panels-hover;
+    }
   }
 
   .allPanels {
@@ -437,7 +442,7 @@
 
 @media all and (max-width: 1200px) {
   #panel-content, .mainPagePanels {
-    padding-right: 35px;
+    padding-right: 44px;
   }
 
   .right-panel{
