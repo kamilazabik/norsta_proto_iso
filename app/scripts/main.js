@@ -11,7 +11,7 @@ $(document).ready( function(){
   searchText();
   moveRightPanel();
   changeViewOfFolderList();
-  // loadRightPanel()
+  eventsOnRightPanels();
 });//END of document.READY
 
 

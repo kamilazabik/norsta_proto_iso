@@ -55,6 +55,7 @@ function changeBackgroundToRightPanel(numberClass,classNameText) {
 
   // $('.space').removeClass('cursor');
   // panel.addClass('cursor');
+
   $('[data-comment]').attr('data-name', classNameText);
   $('.editable_text').on('click', divClicked);
   $('.panel-title').removeClass('labelColor');
@@ -84,6 +85,8 @@ function blockInput(numberClass, allInputs){
 
 function addComments (classNameText){
   var comment = $('.evidences-content-assess__added-comment');
+
+  console.log(isoObject[classNameText].comment)
 
   if(!isoObject[classNameText] ||!isoObject[classNameText].comment ){
     comment.text('');

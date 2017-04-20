@@ -231,7 +231,7 @@ function goToProjectList(){
       openProject();
     })
   })
-}
+}//goToProjectList
 
 function searchTextTags() {
   $('.search-panel .dropdown-menu').find('a').click(function(e) {
@@ -244,7 +244,7 @@ function searchTextTags() {
     $('.input-group #search_param').val(param);
     $('.search-panel .dropdown-menu').find('a').text(option)
   });
-}
+}//searchTextTags
 
 function searchText() {
   var allTextH4 = $('.allPanels .title h4')
@@ -267,7 +267,7 @@ function searchText() {
     allTextH4.each(markText) ;
     allTextH5.each(markText);
   });
-}
+}//searchText
 
 function moveRightPanel() {
   $(window).scroll(function() {
@@ -276,12 +276,12 @@ function moveRightPanel() {
       , paddingContent = $('.panels-list').offset();
 
     if(windowScroll > 100) {
-      $('.panel-group.fixed-panel').css('top', '60px')
+      $('.right-panel--fixed-panel').css('top', '60px')
     }else {
-      $('.panel-group.fixed-panel').css('top', paddingContent.top)
+      $('.right-panel--fixed-panel').css('top', paddingContent.top)
     }
   });
-}
+}//moveRightPanel
 
 function changeViewOfFolderList(){
   var buttonSimpleList = $('.simple-list')
@@ -309,7 +309,6 @@ function changeViewOfFolderList(){
     foldersSimple.addClass('display')
     projectList.addClass('display')
   })
-
-}
+}//changeViewOfFolderList
 
 

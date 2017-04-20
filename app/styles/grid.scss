@@ -98,16 +98,29 @@
   }
 }
 
-.panel-heading__icon {
+.right-panel-heading__icon {
   @include make-row();
   @include make-xs-column(2);
 }
 
-.panel-heading__title {
+.right-panel-heading__title {
   @include make-row();
   @include make-xs-column(10);
 }
 
+.right-panel-body__buttons {
+  @include make-row();
+  @include make-md-column(12);
+}
 
+.right-panel-body__label {
+  @include make-row();
+  @include make-sm-column(4);
+  @include make-xl-column(3);
+}
 
-
+.right-panel-body__title {
+  @include make-row();
+  @include make-sm-column(8);
+  @include make-xl-column(9);
+}
