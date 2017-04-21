@@ -1,35 +1,5 @@
 @import "mixins";
 
-@media all and (min-width: 100px){
-
-   h4, h3 {
-     font-size: 14px;
-     margin-top: 5px;
-     margin-bottom: 5px;
-   }
-
-   h5 {
-     @include font(400, 1);
-     font-size: 13px;
-   }
-
-   p, label, a, .form-control, table {
-     font-size: 13px;
-   }
-
-  font-family: sans-serif !important;
-
-
-
-//TODO
-  #modalEvidence  {
-    #textareaNameEvid {
-      height: 100% !important;
-    }
-  }
-}
-
-
 
 @media all and (min-width: 460px) {
     h4, h3 {
@@ -206,65 +176,6 @@
       background-color: $panels-hover;
     }
   }
-
-  .allPanels {
-
-
-
-
-
-    .panel-content {
-      //margin-right: 5px !important;
-      //margin-left: 5px !important;
-      //padding: 15px 10px 0 10px !important;
-
-      .padding-content {
-        padding-right: 30px;
-      }
-      .visible-xs {
-        display: flex !important;
-      }
-
-      .assessment-icon {
-        border: {
-          left: 0;
-          radius: 0;
-        }
-      }
-
-      .button-expand{
-        border-top-right-radius: 3px;
-      }
-
-      .space {
-        margin-bottom: 15px;
-      }
-
-      .box-under-header-sx {
-        &.title {
-          @include height-background(70px, $panels-content);
-          @include border-top-bottom($panels-border);
-          @include border-radius (0 0 0 0);
-          h4, a {
-            color: $panels-head;
-          }
-        }
-
-        &.number {
-          @include border-radius (3px 0 0 3px);
-          height: 70px;
-          color: #fff;
-        }
-      }
-    }
-  }
-  .allPanels .panel-content, .right-panel #bs-collapse {
-    .hseq.space:hover, .titleColor {
-      .title {
-        background-color: #ffff99;
-      }
-    }
-  }
 }//768px -992px
 
 
@@ -274,24 +185,12 @@
     font-size: 18px;
   }
 
-  .bar-slider {
-    padding-left: 40px;
+//TODO
+  .mainPagePanels {
+    &.row {
+      margin-right: -15px;
+    }
   }
-
-  button[name=expand]{
-    //float: right;
-    //margin: 3px 0;
-  }
-
-  button[name=openPanelDetails] {
-    //float: right;
-    //padding: 5px 10px;
-  }
-
-  .box-header .filter select {
-    font-size: 14px;
-  }
-
   .mainPagePanels {
     .tree {
       li {
@@ -306,31 +205,14 @@
       }
     }
   }
-
-  [id^=collapsePanelDetails] {
-    [id^=tabsPanels] {
-      .well {
-        table {
-          tbody {
-            @include td-size(5%,35%, 25%, 25%, 10%);
-          }
-        }
-
-        button{
-          &:nth-child(1){
-            margin: 0 0 5px 5px;
-          }
-          &:nth-child(2){
-            margin: auto 0 5px 0;
-          }
-        }
-      }
+  .evidences-table {
+    &__tbody {
+      @include td-size(5%, 35%, 25%, 25%, 10%);
     }
   }
-  .mainPagePanels {
-    &.row {
-      margin-right: -15px;
-    }
+
+  .btn-open {
+    margin: 0 0 5px 5px;
   }
 }//992px - 1200px
 
@@ -340,7 +222,7 @@
     font-size: 20px;
     margin-top: 0;
   }
-
+//TODO
   #filter-panel {
   .panel {
     .form-inline {

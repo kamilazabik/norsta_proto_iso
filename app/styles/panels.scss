@@ -347,7 +347,6 @@ a, a:hover, a:focus {
   }
 
   &__button-expand {
-    //@include border-right($panels-border, 3px);
     border-bottom-right-radius: 3px;
     border-right: $panels-border;
     padding-left: 0;
@@ -402,14 +401,6 @@ a, a:hover, a:focus {
   }
 }
 
-.evidences-tab {
-
-}
-
-.evidences-content {
-
-}
-
 .well {
   margin-top: 0;
   border: 0;
@@ -448,15 +439,13 @@ a, a:hover, a:focus {
   }
 
   &__tbody-td {
-    display: table-cell
+    display: table-cell;
   }
 
   &__tbody-td--buttons {
-    padding-right: 0;
+    padding-right: 0 ;
   }
 }
-
-
 
 .evidences-content-assess {
   &__added-comment, &__editable-text {
