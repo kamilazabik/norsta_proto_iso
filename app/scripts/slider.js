@@ -30,6 +30,7 @@ function sliderSumForTop(sliderName) {
   }
 
   var childrenIds = isoObject[sliderName].children;
+  console.log(childrenIds)
   if(slidersMemo) {
 
     if (childrenIds) {

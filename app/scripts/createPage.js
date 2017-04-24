@@ -207,16 +207,16 @@ function loadRightPanel() {
 }
 
 function loadDescription(numberClass){
-  var labelDescription = $('.description')
+  var labelDescription = $('.right-panel-body__title--description')
     , arrayDescription = isoObject[numberClass].description;
 
   labelDescription.html(arrayDescription);
+
 
 }//loadDescription
 
 function goToProjectList(){
  var closeProjectMenu = $('.close-project')
-   , navbarFolders = $('.navbar-folders')
    , nav = $('nav');
 
   closeProjectMenu.on('click', function () {
@@ -261,18 +261,19 @@ function searchText() {
     value.innerHTML = newHtml;
   }
 
-
   $('#searchfor').keyup(function(){
     searchedText = $('#searchfor').val();
-    allTextH4.each(markText) ;
+    allTextH4.each(markText);
     allTextH5.each(markText);
   });
 }//searchText
 
 function moveRightPanel() {
+  var firstPanel= $('.right-first-panel__panel .right-panel-heading__row')
+    , mql = window.matchMedia("(max-width: 1200px)");
+
   $(window).scroll(function() {
     var windowScroll = $(window).scrollTop()
-      , mql = window.matchMedia("(min-width: 768px)")
       , paddingContent = $('.panels-list').offset();
 
     if(windowScroll > 100) {
@@ -281,6 +282,13 @@ function moveRightPanel() {
       $('.right-panel--fixed-panel').css('top', paddingContent.top)
     }
   });
+  if (mql.matches) {
+      firstPanel.on('click', function () {
+        $('.right-first-panel').toggleClass('right-first-panel--margin-added', 1000,"ease"  );
+        console.log('klikam')
+      });
+  }
+
 }//moveRightPanel
 
 function changeViewOfFolderList(){

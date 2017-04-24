@@ -152,7 +152,6 @@ $xs-panel-height: 40px;
   td:nth-child(4){
     width: $td4;
   }
-
 }
 
 @mixin vendor-prefixes($property, $value) {

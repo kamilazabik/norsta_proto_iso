@@ -115,12 +115,12 @@
 
 .right-panel-body__label {
   @include make-row();
-  @include make-sm-column(4);
+  @include make-xs-column(3);
   @include make-xl-column(3);
 }
 
 .right-panel-body__title {
   @include make-row();
-  @include make-sm-column(8);
+  @include make-xs-column(9);
   @include make-xl-column(9);
 }

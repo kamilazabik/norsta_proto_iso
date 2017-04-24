@@ -12,6 +12,7 @@ $(document).ready( function(){
   moveRightPanel();
   changeViewOfFolderList();
   eventsOnRightPanels();
+  loadSidebar()
 });//END of document.READY
 
 

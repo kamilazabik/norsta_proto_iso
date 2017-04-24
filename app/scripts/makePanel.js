@@ -292,6 +292,7 @@ function addDotsForLabels(label){
 function makeRightPanel(){
   var rightPanel = $('<div class="col-lg-3 right-panel"></div>')
     , bsCollapse = $('<div id="bs-collapse" class="panel-group right-panel--fixed-panel"></div>')
+    , rightPanelWidth = $('<div class="right-panel-block"></div>')
     , firstPanel = $('<div class="right-first-panel right-first-panel--margin"></div>')
     , firstPanelWrap = $('<div class="panel right-first-panel__panel"></div>')
     , firstPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
@@ -398,7 +399,8 @@ function makeRightPanel(){
   secondPanelWrap.append(secondPanelWrapHead, secondPanelWrapOne);
   secondPanel.append(secondPanelWrap);
 
-  bsCollapse.append(firstPanel, secondPanel);
+  rightPanelWidth.append(firstPanel, secondPanel);
+  bsCollapse.append(rightPanelWidth);
   rightPanel.append(bsCollapse);
 
 

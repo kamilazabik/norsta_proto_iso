@@ -263,6 +263,10 @@
   }
 }
 
+
+
+
+
 @media all and (max-width: 768px) {
   .right-panel--fixed-panel {
     top: 205px;
@@ -277,6 +281,10 @@
 
 @media all and (max-width: 475px) {
   .right-panel-body {
+    width: 300px;
+  }
+
+  .right-panel-block{
     width: 300px;
   }
   .right-panel--fixed-panel {
@@ -294,6 +302,9 @@
 
 @media all and (min-width: 476px) and (max-width: 1200px) {
   .right-panel-body {
+    width: 400px;
+  }
+  .right-panel-block{
     width: 400px;
   }
   .right-panel--fixed-panel {
@@ -314,42 +325,30 @@
     padding-right: 44px;
   }
 
-  //.right-first-panel {
-  //  //margin-bottom: 15px;
-  //  &.--margin {
-  //    margin-bottom: 15px;
-  //  }
-  //}
-    .right-panel--fixed-panel {
-      position: fixed;
-      -webkit-transition: all 0.5s ease;
-      transition: all 0.5s ease;
-      width: 50px;
-      overflow: hidden;
-      z-index: 1000;
-      @include transition();
-      right: 0;
-      border-right: 1px solid #e7e7e7;
+  .right-panel--fixed-panel {
+    position: fixed;
+    width: 50px;
+    overflow: hidden;
+    z-index: 1000;
+    @include transition();
+    right: 0;
+    border-right: 1px solid #e7e7e7;
 
-      &:hover{
-        .right-panel-two, .right-panel-one {
-          height: 100%;
+    &:hover{
+      .right-panel-two, .right-panel-one {
+        height: 100%;
+      }
+      .right-first-panel--margin {
+          margin-bottom: 215px;
         }
-        .right-first-panel{
-          margin-bottom: 15px;
-          &.--margin {
-            margin-bottom: 215px;
-          }
-        }
-        .right-second-panel__panel {
-          margin: 0;
-        }
+      }
+      .right-second-panel__panel {
+        margin: 0;
       }
     }
 
   .right-panel-two, .right-panel-one {
       position: fixed;
-      //-webkit-transition: all 0.5s ease;
       transition: all 0.5s ease;
       overflow: hidden;
       z-index: 1000;
@@ -357,15 +356,18 @@
       @include width-height(0, 0);
       right: 0;
       border-right: 1px solid #e7e7e7;
-      //margin-bottom: 200px;
+      margin-bottom: 200px;
     }
-    .right-first-panel{
+    .right-first-panel--margin{
+      margin-bottom: 15px;
       transition: margin-bottom 0.5s ease;
     }
     .right-panel-body {
       box-shadow: $right-panels-shadow;
     }
-
+  .right-first-panel--margin-added {
+    margin-bottom: 0 !important;
+  }
 }
 
 @media all and (min-width:300px) and (max-width: 1440px) {

@@ -12,16 +12,21 @@
   float: none;
 }
 
-#menu-toggle:focus, #menu-toggle-2:focus, #menu-toggle:hover,#menu-toggle-2:hover {
+#menu-toggle:focus,
+#menu-toggle-2:focus,
+#menu-toggle:hover,
+#menu-toggle-2:hover {
   @include background-border($menu-color-hover,1px,$menu-color-hover);
 }
-#menu-toggle:focus, #menu-toggle-2:focus{
+#menu-toggle:focus,
+#menu-toggle-2:focus{
   span {
     color: $menu-color-icon;
   }
 }
 
-#menu-toggle,#menu-toggle-2 {
+#menu-toggle,
+#menu-toggle-2 {
   @include padding-left-right (13px, 13px);
   color: #fff;
   font-size: 18px;
@@ -123,6 +128,9 @@ nav {
 #bs-example-navbar-collapse-1 {
   float: left;
 }
+
+
+
 
 #wrapper {
   @include transition;
