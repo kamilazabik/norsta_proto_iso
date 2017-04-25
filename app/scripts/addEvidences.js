@@ -7,7 +7,7 @@ function addAttrToEvidenceWindow(classNameText){
       var dataEvidence = $(this).attr('data-evidence')
         , modalEvidence = $('#modalEvidence')
         , buttonSave = $('.save-new-evid.btn');
-      console.log(buttonAdd)
+
 
       buttonSave.removeAttr('data-evidence');
       modalEvidence.removeAttr('data-name');

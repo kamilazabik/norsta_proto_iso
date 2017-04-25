@@ -6,7 +6,6 @@ function createPage(numberClass, isNextLoad) {
     , mainPanel = $('#main-panel')
     , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
-    // , titleClaim = $('.title-hseq' + numberClass)
     , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
@@ -18,8 +17,6 @@ function createPage(numberClass, isNextLoad) {
   row.remove();
   content.prepend(makeMainPanel());
 
-  // console.log(titleClaim.text())
-  // console.log(titleClaim1);
 
   $('.sliderRightPanel').empty();
 
@@ -47,9 +44,11 @@ function createPage(numberClass, isNextLoad) {
   }else{
 
     var oneTitle = panelTitle[numberClass];
+    console.log(panelTitle)
+    var parentTitle = isoObject[numberClass].name
 
     if (numberClass != 'A' && isoObject[numberClass].children && isoObject[numberClass].children != '') {
-      makePanelsTitle(numberClass, oneTitle);
+      makePanelsTitle(numberClass, parentTitle);
 
       var numberOfChildren = (isoObject[numberClass].children).split(',')
         , nameOfChildren = (isoObject[numberClass].childrenNames).split('.')
@@ -69,18 +68,15 @@ function createPage(numberClass, isNextLoad) {
     loadPage(isNextLoad);
     onLoadPage();
     searchText();
-
+    markClickedSidebar();
   }
 }//createPage
-
 
 function loadPage(isNextLoad){
 
   var links = $('[data-button]')
     , allTitles = $('[data-title]')
 
-  //
-  // $('#panel-content').load('jade/right-panels.html')
 
   links.each(function(i) {
       var className = $(this)
@@ -92,7 +88,6 @@ function loadPage(isNextLoad){
       allTitles.each(function (index, value) {
         if (!panelTitle) {
           panelTitle = {};
-          console.log(panelTitle)
         }
 
         // index = value.className;
@@ -103,7 +98,6 @@ function loadPage(isNextLoad){
       allRangeSlider.each(function (index, value) {
         if (!sliderTitle) {
           sliderTitle = {};
-          console.log(sliderTitle)
         }
         index = value.name;
         sliderTitle[index] = value
@@ -154,45 +148,11 @@ function loadPage(isNextLoad){
   );
 }//loadPage
 
-
 function onLoadPage() {
 
   loadTitle();
   SetSelectAssessmentField();
   loadRightPanel();
-
-  $(function () {
-    var linksContent = $('div#content div.col-md-5').find('a');
-    var linksSidebar = $('div#sidebar-wrapper ul').find('a');
-
-    $(linksContent).on('click', function (e) {
-      $(linksSidebar).removeClass('red');
-      var clickedLink = $(this);
-      $.each(linksSidebar, function (index, value) {
-        if($(value).text().indexOf(clickedLink.text().trim())>=0){
-          $(value).addClass('red');
-          if($(value).is(':hidden')){
-            var siblings = $(value).parents('li').nextAll().prevAll();
-            siblings.show('fast');
-          }
-        }
-      });
-      e.stopPropagation();
-    });
-
-    $('#menu-projects').on('click', function (e) {
-      $(linksSidebar).removeClass('red');
-      e.stopPropagation();
-    });
-
-    $(linksSidebar).on('click', function (e) {
-      $(linksSidebar).removeClass('red');
-      $(this).addClass('red');
-      e.stopPropagation();
-    })
-
-  });
-
   setFilter();
   $('.slider').rangeslider();
 
@@ -285,7 +245,6 @@ function moveRightPanel() {
   if (mql.matches) {
       firstPanel.on('click', function () {
         $('.right-first-panel').toggleClass('right-first-panel--margin-added', 1000,"ease"  );
-        console.log('klikam')
       });
   }
 

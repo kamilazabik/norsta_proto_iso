@@ -12,7 +12,8 @@ $(document).ready( function(){
   moveRightPanel();
   changeViewOfFolderList();
   eventsOnRightPanels();
-  loadSidebar()
+  loadSidebar();
+  createPageAfterClickSidebar()
 });//END of document.READY
 
 

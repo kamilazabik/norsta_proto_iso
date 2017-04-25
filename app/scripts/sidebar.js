@@ -1,9 +1,5 @@
-// $(document).ready(function(){
-
 function createSidebar(numberClass, className){
-  var numberOfChildren = (isoObject[numberClass].children).split(',');
-  var numberOfChildrenName = (isoObject[numberClass].childrenNames).split('.')
-    , ulNode = $('<ul class="nav-pills nav-stacked"></ul>')
+    var ulNode = $('<ul class="nav-pills nav-stacked"></ul>')
     , liNode = $('<li></li>')
     , spanNode = $('<span></span>')
     , iNode = $('<i class="glyphicon glyphicon-chevron-down"></i>')
@@ -38,7 +34,8 @@ function loadSidebar() {
   $(' #sidebar-wrapper').append(ul);
     span.append(createSidebar('A', isoObject['A'].name));
 
-  collapsSidebar()
+  collapseSidebar();
+  markClickedSidebar()
 }
 
 
@@ -57,7 +54,7 @@ function moveSidebar(){
   });
 }
 
-function collapsSidebar(){
+function collapseSidebar(){
   $('div#sidebar-wrapper li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
   // console.log($('div#sidebar-wrapper li ul > li'))
   // var t = $('#sidebar-wrapper > li').find('li.parent_li');
@@ -65,9 +62,13 @@ function collapsSidebar(){
   // console.log(t);
 
   $('div#sidebar-wrapper li.parent_li > span').on('click', function (e) {
-    var children = $(this).parent('.parent_li').find(' > ul > li');
+
+    // var children = $(this).parent('.parent_li').find(' > ul > li');
+
+    var children = $(this).parent('.parent_li').children().next().children().children();
     console.log($(this));
-    console.log(children);
+    console.log($(this).parent('.parent_li').find('ul li'));
+    console.log($(this).parent('.parent_li').children().next().children().children());
     if (children.is(':visible')) {
       children.hide('fast');
       $(this).attr('title', 'Expand this branch').find(' > i').toggleClass('glyphicon-chevron-down glyphicon-chevron-right');
@@ -80,6 +81,74 @@ function collapsSidebar(){
   });
 }
 
-// });
+function markClickedSidebar() {
+    var linksContent = $('a[data-title]')
+      , linksSidebar = $('a[data-sidebar]');
+
+    $(linksContent).on('click', function (e) {
+      var _this = $(this).attr('data-title');
+
+      $(linksSidebar).removeClass('red');
+
+      $.each(linksSidebar, function (index, value) {
+        // var valueOfSidebarAttr = value.attributes['data-sidebar'].value;
+        var valueOfSidebarAttr = $(value)[0].attributes[0].value;
+
+        if(_this == valueOfSidebarAttr){
+
+          $(value).addClass('red');
+
+          if($(value).is(':hidden')){
+
+            // var siblings = $(value).parents('li').nextAll().prevAll();
+            var clickedNode = $(value).parents('li');
+            var siblings = $($(value).parents('li').parents('ul')[0].parentNode.childNodes);
 
 
+            for(var i = 1; i < siblings.length; i++){
+              siblings[i].childNodes[0].style.display = 'inline-block'
+            }
+            clickedNode.show();
+          }
+        }
+
+        // console.log($(value))
+        // if($(value).text().indexOf(clickedLink.text().trim())>=0){
+        //   $(value).addClass('red');
+        //   if($(value).is(':hidden')){
+        //     var siblings = $(value).parents('li').nextAll().prevAll();
+        //     siblings.show('fast');
+        //   }
+        // }
+      });
+      e.stopPropagation();
+    });
+
+
+
+
+
+
+
+
+
+    $('#menu-projects').on('click', function (e) {
+      $(linksSidebar).removeClass('red');
+      e.stopPropagation();
+    });
+
+    $(linksSidebar).on('click', function (e) {
+      $(linksSidebar).removeClass('red');
+      $(this).addClass('red');
+      e.stopPropagation();
+    })
+}
+
+function createPageAfterClickSidebar() {
+  var linksSidebar = $('a[data-sidebar]');
+  linksSidebar.on('click', function () {
+    var _this = $(this).attr('data-sidebar');
+    console.log(_this)
+    createPage(_this, false);
+  })
+}

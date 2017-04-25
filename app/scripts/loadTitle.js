@@ -3,16 +3,14 @@ function loadTitle(){
     , label = $('.label-claim')
     , slider = $('.sliderRightPanel input.slider');
 
-  console.log(allElement)
-
   allElement.each(function(){
     var className = $(this)
       , numberClass = className.attr('data-panel')
       , panel = $('[data-button = \'' + numberClass + '\']');
 
-    clickOnClassName(numberClass, className,panel);
+    clickOnClassName(numberClass, className, panel);
     addAttrToEvidenceWindow(numberClass);
-    loadPageWithEvidences(numberClass)
+    loadPageWithEvidences(numberClass);
 
   });
 }//loadTitle
@@ -86,7 +84,6 @@ function blockInput(numberClass, allInputs){
 function addComments (classNameText){
   var comment = $('.evidences-content-assess__added-comment');
 
-  console.log(isoObject[classNameText].comment);
 
   if(!isoObject[classNameText] ||!isoObject[classNameText].comment ){
     comment.text('');
