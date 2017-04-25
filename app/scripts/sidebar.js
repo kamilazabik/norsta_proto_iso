@@ -111,26 +111,9 @@ function markClickedSidebar() {
             clickedNode.show();
           }
         }
-
-        // console.log($(value))
-        // if($(value).text().indexOf(clickedLink.text().trim())>=0){
-        //   $(value).addClass('red');
-        //   if($(value).is(':hidden')){
-        //     var siblings = $(value).parents('li').nextAll().prevAll();
-        //     siblings.show('fast');
-        //   }
-        // }
       });
       e.stopPropagation();
     });
-
-
-
-
-
-
-
-
 
     $('#menu-projects').on('click', function (e) {
       $(linksSidebar).removeClass('red');
