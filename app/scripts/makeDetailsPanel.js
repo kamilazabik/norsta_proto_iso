@@ -1,7 +1,7 @@
 function makeButtonExpand(numberOfChildMainPanel, j){
   var panelRowCol6Row1 = $('<div class="row"></div>')
     , panelRowCol6Row1Col = $('<div class="allPanels__buttons-body"></div>')
-    ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\' btn btn-sm custom-btn expand-main-page btn-expand-panel\' data-button=\'' + numberOfChildMainPanel[j - 1] + '\'>Rozwiń</button>');
+    ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\' btn btn-sm custom-btn expand-main-page btn-expand-panel\' data-label=\'' + numberOfChildMainPanel[j - 1] + '\'>Rozwiń</button>');
 
   panelRowCol6Row1Col.append(panelRowCol6Button);
   panelRowCol6Row1.append(panelRowCol6Row1Col);

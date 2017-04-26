@@ -59,10 +59,18 @@ function makePanelsTitle(numberClass, oneTitle){
     , colAssesstRow = $('<div class="row"></div>')
     , colAssessRowCol1 = $('<div class="panel-title__assess-icon"></div>')
     , colAssessRowCol2 = $('<div class="panel-title__assess-value"></div>')
-    , colAssessRowColPie = $('<div class="pie panel-title__pie pull-left"></div>')
+    , colAssessRowColPie = $('<div class="pie panel-title__pie pull-left"></div>').attr('data-name',numberClass)
     , colAssessRowColNumValue = $('<p class="text-left numberValue'+numberClass+'"></p>')
     , colAssessRowColNumValuePer = $('<p class="text-left numberValue-per'+numberClass+'"></p>')
     , colBar = $('<div class="panel-title__bar-slider"></div>')
+
+
+    , max = isoObject[numberClass].maxDegree
+    , children = isoObject[numberClass].children
+    , parent = isoObject[numberClass].parent
+    , colBarSlider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberClass + '\' data-parent=\'' + parent + '\' data-children=\'' + children + '\' disabled >')
+
+
     , colButton = $('<div class="panel-title__button-expand"></div>')
     , colButtonRow1 = $('<div class="row"></div>')
     , colButtonRow1Col1 = $('<div class="panel-title__buttons-title">')
@@ -92,9 +100,9 @@ function makePanelsTitle(numberClass, oneTitle){
     , pie = $('.panel-title .pie').attr('data-name', numberClass)
     , arrowLeft = $('<i class=\'fa fa-angle-double-left\' aria-hidden=\'true\'></i>')
     , arrowRight = $('<i class=\'fa fa-angle-double-right\' aria-hidden=\'true\'></i>')
-    , buttonUp = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-up\' data-button=\'' + isoObject[numberClass].parent + '\' name=\''+ isoObject[numberClass].parent+'\'>Do góry</button>');
-  var buttonLeft = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-arrow\' data-button=\'' + prevSibling + '\'></button>').append(arrowLeft);
-  var buttonRight = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-arrow\' data-button=\'' + nextSibling + '\'></button>').append(arrowRight);
+    , buttonUp = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-up\' data-label=\'' + isoObject[numberClass].parent + '\' name=\''+ isoObject[numberClass].parent+'\'>Do góry</button>');
+  var buttonLeft = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-arrow\' data-label=\'' + prevSibling + '\'></button>').append(arrowLeft);
+  var buttonRight = $('<button type=\'button\' class=\'btn btn-sm custom-btn btn-arrow\' data-label=\'' + nextSibling + '\'></button>').append(arrowRight);
 
   if(prevSibling == undefined) {
     buttonLeft.attr('disabled', 'disabled')
@@ -104,7 +112,14 @@ function makePanelsTitle(numberClass, oneTitle){
   }
 
   $('.lab-hseq').text(numberClassWithDots);
-  $('.panel-title__bar-slider').append(sliderTitle[numberClass]);
+  // $('.panel-title__bar-slider').append(sliderTitle[numberClass]);
+  // $('.panel-title__bar-slider').append(colBarSlider);
+
+  if(sliderTitle[numberClass]){
+    $('.panel-title__bar-slider').append(sliderTitle[numberClass]);
+  }else {
+    $('.panel-title__bar-slider').append(colBarSlider);
+  }
 
   console.log(sliderTitle)
 

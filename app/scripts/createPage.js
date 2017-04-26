@@ -43,9 +43,8 @@ function createPage(numberClass, isNextLoad) {
 
   }else{
 
-    var oneTitle = panelTitle[numberClass];
-    console.log(panelTitle)
-    var parentTitle = isoObject[numberClass].name
+    var oneTitle = panelTitle[numberClass]
+      , parentTitle = isoObject[numberClass].name;
 
     if (numberClass != 'A' && isoObject[numberClass].children && isoObject[numberClass].children != '') {
       makePanelsTitle(numberClass, parentTitle);
@@ -68,21 +67,21 @@ function createPage(numberClass, isNextLoad) {
     loadPage(isNextLoad);
     onLoadPage();
     searchText();
-    markClickedSidebar();
+
   }
 }//createPage
 
 function loadPage(isNextLoad){
 
-  var links = $('[data-button]')
-    , allTitles = $('[data-title]')
+  var links = $('[data-label]')
+    , allTitles = $('[data-title]');
 
 
   links.each(function(i) {
       var className = $(this)
-        , numberClass = className.attr('data-button')
+        , numberClass = className.attr('data-label')
         , allRangeSlider = $('.slider')
-        , clickedButton = $('[data-button = \'' + numberClass + '\']')
+        , clickedButton = $('[data-label = \'' + numberClass + '\']')
         , clickedPanel = $('[data-panel = \'' + numberClass + '\']');
 
       allTitles.each(function (index, value) {
@@ -104,10 +103,10 @@ function loadPage(isNextLoad){
       });
 
       if (isNextLoad) {
-        clickedButton.on('click', function (e) {
-            e.preventDefault();
-            createPage(numberClass, true)
-          });
+        // clickedButton.on('click', function (e) {
+        //     e.preventDefault();
+        //     createPage(numberClass, true)
+        //   });
 
         clickedPanel.on('dblclick', function (e) {
             e.preventDefault();
@@ -116,6 +115,9 @@ function loadPage(isNextLoad){
 
         clickedButton.on('click', function (e) {
             // var buttonClass = $(this).attr('name');
+          console.log(clickedButton);
+          console.log(notSavedAssessment);
+
             if(notSavedAssessment && !SzybkaOcena){
 
               $('#myModal').modal('show');
@@ -154,6 +156,7 @@ function onLoadPage() {
   SetSelectAssessmentField();
   loadRightPanel();
   setFilter();
+  markClickedSidebar();
   $('.slider').rangeslider();
 
 }//onLoadPage

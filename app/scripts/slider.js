@@ -146,8 +146,6 @@ function updateSlider(passObj, memo, isInit) {
       slidersMemo={};
     }
 
-
-
     var xxx=obj[0].name;
     if(SzybkaOcena){
       // zapisanie oceny
