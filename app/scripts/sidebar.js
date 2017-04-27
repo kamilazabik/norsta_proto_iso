@@ -53,7 +53,6 @@ function moveSidebar(){
     e.preventDefault();
     var widthOfContent = $('#content').width();
     $('#wrapper').toggleClass('toggled-2');
-    // console.log(parseInt($('#page-content-wrapper').css('margin-left')));
   });
 }//moveSidebar
 
@@ -127,15 +126,16 @@ function markClickedSidebarRed(sidebar,links,dataAttr) {
         $(value.childNodes[0]).addClass('red');
 
         if(_thisClass && _this != 'A'){
-          $(this).children().slice(1).hide();
+          // $(this).children().children().css('display', 'none');
+          $(this).children().children().hide()
         }else{
           if($(value).is(':hidden')){
             // var siblings = $(value).parents('li').nextAll().prevAll();
-
             for(var i = 1; i < siblings.length; i++){
               siblings[i].childNodes[0].style.display = 'inline-block'
             }
             clickedNode.show();
+
           }
         }
       }
