@@ -121,8 +121,6 @@ function makePanelsTitle(numberClass, oneTitle){
     $('.panel-title__bar-slider').append(colBarSlider);
   }
 
-  console.log(sliderTitle)
-
   colButtonRow1Col1.append(buttonUp);
   colButtonRow2Col1.append(buttonRight, buttonLeft);
   colButton.append(colButtonRow1, colButtonRow2);

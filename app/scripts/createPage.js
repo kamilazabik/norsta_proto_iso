@@ -114,10 +114,6 @@ function loadPage(isNextLoad){
           });
 
         clickedButton.on('click', function (e) {
-            // var buttonClass = $(this).attr('name');
-          console.log(clickedButton);
-          console.log(notSavedAssessment);
-
             if(notSavedAssessment && !SzybkaOcena){
 
               $('#myModal').modal('show');

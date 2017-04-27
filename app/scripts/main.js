@@ -14,6 +14,7 @@ $(document).ready( function(){
   eventsOnRightPanels();
   loadSidebar();
   createPageAfterClickSidebar()
+  addColorForSidebar()
 });//END of document.READY
 
 

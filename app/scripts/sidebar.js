@@ -1,10 +1,14 @@
 function createSidebar(numberClass, className){
     var ulNode = $('<ul class="nav-pills nav-stacked"></ul>')
     , liNode = $('<li></li>')
-    , spanNode = $('<span></span>')
+    , spanNode = $('<span class="sidebar-icon"></span>')
     , iNode = $('<i class="glyphicon glyphicon-chevron-down"></i>')
-    , aNode = $('<a data-sidebar=\'' + numberClass+ '\' ></a>').text(className);
+    , aNode = $('<a data-sidebar=\'' + numberClass+ '\' ></a>')
+    , aSpan = $('<span></span>').text(function () {
+        return addDotsForLabels(numberClass) + ' ' + className;
+      });
 
+    aNode.append(aSpan);
     spanNode.append(iNode);
     liNode.append(spanNode, aNode);
     ulNode.append(liNode);
@@ -16,17 +20,16 @@ function createSidebar(numberClass, className){
       aNode.append(createSidebar(childId, isoObject[childId].name))
   });
   }
-
   return ulNode
-}
+}//createSidebar
 
 function loadSidebar() {
-  var numberOfChildren = (isoObject['A'].children).split(',')
-  var nameOfChildren = (isoObject['A'].children.name)
+  var numberOfChildren = (isoObject['A'].children).split(',');
+  var nameOfChildren = (isoObject['A'].children.name);
   var ul = $('<ul class="sidebar-nav nav-pills nav-stacked"></ul>')
     , li = $('<li></li>')
     , span = $('<span class="title"></span>')
-    , icon = $('<i class="glyphicon glyphicon-chevron-down">NOR-STA</i>')
+    , icon = $('<i class="glyphicon glyphicon-chevron-down">NOR-STA</i>');
 
   span.append(icon);
   li.append(span);
@@ -36,7 +39,7 @@ function loadSidebar() {
 
   collapseSidebar();
   markClickedSidebar()
-}
+}//loadSidebar
 
 
 function moveSidebar(){
@@ -52,7 +55,7 @@ function moveSidebar(){
     $('#wrapper').toggleClass('toggled-2');
     // console.log(parseInt($('#page-content-wrapper').css('margin-left')));
   });
-}
+}//moveSidebar
 
 function collapseSidebar(){
   $('div#sidebar-wrapper li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
@@ -65,9 +68,7 @@ function collapseSidebar(){
     // var children = $(this).parent('.parent_li').find(' > ul > li');
 
     var children = $(this).parent('.parent_li').children().next().children().children();
-    // console.log($(this));
-    // console.log($(this).parent('.parent_li').find('ul li'));
-    // console.log($(this).parent('.parent_li').children().next().children().children());
+
     if (children.is(':visible')) {
       children.hide('fast');
       $(this).attr('title', 'Expand this branch').find(' > i').toggleClass('glyphicon-chevron-down glyphicon-chevron-right');
@@ -78,7 +79,7 @@ function collapseSidebar(){
     }
     e.stopPropagation();
   });
-}
+}//collapseSidebar
 
 function markClickedSidebar() {
     var linksContent = $('[data-panel]')
@@ -87,88 +88,58 @@ function markClickedSidebar() {
 
   markClickedSidebarRed(linksSidebar,linksContent,'data-panel');
   markClickedSidebarRed(linksSidebar, linksLabel,'data-label');
+}//markClickedSidebar
 
-//     $(linksContent).on('click', function (e) {
-//       var _this = $(this).attr('data-panel');
-// console.log(e)
-//
-//       $(linksSidebar).removeClass('red');
-//
-//       $.each(linksSidebar, function (index, value) {
-//         // var valueOfSidebarAttr = value.attributes['data-sidebar'].value;
-//         var valueOfSidebarAttr = $(value)[0].attributes[0].value;
-//
-//         if(_this == valueOfSidebarAttr){
-//
-//           $(value).addClass('red');
-//
-//           if($(value).is(':hidden')){
-//             // var siblings = $(value).parents('li').nextAll().prevAll();
-//             var clickedNode = $(value).parents('li')
-//               , siblings = $($(value).parents('li').parents('ul')[0].parentNode.childNodes);
-//
-//             for(var i = 1; i < siblings.length; i++){
-//               siblings[i].childNodes[0].style.display = 'inline-block'
-//             }
-//             clickedNode.show();
-//           }
-//         }
-//       });
-//       // e.stopPropagation();
-//     })
-
-
-    $('#menu-projects').on('click', function (e) {
-      $(linksSidebar).removeClass('red');
-      e.stopPropagation();
-    });
-
-    $(linksSidebar).on('click', function (e) {
-      $(linksSidebar).removeClass('red');
-      $(this).addClass('red');
-      e.stopPropagation();
-    })
-}
+function addColorForSidebar() {
+  var linksSidebar = $('a[data-sidebar]');
+  $(linksSidebar).on('click', function (e) {
+    $(linksSidebar.children('span.red')).removeClass('red');
+    $(this).children('span').addClass('red');
+    e.stopPropagation();
+  })
+}//addColorForSidebar
 
 function createPageAfterClickSidebar() {
   var linksSidebar = $('a[data-sidebar]');
   linksSidebar.on('click', function () {
     var _this = $(this).attr('data-sidebar');
     if(isoObject[_this].children){
-      // console.log(_this)
-      // console.log(sliderTitle)
       createPage(_this, true);
     }
   })
-}
+}//createPageAfterClickSidebar
 
 
 function markClickedSidebarRed(sidebar,links,dataAttr) {
   $(links).on('click', function (e) {
     var _this = $(this).attr(dataAttr);
+    var _thisClass = $(this).hasClass('btn-up');
 
-    $(sidebar).removeClass('red');
+    $(sidebar.children('span.red')).removeClass('red');
 
     $.each(sidebar, function (index, value) {
-      // var valueOfSidebarAttr = value.attributes['data-sidebar'].value;
       var valueOfSidebarAttr = $(value)[0].attributes[0].value;
 
       if(_this == valueOfSidebarAttr){
+        var clickedNode = $(value).parents('li')
+          , siblings = $($(value).parents('li').parents('ul')[0].parentNode.childNodes);
 
-        $(value).addClass('red');
+        $(value.childNodes[0]).addClass('red');
 
-        if($(value).is(':hidden')){
-          // var siblings = $(value).parents('li').nextAll().prevAll();
-          var clickedNode = $(value).parents('li')
-            , siblings = $($(value).parents('li').parents('ul')[0].parentNode.childNodes);
+        if(_thisClass && _this != 'A'){
+          $(this).children().slice(1).hide();
+        }else{
+          if($(value).is(':hidden')){
+            // var siblings = $(value).parents('li').nextAll().prevAll();
 
-          for(var i = 1; i < siblings.length; i++){
-            siblings[i].childNodes[0].style.display = 'inline-block'
+            for(var i = 1; i < siblings.length; i++){
+              siblings[i].childNodes[0].style.display = 'inline-block'
+            }
+            clickedNode.show();
           }
-          clickedNode.show();
         }
       }
     });
     // e.stopPropagation();
   })
-}
+}//markClickedSidebarRed
