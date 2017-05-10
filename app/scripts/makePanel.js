@@ -4,10 +4,10 @@
  */
 
 function makeMainPanel(){
-  var mainPanel = $('<div id="main-panel" class="row"></div>')
+  var mainPanel = $('<div class="row content-main-panel"></div>')
     // , col = $('<div class="col-xs-12"></div>')
     // , col1 = $('<div class="col-xs-12"></div>')
-    , col1row = $('<div class="row fixedPos panel-header"></div>')
+    , col1row = $('<div class="row panel-header"></div>')
     , col1rowTitleMain = $('<div class="panel-header__title"></div>')
     , col1rowTitleMainH3 = $('<h3></h3>').attr('data-title', 'A0').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
     , col1rowAssess = $('<div class="panel-header__assessment"></div>')

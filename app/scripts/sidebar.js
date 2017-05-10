@@ -26,7 +26,7 @@ function createSidebar(numberClass, className){
 function loadSidebar() {
   var numberOfChildren = (isoObject['A'].children).split(',');
   var nameOfChildren = (isoObject['A'].children.name);
-  var ul = $('<ul class="sidebar-nav nav-pills nav-stacked"></ul>')
+  var ul = $('<ul class="wrapper-sidebar-nav nav-pills nav-stacked"></ul>')
     , li = $('<li></li>')
     , span = $('<span class="title"></span>')
     , icon = $('<i class="glyphicon glyphicon-chevron-down">NOR-STA</i>');
@@ -34,7 +34,7 @@ function loadSidebar() {
   span.append(icon);
   li.append(span);
   ul.append(li);
-  $(' #sidebar-wrapper').append(ul);
+  $(' .wrapper-sidebar').append(ul);
     span.append(createSidebar('A', isoObject['A'].name));
 
   collapseSidebar();
@@ -45,24 +45,24 @@ function loadSidebar() {
 function moveSidebar(){
   $('#menu-toggle').click(function(e) {
     e.preventDefault();
-    $('#wrapper').toggleClass('toggled');
+    $('.wrapper').toggleClass('wrapper--toggled-mobile');
     // $('#wrapper').toggleClass('toggled');
   });
 
   $('#menu-toggle-2').click(function(e) {
     e.preventDefault();
     var widthOfContent = $('#content').width();
-    $('#wrapper').toggleClass('toggled-2');
+    $('.wrapper').toggleClass('wrapper--toggled-desk');
   });
 }//moveSidebar
 
 function collapseSidebar(){
-  $('div#sidebar-wrapper li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-  // console.log($('div#sidebar-wrapper li ul > li'))
-  // var t = $('#sidebar-wrapper > li').find('li.parent_li');
-  var t = $('div#sidebar-wrapper ul ul ul ul li').hide();
+  $('.wrapper-sidebar li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+  // console.log($('div#wrapper-sidebar li ul > li'))
+  // var t = $('#wrapper-sidebar > li').find('li.parent_li');
+  var t = $('.wrapper-sidebar ul ul ul ul li').hide();
 
-  $('div#sidebar-wrapper li.parent_li > span').on('click', function (e) {
+  $('.wrapper-sidebar li.parent_li > span').on('click', function (e) {
 
     // var children = $(this).parent('.parent_li').find(' > ul > li');
 

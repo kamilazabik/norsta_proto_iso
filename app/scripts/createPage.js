@@ -3,13 +3,13 @@ function createPage(numberClass, isNextLoad) {
     , nameOfChildMainPanel = (isoObject['A'].childrenNames).split('.')
     , childDegreeMainPanel = (isoObject['A'].childrenMaxDegree).split(',')
     , content = $('#content')
-    , mainPanel = $('#main-panel')
+    , mainPanel = $('.content-main-panel')
     , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
     , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
-    , panelContent = $('<div id="panel-content" class="row"></div>')
+    , panelContent = $('<div class="row content-panels"></div>')
     , paddingContent = $('<div class="panels-list"></div>');
 
   mainPanel.remove();
@@ -23,7 +23,7 @@ function createPage(numberClass, isNextLoad) {
   if (numberClass == 'A') {
 
     var paddingContentExisted = $('.panels-list')
-      , panelContentExisted = $('#panel-content');
+      , panelContentExisted = $('.content-panels');
 
   if(paddingContentExisted.length == 0 || panelContentExisted == 0){
 
@@ -160,7 +160,7 @@ function onLoadPage() {
 function loadRightPanel() {
   var twoRightPanels = $('.right-panel');
   if(twoRightPanels.length == 0){
-    $('#panel-content').append(  makeRightPanel());
+    $('.content-panels').append(  makeRightPanel());
     // $('#panel-content').append(rightPanels);
   }
 }

@@ -11,13 +11,13 @@ block content
     #main-page.container-fluid
       nav.navbar.no-margin.navbar-fixed-top
         include jade/includes/nav-top
-      #wrapper.toggled-2
-        #sidebar-wrapper.tree
+      .wrapper.wrapper--toggled-desk
+        .wrapper-sidebar.tree
           //include jade/includes/sidebar
-        #page-content-wrapper
+        .wrapper-page-content
           #filter-panel.collapse.filter-panel
             include jade/includes/search
           include jade/pages/A-panel-content
-          #content.container-fluid.xyz.marginPanelContentBig
+          #content.container-fluid.content
 
 

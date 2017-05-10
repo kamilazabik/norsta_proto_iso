@@ -372,65 +372,65 @@
 
 @media all and (min-width:300px) and (max-width: 1440px) {
 
-  .sidebar-nav {
+  .wrapper-sidebar-nav {
     width: $sidebar-md;
   }
-  #wrapper {
+  .wrapper {
     padding-left: $sidebar-md;
   }
-  #sidebar-wrapper {
+  .wrapper-sidebar {
     width: $sidebar-md;
   }
-  #wrapper.toggled-2 #sidebar-wrapper {
+  .wrapper.wrapper--toggled-desk .wrapper-sidebar {
     width: 35px;
   }
-  #wrapper.toggled {
-    #sidebar-wrapper  {
+  .wrapper.wrapper--toggled-mobile {
+    .wrapper-sidebar  {
       width: $sidebar-md;
     }
-    #page-content-wrapper {
+    .wrapper-page-content {
       padding-left: $sidebar-md;
     }
   }
-  #wrapper.toggled-2 {
-    #sidebar-wrapper:hover {
+  .wrapper.wrapper--toggled-desk {
+    .wrapper-sidebar:hover {
       //width: 250px;
       width: $sidebar-md;
     }
-    #page-content-wrapper {
+    .wrapper-page-content {
       margin-left: -315px;
     }
   }
 }
 
 @media all and (min-width:1200px){
-  .sidebar-nav {
+  .wrapper-sidebar-nav {
     width: $sidebar-max;
   }
-  #wrapper {
+  .wrapper {
     padding-left: $sidebar-max;
   }
-  #sidebar-wrapper {
+  .wrapper-sidebar {
     width: $sidebar-max;
   }
-  #wrapper.toggled-2 #sidebar-wrapper {
+  .wrapper.wrapper--toggled-desk .wrapper-sidebar {
     width: 35px;
   }
-  #wrapper.toggled {
-    #sidebar-wrapper  {
+  .wrapper.wrapper--toggled-mobile {
+    .wrapper-sidebar  {
       //width: 250px;
       width: $sidebar-max;
     }
-    #page-content-wrapper {
+    .wrapper-page-content {
       padding-left: $sidebar-max;
     }
   }
-  #wrapper.toggled-2 {
-    #sidebar-wrapper:hover {
+  .wrapper.wrapper--toggled-desk {
+    .wrapper-sidebar:hover {
       //width: 250px;
       width: $sidebar-max;
     }
-    #page-content-wrapper {
+    .wrapper-page-content {
       margin-left: -365px;
     }
   }
