@@ -1,24 +1,24 @@
 function createSidebar(numberClass, className){
-    var ulNode = $('<ul class="nav-pills nav-stacked"></ul>')
+  var ulNode = $('<ul class="nav-pills nav-stacked"></ul>')
     , liNode = $('<li></li>')
     , spanNode = $('<span class="sidebar-icon"></span>')
     , iNode = $('<i class="glyphicon glyphicon-chevron-down"></i>')
-    , aNode = $('<a data-sidebar=\'' + numberClass+ '\' ></a>')
+    , aNode = $('<a data-sidebar=\'' + numberClass+ '\' class="sidebar-link"></a>')
     , aSpan = $('<span></span>').text(function () {
-        return addDotsForLabels(numberClass) + ' ' + className;
-      });
+    return addDotsForLabels(numberClass) + ' ' + className;
+  });
 
-    aNode.append(aSpan);
-    spanNode.append(iNode);
-    liNode.append(spanNode, aNode);
-    ulNode.append(liNode);
+  aNode.append(aSpan);
+  spanNode.append(iNode);
+  liNode.append(spanNode, aNode);
+  ulNode.append(liNode);
 
   var children = isoObject[numberClass].children;
 
   if(children){
     $.each(children.split(','), function (idx, childId) {
       aNode.append(createSidebar(childId, isoObject[childId].name))
-  });
+    });
   }
   return ulNode
 }//createSidebar
@@ -35,7 +35,7 @@ function loadSidebar() {
   li.append(span);
   ul.append(li);
   $(' .wrapper-sidebar').append(ul);
-    span.append(createSidebar('A', isoObject['A'].name));
+  span.append(createSidebar('A', isoObject['A'].name));
 
   collapseSidebar();
   markClickedSidebar()
@@ -81,9 +81,9 @@ function collapseSidebar(){
 }//collapseSidebar
 
 function markClickedSidebar() {
-    var linksContent = $('[data-panel]')
-      , linksSidebar = $('a[data-sidebar]')
-      , linksLabel = $('[data-label]')
+  var linksContent = $('[data-panel]')
+    , linksSidebar = $('a[data-sidebar]')
+    , linksLabel = $('[data-label]')
 
   markClickedSidebarRed(linksSidebar,linksContent,'data-panel');
   markClickedSidebarRed(linksSidebar, linksLabel,'data-label');
