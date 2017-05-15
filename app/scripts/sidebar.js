@@ -1,41 +1,37 @@
 function createSidebar(numberClass, className){
-  var ulNode = $('<ul class="nav-pills nav-stacked"></ul>')
-    , liNode = $('<li></li>')
-    , spanNode = $('<span class="sidebar-icon"></span>')
+  var ulNode = $('<ul class="nav-pills nav-stacked wrapper-sidebar-nav__ul"></ul>')
+    , liNode = $('<li class="wrapper-sidebar-nav__li"></li>')
+    , spanNode = $('<span class="wrapper-sidebar-nav__icon"></span>')
     , iNode = $('<i class="glyphicon glyphicon-chevron-down"></i>')
-    , aNode = $('<a data-sidebar=\'' + numberClass+ '\' class="sidebar-link"></a>')
-    , aSpan = $('<span></span>').text(function () {
+    , aNode = $('<a data-sidebar=\'' + numberClass+ '\' class="wrapper-sidebar-nav__link"></a>').text(function () {
     return addDotsForLabels(numberClass) + ' ' + className;
-  });
+  })
+    , aSpan = $('<span class="wrapper-sidebar-nav__span"></span>')
 
-  aNode.append(aSpan);
+  aSpan.append(aNode);
   spanNode.append(iNode);
-  liNode.append(spanNode, aNode);
+  liNode.append(spanNode, aSpan);
   ulNode.append(liNode);
 
   var children = isoObject[numberClass].children;
 
   if(children){
     $.each(children.split(','), function (idx, childId) {
-      aNode.append(createSidebar(childId, isoObject[childId].name))
+      liNode.append(createSidebar(childId, isoObject[childId].name))
     });
   }
   return ulNode
 }//createSidebar
 
 function loadSidebar() {
-  var numberOfChildren = (isoObject['A'].children).split(',');
-  var nameOfChildren = (isoObject['A'].children.name);
-  var ul = $('<ul class="wrapper-sidebar-nav nav-pills nav-stacked"></ul>')
-    , li = $('<li></li>')
-    , span = $('<span class="title"></span>')
-    , icon = $('<i class="glyphicon glyphicon-chevron-down">NOR-STA</i>');
+  var ul = $('<ul class="nav-pills nav-stacked wrapper-sidebar-nav"></ul>');
 
-  span.append(icon);
-  li.append(span);
-  ul.append(li);
   $(' .wrapper-sidebar').append(ul);
-  span.append(createSidebar('A', isoObject['A'].name));
+  ul.append(createSidebar('A', isoObject['A'].name));
+
+  console.log($('.wrapper-sidebar-nav'))
+
+  $('.wrapper-sidebar-nav ul').first().addClass('wrapper-sidebar-nav--padding')
 
   collapseSidebar();
   markClickedSidebar()
@@ -66,7 +62,10 @@ function collapseSidebar(){
 
     // var children = $(this).parent('.parent_li').find(' > ul > li');
 
-    var children = $(this).parent('.parent_li').children().next().children().children();
+    // var children = $(this).parent('.parent_li').children().next().children().children();
+    var children = $(this).parent('.parent_li').find('> ul').children();
+
+    console.log($(this).parent('.parent_li').find('> ul').children())
 
     if (children.is(':visible')) {
       children.hide('fast');
@@ -83,7 +82,7 @@ function collapseSidebar(){
 function markClickedSidebar() {
   var linksContent = $('[data-panel]')
     , linksSidebar = $('a[data-sidebar]')
-    , linksLabel = $('[data-label]')
+    , linksLabel = $('[data-label]');
 
   markClickedSidebarRed(linksSidebar,linksContent,'data-panel');
   markClickedSidebarRed(linksSidebar, linksLabel,'data-label');
@@ -92,8 +91,10 @@ function markClickedSidebar() {
 function addColorForSidebar() {
   var linksSidebar = $('a[data-sidebar]');
   $(linksSidebar).on('click', function (e) {
-    $(linksSidebar.children('span.red')).removeClass('red');
-    $(this).children('span').addClass('red');
+    console.log($(this))
+
+    $(linksSidebar.removeClass('clicked-sidebar'));
+    $(this).addClass('clicked-sidebar');
     e.stopPropagation();
   })
 }//addColorForSidebar
@@ -114,7 +115,7 @@ function markClickedSidebarRed(sidebar,links,dataAttr) {
     var _this = $(this).attr(dataAttr);
     var _thisClass = $(this).hasClass('btn-up');
 
-    $(sidebar.children('span.red')).removeClass('red');
+    $(sidebar.removeClass('clicked-sidebar'));
 
     $.each(sidebar, function (index, value) {
       var valueOfSidebarAttr = $(value)[0].attributes[0].value;
@@ -123,7 +124,7 @@ function markClickedSidebarRed(sidebar,links,dataAttr) {
         var clickedNode = $(value).parents('li')
           , siblings = $($(value).parents('li').parents('ul')[0].parentNode.childNodes);
 
-        $(value.childNodes[0]).addClass('red');
+        $(value).addClass('clicked-sidebar');
 
         if(_thisClass && _this != 'A'){
           // $(this).children().children().css('display', 'none');
@@ -135,7 +136,6 @@ function markClickedSidebarRed(sidebar,links,dataAttr) {
               siblings[i].childNodes[0].style.display = 'inline-block'
             }
             clickedNode.show();
-
           }
         }
       }
