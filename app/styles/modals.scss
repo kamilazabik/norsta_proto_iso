@@ -3,14 +3,33 @@
 
 
 #modalEvidence{
-  table {
+  .modal-table {
     //table-layout:fixed;
     margin-bottom: 0;
+    @include tr-size(10%, 45%, 30%, 15%, 0);
   }
 
-  //.title{
-  //  font-size: 16px;
-  //}
+  .modal-table-head {
+    margin-bottom: 5px;
+  }
+
+  .modal-table-content {
+    height: 200px;
+    overflow-y:auto;
+
+    .modal-table-body__tr {
+      @include td-size(10%, 45%,0, 30%, 15%);
+      &:hover{
+        background-color: #ededed;
+      }
+
+      &--no-border{
+        td {
+          border-top:0;
+        }
+      }
+    }
+  }
 
   .clicked-tr{
     background-color: #ededed;
@@ -19,32 +38,6 @@
   .file {
     visibility: hidden;
     position: absolute;
-  }
-
-  .table.table-condensed{
-    @include tr-size(10%, 45%, 30%, 15%, 0);
-  }
-
-  .div-table-content {
-    height: 200px;
-    overflow-y:auto;
-
-    th{
-      font-weight: normal;
-    }
-
-    tr:nth-child(1){
-      td{
-        border-top:0;
-      }
-    }
-
-    tr {
-      @include td-size(10%, 45%,0, 30%, 15%);
-      &:hover{
-        background-color: #ededed;
-      }
-    }
   }
 }
 

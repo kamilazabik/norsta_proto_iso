@@ -38,25 +38,25 @@
         hr
         p.title Wybierz istniejący dowód
         .row
-          .col-md-12.col-ms-12.col-xs-12
-              table.table.table-condensed
+          .col-md-12.col-ms-12.col-xs-12.modal-table
+              table.table.modal-table-head
                 thead
                   tr
                     th
                     th Nazwa pliku
                     th Data przesłania
                     th
-              .div-table-content
-                table.table.table-condensed.modal-tabel-evidences
+              .modal-table-content
+                table.table.modal-table-body
                   tbody
-                    tr
+                    tr.modal-table-body__tr.modal-table-body__tr--no-border
                       td 1
                       td Dowód 1
                       td.hidden
                       td 2011-11-17 20:35:08
                       td
                         button.btn.btn-primary.btn-sm(type='button') Podgląd
-                    tr
+                    tr.modal-table-body__tr
                       td 2
                       td Dowód 2
                       td.hidden

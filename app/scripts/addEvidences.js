@@ -46,7 +46,7 @@ function addNewEvidence() {
   });
 
   var evidenceFromList;
-  $(document).on('click', '.modal-tabel-evidences td', function(){
+  $(document).on('click', '.modal-tabel-body td', function(){
     $('tr').removeClass('clicked-tr');
     evidenceFromList = $(this);
     var clickedTr = evidenceFromList.parent();
@@ -67,15 +67,19 @@ function saveEvidence(evidenceFromList, dataEvidence){
     , nameOfFile = $('.form-control.name-evid').val()
     , nameOfEvidence = $('#textareaNameEvid').val()
     , rowCount = $('#' + className +' tbody').find('tr').length + 1
-    , buttonExpandAdded = $('.btn.btn-expand.'+className)
+    // , buttonExpandAdded = $('.btn.btn-expand.'+className)
     , rowInEvidenceWindow = $('#modalEvidence tbody')
     , rowCountInEvidenceWindow = rowInEvidenceWindow.find('tr').length + 1
     , nameOfEvidenceFromList
     , nameOfFileFromList
-    , clickedPanel = $('.panel-hseq' + className+' div.number')
-    , clickedPanelButton = $('.panel-hseq' + className+' div.button-expand')
-    , buttonOpenDetails = $('button.btn-expand.'+ className)
-    , collapsePanelClass = $('#collapsePanelDetails' + className)
+    , clickedPanelNumber = $('[data-panel=\'' + className + '\']' + ' .panel-block__number')
+    , clickedPanelButton = $('[data-panel=\'' + className + '\']' + ' .panel-block__button-expand')
+    // , buttonOpenDetails = $('button.btn-expand.'+ className)
+    , buttonOpenDetails = $('[data-expand=\'' + className + '\']')
+    , collapsePanelClass = $('#collapsePanelDetails' + className);
+
+  console.log(buttonOpenDetails)
+
 
   $('tr').removeClass('clicked-tr');
 
@@ -121,14 +125,12 @@ function saveEvidence(evidenceFromList, dataEvidence){
     }
   }
 
-
   modalEvidenceWindow.modal('hide');
   collapsePanelClass.removeClass('hidden-xl hidden-lg');
-  buttonExpandAdded.attr('aria-expanded', true).removeClass('collapsed');
   $('.button-expand i').removeClass('fa-arrow-down').addClass('fa-arrow-up');
-  buttonOpenDetails.removeClass('hidden-lg').removeClass('hidden-xl');
-  clickedPanel.addClass('number-not-collapsed');
-  clickedPanelButton.addClass('button-expand-not-collapsed');
+  buttonOpenDetails.attr('aria-expanded', true).removeClass('collapsed').removeClass('hidden-lg').removeClass('hidden-xl');
+  clickedPanelNumber.addClass('panel-block__number--not-collapsed');
+  clickedPanelButton.addClass('panel-block__button-expand--not-collapsed');
   collapsePanelClass.attr('aria-expanded', true).addClass('in').addClass('collapse').css('height', '100%');
 
 }

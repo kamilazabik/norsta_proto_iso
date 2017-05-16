@@ -178,20 +178,26 @@ function CancelAssessment() {
 }//CancelAssessment
 
 function addClassNotCollapsed(classNameText){
-  var clickedPanel = $('.panel-hseq' + classNameText+' div.number')
-    , clickedPanelButton = $('.panel-hseq' + classNameText+' div.panel-content__button-expand')
-    , clickedButton =$('.panel-hseq' + classNameText+' div.panel-content__button-expand button.btn.btn-primary.expand')
-    , clickedButtonIcon =$('.panel-hseq' + classNameText+' div.button-expand button i')
+  var clickedPanelNumber = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block__number')
+    , clickedPanelButton = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block__button-expand')
+    // , clickedButton =$('.panel-hseq' + classNameText+' div.panel-content__button-expand button.btn.btn-primary.expand')
+    , clickedButton =$('[data-panel=\'' + classNameText + '\']' + ' .panel-block__button-expand .btn-expand')
+    // , clickedButtonIcon =$('.panel-hseq' + classNameText+' div.button-expand button i')
+    , clickedButtonIcon =$('[data-panel=\'' + classNameText + '\']' + ' .panel-block__button-expand .btn-expand i')
     , collapseElement = $('#collapsePanelDetails' + classNameText).attr('aria-expanded');
 
-  clickedPanel.removeClass('number-not-collapsed');
-  clickedPanelButton.removeClass('button-expand-not-collapsed');
+
+  console.log(clickedPanelNumber);
+  console.log(clickedPanelButton);
+
+  clickedPanelButton.removeClass('panel-block__number--not-collapsed');
+  clickedPanelButton.removeClass('panel-block__button-expand--not-collapsed');
 
   $('.panel-body').off('click');
 
     if(collapseElement == 'false' || collapseElement == undefined){
-      clickedPanel.addClass('number-not-collapsed');
-      clickedPanelButton.addClass('button-expand-not-collapsed');
+      clickedPanelNumber.addClass('panel-block__number--not-collapsed');
+      clickedPanelButton.addClass('panel-block__button-expand--not-collapsed');
       clickedButtonIcon.removeClass('fa-arrow-down');
       clickedButtonIcon.addClass('fa-arrow-up');
       clickedButton.attr('title','Zwiń dowody');

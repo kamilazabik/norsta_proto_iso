@@ -360,8 +360,12 @@ a, a:hover, a:focus {
     @include border-radius (3px 0px 0px 0);
   }
 
+  &__assessment--not-collapsed {
+    @include border-radius (0px 0px 0px 0);
+  }
+
   &__button-expand--not-collapsed {
-    @include border-radius (0px 3px 0px 0);
+    @include border-radius (0px 0px 0px 0);
   }
 
   .collapse, .collapsing {
@@ -462,22 +466,6 @@ a, a:hover, a:focus {
     overflow: visible;
   }
 }
-
-
-//[id^=collapsePanelDetails] {
-//
-//  [id^=tabsPanels] {
-//    p {
-//      margin-top: 10px;
-//    }
-//    .text:hover {
-//      //border: 1px solid #c9c9c9;
-//    }
-//  }
-//}
-
-
-
 
 
 

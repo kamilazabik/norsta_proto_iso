@@ -116,11 +116,13 @@
 .right-panel-body__label {
   @include make-row();
   @include make-xs-column(3);
-  @include make-xl-column(3);
+  @include make-lg-column(4);
+  @include make-xl-column(4);
 }
 
 .right-panel-body__title {
   @include make-row();
   @include make-xs-column(9);
-  @include make-xl-column(9);
+  @include make-lg-column(8);
+  @include make-xl-column(8);
 }
