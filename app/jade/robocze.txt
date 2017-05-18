@@ -495,3 +495,31 @@ console.log(labelChildren)
     //   console.log(gg[v])
     // })
   }
+
+
+//#main-panel.row
+//  .col-md-12.col-sm-12.col-xs-12
+//    .col-md-12.col-sm-12.col-xs-12
+//      .row.project-list-panel.box-header
+//        .col-lg-8.col-md-8.col-sm-8.col-xs-12.pull-left.title-main
+//          h3
+//            | Nazwa folderu / nazwa folderu / Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014
+//        .col-lg-2.col-md-2.col-sm-2.col-xs-6.pull-left.select
+//          .row
+//            .col-xl-12.col-lg-12.col-md-12
+//              p Status
+//          .row
+//            .col-xl-12.col-lg-12.col-md-12
+//              select.form-control
+//                option Nazwa
+//                option Symbol
+//        .col-lg-2.col-md-2.col-sm-2.col-xs-6.pull-left.select
+//          .row
+//            .col-xl-12.col-lg-12.col-md-12
+//              p Sortowanie
+//          .row
+//            .col-xl-12.col-lg-12.col-md-12
+//              select#selectProjects.form-control
+//                option#allProjects Wszystkie
+//                option#openProjects Otwarte
+//                option#closedProjects Zamknięte

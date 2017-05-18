@@ -1,64 +1,91 @@
-nav.navbar.navbar-default.no-margin.navbar-fixed-top
-  // Brand and toggle get grouped for better mobile display
-
-  .navbar-header.fixed-brand
-    button#menu-toggle.navbar-toggle.collapsed(type='button', data-toggle='collapse'  )
-      span.glyphicon.glyphicon-th-large(aria-hidden='true')
-    a#logo.navbar-brand(href='#')
-      img(alt='Brand', src='images/argevide_logo.png')
-    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2', aria-expanded='false')
+// Brand and toggle get grouped for better mobile display
+.navbar-header
+  button#menu-toggle.navbar-toggle.collapsed(type='button', data-toggle='collapse')
+    span.glyphicon.glyphicon-forward(aria-hidden='true')
+  a#logo.navbar-brand(href='#')
+    img(alt='Brand', src='images/argevide_logo.png')
+  button#main-menu.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-navbar-collapse-2', aria-expanded='false')
+    span.sr-only Toggle navigation
+    span.icon-bar
+    span.icon-bar
+    span.icon-bar
+// navbar-header
+#bs-navbar-collapse-1.collapse.navbar-collapse
+  ul.nav.navbar-nav
+    li.active
+      button#menu-toggle-2.navbar-toggle.collapse.in(data-toggle='collapse')
+        span.glyphicon.glyphicon-forward(aria-hidden='true')
   // navbar-header
-  #bs-example-navbar-collapse-1.collapse.navbar-collapse
-    ul.nav.navbar-nav
-      li.active
-        button#menu-toggle-2.navbar-toggle.collapse.in(data-toggle='collapse')
-          span.glyphicon.glyphicon-forward(aria-hidden='true')
-    // navbar-header
-  #bs-example-navbar-collapse-2.collapse.navbar-collapse
-    ul.nav.navbar-nav
-      li
-        a#menu-projects.claim-hseqA(href='', title='Projekty') Projects
-      li
-        a(href='#') View
-      li.dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Reports
-          span.caret
-        ul.dropdown-menu
-          li
-            a(href='#') Print Screen
-          li
-            a(href='#') Change List
-          li.divider(role='separator')
-          li
-            a(href='#') XML/HTML Report
-          li
-            a(href='#') Assessment Spreadsheet
-          li.divider(role='separator')
-          li
-            a(href='#') Project Metrics
-          li
-            a(href='#') Reference List
-          li
-            a(href='#') Evidence List
-          li
-            a(href='#') Assurance Case
-          //li
-          //  a(href='#') Separated link
-          li.divider(role='separator')
-          li
-            a(href='#') Assessment List
-    ul.nav.navbar-nav.navbar-right
-      li.dropdown
-        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') John Smith
-          span.caret
-        ul.dropdown-menu
-          li
-            a(href='#') Profile
-          li.divider(role='separator')
-          li
-            a(href='#') Log out
-    button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseExample', aria-expanded='false', aria-controls='collapseExample', name='search')
-      span.glyphicon.glyphicon-search(aria-hidden='true')
+#bs-navbar-collapse-2.collapse.navbar-collapse
+  ul.nav.navbar-nav.nav-list
+    li.dropdown
+      a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekt
+        span.caret
+      ul.dropdown-menu
+        li
+          a.nav-list__link(href='#') Właściwości
+        li
+          a.nav-list__link(href='#') Pełny widok projektu
+        li.divider(role='separator')
+        li
+          a.nav-list__link(href='#') Administracja
+        li.divider(role='separator')
+        li.close-project
+          a.nav-list__link(href='#') Zamknij
+    li.dropdown
+      a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Widok
+        span.caret
+      ul.dropdown-menu
+        li
+          a.nav-list__link(href='#') Odśwież
+        li
+          a.nav-list__link(href='#') Szukaj
+    li.dropdown
+      a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Raporty
+        span.caret
+      ul.dropdown-menu
+        li
+          a.nav-list__link(href='#') Raport XML/HTML
+        li
+          a.nav-list__link(href='#') Arkusz ocen
+        li.divider(role='separator')
+        li
+          a.nav-list__link(href='#') Metryki projektu
+        li
+    li.dropdown
+      a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Pomoc
+        span.caret
+      ul.dropdown-menu
+        li
+          a.nav-list__link(href='#') Podręcznik
+        li
+          a.nav-list__link(href='#') Kontakt
+        li.divider(role='separator')
+        li
+          a.nav-list__link(href='#') Strona Argevide
+        li
+          a.nav-list__link(href='#') O NOR-STA
+  ul.nav.navbar-nav.navbar-right.nav-list
+    li.dropdown
+      a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Jan Kowalski
+        span.caret
+      ul.dropdown-menu
+        li#profile
+          a.nav-list__link(href='#myProfile' data-target="#myProfile" data-toggle="modal") Profil
+        li
+          a.nav-list__link(href='#preferences' data-target="#preferences" data-toggle="modal") Preferencje
+        li.divider(role='separator')
+        li
+          a.nav-list__link(href='') Przejdź do pełnego widoku
+        li
+          a.nav-list__link(href='') Przejdź do administracji
+        li.divider(role='separator')
+        li
+          a.nav-list__link(href='login-site.html') Wyloguj
+  //button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#collapseSearch', aria-expanded='false', aria-controls='collapseSearch', name='search')
+  //  span.glyphicon.glyphicon-search(aria-hidden='true')
+button.btn.btn-primary.pull-right.btn-search(type='button', data-toggle='collapse', data-target='#filter-panel',name='search')
+  span.glyphicon.glyphicon-search(aria-hidden='true')
 
 
 

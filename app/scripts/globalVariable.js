@@ -6,9 +6,14 @@ var xmlDataArr = {},
   slidersMemo,
   firstLoad = false,
   SzybkaOcena = false,
-  tempAssessmentObject = { sliderName: null, value: null },
+  // tempAssessmentObject = { sliderName: null, value: null },
+  tempAssessmentObject = {},
   notSavedAssessment = false,
-  evidences =  {};
+  savingAssessment = false,
+  evidences =  {},
+  selectAssessmentMemo,
+  firstEvidence = false,
+  existingEvidence = false;
 
 
   // {

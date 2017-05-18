@@ -1,234 +1,114 @@
 @import "mixins";
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+//@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
+#removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
+  margin: 10px;
+}
+
+.fa.fa-pie-chart, .fa.fa-file-text-o{
+  padding: 10px;
+  font-size: 28px;
+}
 
 .right-panel {
   right: 0;
-  height: 100%;
-  padding: 14px 15px 0 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+}
 
-  .panel-margin {
-    padding-right: 0;
-  }
+.right-first-panel, .right-second-panel {
+  //padding: 0 0;
+}
 
-  #bs-collapse .panel-default > .panel-heading {
-    background-color: #1e73be;
+.right-second-panel{
+  margin: 15px 0 15px 0;
+}
+
+.right-first-panel__panel, .right-second-panel__panel {
+  @include border-radius(4px);
+  box-shadow: $right-panels-shadow;
+  background: none;
+  border-bottom: none;
+  border: {
+    width: 0 0 1px 0;
     color: #fff;
-    border-color: #1e5da9;
   }
-
-  #bs-collapse.panel-group {
-    margin-bottom: 70px;
-  }
-
-  #bs-collapse {
-
-    .container {
-      max-width: 970px;
-    }
-
-    .last-panel, .first-panel {
-      padding: 0 0;
-    }
-
-    a:focus,
-    a:hover,
-    a:active {
-      outline: 0;
-      text-decoration: none;
-    }
-
-    .panel {
-      border: {
-        width: 0 0 1px 0;
-        style: solid;
-        color: #fff;
-      }
-
-      background: none;
-    }
-
-    .panel-title {
-      @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
-    }
-    .panel:last-child {
-      border-bottom: none;
-    }
-
-    .panel-group > .panel:first-child .panel-heading {
-      @include vendor-prefixes(border-radius, 4px 4px 0px 0px);
-    }
-
-    .panel-group .panel {
-      @include vendor-prefixes(border-radius, 0);
-    }
-
-    .panel-group .panel + .panel {
-      margin-top: 0;
-    }
-
-    .last-panel .panel {
-      margin-top: 20px;
-    }
-
-    .panel-heading {
-      background-color: $panels-head;
-      @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
-      border: none;
-      color: #fff;
-      padding: 0;
-
-    }
-
-    .panel-title a {
-      display: block;
-      color: #fff;
-      padding: 15px;
-      position: relative;
-      font-size: 16px;
-      font-weight: 400;
-    }
-
-    .panel-body {
-      background: #fff;
-      min-height: 200px !important;
-
-      div[class*='col-'] {
-        padding: 0 15px;
-      }
-
-    }
-
-    .panel:last-child .panel-body {
-      @include vendor-prefixes(border-radius, 0px 0px 4px 4px);
-      //border-radius: 0 0 4px 4px;
-    }
-
-    .panel:last-child .panel-heading {
-      //border-radius: 0 0 0px 0px;
-      transition: border-radius 0.3s linear 0.2s;
-    }
-
-    .panel:last-child .panel-heading.active {
-      border-radius: 0;
-      transition: border-radius linear 0s;
-    }
-    /* #bs-collapse icon scale option */
-
-    .panel-heading a:before {
-      @include panel-heading ('\e146', absolute, 5px, 10px, 24px, all 0.5s, scale(1));
-      //content: '\e146';
-      //position: absolute;
-      //right: 5px;
-      //top: 10px;
-      //font-size: 24px;
-      //transition: all 0.5s;
-      //transform: scale(1);
-    }
-
-    .panel-heading a:after {
-      @include panel-heading (' ', absolute, 5px, 10px, 24px, all 0.5s, scale(0));
-    }
-
-    .panel-heading.active a:after {
-      @include panel-heading ('\e909 ', null, null, null, null, all 0.5s, scale(1));
-      //content: '\e909';
-      //transform: scale(1);
-      //transition: all 0.5s;
-    }
-    /* #accordion rotate icon option */
-  }
-
-  .wrap {
-    box-shadow: $right-panels-shadow;
-    @include border-radius(4px);
-  }
-
-  div.panel:first-child {
-    margin: 20px 0 16px 0;
-  }
-
-  .hide {
-    display: none;
-  }
-
-  .text {
-    .editable_text {
-      height: 100%;
-      padding: 5px;
-    }
-
-    textarea {
-      width: 100%;
-      overflow: visible;
-    }
-  }
-
-  .text:hover {
-    border: 1px solid #c9c9c9;
-  }
-
-  .addedComment {
-    word-wrap: break-word;
-  }
-
-  #removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
-    margin: 10px;
-  }
-
-  .addedCom, .editable_text {
-    border: 1px solid rgb(185, 185, 185);
-    min-height: 50px;
-    padding: 2px;
-    margin-bottom: 5px;
-  }
-
 }
 
-//#option1::before{
-//  content: 'ddddd';
-//  display: block;
-//  clear: both;
-//}
-
-//@include media-breakpoint-only(md) {
-//  .right-panel {
-//    padding-top: 20px;
-//  }
-//}
-
-//@media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
-//  .
-//  }
-//}
-////
-//.btn-primary:hover{
-//   background-color: #0b1829
-// }
-//
-//.btn-primary:active {
-//  background-color: #0b1829
-//}
-//
-//
-//.btn-primary:target {
-//  background-color: #0b1829
-//}
-    //#removeAssess:active, #saveAssess:active{
-//  background-color: #1d395e
-//}
-
-@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-  .right-panel {
-    padding-top: 0;
-    padding-right: 0;
-    padding-left: 0;
-  }
-  .panel.wrap {
-    margin-top: 15px !important;
-  }
-
-  //.panel:last-child {
-  //  margin-top: 15px;
-  //}
+.right-panel-heading {
+  @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
+  transition: border-radius 0.3s linear 0.2s;
+  background-color: $panels-head;
+  border: none;
+  color: #fff;
+  padding: 0;
 }
+.right-panel-heading__row {
+  margin-right: 0;
+  margin-left: 0;
+  display: flex;
+  align-items:center;
+}
+
+.right-panel-heading__icon{
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+}
+.right-panel-heading__title{
+  padding-left: 0;
+}
+
+.right-panel-heading__title--title {
+  @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+  align-items:center;
+  width: 100%;
+}
+
+.right-panel-heading__title--link {
+    display: block;
+    color: #fff;
+    padding: 15px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.right-panel-heading__title--link{
+  &:focus,
+  &:hover,
+  &:active {
+    outline: 0;
+    text-decoration: none;
+    color: #fff;
+  }
+}
+
+.right-panel-body {
+  @include vendor-prefixes(border-radius, 0px 0px 4px 4px);
+  background: #fff;
+  min-height: 200px !important;
+}
+
+.right-panel-body__label {
+  padding: 0 15px;
+  margin-left: 0;
+}
+
+.right-panel-body--comment {
+  word-wrap: break-word;
+}
+
+.right-panel-body__title--description {
+  p span, b {
+    font-size: 14px;
+    font-family: sans-serif !important;
+  }
+}
+
+
+

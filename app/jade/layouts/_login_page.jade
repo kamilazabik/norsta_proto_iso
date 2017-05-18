@@ -19,23 +19,19 @@ html(lang="en")
     //link(rel='stylesheet', href='styles/right-panels.css')
     // endbuild
 
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css')
-    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.css')
-    link(rel='stylesheet', href="fonts/style.css" type="text/css")
+
     // build:js scripts/vendor/modernizr.js
     script(src='../bower_components/modernizr/modernizr.js')
     // endbuild
 
 
-  body(class=page)
+  body.login-page(class=page)
     header
       //h1 Ahoi, norsta-proto!
 
     block content
 
     // Footer
-    footer
-      p Argevide
 
     // build:js scripts/vendor.js
     // bower:js
@@ -64,17 +60,13 @@ html(lang="en")
     script(type="text/javascript" src='scripts/iso.js')
     script(type="text/javascript" src='scripts/globalVariable.js')
     script(type="text/javascript" src='scripts/addEvidences.js')
-    script(type="text/javascript" src='scripts/makeDetailsPanel.js')
     script(type="text/javascript" src='scripts/makePanel.js')
     script(type="text/javascript" src='scripts/loadTitle.js')
     script(type="text/javascript" src='scripts/slider.js')
-    script(type="text/javascript" src='scripts/folderList.js')
-    script(type="text/javascript" src='scripts/rightPanels.js')
     script(type="text/javascript" src='scripts/createPage.js')
     script(type="text/javascript" src='scripts/main.js')
     script(type="text/javascript" src='scripts/sidebar.js')
     script(type="text/javascript" src='scripts/panels.js')
     script(type="text/javascript" src='scripts/filters.js')
-    //script(type="text/javascript" src='scripts/tree.js')
     script#scriptAdded
     // endbuild

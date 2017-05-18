@@ -1,0 +1,58 @@
+@import "mixins";
+//@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+
+#modalEvidence{
+  .modal-table {
+    //table-layout:fixed;
+    margin-bottom: 0;
+    @include tr-size(10%, 45%, 30%, 15%, 0);
+  }
+
+  .modal-table-head {
+    margin-bottom: 5px;
+  }
+
+  .modal-table-content {
+    height: 200px;
+    overflow-y:auto;
+
+    .modal-table-body__tr {
+      @include td-size(10%, 45%,0, 30%, 15%);
+      &:hover{
+        background-color: #ededed;
+      }
+
+      &--no-border{
+        td {
+          border-top:0;
+        }
+      }
+    }
+  }
+
+  .clicked-tr{
+    background-color: #ededed;
+  }
+
+  .file {
+    visibility: hidden;
+    position: absolute;
+  }
+}
+
+
+
+#myProfile, #preferences {
+  .modal-body{
+    padding-bottom: 0;
+    .form-horizontal .control-label {
+      text-align: left;
+    }
+    input {
+      margin-right: 15px;
+    }
+  }
+}
+
+

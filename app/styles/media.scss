@@ -1,0 +1,482 @@
+@import "mixins";
+
+
+@media all and (min-width: 460px) {
+    h4, h3 {
+      font-size: 16px;
+    }
+
+    h5 {
+      @include font(400, 1.4);
+      font-size: 14px;
+    }
+
+    p, label, a, .form-control, table {
+      font-size: 14px;
+    }
+
+    .assessment {
+      h3 {
+        margin: 5px;
+      }
+    }
+
+  #myProfile, #preferences {
+    span {
+      font-size: 13px;
+    }
+  }
+}
+@media all and (min-width: 768px) {
+  .navbar-right {
+    margin-right: 0;
+  }
+
+  .nav-list {
+    & .nav-list__link {
+      color: $main-color-font;
+
+      &--top {
+        color: #fff;
+      }
+    }
+  }
+
+
+
+  h3, h4 {
+    font-size: 16px;
+    @include font(400, 1.4);
+    margin: 5px;
+  }
+
+  h2 {
+    float: left;
+    padding: 10px 0;
+  }
+
+  h3 {
+    line-height: 1.3;
+    margin-top: 10px;
+  }
+
+  p, h5 {
+    line-height: 1;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+
+  #bs-navbar-collapse-2 .nav{
+    height: 56px;
+    > li {
+      height: 100%;
+      > a{
+        height: 100%;
+      }
+    }
+  }
+
+  nav {
+    .btn-search {
+      right: 125px;
+    }
+  }
+
+  #filter-panel {
+    .panel {
+      .form-inline {
+        > .row {
+          > div:nth-child(2){
+            margin-top: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  .panel-header {
+    min-height: 85px;
+
+    &__assessment,
+    &__filter,
+    &__bar-slider,
+    &__filter{
+      height: 80px;
+    }
+
+    &__title {
+      min-height: 80px !important;
+    }
+
+    &__assessment{
+      padding: 5px 15px 0 5px;
+    }
+
+    &__pie, svg {
+      @include width-height($pie-size-big,$pie-size-big);
+      margin-top: 0;
+    }
+
+    &__bar-slider {
+      padding-left: 40px;
+    }
+  }
+
+  .panel-title {
+    min-height: 85px;
+
+    &__title,
+    &__assessment,
+    &__assess-icon,
+    &__assess-value,
+    &__assess-body,
+    &__bar-slider,
+    &__button-expand {
+      height: 75px;
+    }
+    &__number {
+      height: 75px;
+    }
+
+    &__title {
+      background-color: $panels-content;
+      border-radius: 0;
+      &--font-color  {
+        color: $panels-head;
+      }
+    }
+
+    &__pie, svg {
+      @include width-height($pie-size-md, $pie-size-md);
+    }
+
+    &__button-expand {
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .panel-block{
+
+    &__number,
+    &__title {
+      height: 70px;
+    }
+
+    &__number{
+      @include border-radius (3px 0 0 3px);
+    }
+
+    &__title {
+      background-color: $panels-content;
+      @include border-top-bottom($panels-border);
+      @include border-radius (0 0 0 0);
+      &--font-color  {
+        color: $panels-head;
+      }
+    }
+    &__assessment {
+      border-left: 0;
+      @include border-radius (0 0 0 0);
+    }
+    &__button-expand {
+      border-top-right-radius: 3px;
+    }
+  }
+
+  .panel-block:hover {
+    .panel-block__title {
+      background-color: $panels-hover;
+    }
+  }
+}//768px -992px
+
+
+@media all and (min-width: 992px) {
+
+  h3 {
+    font-size: 18px;
+  }
+
+//TODO
+  .mainPagePanels {
+    &.row {
+      margin-right: -15px;
+    }
+  }
+  .mainPagePanels {
+    .tree {
+      li {
+        span{
+          a{
+            width: 46%;
+          }
+          h4 {
+            width: 23%;
+          }
+        }
+      }
+    }
+  }
+  .evidences-table {
+    &__tbody {
+      @include td-size(5%, 35%, 25%, 25%, 10%);
+    }
+  }
+
+  .btn-open {
+    margin: 0 0 5px 5px;
+  }
+}//992px - 1200px
+
+
+@media all and (min-width: 1200px){
+  h3 {
+    font-size: 20px;
+    margin-top: 0;
+  }
+//TODO
+  #filter-panel {
+  .panel {
+    .form-inline {
+      > .row {
+        > div:nth-child(2), > div:nth-child(3) {
+          margin-top: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
+  .mainPagePanels {
+    .tree {
+      li {
+        span{
+          a{
+            width: 47%;
+          }
+          h4 {
+            width: 23%;
+          }
+        }
+      }
+    }
+  }
+}//1200px - 1440px
+
+
+//@media all and (min-width: $screen-xl-min){
+//
+//}//1440px
+
+
+@media screen and ( max-height: 650px ){
+  body.login-page {
+    overflow-y: scroll;
+  }
+}
+
+
+
+
+
+@media all and (max-width: 768px) {
+  .right-panel--fixed-panel {
+    top: 205px;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 1200px) {
+  .right-panel--fixed-panel {
+    top: 185px;
+  }
+}
+
+@media all and (max-width: 475px) {
+  .right-panel-body {
+    width: 300px;
+  }
+
+  .right-panel-block{
+    width: 300px;
+  }
+  .right-panel--fixed-panel {
+    margin: 0 0 0 -300px;
+
+    &:hover{
+      width: 300px;
+
+      .right-panel-two, .right-panel-one {
+        width: 300px;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 476px) and (max-width: 1200px) {
+  .right-panel-body {
+    width: 400px;
+  }
+  .right-panel-block{
+    width: 400px;
+  }
+  .right-panel--fixed-panel {
+    margin: 0 0 0 -400px;
+
+    &:hover{
+      width: $sidebar-max;
+
+      .right-panel-two, .right-panel-one {
+        width: $sidebar-max;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1200px) {
+  #panel-content, .mainPagePanels {
+    padding-right: 44px;
+  }
+
+  .right-panel--fixed-panel {
+    position: fixed;
+    width: 50px;
+    overflow: hidden;
+    z-index: 1000;
+    @include transition();
+    right: 0;
+    border-right: 1px solid #e7e7e7;
+
+    &:hover{
+      .right-panel-two, .right-panel-one {
+        height: 100%;
+      }
+      .right-first-panel--margin {
+          margin-bottom: 215px;
+        }
+      }
+      .right-second-panel__panel {
+        margin: 0;
+      }
+    }
+
+  .right-panel-two, .right-panel-one {
+      position: fixed;
+      transition: all 0.5s ease;
+      overflow: hidden;
+      z-index: 1000;
+      @include transition();
+      @include width-height(0, 0);
+      right: 0;
+      border-right: 1px solid #e7e7e7;
+      margin-bottom: 200px;
+    }
+    .right-first-panel--margin{
+      margin-bottom: 15px;
+      transition: margin-bottom 0.5s ease;
+    }
+    .right-panel-body {
+      box-shadow: $right-panels-shadow;
+    }
+  .right-first-panel--margin-added {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media all and (min-width:768px) {
+  .wrapper {
+    padding-left: 35px;
+
+    &--toggled-mobile {
+      padding-left: 0;
+
+      .wrapper-sidebar {
+        width: $sidebar-max;
+      }
+      .wrapper-page-content {
+        position: relative;
+        margin-right: 0;
+      }
+    }
+
+    &--toggled-desk{
+
+      .wrapper-sidebar {
+        width: 35px;
+      }
+      .wrapper-sidebar:hover {
+        width: $sidebar-max;
+      }
+      .wrapper-page-content {
+        position: relative;
+        margin-right: 0;
+        //margin-left: -365px;
+        //transition: all 0.5s ease;
+        width: auto;
+      }
+    }
+
+    &-sidebar {
+      width: $sidebar-max;
+    }
+
+    &-page-content {
+      //padding: 20px;
+      position: relative;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+
+    &-sidebar-nav {
+      width: $sidebar-max;
+
+      &--padding {
+        padding-left: 3px;
+      }
+    }
+  }
+}
+
+@media all and (min-width: 1400px) {
+  .wrapper {
+    padding-left: $sidebar-max;
+
+    &-sidebar {
+      width: $sidebar-max;
+    }
+
+    &--toggled-mobile {
+      .wrapper-sidebar {
+        width: $sidebar-max;
+      }
+      .wrapper-page-content {
+        position: relative;
+        margin-right: 0;
+      }
+    }
+    &--toggled-desk{
+      .wrapper-sidebar {
+        width: 35px;
+      }
+      .wrapper-sidebar:hover {
+        width: $sidebar-max;
+      }
+      .wrapper-page-content {
+        position: relative;
+        margin-right: 0;
+        margin-left: -365px;
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        width: auto;
+      }
+    }
+
+    &-sidebar-nav {
+      width: $sidebar-max;
+    }
+  }
+}
+
