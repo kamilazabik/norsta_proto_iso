@@ -72,59 +72,59 @@
       .modal-header
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
-        h4#myProfileLabel.modal-title Profil
+        h4#myProfileLabel.modal-title Profile
       .modal-body
         .row
           .col-md-12.col-ms-12.col-xs-12
             form.form-horizontal(role='form')
               fieldset
                 .form-group
-                  label.col-sm-4.control-label(for='name') Nazwa uzytkownika
+                  label.col-sm-4.control-label(for='name') Username:
                   .col-sm-8
-                    input#name.form-control(type='text', placeholder='Nazwa uzytkownika')
+                    input#name.form-control(type='text', placeholder='Username')
                 // Text input
                 .form-group
-                  label.col-sm-4.control-label(for='login') Pełna nazwa
+                  label.col-sm-4.control-label(for='login') Real name:
                   .col-sm-8
-                    input#login.form-control(type='text', placeholder='Pełna nazwa')
+                    input#login.form-control(type='text', placeholder='Real name')
                 // Text input
                 .form-group
-                  label.col-sm-4.control-label(for='organization') Organizacja
+                  label.col-sm-4.control-label(for='organization') Affiliation:
                   .col-sm-8
-                    input#organization.form-control(type='text', placeholder='Organizacja')
+                    input#organization.form-control(type='text', placeholder='Affiliation')
                 .form-group
-                  label.col-sm-4.control-label(for='email') E-mail
+                  label.col-sm-4.control-label(for='email') E-mail:
                   .col-sm-8
                     input#email.form-control(type='text', placeholder='E-mail')
                 .form-group
-                  label.col-sm-4.control-label(for='phone') Telefon
+                  label.col-sm-4.control-label(for='phone') Phone
                   .col-sm-8
-                    input#phone.form-control(type='text', placeholder='Telefon')
+                    input#phone.form-control(type='text', placeholder='Phone')
                 .form-group
-                  label.col-sm-4.control-label(for='language') Język
+                  label.col-sm-4.control-label(for='language') Language:
                   .col-sm-8
                     select#language.form-control(name='language')
                       option(value='PL') polski
                       option(value='EN') angielski
                 .form-group
-                  label.col-sm-4.control-label(for='project') Domyślny projekt
+                  label.col-sm-4.control-label(for='project') Default project:
                   .col-sm-8
                     select#project.form-control(name='project')
-                      option(value='') Projekt 1
-                      option(value='') Projekt 2
-                      option(value='') Projekt 3
-                      option(value='') Projekt 4
-                      option(value='') Projekt 5
+                      option(value='') Project 1
+                      option(value='') Project 2
+                      option(value='') Project 3
+                      option(value='') Project 4
+                      option(value='') Project 5
                 .form-group
-                  label.col-sm-4.control-label(for='role') Rola systemowa
+                  label.col-sm-4.control-label(for='role') System role:
                   .col-sm-8
-                    input#role.form-control(type='text', placeholder='Rola systemowa')
+                    input#role.form-control(type='text', placeholder='System role:')
                 .form-group
-                  label.col-sm-4.control-label(for='home-folder') Folder domowy
+                  label.col-sm-4.control-label(for='home-folder') Home folder:
                   .col-sm-8
-                    input#home-folder.form-control(type='text', placeholder='Folder domowy')
+                    input#home-folder.form-control(type='text', placeholder='Home folder')
                 .form-group
-                  label.col-sm-4.control-label Autoryzacja
+                  label.col-sm-4.control-label Authentication:
                   .col-sm-4
                     input(type='checkbox')
                     span Active Directory
@@ -132,36 +132,36 @@
                     input(type='checkbox')
                     span NOR-STA
                 .form-group
-                  label.col-sm-4.control-label Zmień hasło
+                  label.col-sm-4.control-label Change password:
                   .col-sm-8
                     input#change-password(type='checkbox')
                 .form-group
-                  label.col-sm-4.control-label(for='password') Hasło
+                  label.col-sm-4.control-label(for='password') Password:
                   .col-sm-8
-                    input#password.form-control(type='text', placeholder='Hasło')
+                    input#password.form-control(type='text', placeholder='Password')
                 .form-group
-                  label.col-sm-4.control-label(for='repeat-password') Powtórz hasło
+                  label.col-sm-4.control-label(for='repeat-password') Repeat password:
                   .col-sm-8
-                    input#repeat-password.form-control(type='text', placeholder='Powtórz hasło')
+                    input#repeat-password.form-control(type='text', placeholder='Repeat password')
                 .form-group
-                  label.col-sm-4.control-label Siła hasła
+                  label.col-sm-4.control-label Password strength:
                   .col-sm-8
                 .form-group
-                  label.col-sm-4.control-label Panel szczegółów
+                  label.col-sm-4.control-label Details Panel:
                   .col-sm-8
-                    button.btn.btn-primary(type='button') Przywróć ustawienia domyślne
+                    button.btn.btn-primary(type='button') Restore Default Settings
                 .form-group
                   .col-sm-12.control-label
                     input(type='checkbox')
-                    span Pokaż ocenę przy otwarciu argumentu
+                    span Show assessment on argument opening
                 .form-group
                   .col-sm-12.control-label
                     input(type='checkbox')
-                    span Pokaż panel zmian przy wejściu do projekt
+                    span Show Last Changes panel on project opening
       .modal-footer
         button.btn.btn-primary(type='submit', data-dismiss='modal') OK
-        button.btn.btn-primary(type='submit') Zastosuj
-        button.btn.btn-primary(type='submit') Anuluj
+        button.btn.btn-primary(type='submit') Apply
+        button.btn.btn-primary(type='submit') Cancel
 
 #preferences.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
   .modal-dialog(role='document')
@@ -169,45 +169,45 @@
       .modal-header
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
-        h4#myPreferencesLabel.modal-title Profil
+        h4#myPreferencesLabel.modal-title User Preferences
       .modal-body
         .row
           .col-md-12.col-ms-12.col-xs-12
             form.form-horizontal(role='form')
               fieldset
                 .form-group
-                  label.col-sm-4.control-label(for='name') Nazwa uzytkownika
+                  label.col-sm-4.control-label(for='name') User
                   .col-sm-8
-                    input#user.form-control(type='text', placeholder='Nazwa uzytkownika')
+                    input#user.form-control(type='text', placeholder='User')
                 // Text input
                 .form-group
-                  label.col-sm-4.control-label(for='language') Język
+                  label.col-sm-4.control-label(for='language') Language:
                   .col-sm-8
                     select#languages.form-control(name='languages')
-                      option(value='PL') polski
-                      option(value='EN') angielski
+                      option(value='PL') Polish
+                      option(value='EN') English
                 .form-group
-                  label.col-sm-4.control-label(for='project') Domyślny projekt
+                  label.col-sm-4.control-label(for='project') Default project:
                   .col-sm-8
                     select#defaultProject.form-control(name='project')
-                      option(value='') Projekt 1
-                      option(value='') Projekt 2
-                      option(value='') Projekt 3
-                      option(value='') Projekt 4
-                      option(value='') Projekt 5
+                      option(value='') Project 1
+                      option(value='') Project 2
+                      option(value='') Project 3
+                      option(value='') Project 4
+                      option(value='') Project 5
                 .form-group
                   .col-sm-12.control-label
                     input(type='checkbox')
-                    span Pokaż ocenę przy otwarciu argumentu
+                    span Show assessment on project opening
                   .col-sm-12.control-label
                     input(type='checkbox')
-                    span Pokaż panel zmian przy wejściu do projekt
+                    span Show Last Changes panel on project opening
                 .form-group
-                  label.col-sm-4.control-label Panel szczegółów
+                  label.col-sm-4.control-label Details Panel:
                   .col-sm-8
-                    button.btn.btn-primary(type='button') Przywróć ustawienia domyślne
+                    button.btn.btn-primary(type='button') Restore Default Settings
       .modal-footer
         button.btn.btn-primary(type='submit', data-dismiss='modal') OK
-        button.btn.btn-primary(type='submit') Zastosuj
-        button.btn.btn-primary(type='submit') Anuluj
+        button.btn.btn-primary(type='submit') Save
+        button.btn.btn-primary(type='submit') Cancel
 

@@ -6,7 +6,6 @@ function createPage(numberClass, isNextLoad) {
     , mainPanel = $('.content-main-panel')
     , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
-    , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
     , panelContent = $('<div class="row content-panels"></div>')
@@ -59,7 +58,7 @@ function createPage(numberClass, isNextLoad) {
       }
     }
 
-    titlePanel.text(titleClaim.text());
+    titlePanel.text(isoObject[numberClass].name);
     label.text(numberClassWithDots);
 
     addComments (numberClass);
