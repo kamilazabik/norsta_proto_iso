@@ -25,7 +25,7 @@ function addAttrToEvidenceWindow(classNameText){
     }else{
       $('.form-control.name-evid').val('');
       textOfName.val('');
-      textOfName.attr('placeholder','Wpisz nazwę')
+      textOfName.attr('placeholder','Name')
     }
   });
 }//addEvidence
@@ -144,8 +144,8 @@ function makeTr(className, rowCount ){
     , evidenceTr3Td3 = $('<td class="evidences-tbody-td"></td>')
     , evidenceTr3Td4 = $('<td class="nameDocument evidences-tbody-td"></td>').text( isoObject[className]['nameDocument' + rowCount])
     , evidenceTr3Td5 = $('<td class="evidences-tbody-td evidences-tbody-td--buttons"></td>')
-    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-open\' ></button>').append('<i class="fa fa-folder-open" data-toggle=\'tooltip\' data-placement=\'top\' title=\'Otwórz dowód\' aria-hidden="true"></i>')
-    , buttonTr3EditEvidence = $('<button type=\'button\' class=\'btn btn-edit ' +className+ '\' data-evidence=\''+ rowCount+ '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Edytuj dowód\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
+    , buttonTr3OpenEvidence = $('<button type=\'button\' class=\'btn btn-open\' ></button>').append('<i class="fa fa-folder-open" data-toggle=\'tooltip\' data-placement=\'top\' title=\'Open Evidence\' aria-hidden="true"></i>')
+    , buttonTr3EditEvidence = $('<button type=\'button\' class=\'btn btn-edit ' +className+ '\' data-evidence=\''+ rowCount+ '\' data-toggle=\'tooltip\' data-placement=\'top\' title=\'Edit Evidence\'></button>').append ('<i class="fa fa-pencil" aria-hidden="true"></i>');
 
   buttonTr3EditEvidence.on('click', function () {
     addAttrToEvidenceWindow(className)
@@ -167,7 +167,7 @@ function makeTrInEvidencesWidnow(className, rowCount,rowCountInEvidenceWindow){
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td></td>').text( isoObject[className]['nameDocument' + rowCount])
     , evidenceTr3Td5 = $('<td class="buttons"></td>')
-    , buttonTr3SeeEvidence = $('<button type=\'button\' class=\'btn btn-sm\' ></button>').text('Podgląd');
+    , buttonTr3SeeEvidence = $('<button type=\'button\' class=\'btn btn-sm\' ></button>').text('Preview');
 
   evidenceTr3Td5.append(buttonTr3SeeEvidence);
   evidenceTr3.append(evidenceTr3Td1,evidenceTr3Td4,evidenceTr3Td2,evidenceTr3Td3,evidenceTr3Td5);
