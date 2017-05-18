@@ -6,7 +6,7 @@ function createPage(numberClass, isNextLoad) {
     , mainPanel = $('.content-main-panel')
     , panels = $('.panel.panel-default.allPanels')
     , row = $('.row.mainPagePanels')
-    , titleClaim = $('[data-title = \'' + numberClass + '\']')
+    // , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
     , panelContent = $('<div class="row content-panels"></div>')
@@ -59,8 +59,12 @@ function createPage(numberClass, isNextLoad) {
       }
     }
 
-    titlePanel.text(titleClaim.text());
+
+    titlePanel.text(isoObject[numberClass].name);
     label.text(numberClassWithDots);
+
+    console.log(titlePanel)
+    console.log(numberClass)
 
     addComments (numberClass);
     loadDescription(numberClass);
@@ -83,6 +87,8 @@ function loadPage(isNextLoad){
         , allRangeSlider = $('.slider')
         , clickedButton = $('[data-label = \'' + numberClass + '\']')
         , clickedPanel = $('[data-panel = \'' + numberClass + '\']');
+
+    // console.log(clickedButton)
 
       allTitles.each(function (index, value) {
         if (!panelTitle) {
