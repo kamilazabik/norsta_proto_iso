@@ -308,8 +308,8 @@ function makeRightPanel(){
   var rightPanel = $('<div class="col-lg-3 right-panel"></div>')
     , bsCollapse = $('<div id="bs-collapse" class="panel-group right-panel--fixed-panel"></div>')
     , rightPanelWidth = $('<div class="right-panel-block"></div>')
-    , firstPanel = $('<div class="right-first-panel right-first-panel--margin"></div>')
-    , firstPanelWrap = $('<div class="panel right-first-panel__panel"></div>')
+    , firstPanel = $('<div class="right-first-panel right-panel-first--margin"></div>')
+    , firstPanelWrap = $('<div class="panel right-panel-first__panel"></div>')
     , firstPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
     , firstPanelWrapHeadRow = $('<div class="row right-panel-heading__row"></div>')
 
@@ -349,10 +349,8 @@ function makeRightPanel(){
   firstPanel.append(firstPanelWrap);
 
 
-
-
-  var secondPanel = $('<div class="right-second-panel"></div>')
-    , secondPanelWrap = $('<div class="panel right-second-panel__panel"></div>')
+  var secondPanel = $('<div class="right-panel-second"></div>')
+    , secondPanelWrap = $('<div class="panel right-panel-second__panel"></div>')
     , secondPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
     , secondPanelWrapHeadRow = $('<div class="row right-panel-heading__row"></div>')
     , secondPanelWrapHeadRowCol1 = $('<div class="right-panel-heading__icon"></div>')
