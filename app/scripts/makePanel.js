@@ -19,8 +19,8 @@ function makeMainPanel(){
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
     , col1rowButtons = $('<div class="panel-header__filter"></div>')
     , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control panel-header__form-control" ></select>')
-    , col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normalna ocena</option>')
-    , col1rowButtonsSelectOption2 = $('<option id="fastAssess">Szybka ocena</option>')
+    , col1rowButtonsSelectOption1 = $('<option id="fastAssess">Szybka ocena</option>')
+    , col1rowButtonsSelectOption2 = $('<option id="normalAssess">Normalna ocena</option>')
     , col1rowButtonsSelectOption3 = $('<option id="noAssessment">Brak oceny</option>');
 
   col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,     col1rowButtonsSelectOption3);
