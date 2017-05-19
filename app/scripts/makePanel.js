@@ -308,7 +308,7 @@ function makeRightPanel(){
   var rightPanel = $('<div class="col-lg-3 right-panel"></div>')
     , bsCollapse = $('<div id="bs-collapse" class="panel-group right-panel--fixed-panel"></div>')
     , rightPanelWidth = $('<div class="right-panel-block"></div>')
-    , firstPanel = $('<div class="right-panel-first right-first-panel--margin"></div>')
+    , firstPanel = $('<div class="right-panel-first right-panel-first--margin"></div>')
     , firstPanelWrap = $('<div class="panel right-panel-first__panel"></div>')
     , firstPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
     , firstPanelWrapHeadRow = $('<div class="row right-panel-heading__row"></div>')

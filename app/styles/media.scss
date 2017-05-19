@@ -362,11 +362,11 @@
       .right-panel-two, .right-panel-one {
         height: 100%;
       }
-      .right-first-panel--margin {
+      .right-panel-first--margin {
           margin-bottom: 215px;
         }
       }
-      .right-second-panel__panel {
+    .right-panel-second__panel {
         margin: 0;
       }
     }
@@ -382,14 +382,14 @@
       border-right: 1px solid #e7e7e7;
       margin-bottom: 200px;
     }
-    .right-first-panel--margin{
+  .right-panel-first--margin {
       margin-bottom: 15px;
       transition: margin-bottom 0.5s ease;
     }
     .right-panel-body {
       box-shadow: $right-panels-shadow;
     }
-  .right-first-panel--margin-added {
+  .right-panel-first--margin-added {
     margin-bottom: 0 !important;
   }
 }
