@@ -234,7 +234,7 @@ function searchText() {
 }//searchText
 
 function moveRightPanel() {
-  var firstPanel= $('.right-first-panel__panel .right-panel-heading__row')
+  var firstPanel = $('.right-panel-first__panel .right-panel-heading__row')
     , mql = window.matchMedia("(max-width: 1200px)");
 
   $(window).scroll(function() {
@@ -249,7 +249,7 @@ function moveRightPanel() {
   });
   if (mql.matches) {
       firstPanel.on('click', function () {
-        $('.right-first-panel').toggleClass('right-first-panel--margin-added', 1000,"ease"  );
+        $('.right-panel-first').toggleClass('right-panel-panel--margin-added', 1000, "ease");
       });
   }
 

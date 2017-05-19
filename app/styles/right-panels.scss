@@ -1,5 +1,4 @@
 @import "mixins";
-//@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 #removeAssess, #saveAssess, #removeAssessAlert, #saveAssessAlert {
   margin: 10px;
@@ -8,10 +7,6 @@
 .fa.fa-pie-chart, .fa.fa-file-text-o{
   padding: 10px;
   font-size: 28px;
-}
-
-.btn-right-panel {
-  width: 95px;
 }
 
 .right-panel {
