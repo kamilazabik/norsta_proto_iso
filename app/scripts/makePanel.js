@@ -20,7 +20,7 @@ function makeMainPanel(){
     , col1rowButtons = $('<div class="panel-header__filter"></div>')
     , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control panel-header__form-control" ></select>')
     , col1rowButtonsSelectOption1 = $('<option id="normalAssess">Normal Assessment</option>')
-    , col1rowButtonsSelectOption2 = $('<option id="fastAssess">Fast Assessment</option>')
+    , col1rowButtonsSelectOption2 = $('<option id="fastAssess">Quick Assessment</option>')
     , col1rowButtonsSelectOption3 = $('<option id="noAssessment">No Assessment</option>');
 
   col1rowButtonsSelect.append(col1rowButtonsSelectOption1,col1rowButtonsSelectOption2,     col1rowButtonsSelectOption3);
@@ -308,8 +308,8 @@ function makeRightPanel(){
   var rightPanel = $('<div class="col-lg-3 right-panel"></div>')
     , bsCollapse = $('<div id="bs-collapse" class="panel-group right-panel--fixed-panel"></div>')
     , rightPanelWidth = $('<div class="right-panel-block"></div>')
-    , firstPanel = $('<div class="right-first-panel right-first-panel--margin"></div>')
-    , firstPanelWrap = $('<div class="panel right-first-panel__panel"></div>')
+    , firstPanel = $('<div class="right-panel-first right-first-panel--margin"></div>')
+    , firstPanelWrap = $('<div class="panel right-panel-first__panel"></div>')
     , firstPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
     , firstPanelWrapHeadRow = $('<div class="row right-panel-heading__row"></div>')
 
@@ -328,8 +328,8 @@ function makeRightPanel(){
     , firstPanelWrapOneBodyRow2 = $('<div class="evidences-content-assess__editable-text right-panel-body__editable-text" data-name="editable-text"></div>')
     , firstPanelWrapOneBodyRow3 = $('<div class="row"></div>')
     , firstPanelWrapOneBodyRow3Col = $('<div class="right-panel-body__buttons"></div>')
-    , firstPanelWrapOneBodyRow3ColButton = $('<button class="btn btn-primary btn-sm pull-right" type="button" id="removeAssess"></button>').text('Apply')
-    , firstPanelWrapOneBodyRow3ColButton2 = $('<button class="btn btn-primary btn-sm pull-right" type="button" id="saveAssess"></button>').text('Discard');
+    , firstPanelWrapOneBodyRow3ColButton = $('<button class="btn btn-primary btn-sm pull-right btn-right-panel" type="button" id="removeAssess"></button>').text('Apply')
+    , firstPanelWrapOneBodyRow3ColButton2 = $('<button class="btn btn-primary btn-sm pull-right btn-right-panel" type="button" id="saveAssess"></button>').text('Discard');
 
 
   firstPanelWrapHeadRowCol2H4.append(firstPanelWrapHeadRowCol2H4a);
@@ -351,8 +351,8 @@ function makeRightPanel(){
 
 
 
-  var secondPanel = $('<div class="right-second-panel"></div>')
-    , secondPanelWrap = $('<div class="panel right-second-panel__panel"></div>')
+  var secondPanel = $('<div class="right-panel-second"></div>')
+    , secondPanelWrap = $('<div class="panel right-panel-second__panel"></div>')
     , secondPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
     , secondPanelWrapHeadRow = $('<div class="row right-panel-heading__row"></div>')
     , secondPanelWrapHeadRowCol1 = $('<div class="right-panel-heading__icon"></div>')

@@ -197,6 +197,19 @@
     font-size: 18px;
   }
 
+  .panel-header {
+    &__bar-slider {
+      @include padding-left-right(15px, 15px);
+    }
+
+    &__filter {
+      align-items: center;
+      @include padding-left-right(15px, 15px);
+    }
+
+  }
+
+
 //TODO
   .mainPagePanels {
     &.row {
