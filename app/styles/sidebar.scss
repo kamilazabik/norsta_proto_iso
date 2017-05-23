@@ -4,6 +4,13 @@
 /* Toggle Styles */
 @import "mixins";
 
+#logo {
+  padding-top: 10px;
+
+  img {
+    height: 30px;
+  }
+}
 
 #menu {
   &-toggle,
@@ -166,9 +173,20 @@ nav {
 
   .content{
     min-width: 360px;
+    background-color: $content;
+    padding: 15px 15px 0;
+    border-top: 1px solid $content-border;
+    min-height: 90vh;
+    margin-bottom: 30px;
+
+    &-panels {
+      padding-top: 30px;
+      padding-bottom: 30px;
+    }
+
   }
 
-/* Sidebar Styles */
+  /* Sidebar Styles */
 
   &-sidebar-nav {
     position: absolute;

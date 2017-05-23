@@ -13,48 +13,31 @@ h5 {
   font-family: sans-serif !important;
 }
 
-p, label, a, .form-control, table {
+p,
+label,
+a,
+.form-control,
+table {
   font-size: 13px;
   font-family: sans-serif !important;
-}
-
-
-
-
-#logo {
-  padding-top: 10px;
-
-  img {
-    height: 30px;
-  }
-}
-
-.container-fluid {
-  min-height: 1000px;
-  padding-top: 15px;
 }
 
 #main-page {
   padding: 0;
 }
 
-#content{
-  background-color: $content;
-  padding-right: 15px;
-  padding-left: 15px;
-  border-top: 1px solid $content-border;
-}
-
-.content-panels {
-  padding-top: 30px;
-  //margin-left: 0;
-}
-
-.footer {
-  padding-bottom: 15px;
-  padding-left: 20px !important;
-  padding-right: 15px;
-  padding-top: 19px;
+footer {
+  padding: 0 15px;
+  //background: $panels-head;
+  background: #dfe2e8;
+  border-top: 1px solid #d0d3d9;
+  color: $main-color-font;
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
+  //position: absolute;
+  ////bottom: 0;
+  width: 100%;
 }
 
 #removeAssessAlert, #saveAssessAlert {
@@ -144,3 +127,4 @@ span.caret {
   margin: 1rem 0 2rem;
   width: 68px;
 }
+
