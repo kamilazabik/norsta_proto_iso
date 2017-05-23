@@ -10,7 +10,7 @@
   }
 
   .modal-table-head {
-    margin-bottom: 5px;
+    margin-bottom: 0;
   }
 
   .modal-table-content {
@@ -21,6 +21,7 @@
       @include td-size(10%, 45%,0, 30%, 15%);
       &:hover{
         background-color: #ededed;
+        cursor: pointer;
       }
 
       &--no-border{

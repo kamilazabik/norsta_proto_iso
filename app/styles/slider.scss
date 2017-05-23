@@ -12,7 +12,7 @@
       width: 100%;
       position: relative;
       z-index: 5;
-      margin-top: 0px;
+      margin-top: 0;
       -webkit-appearance: none;
       cursor: pointer;
       -webkit-appearance: none;
@@ -29,7 +29,7 @@
       //min-height: 110px;
       display: inline-block;
       position: absolute;
-      top: 0px;
+      top: 0;
       left: -8px;
       right: 46px;
       z-index: 3;
@@ -85,9 +85,9 @@
           //top: -78px;
           border-radius: 3px;
           //border: #333 2px solid;
-          -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-          -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+          -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+          -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
           &:after {
             content: "";
             border: 2px solid #fff;
@@ -100,9 +100,9 @@
             left: 8px;
             top: 7px;
             z-index: 3;
-            -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-            -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8);
+            -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
           }
           > span {
             &:before {

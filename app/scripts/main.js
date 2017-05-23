@@ -15,6 +15,7 @@ $(document).ready( function(){
   loadSidebar();
   createPageAfterClickSidebar()
   addColorForSidebar()
+  uploadEvidence()
 });//END of document.READY
 
 

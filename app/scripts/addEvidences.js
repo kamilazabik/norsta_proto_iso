@@ -3,7 +3,7 @@ function addAttrToEvidenceWindow(classNameText){
     , textOfName = $('#textareaNameEvid')
     , buttonAdd = $('[data-add = \'' + classNameText + '\']');
 
-    $('.btn.btn-add.'+classNameText).on('click', function(){
+  $('.btn.btn-add.' + classNameText + ', .btn.btn-edit.' + classNameText + '').on('click', function () {
       var dataEvidence = $(this).attr('data-evidence')
         , modalEvidence = $('#modalEvidence')
         , buttonSave = $('.save-new-evid.btn');
@@ -161,8 +161,8 @@ function makeTr(className, rowCount ){
 
 
 function makeTrInEvidencesWidnow(className, rowCount,rowCountInEvidenceWindow){
-  var evidenceTr3 = $('<tr class=\'' + rowCountInEvidenceWindow +'\'></tr>')
-    , evidenceTr3Td1 = $('<th></th>').text(rowCountInEvidenceWindow)
+  var evidenceTr3 = $('<tr class=\'modal-table-body__tr ' + rowCountInEvidenceWindow + '\'></tr>')
+    , evidenceTr3Td1 = $('<td></td>').text(rowCountInEvidenceWindow)
     , evidenceTr3Td2 = $('<td class="hidden"></td>').text(isoObject[className]['nameEvidence' + rowCount])
     , evidenceTr3Td3 = $('<td></td>')
     , evidenceTr3Td4 = $('<td></td>').text( isoObject[className]['nameDocument' + rowCount])
@@ -175,3 +175,13 @@ function makeTrInEvidencesWidnow(className, rowCount,rowCountInEvidenceWindow){
   return evidenceTr3;
 
 }//
+
+function uploadEvidence() {
+  var table = $('.modal-table-body__tr')
+
+  table.on('click', function (e) {
+    console.log(e.target)
+  })
+
+
+}
