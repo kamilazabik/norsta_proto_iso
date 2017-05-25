@@ -63,9 +63,6 @@ function createPage(numberClass, isNextLoad) {
     titlePanel.text(isoObject[numberClass].name);
     label.text(numberClassWithDots);
 
-    console.log(titlePanel)
-    console.log(numberClass)
-
     addComments (numberClass);
     loadDescription(numberClass);
     loadPage(isNextLoad);

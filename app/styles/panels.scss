@@ -1,28 +1,10 @@
 @import "mixins";
 
-
-
 .active-input {
   background-color: $buttonsAdd !important;
 }
 
-.labelColor {
-  @include  border-top-bottom($label);
-  background-color: $label;
-  h4 {
-    color: white;
-  }
-}
-.titleColor {
-  .title{
-    background-color: $label;
-  }
-}
-
-p {
-  margin-top: 10px;
-}
-
+//Pie
 svg {
   background-color: #313547;
   @include border-radius (50%);
@@ -45,83 +27,7 @@ circle {
   stroke: #45d666 !important;
 }
 
-a, a:hover, a:focus {
-  text-decoration: none !important;
-}
-
-.btn {
-  background-color: $panels-head;
-  border-color: $panels-head;
-  color: #fff;
-}
-.btn-open {
-  padding: 5px 8px;
-  float: right;
-  margin: 5px 0 5px 0;
-}
-
-.btn-edit {
-  padding: 5px 10px;
-  float: right;
-  margin: auto 0 5px 0;
-}
-
-.btn-add {
-  border-color: $buttonsAdd;
-  background-color: $buttonsAdd;
-  margin: 0 3px;
-  padding: 4px 10px;
-}
-
-.btn-expand {
-  padding: 4px 9px;
-  float: right;
-}
-
-.btn-up, .btn-arrow {
-  padding: 5px 12px
-}
-
-.btn-up {
-  margin: 4px 0 3px auto;
-  display: block !important;
-}
-
-.btn-arrow {
-  float: right;
-  margin-left: 3px;
-}
-
-.btn-arrow--disabled {
-  background-color: rgb(175, 175, 175);
-  border-color: rgb(152, 152, 152);
-}
-
-.btn-expand-panel {
-  float: right;
-  margin: 3px;
-  padding: 5px 13px;
-}
-
-.btn {
-  &:hover,
-  &-add:hover,
-  &-arrow:hover,
-  &-edit:hover,
-  &-expand:hover,
-  &-expand-panel:hover,
-  &-open:hover,
-  &:focus,
-  &-add:focus,
-  &-arrow:focus,
-  &-edit:focus,
-  &-expand:focus,
-  &-expand-panel:focus,
-  &-open:focus {
-    color: #fff;
-  }
-}
-
+// Main panel
 .panel-header {
   @include back-color(#fff, $color-black, hidden);
   @include border-radius (2px);
@@ -177,6 +83,7 @@ a, a:hover, a:focus {
   }
 }
 
+//Panels
 .panels-list {
   margin-left: 0;
   margin-right: 0;
@@ -187,6 +94,26 @@ a, a:hover, a:focus {
   box-shadow: $panels-shadow !important;
   border: 0 !important;
   margin-bottom: 16px;
+
+  &--clicked-blue {
+    @include border-top-bottom($label);
+    background-color: $label !important;
+    h4 {
+      color: white;
+    }
+  }
+
+  &--clicked-blue-title {
+    @include border-top-bottom($label);
+    background-color: $label !important;
+    h4 {
+      color: white;
+    }
+  }
+
+  &--clicked-yellow {
+    background-color: $panels-hover !important;
+  }
 }
 
 .allPanels__panel-content {
@@ -278,11 +205,9 @@ a, a:hover, a:focus {
   }
 }
 
-
 .panel-block{
   margin: 0 0 15px 0;
   cursor: pointer;
-
 
   &__assess-icon,
   &__assess-value,
@@ -342,10 +267,6 @@ a, a:hover, a:focus {
     padding-left: 5px;
   }
 
-  &__assess-body {
-    padding-left: 10px;
-  }
-
   &__button-expand {
     border-bottom-right-radius: 3px;
     border-right: $panels-border;
@@ -392,19 +313,19 @@ a, a:hover, a:focus {
     border-radius: 3px;
   }
 
-}
-
-.panel-block:hover {
-  .panel-block__assess-icon,
-  .panel-block__assess-value,
-  .panel-block__assess-body,
-  .panel-block__filter,
-  .panel-block__bar-slider,
-  .panel-block__button-expand{
-    background-color: $panels-hover;
+  &:hover {
+    .panel-block__assess-icon,
+    .panel-block__assess-value,
+    .panel-block__assess-body,
+    .panel-block__filter,
+    .panel-block__bar-slider,
+    .panel-block__button-expand {
+      background-color: $panels-hover;
+    }
   }
 }
 
+//Details panel - evidences
 .well {
   margin-top: 0;
   border: 0;

@@ -1,44 +1,45 @@
-.panel.panel-default
-  .panel-body
-    form.form-inline(role='form')
-      .row
-        .col-xl-4.col-lg-4.col-md-8.col-sm-7.col-xs-12
-          .input-group
-            .input-group-btn.search-panel
-              button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
-                span#search_concept tekst
-                span.caret
-              ul.dropdown-menu(role='menu')
-                li
-                  a(href='#tagi') tagi
-            input#search_param(type='hidden', name='search_param', value='all')
-            input#searchfor.form-control(type='text', name='x', placeholder='Szukaj...')
-            span.input-group-btn
-              button.btn.btn-default(type='button')
-                i.fa.fa-angle-double-right
-        .col-xl-2.col-lg-2.col-md-3.col-sm-5.col-xs-12
-          button.btn.btn-default(type='button')
-            i.fa.fa-angle-double-left
-          span.number-of-results 1/9
-          button.btn.btn-default(type='button')
-            i.fa.fa-angle-double-right
-        .col-xl-5.col-lg-6.col-md-12.col-sm-12.col-xs-12
-          .form-group.col-xl-12.col-lg-12.col-md-10.col-sm-12.col-xs-12
-            .row
-              .col-xl-3.col-lg-3.col-md-3.col-sm-3.col-xs-3
-                p Pokaż elementy
-              .col-xl-3.col-lg-3.col-md-3.col-sm-3.col-xs-9
-                .checkbox
-                  label
-                    input(type='checkbox')
-                    |  wszystkie
-              .col-xl-3.col-lg-3.col-md-3.col-sm-3.col-xs-9
-                .checkbox
-                  label
-                    input(type='checkbox')
-                    span  nieocenione
-              .col-xl-3.col-lg-3.col-md-3.col-sm-3.col-sm-offset-0.col-xs-9.col-xs-offset-3
-                .checkbox
-                  label
-                    input(type='checkbox')
-                    |  ocenione
+#search-panel.collapse
+  .panel.panel-default.search
+    .panel-body
+      form.form-inline(role='form')
+        .row.search-form
+          .search-form-input
+            .input-group
+              .input-group-btn.search-form-dropdown
+                button.btn.btn-default.dropdown-toggle.btn-panel-search(type='button', data-toggle='dropdown')
+                  span#search_concept tekst
+                  span.caret
+                ul.dropdown-menu(role='menu')
+                  li
+                    a(href='#tagi') tagi
+              input#search_param(type='hidden', name='search_param', value='all')
+              input#searchfor.form-control(type='text', name='x', placeholder='Szukaj...')
+              span.input-group-btn
+                button.btn.btn-default.btn-panel-search(type='button')
+                  i.fa.fa-angle-double-right
+          .search-form-buttons
+            button.btn.btn-default.btn-panel-search(type='button')
+              i.fa.fa-angle-double-left
+            span.search-form-buttons__result 1/9
+            button.btn.btn-default.btn-panel-search(type='button')
+              i.fa.fa-angle-double-right
+          .search-form-checkboxes
+            .form-group.checkboxes-group
+              .row.checkboxes-group-row
+                .col-xs-3.checkboxes-group-label
+                  p.checkboxes-group-label__text Pokaż elementy
+                .col-sm-3.col-xs-9.checkboxes-group-all
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      |  wszystkie
+                .col-sm-3.col-xs-9.checkboxes-group-no-assess
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      span.checkboxes-group-no-assess__result  nieocenione
+                .col-sm-3.col-sm-offset-0.col-xs-9.col-xs-offset-3.checkboxes-group-assess
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      |  ocenione

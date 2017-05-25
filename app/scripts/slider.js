@@ -130,7 +130,7 @@ function updateSlider(passObj, memo, isInit) {
       else {
         initVal = memo[obj[idx].name];
 
-        nextObj.parent().parent().parent().children('.allPanels__bar-slider').children().children('.slider-container').children('.bar').children('.pasek').slice(1).addClass('active-input')
+        nextObj.parent().parent().parent().children('.panel-block__bar-slider').children().children('.slider-container').children('.bar').children('.pasek').addClass('active-input')
       }
       if(!initVal) {
         initVal=0;

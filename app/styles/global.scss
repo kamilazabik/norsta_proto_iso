@@ -1,5 +1,6 @@
 @import "mixins";
 
+//Fonts
 h4, h3 {
   font-size: 14px;
   margin-top: 5px;
@@ -22,76 +23,144 @@ table {
   font-family: sans-serif !important;
 }
 
+a, a:hover, a:focus {
+  text-decoration: none !important;
+}
+
+p {
+  margin-top: 10px;
+}
+
+//Buttons
+.btn {
+  background-color: $panels-head;
+  border-color: $panels-head;
+  color: #fff;
+}
+
+.btn-open {
+  padding: 5px 8px;
+  float: right;
+  margin: 5px 0 5px 0;
+}
+
+.btn-edit {
+  padding: 5px 10px;
+  float: right;
+  margin: auto 0 5px 0;
+}
+
+.btn-add {
+  border-color: $buttonsAdd;
+  background-color: $buttonsAdd;
+  margin: 0 3px;
+  padding: 4px 10px;
+}
+
+.btn-expand {
+  padding: 4px 9px;
+  float: right;
+}
+
+.btn-up, .btn-arrow {
+  padding: 5px 12px
+}
+
+.btn-up {
+  margin: 4px 0 3px auto;
+  display: block !important;
+}
+
+.btn-arrow {
+  float: right;
+  margin-left: 3px;
+}
+
+.btn-arrow--disabled {
+  background-color: rgb(175, 175, 175);
+  border-color: rgb(152, 152, 152);
+}
+
+.btn-expand-panel {
+  float: right;
+  margin: 3px;
+  padding: 5px 13px;
+}
+
+.btn {
+  &:hover,
+  &-add:hover,
+  &-arrow:hover,
+  &-edit:hover,
+  &-expand:hover,
+  &-expand-panel:hover,
+  &-open:hover,
+  &:focus,
+  &-add:focus,
+  &-arrow:focus,
+  &-edit:focus,
+  &-expand:focus,
+  &-expand-panel:focus,
+  &-open:focus {
+    color: #fff;
+  }
+}
+
+.btn-panel-search {
+  background-color: #fff;
+  border-color: $content;
+  color: #000;
+  &:hover {
+    background-color: $content;
+  }
+}
+
+//Content
+
 #main-page {
   padding: 0;
 }
 
-footer {
-  padding: 0 15px;
-  //background: $panels-head;
-  background: #dfe2e8;
-  border-top: 1px solid #d0d3d9;
-  color: $main-color-font;
-  position: fixed;
-  bottom: 0;
-  z-index: 2000;
-  //position: absolute;
-  ////bottom: 0;
-  width: 100%;
-}
+//Panel search
+.search {
+  margin-bottom: 0;
+  border: {
+    radius: 0;
+    left: 0;
+    right: 0;
+  }
 
-#removeAssessAlert, #saveAssessAlert {
-  margin: 10px;
-}
+  .checkbox {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
 
-#filter-panel {
-  .panel {
-    margin-bottom: 0;
-    border: {
-      radius: 0;
-      left: 0;
-      right: 0;
+  &-form {
+    &-buttons, &-checkboxes {
+      margin-top: 10px;
     }
 
-    .form-inline {
-      > .row {
-        > div:nth-child(2), > div:nth-child(3) {
-          margin-top: 10px;
-        }
-      }
+    &-dropdown {
+      width: 1% !important;
+    }
 
-      .form-group {
+    &-buttons {
+      &__result {
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+    }
+
+    &-checkboxes {
+      .checkboxes-group {
         padding: 0;
-        p{
+        width: 100%;
+
+        &__text {
           margin-top: 10px;
         }
-        .checkbox {
-          margin-top:5px;
-        }
       }
-    }
-
-
-    button {
-      background-color: #fff;
-      border-color: $content;
-      &:hover {
-        color: #000;
-        background-color: $content;
-      }
-    }
-
-    .input-group-btn.search-panel {
-      width: 1%;
-    }
-    .checkbox {
-      margin-left: 10px;
-      margin-right: 10px;
-    }
-
-    span.number-of-results {
-      padding-right: 5px;
-      padding-left: 5px;
     }
   }
 }
@@ -101,15 +170,6 @@ footer {
   background-color:yellow;
 }
 
-span.caret {
-  margin-left: 5px !important;
-}
-
-#modalEvidence {
-  #textareaNameEvid {
-    height: 100% !important;
-  }
-}
 
 //All textarea
 .addedCom, .editable_text,textarea {
@@ -120,11 +180,14 @@ span.caret {
   font-size: 1.4em;
 }
 
-.icon {
-  background-image: url(../images/ikony.svg);
-  //background-size: 68px 65px;
-  height: 65px;
-  margin: 1rem 0 2rem;
-  width: 68px;
+//Footer
+footer {
+  padding: 0 15px;
+  background: #dfe2e8;
+  border-top: 1px solid #d0d3d9;
+  color: $main-color-font;
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
+  width: 100%;
 }
-
