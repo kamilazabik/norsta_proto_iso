@@ -1,0 +1,193 @@
+@import "mixins";
+
+//Fonts
+h4, h3 {
+  font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-family: sans-serif !important;
+}
+
+h5 {
+  @include font(400, 1);
+  font-size: 13px;
+  font-family: sans-serif !important;
+}
+
+p,
+label,
+a,
+.form-control,
+table {
+  font-size: 13px;
+  font-family: sans-serif !important;
+}
+
+a, a:hover, a:focus {
+  text-decoration: none !important;
+}
+
+p {
+  margin-top: 10px;
+}
+
+//Buttons
+.btn {
+  background-color: $panels-head;
+  border-color: $panels-head;
+  color: #fff;
+}
+
+.btn-open {
+  padding: 5px 8px;
+  float: right;
+  margin: 5px 0 5px 0;
+}
+
+.btn-edit {
+  padding: 5px 10px;
+  float: right;
+  margin: auto 0 5px 0;
+}
+
+.btn-add {
+  border-color: $buttonsAdd;
+  background-color: $buttonsAdd;
+  margin: 0 3px;
+  padding: 4px 10px;
+}
+
+.btn-expand {
+  padding: 4px 9px;
+  float: right;
+}
+
+.btn-up, .btn-arrow {
+  padding: 5px 12px
+}
+
+.btn-up {
+  margin: 4px 0 3px auto;
+  display: block !important;
+}
+
+.btn-arrow {
+  float: right;
+  margin-left: 3px;
+}
+
+.btn-arrow--disabled {
+  background-color: rgb(175, 175, 175);
+  border-color: rgb(152, 152, 152);
+}
+
+.btn-expand-panel {
+  float: right;
+  margin: 3px;
+  padding: 5px 13px;
+}
+
+.btn {
+  &:hover,
+  &-add:hover,
+  &-arrow:hover,
+  &-edit:hover,
+  &-expand:hover,
+  &-expand-panel:hover,
+  &-open:hover,
+  &:focus,
+  &-add:focus,
+  &-arrow:focus,
+  &-edit:focus,
+  &-expand:focus,
+  &-expand-panel:focus,
+  &-open:focus {
+    color: #fff;
+  }
+}
+
+.btn-panel-search {
+  background-color: #fff;
+  border-color: $content;
+  color: #000;
+  &:hover {
+    background-color: $content;
+  }
+}
+
+//Content
+
+#main-page {
+  padding: 0;
+}
+
+//Panel search
+.search {
+  margin-bottom: 0;
+  border: {
+    radius: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .checkbox {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+
+  &-form {
+    &-buttons, &-checkboxes {
+      margin-top: 10px;
+    }
+
+    &-dropdown {
+      width: 1% !important;
+    }
+
+    &-buttons {
+      &__result {
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+    }
+
+    &-checkboxes {
+      .checkboxes-group {
+        padding: 0;
+        width: 100%;
+
+        &__text {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+.allPanels .title h4 span,.allPanels .title h5 span {
+  text-decoration:underline;
+  background-color:yellow;
+}
+
+
+//All textarea
+.addedCom, .editable_text,textarea {
+  border: 1px solid rgb(185, 185, 185);
+  min-height: 50px;
+  padding: 2px;
+  margin-bottom: 5px;
+  font-size: 1.4em;
+}
+
+//Footer
+footer {
+  padding: 0 15px;
+  background: #dfe2e8;
+  border-top: 1px solid #d0d3d9;
+  color: $main-color-font;
+  position: fixed;
+  bottom: 0;
+  z-index: 2000;
+  width: 100%;
+}

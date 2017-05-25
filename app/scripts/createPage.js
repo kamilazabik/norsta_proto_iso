@@ -58,6 +58,7 @@ function createPage(numberClass, isNextLoad) {
       }
     }
 
+
     titlePanel.text(isoObject[numberClass].name);
     label.text(numberClassWithDots);
 
@@ -242,7 +243,7 @@ function moveRightPanel() {
   });
   if (mql.matches) {
       firstPanel.on('click', function () {
-        $('.right-panel-first').toggleClass('right-first-panel--margin-added', 1000, "ease");
+        $('.right-panel-first').toggleClass('right-panel-panel--margin-added', 1000, "ease");
       });
   }
 

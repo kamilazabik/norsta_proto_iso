@@ -50,7 +50,7 @@ function makePanelsTitle(numberClass, oneTitle){
     , paddingContent = $('.panels-list')
     , panelTitle= $('<div class="panel panel-default allPanels"></div>')
     , panelHeading = $('<div class="panel-heading allPanels__panel-heading"></div>')
-    , rowPanel = $('<div class="row" data-panel="'+numberClass+'"></div>')
+    , rowPanel = $('<div class="row panel-title" data-panel="' + numberClass + '"></div>')
     , colNumber = $('<div class="panel-title__number"></div>')
     , colNumberH4 = $('<h4 class="lab-hseq"></h4>')
     , colTitle = $('<div class="panel-title__title"></div>')
@@ -148,11 +148,11 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col2a = $('<a class="panel-block__title--font-color"></a>').attr('href', '#').attr('data-title', numberOfChild )
 // class="title-hseq'+numberClass+' panel-title__title--font-color"
 
-    , col2h5 = $('<h5></h5>').text(nameOfChildren[i - 1])
+    , col2h5 = $('<h5 class="panel-block__title--font-color"></h5>').text(nameOfChildren[i - 1])
     , col4 = $('<div class=\'panel-block__assessment\'></div>')
     , col4row = $('<div class=\'row\'></div>')
-    , col4rowCol1 = $('<div class=\'panel-block__assess-body\'></div>')
-    , col4rowCol2 = $('<div class=\'panel-block__assess-body \'></div>')
+    , col4rowCol1 = $('<div class=\'panel-block__assess-icon\'></div>')
+    , col4rowCol2 = $('<div class=\'panel-block__assess-value \'></div>')
     , col4rowCol2pie = $('<div class=\' pie panel-block__pie pull-left\'></div>').attr('data-name',numberOfChild)
     , col4rowCol2h6 = $('<p class=\'numberValue' + numberOfChild + '\' ></p>')
     , col4rowCol2h6per = $('<p class=\'numberValue-per' + numberOfChild + '\' ></p>')
@@ -308,7 +308,7 @@ function makeRightPanel(){
   var rightPanel = $('<div class="col-lg-3 right-panel"></div>')
     , bsCollapse = $('<div id="bs-collapse" class="panel-group right-panel--fixed-panel"></div>')
     , rightPanelWidth = $('<div class="right-panel-block"></div>')
-    , firstPanel = $('<div class="right-panel-first right-panel-first--margin"></div>')
+    , firstPanel = $('<div class="right-first-panel right-panel-first--margin"></div>')
     , firstPanelWrap = $('<div class="panel right-panel-first__panel"></div>')
     , firstPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
     , firstPanelWrapHeadRow = $('<div class="row right-panel-heading__row"></div>')
@@ -347,8 +347,6 @@ function makeRightPanel(){
 
   firstPanelWrap.append(firstPanelWrapHead, firstPanelWrapOne);
   firstPanel.append(firstPanelWrap);
-
-
 
 
   var secondPanel = $('<div class="right-panel-second"></div>')
