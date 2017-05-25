@@ -1,7 +1,6 @@
 @import "mixins";
-//@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
-
+//Modal window Add evidence
 #modalEvidence{
   .modal-table {
     //table-layout:fixed;
@@ -42,8 +41,7 @@
   }
 }
 
-
-
+//Modal window My Profile and Preferences
 #myProfile, #preferences {
   .modal-body{
     padding-bottom: 0;

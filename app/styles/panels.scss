@@ -1,28 +1,10 @@
 @import "mixins";
 
-
-
 .active-input {
   background-color: $buttonsAdd !important;
 }
 
-.labelColor {
-  @include  border-top-bottom($label);
-  background-color: $label;
-  h4 {
-    color: white;
-  }
-}
-.titleColor {
-  .title{
-    background-color: $label;
-  }
-}
-
-p {
-  margin-top: 10px;
-}
-
+//Pie
 svg {
   background-color: #313547;
   @include border-radius (50%);
@@ -45,6 +27,14 @@ circle {
   stroke: #45d666 !important;
 }
 
+<
+<
+<
+<
+<
+<
+<
+HEAD
 a, a:hover, a:focus {
   text-decoration: none !important;
 }
@@ -123,6 +113,12 @@ a, a:hover, a:focus {
   }
 }
 
+==
+==
+==
+=
+// Main panel
+> > > > > > > proto_v2
 .panel-header {
   @include back-color(#fff, $color-black, hidden);
   @include border-radius (2px);
@@ -178,6 +174,7 @@ a, a:hover, a:focus {
   }
 }
 
+//Panels
 .panels-list {
   margin-left: 0;
   margin-right: 0;
@@ -188,6 +185,26 @@ a, a:hover, a:focus {
   box-shadow: $panels-shadow !important;
   border: 0 !important;
   margin-bottom: 16px;
+
+  &--clicked-blue {
+    @include border-top-bottom($label);
+    background-color: $label !important;
+    h4 {
+      color: white;
+    }
+  }
+
+  &--clicked-blue-title {
+    @include border-top-bottom($label);
+    background-color: $label !important;
+    h4 {
+      color: white;
+    }
+  }
+
+  &--clicked-yellow {
+    background-color: $panels-hover !important;
+  }
 }
 
 .allPanels__panel-content {
@@ -279,11 +296,9 @@ a, a:hover, a:focus {
   }
 }
 
-
 .panel-block{
   margin: 0 0 15px 0;
   cursor: pointer;
-
 
   &__assess-icon,
   &__assess-value,
@@ -343,10 +358,6 @@ a, a:hover, a:focus {
     padding-left: 5px;
   }
 
-  &__assess-body {
-    padding-left: 10px;
-  }
-
   &__button-expand {
     border-bottom-right-radius: 3px;
     border-right: $panels-border;
@@ -393,19 +404,19 @@ a, a:hover, a:focus {
     border-radius: 3px;
   }
 
-}
-
-.panel-block:hover {
-  .panel-block__assess-icon,
-  .panel-block__assess-value,
-  .panel-block__assess-body,
-  .panel-block__filter,
-  .panel-block__bar-slider,
-  .panel-block__button-expand{
-    background-color: $panels-hover;
+  &:hover {
+    .panel-block__assess-icon,
+    .panel-block__assess-value,
+    .panel-block__assess-body,
+    .panel-block__filter,
+    .panel-block__bar-slider,
+    .panel-block__button-expand {
+      background-color: $panels-hover;
+    }
   }
 }
 
+//Details panel - evidences
 .well {
   margin-top: 0;
   border: 0;

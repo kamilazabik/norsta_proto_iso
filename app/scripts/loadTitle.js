@@ -48,25 +48,26 @@ function changeBackgroundToRightPanel(numberClass,classNameText) {
       , allElement = $('[data-panel]')
       , title = $('.title-claim')
       , label = $('.label-claim')
-      // , rightPanel = $('.right-panel .panel-title')
       , rightPanel = $('.right-panel .panel-heading');
 
-  // $('.space').removeClass('cursor');
-  // panel.addClass('cursor');
 
   $('[data-comment]').attr('data-name', classNameText);
   $('.editable_text').on('click', divClicked);
-  $('.panel-title').removeClass('labelColor');
+  // $('.panel-title').removeClass('panel-block__number--clicked');
 
-  allElement.children().removeClass('labelColor');
-  allElement.removeClass('titleColor');
+  allElement.children().removeClass('allPanels--clicked-blue').removeClass('allPanels--clicked-yellow').removeClass('allPanels--clicked-blue-title');
+  allElement.children('.panel-block__assessment').children().children().removeClass('allPanels--clicked-yellow');
+  allElement.children('.panel-title__assessment').children().children().removeClass('allPanels--clicked-yellow');
+
+  panel.children(':first').addClass('allPanels--clicked-blue');
+  panel.children().slice(1, -3).addClass('allPanels--clicked-blue-title');
+  panel.children().slice(2).addClass('allPanels--clicked-yellow');
+  panel.children('.panel-block__assessment').children().children().addClass('allPanels--clicked-yellow');
+  panel.children('.panel-title__assessment').children().children().addClass('allPanels--clicked-yellow');
+
   title.text(link);
   label.text(numberClassWithDots);
-  panel.children(':first').addClass('labelColor');
-  panel.addClass('titleColor');
-  // rightPanel.addClass('labelColor');
-  rightPanel.addClass('labelColor');
-
+  rightPanel.addClass('allPanels--clicked-blue');
 }
 
 

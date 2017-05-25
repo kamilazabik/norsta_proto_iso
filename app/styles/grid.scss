@@ -2,6 +2,31 @@
 //@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 @import "bower_components/bootstrap-sass/assets/stylesheets/bootstrap";
 
+.search-form {
+  @include make-row();
+
+  &-input {
+    @include make-xs-column(12);
+    @include make-sm-column(7);
+    @include make-md-column(8);
+    @include make-lg-column(4);
+  }
+
+  &-buttons {
+    @include make-xs-column(12);
+    @include make-sm-column(5);
+    @include make-md-column(3);
+    @include make-lg-column(2);
+  }
+
+  &-checkboxes {
+    @include make-xs-column(12);
+    @include make-sm-column(12);
+    @include make-md-column(12);
+    @include make-lg-column(6);
+    @include make-xl-column(5);
+  }
+}
 
 .panels-list {
   @include make-row();
