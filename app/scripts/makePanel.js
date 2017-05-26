@@ -363,45 +363,30 @@ function makeRightPanel(){
     , secondPanelWrapOne = $('<div id="one" class="panel-collapse collapse in right-panel-one" aria-expanded="true"></div>')
     , secondPanelWrapOneBody = $('<div class="panel-body right-panel-body"></div>')
 
-    , secondPanelWrapOneBodyRow1 = $('<div class="row"></div>')
-    , secondPanelWrapOneBodyRow1C1 = $('<div class="right-panel-body__label"></div>')
-    , secondPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa')
-    , secondPanelWrapOneBodyRow1C2 = $('<div class="right-panel-body__title"></div>')
+
+  for (var i = 0; i < 4; i++) {
+    secondPanelWrapOneBody.append(($('<div class="row"></div>'))
+      .append($('<div class="right-panel-body__label"></div>'), $('<div class="right-panel-body__title"></div>')))
+  }
+
+  var secondPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa:')
     , secondPanelWrapOneBodyRow1C2H5 = $('<h5 class="title-claim"></h5>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
-
-    , secondPanelWrapOneBodyRow2 = $('<div class="row"></div>')
-    , secondPanelWrapOneBodyRow2C1 = $('<div class="right-panel-body__label "></div>')
     , secondPanelWrapOneBodyRow2C1H5 = $('<h5></h5>').text('Etykieta:')
-    , secondPanelWrapOneBodyRow2C2 = $('<div class="right-panel-body__title"></div>')
     , secondPanelWrapOneBodyRow2C2H5 = $('<h5 class="label-claim"></h5>')
-
-    , secondPanelWrapOneBodyRow3 = $('<div class="row"></div>')
-    , secondPanelWrapOneBodyRow3C1 = $('<div class="right-panel-body__label "></div>')
-    , secondPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tagi')
-    , secondPanelWrapOneBodyRow3C2 = $('<div class="right-panel-body__title"></div>')
-
-    , secondPanelWrapOneBodyRow4 = $('<div class="row"></div>')
-    , secondPanelWrapOneBodyRow4C1 = $('<div class="right-panel-body__label"></div>')
-    , secondPanelWrapOneBodyRow4C1H5 = $('<h5></h5>').text('Opis')
-    , secondPanelWrapOneBodyRow4C2 = $('<div class="right-panel-body__title"></div>')
+    , secondPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tagi:')
+    , secondPanelWrapOneBodyRow4C1H5 = $('<h5></h5>').text('Opis:')
     , secondPanelWrapOneBodyRow4C2H5 = $('<h5 class="right-panel-body__title--description"></h5>');
 
 
-  secondPanelWrapOneBodyRow4C2.append(secondPanelWrapOneBodyRow4C2H5);
-  secondPanelWrapOneBodyRow4C1.append(secondPanelWrapOneBodyRow4C1H5);
-  secondPanelWrapOneBodyRow4.append(secondPanelWrapOneBodyRow4C1, secondPanelWrapOneBodyRow4C2);
+  secondPanelWrapOneBody.children().children()[0].append(secondPanelWrapOneBodyRow1C1H5[0]);
+  secondPanelWrapOneBody.children().children()[2].append(secondPanelWrapOneBodyRow2C1H5[0]);
+  secondPanelWrapOneBody.children().children()[4].append(secondPanelWrapOneBodyRow3C1H5[0]);
+  secondPanelWrapOneBody.children().children()[6].append(secondPanelWrapOneBodyRow4C1H5[0]);
 
-  secondPanelWrapOneBodyRow3C1.append(secondPanelWrapOneBodyRow3C1H5);
-  secondPanelWrapOneBodyRow3.append(secondPanelWrapOneBodyRow3C1, secondPanelWrapOneBodyRow3C2);
+  secondPanelWrapOneBody.children().children()[1].append(secondPanelWrapOneBodyRow1C2H5[0]);
+  secondPanelWrapOneBody.children().children()[3].append(secondPanelWrapOneBodyRow2C2H5[0]);
+  secondPanelWrapOneBody.children().children()[7].append(secondPanelWrapOneBodyRow4C2H5[0]);
 
-  secondPanelWrapOneBodyRow2C2.append(secondPanelWrapOneBodyRow2C2H5);
-  secondPanelWrapOneBodyRow2C1.append(secondPanelWrapOneBodyRow2C1H5);
-  secondPanelWrapOneBodyRow2.append(secondPanelWrapOneBodyRow2C1, secondPanelWrapOneBodyRow2C2);
-
-  secondPanelWrapOneBodyRow1C2.append(secondPanelWrapOneBodyRow1C2H5);
-  secondPanelWrapOneBodyRow1C1.append(secondPanelWrapOneBodyRow1C1H5);
-  secondPanelWrapOneBodyRow1.append(secondPanelWrapOneBodyRow1C1, secondPanelWrapOneBodyRow1C2);
-  secondPanelWrapOneBody.append(secondPanelWrapOneBodyRow1, secondPanelWrapOneBodyRow2, secondPanelWrapOneBodyRow3, secondPanelWrapOneBodyRow4 );
   secondPanelWrapOne.append(secondPanelWrapOneBody);
 
   secondPanelWrapHeadRowCol2H4.append(secondPanelWrapHeadRowCol2H4a);

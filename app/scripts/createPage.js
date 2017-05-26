@@ -83,9 +83,8 @@ function loadPage(isNextLoad){
         , numberClass = className.attr('data-label')
         , allRangeSlider = $('.slider')
         , clickedButton = $('[data-label = \'' + numberClass + '\']')
-        , clickedPanel = $('[data-panel = \'' + numberClass + '\']');
-
-    // console.log(clickedButton)
+        , clickedPanel = $('[data-panel = \'' + numberClass + '\']')
+        , clickedPanelNotAllChildren = clickedPanel.children().slice(0, -2)
 
       allTitles.each(function (index, value) {
         if (!panelTitle) {
@@ -111,7 +110,7 @@ function loadPage(isNextLoad){
         //     createPage(numberClass, true)
         //   });
 
-        clickedPanel.on('dblclick', function (e) {
+        clickedPanelNotAllChildren.on('dblclick', function (e) {
             e.preventDefault();
             createPage(numberClass, true)
           });
@@ -139,7 +138,7 @@ function loadPage(isNextLoad){
           e.preventDefault();
           createPage(numberClass, true)
         });
-        clickedPanel.on('dblclick', function (e) {
+        clickedPanelNotAllChildren.on('dblclick', function (e) {
           e.preventDefault();
           createPage(numberClass, true)
         })

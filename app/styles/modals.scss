@@ -20,6 +20,7 @@
       @include td-size(10%, 45%,0, 30%, 15%);
       &:hover{
         background-color: #ededed;
+        cursor: pointer;
       }
 
       &--no-border{
