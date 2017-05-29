@@ -87,6 +87,12 @@
 nav {
   border: 0;
   background: $panels-head !important;
+  //
+  //.only-icon {
+  //  font-size: 30px;
+  //}
+
+
 }
 
 .nav-list {
@@ -102,6 +108,16 @@ nav {
   }
   &__caret {
     margin-left: 5px !important;
+    &--folder-list {
+      margin-bottom: 10px;
+    }
+  }
+
+  &-icon {
+
+    &__link {
+      color: #fff;
+    }
   }
 
 }
@@ -180,7 +196,7 @@ nav {
     background-color: $content;
     padding: 15px 15px 0;
     border-top: 1px solid $content-border;
-    min-height: 90vh;
+    min-height: 91vh;
     margin-bottom: 30px;
 
     &-panels {

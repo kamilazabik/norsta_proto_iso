@@ -9,7 +9,7 @@
   }
 
   .modal-table-head {
-    margin-bottom: 5px;
+    margin-bottom: 0;
   }
 
   .modal-table-content {
@@ -47,6 +47,9 @@
     padding-bottom: 0;
     .form-horizontal .control-label {
       text-align: left;
+    }
+    .form-group {
+      margin-bottom: 8px;
     }
     input {
       margin-right: 15px;

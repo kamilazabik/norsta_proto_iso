@@ -28,6 +28,26 @@
   }
 }
 
+.modal-table-row {
+  @include make-row();
+
+  .modal-table {
+    @include make-xs-column(12);
+  }
+}
+
+.login-page-row {
+  @include make-row();
+
+  .login-page-block {
+    @include make-sm-column(8);
+    @include make-md-column(6);
+    @include make-lg-column(4);
+    @include make-sm-column-offset(4);
+    @include make-md-column-offset(4);
+  }
+}
+
 .panels-list {
   @include make-row();
   @include make-xs-column(12);
@@ -121,6 +141,10 @@
   &__evidences-details {
     @include make-xs-column(12)
   }
+}
+
+.right-panel-heading__row {
+  @include make-row();
 }
 
 .right-panel-heading__icon {
