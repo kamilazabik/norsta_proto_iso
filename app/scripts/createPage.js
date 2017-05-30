@@ -237,7 +237,7 @@ function moveRightPanel() {
     var windowScroll = $(window).scrollTop()
       , paddingContent = $('.panels-list').offset();
 
-    if(windowScroll > 100) {
+    if (windowScroll > 20) {
       $('.right-panel--fixed-panel').css('top', '60px')
     }else {
       $('.right-panel--fixed-panel').css('top', paddingContent.top)
