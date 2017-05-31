@@ -7,39 +7,39 @@
             .input-group
               .input-group-btn.search-form-dropdown
                 button.btn.btn-default.dropdown-toggle.btn-panel-search(type='button', data-toggle='dropdown')
-                  span#search_concept tekst
-                  span.caret
+                  span#search_concept text
+                  span.caret.btn-panel-search__caret
                 ul.dropdown-menu(role='menu')
                   li
-                    a(href='#tagi') tagi
+                    a(href='#tagi') tags
               input#search_param(type='hidden', name='search_param', value='all')
-              input#searchfor.form-control(type='text', name='x', placeholder='Szukaj...')
+              input#searchfor.form-control(type='text', name='x', placeholder='Search...')
               span.input-group-btn
                 button.btn.btn-default.btn-panel-search(type='button')
                   i.fa.fa-angle-double-right
+          .search-form-checkboxes
+            .form-group.checkboxes-group
+              .checkboxes-group-row
+                .checkboxes-group-label
+                  p.checkboxes-group-label__text Show elements
+                .checkboxes-group-all
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      |  all
+                .checkboxes-group-no-assess
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      | not assessed
+                .checkboxes-group-assess
+                  .checkbox
+                    label
+                      input(type='checkbox')
+                      |  assessed
           .search-form-buttons
             button.btn.btn-default.btn-panel-search(type='button')
               i.fa.fa-angle-double-left
             span.search-form-buttons__result 1/9
             button.btn.btn-default.btn-panel-search(type='button')
               i.fa.fa-angle-double-right
-          .search-form-checkboxes
-            .form-group.checkboxes-group
-              .row.checkboxes-group-row
-                .col-xs-3.checkboxes-group-label
-                  p.checkboxes-group-label__text Pokaż elementy
-                .col-sm-3.col-xs-9.checkboxes-group-all
-                  .checkbox
-                    label
-                      input(type='checkbox')
-                      |  wszystkie
-                .col-sm-3.col-xs-9.checkboxes-group-no-assess
-                  .checkbox
-                    label
-                      input(type='checkbox')
-                      span.checkboxes-group-no-assess__result  nieocenione
-                .col-sm-3.col-sm-offset-0.col-xs-9.col-xs-offset-3.checkboxes-group-assess
-                  .checkbox
-                    label
-                      input(type='checkbox')
-                      |  ocenione

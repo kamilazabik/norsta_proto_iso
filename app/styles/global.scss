@@ -114,6 +114,10 @@ p {
   &:hover {
     background-color: $content;
   }
+
+  &__caret {
+    margin-left: 5px !important;
+  }
 }
 
 //Content
@@ -135,6 +139,10 @@ p {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 5px;
+
+    input {
+      margin-right: 5px;
+    }
   }
 
   &-form {

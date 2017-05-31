@@ -53,7 +53,7 @@ function moveSidebar(){
 }//moveSidebar
 
 function collapseSidebar(){
-  $('.wrapper-sidebar li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+  $('.wrapper-sidebar li:has(ul)').addClass('parent_li').find(' > span');
   // console.log($('div#wrapper-sidebar li ul > li'))
   // var t = $('#wrapper-sidebar > li').find('li.parent_li');
   var t = $('.wrapper-sidebar ul ul ul ul li').hide();
@@ -69,11 +69,11 @@ function collapseSidebar(){
 
     if (children.is(':visible')) {
       children.hide('fast');
-      $(this).attr('title', 'Expand this branch').find(' > i').toggleClass('glyphicon-chevron-down glyphicon-chevron-right');
+      $(this).find(' > i').toggleClass('glyphicon-chevron-down glyphicon-chevron-right');
       // console.log($(this));
     } else {
       children.show('fast');
-      $(this).attr('title', 'Collapse this branch').find(' > i').toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
+      $(this).find(' > i').toggleClass('glyphicon-chevron-right glyphicon-chevron-down');
     }
     e.stopPropagation();
   });
