@@ -63,7 +63,7 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     tabContentDetails.append(($('<div class=\'row\'></div>')).append($('<div class=\'col-md-1 col-sm-2 col-xs-3\'></div>'), $('<div class=\'col-md-11 col-sm-10 col-xs-9\'></div>')))
   }
 
-    , tabContentDetailsRow1Col1H = $('<h5 class="hidden-xs"></h5>').text('Name')
+  var tabContentDetailsRow1Col1H = $('<h5 class="hidden-xs"></h5>').text('Name')
     , tabContentDetailsRow1Col1Ha = $('<h5 class="hidden-sm hidden-md hidden-lg hidden-xl"></h5>').text('Name')
     , tabContentDetailsRow2Col1H = $('<h5></h5>').text('Label')
     , tabContentDetailsRow3Col1H = $('<h5></h5>').text('Tags')
@@ -71,7 +71,7 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     , tabContentDetailsRow1Col2H = $('<p class=\'title-claim\'></p>')
     , tabContentDetailsRow2Col2H = $('<p class=\'label-claim\'></p>')
     , tabContentDetailsRow3Col2H = $('<p class=\'\'></p>')
-    , tabContentDetailsRow4Col2H = $('<p class=\'description\'></p>')
+    , tabContentDetailsRow4Col2H = $('<p class=\'description\'></p>');
 
 
   tabContentDetails.children().children()[0].append(tabContentDetailsRow1Col1H[0], tabContentDetailsRow1Col1Ha[0]);
