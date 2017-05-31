@@ -3,7 +3,7 @@ function addAttrToEvidenceWindow(classNameText){
     , textOfName = $('#textareaNameEvid')
     , buttonAdd = $('[data-add = \'' + classNameText + '\']');
 
-  $('.btn.btn-add.' + classNameText + ', .btn.btn-edit.' + classNameText + '').on('click', function () {
+  $(document).on('click', '.btn.btn-add.' + classNameText + ', .btn.btn-edit.' + classNameText, function () {
       var dataEvidence = $(this).attr('data-evidence')
         , modalEvidence = $('#modalEvidence')
         , buttonSave = $('.save-new-evid.btn');
@@ -31,7 +31,8 @@ function addAttrToEvidenceWindow(classNameText){
 }//addEvidence
 
 function addNewEvidence() {
-  var buttonSubmit = $('button.save-new-evid');
+  var buttonSubmit = $('button.save-new-evid')
+    , evidenceFromList;
 
   $(document).on('click', '.browse', function(event){
     var file = $(this).parent().parent().parent().find('.file');
@@ -45,8 +46,8 @@ function addNewEvidence() {
     existingEvidence = false;
   });
 
-  var evidenceFromList;
-  $(document).on('click', '.modal-tabel-body td', function(){
+
+  $(document).on('click', '.modal-table-body td', function () {
     $('tr').removeClass('clicked-tr');
     evidenceFromList = $(this);
     var clickedTr = evidenceFromList.parent();
@@ -175,13 +176,3 @@ function makeTrInEvidencesWidnow(className, rowCount,rowCountInEvidenceWindow){
   return evidenceTr3;
 
 }//
-
-function uploadEvidence() {
-  var table = $('.modal-table-body__tr')
-
-  table.on('click', function (e) {
-    console.log(e.target)
-  })
-
-
-}

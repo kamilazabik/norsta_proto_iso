@@ -7,7 +7,7 @@ function makeMainPanel(){
   var mainPanel = $('<div class="row content-main-panel"></div>')
     // , col = $('<div class="col-xs-12"></div>')
     // , col1 = $('<div class="col-xs-12"></div>')
-    , col1row = $('<div class="row panel-header"></div>')
+    , col1row = $('<div class="panel-header"></div>')
     , col1rowTitleMain = $('<div class="panel-header__title"></div>')
     , col1rowTitleMainH3 = $('<h3></h3>').attr('data-title', 'A0').text('ISO 27001 Assessment')
     , col1rowAssess = $('<div class="panel-header__assessment"></div>')
@@ -50,7 +50,7 @@ function makePanelsTitle(numberClass, oneTitle){
     , paddingContent = $('.panels-list')
     , panelTitle= $('<div class="panel panel-default allPanels"></div>')
     , panelHeading = $('<div class="panel-heading allPanels__panel-heading"></div>')
-    , rowPanel = $('<div class="row panel-title" data-panel="' + numberClass + '"></div>')
+    , rowPanel = $('<div class="panel-title" data-panel="' + numberClass + '"></div>')
     , colNumber = $('<div class="panel-title__number"></div>')
     , colNumberH4 = $('<h4 class="lab-hseq"></h4>')
     , colTitle = $('<div class="panel-title__title"></div>')
@@ -141,7 +141,7 @@ function makePanelsTitle(numberClass, oneTitle){
 function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,numberClass ) {
   var numberOfChild = numberOfChildren[i - 1]
     , numberOfChildrenWithDots = numberOfChildren.map(addDotsForLabels)
-    , row = $('<div class=\'row panel-block\' data-panel=\''+ numberOfChild+'\'></div>')
+    , row = $('<div class=\'panel-block\' data-panel=\'' + numberOfChild + '\'></div>')
     , col1 = $('<div class=\'panel-block__number\'></div>')
     , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'panel-block__title\'></div>')
@@ -244,7 +244,7 @@ function makeFirstPartOfMainPage(){
 
 function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j ){
   var numberOfChildMainPan=  numberOfChildMainPanel[j - 1]
-    , panelRow = $('<div class=\'row panel-block\' data-panel=\''+ numberOfChildMainPan+'\'></div>')
+    , panelRow = $('<div class=\'panel-block\' data-panel=\'' + numberOfChildMainPan + '\'></div>')
     , panelRowCol1 = $('<div class="panel-block__number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
     , panelRowCol2 = $('<div class="panel-block__title"></div>')
@@ -311,7 +311,7 @@ function makeRightPanel(){
     , firstPanel = $('<div class="right-first-panel right-panel-first--margin"></div>')
     , firstPanelWrap = $('<div class="panel right-panel-first__panel"></div>')
     , firstPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
-    , firstPanelWrapHeadRow = $('<div class="row right-panel-heading__row"></div>')
+    , firstPanelWrapHeadRow = $('<div class="right-panel-heading__row"></div>')
 
     , firstPanelWrapHeadRowCol1 = $('<div class="right-panel-heading__icon"></div>')
     , firstPanelWrapHeadRowCol1Icon = $('<i class="fa fa-pie-chart" aria-hidden="true"></i>')
@@ -352,7 +352,7 @@ function makeRightPanel(){
   var secondPanel = $('<div class="right-panel-second"></div>')
     , secondPanelWrap = $('<div class="panel right-panel-second__panel"></div>')
     , secondPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
-    , secondPanelWrapHeadRow = $('<div class="row right-panel-heading__row"></div>')
+    , secondPanelWrapHeadRow = $('<div class="right-panel-heading__row"></div>')
     , secondPanelWrapHeadRowCol1 = $('<div class="right-panel-heading__icon"></div>')
     , secondPanelWrapHeadRowCol1Icon = $('<i class="fa fa-file-text-o" aria-hidden="true"></i>')
 
@@ -363,45 +363,30 @@ function makeRightPanel(){
     , secondPanelWrapOne = $('<div id="one" class="panel-collapse collapse in right-panel-one" aria-expanded="true"></div>')
     , secondPanelWrapOneBody = $('<div class="panel-body right-panel-body"></div>')
 
-    , secondPanelWrapOneBodyRow1 = $('<div class="row"></div>')
-    , secondPanelWrapOneBodyRow1C1 = $('<div class="right-panel-body__label"></div>')
-    , secondPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Name:')
-    , secondPanelWrapOneBodyRow1C2 = $('<div class="right-panel-body__title"></div>')
+
+  for (var i = 0; i < 4; i++) {
+    secondPanelWrapOneBody.append(($('<div class="row"></div>'))
+      .append($('<div class="right-panel-body__label"></div>'), $('<div class="right-panel-body__title"></div>')))
+  }
+
+  var secondPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Name:')
     , secondPanelWrapOneBodyRow1C2H5 = $('<h5 class="title-claim"></h5>').text('ISO 27001 Assessment')
-
-    , secondPanelWrapOneBodyRow2 = $('<div class="row"></div>')
-    , secondPanelWrapOneBodyRow2C1 = $('<div class="right-panel-body__label "></div>')
     , secondPanelWrapOneBodyRow2C1H5 = $('<h5></h5>').text('Label:')
-    , secondPanelWrapOneBodyRow2C2 = $('<div class="right-panel-body__title"></div>')
     , secondPanelWrapOneBodyRow2C2H5 = $('<h5 class="label-claim"></h5>')
-
-    , secondPanelWrapOneBodyRow3 = $('<div class="row"></div>')
-    , secondPanelWrapOneBodyRow3C1 = $('<div class="right-panel-body__label "></div>')
-    , secondPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tags')
-    , secondPanelWrapOneBodyRow3C2 = $('<div class="right-panel-body__title"></div>')
-
-    , secondPanelWrapOneBodyRow4 = $('<div class="row"></div>')
-    , secondPanelWrapOneBodyRow4C1 = $('<div class="right-panel-body__label"></div>')
-    , secondPanelWrapOneBodyRow4C1H5 = $('<h5></h5>').text('Description')
-    , secondPanelWrapOneBodyRow4C2 = $('<div class="right-panel-body__title"></div>')
+    , secondPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tags:')
+    , secondPanelWrapOneBodyRow4C1H5 = $('<h5></h5>').text('Description:')
     , secondPanelWrapOneBodyRow4C2H5 = $('<h5 class="right-panel-body__title--description"></h5>');
 
 
-  secondPanelWrapOneBodyRow4C2.append(secondPanelWrapOneBodyRow4C2H5);
-  secondPanelWrapOneBodyRow4C1.append(secondPanelWrapOneBodyRow4C1H5);
-  secondPanelWrapOneBodyRow4.append(secondPanelWrapOneBodyRow4C1, secondPanelWrapOneBodyRow4C2);
+  secondPanelWrapOneBody.children().children()[0].append(secondPanelWrapOneBodyRow1C1H5[0]);
+  secondPanelWrapOneBody.children().children()[2].append(secondPanelWrapOneBodyRow2C1H5[0]);
+  secondPanelWrapOneBody.children().children()[4].append(secondPanelWrapOneBodyRow3C1H5[0]);
+  secondPanelWrapOneBody.children().children()[6].append(secondPanelWrapOneBodyRow4C1H5[0]);
 
-  secondPanelWrapOneBodyRow3C1.append(secondPanelWrapOneBodyRow3C1H5);
-  secondPanelWrapOneBodyRow3.append(secondPanelWrapOneBodyRow3C1, secondPanelWrapOneBodyRow3C2);
+  secondPanelWrapOneBody.children().children()[1].append(secondPanelWrapOneBodyRow1C2H5[0]);
+  secondPanelWrapOneBody.children().children()[3].append(secondPanelWrapOneBodyRow2C2H5[0]);
+  secondPanelWrapOneBody.children().children()[7].append(secondPanelWrapOneBodyRow4C2H5[0]);
 
-  secondPanelWrapOneBodyRow2C2.append(secondPanelWrapOneBodyRow2C2H5);
-  secondPanelWrapOneBodyRow2C1.append(secondPanelWrapOneBodyRow2C1H5);
-  secondPanelWrapOneBodyRow2.append(secondPanelWrapOneBodyRow2C1, secondPanelWrapOneBodyRow2C2);
-
-  secondPanelWrapOneBodyRow1C2.append(secondPanelWrapOneBodyRow1C2H5);
-  secondPanelWrapOneBodyRow1C1.append(secondPanelWrapOneBodyRow1C1H5);
-  secondPanelWrapOneBodyRow1.append(secondPanelWrapOneBodyRow1C1, secondPanelWrapOneBodyRow1C2);
-  secondPanelWrapOneBody.append(secondPanelWrapOneBodyRow1, secondPanelWrapOneBodyRow2, secondPanelWrapOneBodyRow3, secondPanelWrapOneBodyRow4 );
   secondPanelWrapOne.append(secondPanelWrapOneBody);
 
   secondPanelWrapHeadRowCol2H4.append(secondPanelWrapHeadRowCol2H4a);

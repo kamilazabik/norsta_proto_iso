@@ -10,40 +10,40 @@
     span.icon-bar
     span.icon-bar
 // navbar-header
-#bs-example-navbar-collapse-1.collapse.navbar-collapse
+#bs-navbar-collapse-1.collapse.navbar-collapse
   ul.nav.navbar-nav
     li.active
       button#menu-toggle-2.navbar-toggle.collapse.in(data-toggle='collapse')
         span.glyphicon.glyphicon-forward(aria-hidden='true')
   // navbar-header
 #bs-navbar-collapse-2.collapse.navbar-collapse
-  ul.nav.navbar-nav
+  ul.nav.navbar-nav.nav-list
     li.dropdown
-      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekt
-        span.caret
+      a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekt
+        span.caret.nav-list__caret
       ul.dropdown-menu
         li
-          a(href='#') Administracja
+          a.nav-list__link(href='#') Administracja
         li
-          a(href='#') Otwórz w widoku podstawowym
+          a.nav-list__link(href='#') Otwórz w widoku podstawowym
         li
-          a(href='#') Otwórz w widoku pełnym
-    li.only-icon
-      a(href='#' title="Odśwież")
+          a.nav-list__link(href='#') Otwórz w widoku pełnym
+    li.nav-list-icon
+      a.nav-list-icon__link(href='#' title="Odśwież")
         span.glyphicon.glyphicon-refresh.fa-2x(aria-hidden='true')
-    li.only-icon.simple-list
-      a(href='#' title="Widok listy folderów i projektów")
+    li.nav-list-icon.simple-list
+      a.nav-list-icon__link(href='#' title="Widok listy folderów i projektów")
         span.icon-view.fa-2x(aria-hidden='true')
-    li.only-icon.projects-list
-      a(href='#' title="Widok listy wszystkich projektów")
+    li.nav-list-icon.projects-list
+      a.nav-list-icon__link(href='#' title="Widok listy wszystkich projektów")
         span.glyphicon.glyphicon-list.fa-2x(aria-hidden='true')
-    li.only-icon.tree-list
-      a(href='#' title="Widok drzewa folderów i projektów")
+    li.nav-list-icon.tree-list
+      a.nav-list-icon__link(href='#' title="Widok drzewa folderów i projektów")
         span.icon-tree.fa-2x(aria-hidden='true')
     li.dropdown
-      a.dropdown-toggle.only-icon(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' title="Pomoc")
+      a.dropdown-toggle.nav-list-icon__link(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false' title="Pomoc")
         i.fa.fa-question-circle.fa-2x(aria-hidden='true')
-        span.caret
+        span.caret.nav-list__caret.nav-list__caret--folder-list
       ul.dropdown-menu
         li
           a(href='#') Podręcznik
@@ -54,23 +54,23 @@
           a(href='#') Strona Argevide
         li
           a(href='#') O NOR-STA
-  ul.nav.navbar-nav.navbar-right
+  ul.nav.navbar-nav.navbar-right.nav-list
     li.dropdown
-      a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Jan Kowalski
-        span.caret
+      a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Jan Kowalski
+        span.caret.nav-list__caret
       ul.dropdown-menu
         li#profile
-          a(href='#myProfile' data-target="#myProfile" data-toggle="modal") Profil
+          a.nav-list__link(href='#myProfile' data-target="#myProfile" data-toggle="modal") Profil
         li
-          a(href='') Preferencje
+          a.nav-list__link(href='') Preferencje
         li.divider(role='separator')
         li
-          a(href='') Przejdź do pełnego widoku
+          a.nav-list__link(href='') Przejdź do pełnego widoku
         li
-          a(href='') Przejdź do administracji
+          a.nav-list__link(href='') Przejdź do administracji
         li.divider(role='separator')
         li
-          a(href='login-site.html') Wyloguj
+          a.nav-list__link(href='login-site.html') Wyloguj
   //button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#filter-panel',name='search')
     span.glyphicon.glyphicon-search(aria-hidden='true')
 
