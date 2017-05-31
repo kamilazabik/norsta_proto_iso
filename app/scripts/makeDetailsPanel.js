@@ -48,7 +48,7 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     , tabPanelsColUlLi2 = $('<li class=\'hidden-lg\'></li>')
     , tabPanelsColUlLi2a = $('<a href=\'#details' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Details</a>')
     , tabPanelsColUlLi3 = $('<li class=\'active\'></li>')
-    , tabPanelsColUlLi3a = $('<a href=\'#evidences' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Evidences</a>')
+    , tabPanelsColUlLi3a = $('<a href=\'#evidences' + numberOfChildMainPanel[j - 1] + '\' data-toggle=\'tab\'>Evidence</a>')
     , tabContent = $('<div id =\'my-tab-content' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-content evidences-content\'></div>')
     , tabContentAssess = $('<div id =\'assessment' + numberOfChildMainPanel[j - 1] + '\' class=\'tab-pane hidden-lg evidences-content-assess\'></div>')
     , tabContentDetails = $('<div id =\'details' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane hidden-lg\'></div>')
