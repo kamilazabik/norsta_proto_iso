@@ -24,12 +24,16 @@
   }
 }
 @media all and (min-width: 768px) {
-  .navbar-right {
-    margin-right: 0;
-  }
-
   .nav-list {
+    height: 56px;
+    &__li {
+      height: 100%;
+    }
+    &--right {
+      margin-right: 0;
+    }
     & .nav-list__link {
+      height: 100%;
       color: $main-color-font;
 
       &--top {
@@ -60,20 +64,9 @@
     font-size: 14px;
   }
 
-  #bs-navbar-collapse-2 .nav{
-    height: 56px;
-    > li {
-      height: 100%;
-      > a{
-        height: 100%;
-      }
-    }
-  }
-
-  nav {
-    .btn-search {
+  .btn-search {
       right: 125px;
-    }
+
   }
 
   #filter-panel {
