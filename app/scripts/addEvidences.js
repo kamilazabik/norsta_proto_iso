@@ -79,8 +79,6 @@ function saveEvidence(evidenceFromList, dataEvidence){
     , buttonOpenDetails = $('[data-expand=\'' + className + '\']')
     , collapsePanelClass = $('#collapsePanelDetails' + className);
 
-  console.log(buttonOpenDetails)
-
 
   $('tr').removeClass('clicked-tr');
 
