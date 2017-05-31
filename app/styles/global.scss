@@ -113,6 +113,10 @@ p {
   &:hover {
     background-color: $content;
   }
+
+  &__caret {
+    margin-left: 5px !important;
+  }
 }
 
 //Content

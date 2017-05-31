@@ -13,19 +13,42 @@
   }
 
   &-buttons {
-    @include make-xs-column(12);
-    @include make-sm-column(5);
+    @include make-xs-column(5);
+    @include make-sm-column(3);
     @include make-md-column(3);
     @include make-lg-column(2);
   }
 
   &-checkboxes {
-    @include make-xs-column(12);
-    @include make-sm-column(12);
-    @include make-md-column(12);
+    @include make-xs-column(7);
+    @include make-sm-column(9);
+    @include make-md-column(9);
     @include make-lg-column(6);
     @include make-xl-column(5);
   }
+}
+
+.checkboxes-group {
+  &-row {
+    @include make-row();
+  }
+
+  &-label {
+    @include make-xs-column(3);
+  }
+
+  &-all, &-no-assess {
+    @include make-xs-column(9);
+    @include make-sm-column(3);
+  }
+
+  &-assess {
+    @include make-xs-column(9);
+    @include make-sm-column(3);
+    @include make-sm-column-offset(0);
+    @include make-xs-column-offset(3);
+  }
+
 }
 
 .modal-table-row {
@@ -89,7 +112,7 @@
     @include make-md-column(1.2);
     @include make-lg-column(1);
     @include make-xl-column(0.8);
-      }
+  }
   &__title {
     @include make-xs-column(10);
     @include make-sm-column(4);
