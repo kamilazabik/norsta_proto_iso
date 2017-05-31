@@ -68,19 +68,6 @@
     font-size: 14px;
   }
 
-
-
-  .allPanels {
-    &--clicked-blue-title {
-      background-color: $panels-hover !important;
-      h4 {
-        color: #3387c8;
-      }
-    }
-  }
-
-
-
   .panel-header {
     min-height: 85px;
 
@@ -179,6 +166,15 @@
     }
   }
 
+  .allPanels {
+    &--clicked-blue-title {
+      background-color: $panels-hover !important;
+      .panel-block__title--font-color {
+        color: #3387c8;
+      }
+    }
+  }
+
   .panel-block:hover {
     .panel-block__title {
       background-color: $panels-hover;
@@ -191,6 +187,10 @@
 
   h3 {
     font-size: 18px;
+  }
+
+  .btn-open {
+    margin: 0 0 5px 5px;
   }
 
   .panel-header {
@@ -231,9 +231,6 @@
     }
   }
 
-  .btn-open {
-    margin: 0 0 5px 5px;
-  }
 }//992px - 1200px
 
 
@@ -251,18 +248,6 @@
     }
   }
 //TODO
-  #filter-panel {
-  .panel {
-    .form-inline {
-      > .row {
-        > div:nth-child(2), > div:nth-child(3) {
-          margin-top: 0 !important;
-          }
-        }
-      }
-    }
-  }
-
   .mainPagePanels {
     .tree {
       li {
