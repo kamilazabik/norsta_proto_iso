@@ -18,7 +18,7 @@
   // navbar-header
 #bs-navbar-collapse-2.collapse.navbar-collapse
   ul.nav.navbar-nav.nav-list
-    li.dropdown
+    li.dropdown.nav-list__li
       a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Projekt
         span.caret.nav-list__caret
       ul.dropdown-menu
@@ -46,16 +46,16 @@
         span.caret.nav-list__caret.nav-list__caret--folder-list
       ul.dropdown-menu
         li
-          a(href='#') Podręcznik
+          a.nav-list__link(href='#') Podręcznik
         li
-          a(href='#') Kontakt
+          a.nav-list__link(href='#') Kontakt
         li.divider(role='separator')
         li
-          a(href='#') Strona Argevide
+          a.nav-list__link(href='#') Strona Argevide
         li
-          a(href='#') O NOR-STA
+          a.nav-list__link(href='#') O NOR-STA
   ul.nav.navbar-nav.navbar-right.nav-list
-    li.dropdown
+    li.dropdown.nav-list__li
       a.dropdown-toggle.nav-list__link.nav-list__link--top(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false') Jan Kowalski
         span.caret.nav-list__caret
       ul.dropdown-menu
@@ -71,6 +71,5 @@
         li.divider(role='separator')
         li
           a.nav-list__link(href='login-site.html') Wyloguj
-  //button.btn.btn-primary.pull-right(type='button', data-toggle='collapse', data-target='#filter-panel',name='search')
-    span.glyphicon.glyphicon-search(aria-hidden='true')
+
 

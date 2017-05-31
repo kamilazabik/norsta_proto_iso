@@ -87,18 +87,16 @@
 nav {
   border: 0;
   background: $panels-head !important;
-  //
-  //.only-icon {
-  //  font-size: 30px;
-  //}
-
-
 }
 
 .nav-list {
   & > .open > .nav-list__link,
   & > .open > .nav-list__link:focus {
     color: $main-color-font;
+  }
+
+  &--right {
+    margin-right: -2px;
   }
   & .nav-list__link {
     color: #fff;
@@ -114,16 +112,11 @@ nav {
   }
 
   &-icon {
-
     &__link {
       color: #fff;
+      height: 56px;
     }
   }
-
-}
-
-.navbar-right{
-  margin-right: -2px;
 }
 
 #bs-navbar-collapse-1 {

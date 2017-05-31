@@ -166,6 +166,15 @@
   }
 }
 
+.content-folders {
+  @include make-row();
+
+  .folders-list {
+    @include make-xs-column(12);
+    @include make-lg-column(8);
+  }
+}
+
 .right-panel-heading__row {
   @include make-row();
 }
@@ -198,3 +207,4 @@
   @include make-lg-column(8);
   @include make-xl-column(8);
 }
+

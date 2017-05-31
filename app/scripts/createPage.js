@@ -256,8 +256,8 @@ function changeViewOfFolderList(){
     , buttonTreeList = $('.tree-list')
     , buttonProjectList = $('.projects-list')
     , nav = $('.nav.navbar-nav')
-    , foldersTree = $('.folders.tree')
-    , foldersSimple = $('.simple')
+    , foldersTree = $('.tree')
+    , foldersSimple = $('.panel-list--simple')
     , projectList = $('.view-project-list');
 
   buttonSimpleList.on('click', function (e) {

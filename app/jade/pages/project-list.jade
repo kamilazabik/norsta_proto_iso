@@ -1,201 +1,198 @@
-#panel-content.row.mainPagePanels
-  .col-lg-8.col-md-12.col-sm-12.col-xs-12.padding-content
-    .col-md-12.folders
-      .panel.panel-primary.simple
-        .panel-heading
-          //h3.panel-title
-          table.table
-            thead
-              tr
-                th
-                  h4 Folder: NOR-STA/Szpital/Demo
-                th
-                  h4
-                th
-                  h4
-        table.table.table-hover
-          tbody
+.content-folders
+  .folders-list
+    .panel.panel-primary.panel-list.panel-list--simple
+      .panel-heading.panel-head
+        table.table.panel-head-table
+          thead
             tr
-              td
-                h4 NOR-STA/Szpital
-              td
-                h4 AK Gdańsk
-              td
-                h4 Akredytacja Szpitala – Gdańsk
+              th
+                h4 Folder: NOR-STA/Szpital/Demo
+              th
+                h4
+              th
+                h4
+      table.table.table-hover.panel-body-table
+        tbody
+          tr
+            td
+              h4 NOR-STA/Szpital
+            td
+              h4 AK Gdańsk
+            td
+              h4 Akredytacja Szpitala – Gdańsk
+          tr
+            td
+              h4 NOR-STA/Szpital/Demo
+            td
+              h4 Demo
+            td
+              h4 Demo ISO 27001
+          tr
+            td
+              h4 Szkolenie/Szpitale
+            td
+              h4 SZ-AK1
+            td
+              h4 Wzorce akredytacji
+          tr
+            td
+              h4 Szkolenie/Szpitale
+            td
+              h4 SZ-AK2
+            td
+              h4 Efektywna akredytacja
+          tr
+            td
+              h4 Szkolenie/Szpitale/2017
+            td
+            td
+    .panel.panel-primary.panel-list.view-project-list.display
+      .panel-heading.panel-head
+        table.table.panel-head-table
+          thead
             tr
-              td
-                h4 NOR-STA/Szpital/Demo
-              td
-                h4 Demo
-              td
-                h4 Demo ISO 27001
+              th
+                h4 Folder
+              th
+                h4 Symbol
+              th
+                h4 Nazwa
+              th
+      table.table.table-hover
+        tbody
+          tr
+            td
+              h4 NOR-STA/Szpital
+            td
+              h4 AK Gdańsk
+            td
+              h4 Akredytacja Szpitala – Gdańsk
+            td
+              button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
+                i.fa.fa-arrow-right
+          tr
+            td
+              h4 NOR-STA/Szpital/Demo
+            td
+              h4 Demo
+            td
+              h4 Demo ISO 27001
+            td
+              button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
+                i.fa.fa-arrow-right
+          tr
+            td
+              h4 Szkolenie/Szpitale
+            td
+              h4 SZ-AK1
+            td
+              h4 Wzorce akredytacji
+            td
+              button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
+                i.fa.fa-arrow-right
+          tr
+            td
+              h4 Szkolenie/Szpitale
+            td
+              h4 SZ-AK2
+            td
+              h4 Efektywna akredytacja
+            td
+              button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
+                i.fa.fa-arrow-right
+          tr
+            td
+              h4 Szkolenie/Szpitale/2017
+            td
+            td
+            td
+              button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
+                i.fa.fa-arrow-right
+    .panel.panel-primary.panel-list.tree.display
+      .panel-heading.panel-head
+        table.table.panel-head-table
+          thead
             tr
-              td
-                h4 Szkolenie/Szpitale
-              td
-                h4 SZ-AK1
-              td
-                h4 Wzorce akredytacji
-            tr
-              td
-                h4 Szkolenie/Szpitale
-              td
-                h4 SZ-AK2
-              td
-                h4 Efektywna akredytacja
-            tr
-              td
-                h4 Szkolenie/Szpitale/2017
-              td
-              td
-      .panel.panel-primary.view-project-list.display
-        .panel-heading
-          //h3.panel-title
-          table.table
-            thead
-              tr
-                th
-                  h4 Folder
-                th
-                  h4 Symbol
-                th
-                  h4 Nazwa
-                th
-        table.table.table-hover
-          tbody
-            tr
-              td
-                h4 NOR-STA/Szpital
-              td
-                h4 AK Gdańsk
-              td
-                h4 Akredytacja Szpitala – Gdańsk
-              td
-                button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
-                  i.fa.fa-arrow-right
-            tr
-              td
-                h4 NOR-STA/Szpital/Demo
-              td
-                h4 Demo
-              td
-                h4 Demo ISO 27001
-              td
-                button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
-                  i.fa.fa-arrow-right
-            tr
-              td
-                h4 Szkolenie/Szpitale
-              td
-                h4 SZ-AK1
-              td
-                h4 Wzorce akredytacji
-              td
-                button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
-                  i.fa.fa-arrow-right
-            tr
-              td
-                h4 Szkolenie/Szpitale
-              td
-                h4 SZ-AK2
-              td
-                h4 Efektywna akredytacja
-              td
-                button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
-                  i.fa.fa-arrow-right
-            tr
-              td
-                h4 Szkolenie/Szpitale/2017
-              td
-              td
-              td
-                button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
-                  i.fa.fa-arrow-right
-      .panel.panel-primary.folders.tree.display
-        .panel-heading
-          table.table
-            thead
-              tr
-                th
-                  h4 Folder
-                th
-                  h4 Project
-                th
+              th
+                h4 Folder
+              th
+                h4 Project
+              th
 
-        ul.list-group
-          li.list-group-item
-            span.parent-padding
-              i.fa.fa-folder-o
-              a(href='#') NOR-STA
-              h4 NOR-STA
-              h4 Projekty NOR-STA
-            ul
-              li.list-group-item
-                span
-                  i.fa.fa-folder-o
-                  a(href='#') Demo
-                ul
-                  li.list-group-item
-                    span
-                      i.fa.fa-list(aria-hidden='true')
-                      a(href='#') NOR-STA Demonstrator
-              li.list-group-item
-                span
-                  i.fa.fa-folder-o
-                  a(href='#') Projekty
-                ul
-                  li.list-group-item
-                    span
-                      i.fa.fa-folder-o
-                      a(href='#') Szpital
-                  li.list-group-item
-                    span
-                      i.fa.fa-folder-o
-                      a(href='#') Szkolenia
-                    ul
-                      li.list-group-item
-                        span
-                          i.fa.fa-folder-o
-                          a(href='#') Szkolenia 2017
-                        ul
-                          li.list-group-item
-                            span
-                              i.fa.fa-list(aria-hidden='true')
-                              a(href='#') Szkolenie 1
-                          li.list-group-item
-                            span
-                              i.fa.fa-list(aria-hidden='true')
-                              a(href='#') Szkolenie 2
-                      li.list-group-item
-                        span
-                          i.fa.fa-list(aria-hidden='true')
-                          a(href='#') Akredytacja
-                      li.list-group-item
-                        span
-                          i.fa.fa-list(aria-hidden='true')
-                          a(href='#') Iso 27001
-                  li.list-group-item
-                    span
-                      i.fa.fa-folder-o
-                      a(href='#') Trial
-          li.list-group-item
-            span.parent-padding
-              i.fa.fa-folder-o
-              a(href='#') Szablony
-            ul
-              li.list-group-item
-                span
-                  i.fa.fa-wrench(aria-hidden='true')
-                  a(href='#') Szablon ISO 27001
-          li.list-group-item
-            span.parent-padding
-              i.fa.fa-folder-o
-              a(href='#') Testy
-            ul
-              li.list-group-item
-                span
-                  i.fa.fa-folder-o
-                  a(href='#') Testy 1
+      ul.list-group
+        li.list-group-item
+          span.parent-padding
+            i.fa.fa-folder-o
+            a(href='#') NOR-STA
+            h4 NOR-STA
+            h4 Projekty NOR-STA
+          ul
+            li.list-group-item
+              span
+                i.fa.fa-folder-o
+                a(href='#') Demo
+              ul
+                li.list-group-item
+                  span
+                    i.fa.fa-list(aria-hidden='true')
+                    a(href='#') NOR-STA Demonstrator
+            li.list-group-item
+              span
+                i.fa.fa-folder-o
+                a(href='#') Projekty
+              ul
+                li.list-group-item
+                  span
+                    i.fa.fa-folder-o
+                    a(href='#') Szpital
+                li.list-group-item
+                  span
+                    i.fa.fa-folder-o
+                    a(href='#') Szkolenia
+                  ul
+                    li.list-group-item
+                      span
+                        i.fa.fa-folder-o
+                        a(href='#') Szkolenia 2017
+                      ul
+                        li.list-group-item
+                          span
+                            i.fa.fa-list(aria-hidden='true')
+                            a(href='#') Szkolenie 1
+                        li.list-group-item
+                          span
+                            i.fa.fa-list(aria-hidden='true')
+                            a(href='#') Szkolenie 2
+                    li.list-group-item
+                      span
+                        i.fa.fa-list(aria-hidden='true')
+                        a(href='#') Akredytacja
+                    li.list-group-item
+                      span
+                        i.fa.fa-list(aria-hidden='true')
+                        a(href='#') Iso 27001
+                li.list-group-item
+                  span
+                    i.fa.fa-folder-o
+                    a(href='#') Trial
+        li.list-group-item
+          span.parent-padding
+            i.fa.fa-folder-o
+            a(href='#') Szablony
+          ul
+            li.list-group-item
+              span
+                i.fa.fa-wrench(aria-hidden='true')
+                a(href='#') Szablon ISO 27001
+        li.list-group-item
+          span.parent-padding
+            i.fa.fa-folder-o
+            a(href='#') Testy
+          ul
+            li.list-group-item
+              span
+                i.fa.fa-folder-o
+                a(href='#') Testy 1
 
   .col-lg-4.right-panel
     #bs-collapse.panel-group.right-panel--fixed-panel
