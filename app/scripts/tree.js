@@ -1,9 +1,9 @@
 $(function () {
 // function showFolders(){
 
-  $('.tree li').hide();
-  $('.tree > ul > li').show();
-  $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+  $('.panel-list--tree li').hide();
+  $('.panel-list--tree > ul > li').show();
+  $('.panel-list--tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
 
 
   var parents = $('.parent-padding')
@@ -14,7 +14,7 @@ $(function () {
     parents[i].style.paddingLeft = '20px';
   }
 
-  $('.tree li.parent_li > span a').on('click', function (e) {
+  $('.panel-list--tree li.parent_li > span a').on('click', function (e) {
     console.log($(this).parent());
 
     var children = $(this).parent().parent('li.parent_li').find(' > ul > li')

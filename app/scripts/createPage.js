@@ -256,26 +256,26 @@ function changeViewOfFolderList(){
     , buttonTreeList = $('.tree-list')
     , buttonProjectList = $('.projects-list')
     , nav = $('.nav.navbar-nav')
-    , foldersTree = $('.tree')
+    , foldersTree = $('.panel-list--tree')
     , foldersSimple = $('.panel-list--simple')
-    , projectList = $('.view-project-list');
+    , projectList = $('.panel-list--projects');
 
   buttonSimpleList.on('click', function (e) {
-    foldersSimple.removeClass('display');
-    foldersTree.addClass('display')
-    projectList.addClass('display')
+    foldersSimple.removeClass('panel-list--display');
+    foldersTree.addClass('panel-list--display')
+    projectList.addClass('panel-list--display')
   });
 
   buttonProjectList.on('click', function (e) {
-    projectList.removeClass('display');
-    foldersTree.addClass('display')
-    foldersSimple.addClass('display')
+    projectList.removeClass('panel-list--display');
+    foldersTree.addClass('panel-list--display')
+    foldersSimple.addClass('panel-list--display')
   });
 
   buttonTreeList.on('click', function (e) {
-    foldersTree.removeClass('display');
-    foldersSimple.addClass('display')
-    projectList.addClass('display')
+    foldersTree.removeClass('panel-list--display');
+    foldersSimple.addClass('panel-list--display')
+    projectList.addClass('panel-list--display')
   })
 }//changeViewOfFolderList
 

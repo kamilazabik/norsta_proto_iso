@@ -12,9 +12,9 @@
               th
                 h4
       table.table.table-hover.panel-body-table
-        tbody
-          tr
-            td
+        tbody.body-table
+          tr.body-table-tr
+            td.body-table-tr-td
               h4 NOR-STA/Szpital
             td
               h4 AK Gdańsk
@@ -46,7 +46,7 @@
               h4 Szkolenie/Szpitale/2017
             td
             td
-    .panel.panel-primary.panel-list.view-project-list.display
+    .panel.panel-primary.panel-list.panel-list--projects.panel-list--display
       .panel-heading.panel-head
         table.table.panel-head-table
           thead
@@ -58,7 +58,7 @@
               th
                 h4 Nazwa
               th
-      table.table.table-hover
+      table.table.table-hover.panel-body-table
         tbody
           tr
             td
@@ -108,7 +108,7 @@
             td
               button.btn.btn-primary.expand.pull-right(type="button" data-toggle="tooltip" data-placement="top" title="Otwórz projekt")
                 i.fa.fa-arrow-right
-    .panel.panel-primary.panel-list.tree.display
+    .panel.panel-primary.panel-list.panel-list--tree.panel-list--display
       .panel-heading.panel-head
         table.table.panel-head-table
           thead
@@ -121,78 +121,78 @@
 
       ul.list-group
         li.list-group-item
-          span.parent-padding
-            i.fa.fa-folder-o
-            a(href='#') NOR-STA
-            h4 NOR-STA
-            h4 Projekty NOR-STA
+          span.parent-padding.list-group-span
+            i.fa.fa-folder-o.list-group-span__icon
+            a.list-group-span__link(href='#') NOR-STA
+            h4.list-group-span__title NOR-STA
+            h4.list-group-span__title Projekty NOR-STA
           ul
             li.list-group-item
-              span
-                i.fa.fa-folder-o
-                a(href='#') Demo
+              span.list-group-span
+                i.fa.fa-folder-o.list-group-span__icon
+                a.list-group-span__link(href='#') Demo
               ul
                 li.list-group-item
-                  span
-                    i.fa.fa-list(aria-hidden='true')
-                    a(href='#') NOR-STA Demonstrator
+                  span.list-group-span
+                    i.fa.fa-list.list-group-span__icon(aria-hidden='true')
+                    a.list-group-span__link(href='#') NOR-STA Demonstrator
             li.list-group-item
-              span
-                i.fa.fa-folder-o
-                a(href='#') Projekty
+              span.list-group-span
+                i.fa.fa-folder-o.list-group-span__icon
+                a.list-group-span__link(href='#') Projekty
               ul
                 li.list-group-item
-                  span
-                    i.fa.fa-folder-o
-                    a(href='#') Szpital
+                  span.list-group-span
+                    i.fa.fa-folder-o.list-group-span__icon
+                    a.list-group-span__link(href='#') Szpital
                 li.list-group-item
-                  span
-                    i.fa.fa-folder-o
-                    a(href='#') Szkolenia
+                  span.list-group-span
+                    i.fa.fa-folder-o.list-group-span__icon
+                    a.list-group-span__link(href='#') Szkolenia
                   ul
                     li.list-group-item
-                      span
-                        i.fa.fa-folder-o
-                        a(href='#') Szkolenia 2017
+                      span.list-group-span
+                        i.fa.fa-folder-o.list-group-span__icon
+                        a.list-group-span__link(href='#') Szkolenia 2017
                       ul
                         li.list-group-item
-                          span
-                            i.fa.fa-list(aria-hidden='true')
-                            a(href='#') Szkolenie 1
+                          span.list-group-span
+                            i.fa.fa-list.list-group-span__icon(aria-hidden='true')
+                            a.list-group-span__link(href='#') Szkolenie 1
                         li.list-group-item
-                          span
-                            i.fa.fa-list(aria-hidden='true')
-                            a(href='#') Szkolenie 2
+                          span.list-group-span
+                            i.fa.fa-list.list-group-span__icon(aria-hidden='true')
+                            a.list-group-span__link(href='#') Szkolenie 2
                     li.list-group-item
-                      span
-                        i.fa.fa-list(aria-hidden='true')
-                        a(href='#') Akredytacja
+                      span.list-group-span
+                        i.fa.fa-list.list-group-span__icon(aria-hidden='true')
+                        a.list-group-span__link(href='#') Akredytacja
                     li.list-group-item
-                      span
-                        i.fa.fa-list(aria-hidden='true')
-                        a(href='#') Iso 27001
+                      span.list-group-span
+                        i.fa.fa-list.list-group-span__icon(aria-hidden='true')
+                        a.list-group-span__link(href='#') Iso 27001
                 li.list-group-item
-                  span
-                    i.fa.fa-folder-o
-                    a(href='#') Trial
+                  span.list-group-span
+                    i.fa.fa-folder-o.list-group-span__icon
+                    a.list-group-span__link(href='#') Trial
         li.list-group-item
-          span.parent-padding
-            i.fa.fa-folder-o
-            a(href='#') Szablony
+          span.parent-padding.list-group-span
+            i.fa.fa-folder-o.list-group-span__icon
+            a.list-group-span__link(href='#') Szablony
           ul
             li.list-group-item
-              span
-                i.fa.fa-wrench(aria-hidden='true')
-                a(href='#') Szablon ISO 27001
+              span.list-group-span
+                i.fa.fa-wrench.list-group-span__icon(aria-hidden='true')
+                a.list-group-span__link(href='#') Szablon ISO 27001
         li.list-group-item
-          span.parent-padding
-            i.fa.fa-folder-o
-            a(href='#') Testy
+          span.parent-padding.list-group-span
+            i.fa.fa-folder-o.list-group-span__icon
+            a.list-group-span__link(href='#') Testy
           ul
             li.list-group-item
-              span
-                i.fa.fa-folder-o
-                a(href='#') Testy 1
+              span.list-group-span
+                i.fa.fa-folder-o.list-group-span__icon
+                a.list-group-span__link(href='#') Testy 1
 
   .col-lg-4.right-panel
     #bs-collapse.panel-group.right-panel--fixed-panel
