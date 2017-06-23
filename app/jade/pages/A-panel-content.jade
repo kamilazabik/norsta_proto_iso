@@ -1,6 +1,5 @@
 
 //.col-xl-9.col-lg-9.col-md-12.col-sm-12.col-xs-12.pull-left.padding-content
-
 #myModal.modal.fade.bs-example-modal-sm(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
       .modal-dialog.modal-sm(role='document')
         .modal-content
@@ -71,8 +70,8 @@
   .modal-dialog(role='document')
     .modal-content
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') ×
+        button.close.modal-button-close(type='button', data-dismiss='modal', aria-label='Close')
+          span.modal-button-close__arrow(aria-hidden='true') ×
         h4#myProfileLabel.modal-title Profil
       .modal-body
         .row

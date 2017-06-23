@@ -1,6 +1,7 @@
 $(document).ready( function(){
   /* MAIN CODE */
 
+
   console.log(isoObject);
   createPage('A', false);
   moveSidebar();

@@ -68,6 +68,7 @@ $.fn.rangeslider = function (options) {
     '</span><span class=\'bar-btn\'>' +
     // "<span>0</span>" +
     '</span></span>');
+  obj.attr('onchange', 'OnInputSlider(this)');
   obj.attr('oninput', 'OnInputSlider(this)');
   updateSlider(this, slidersMemo);
 
@@ -119,7 +120,7 @@ function updateSlider(passObj, memo, isInit) {
   }
   var nn = obj[0].name.replace('rangeslider','');
 
-  var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
+  // var input = $('input[name=' + tempAssessmentObject.sliderName + ']');
 
   if(memo){ //Inicjalizacja slidera
     $.each(passObj, function (idx, val) {
@@ -200,8 +201,11 @@ function updateSlider(passObj, memo, isInit) {
         svg.appendChild(circle);
         pie.appendChild(svg);
 
+        // circle.classList.add('circle')
+
         if(value > 0 ){
-          circle.classList.add('circle')
+          circle.setAttribute('class', 'circle')
+          // circle.classList.add('circle')
         }
       }
     }

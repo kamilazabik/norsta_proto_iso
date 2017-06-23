@@ -71,18 +71,20 @@ function makeDetailsPanel(numberOfChildMainPanel, j){
     , tabContentDetailsRow1Col2H = $('<p class=\'title-claim\'></p>')
     , tabContentDetailsRow2Col2H = $('<p class=\'label-claim\'></p>')
     , tabContentDetailsRow3Col2H = $('<p class=\'\'></p>')
-    , tabContentDetailsRow4Col2H = $('<p class=\'description\'></p>')
+    , tabContentDetailsRow4Col2H = $('<p class=\'description\'></p>');
 
+  var children = tabContentDetails.children().children();
 
-  tabContentDetails.children().children()[0].append(tabContentDetailsRow1Col1H[0], tabContentDetailsRow1Col1Ha[0]);
-  tabContentDetails.children().children()[2].append(tabContentDetailsRow2Col1H[0]);
-  tabContentDetails.children().children()[4].append(tabContentDetailsRow3Col1H[0]);
-  tabContentDetails.children().children()[6].append(tabContentDetailsRow4Col1H[0]);
-
-  tabContentDetails.children().children()[1].append(tabContentDetailsRow1Col2H[0]);
-  tabContentDetails.children().children()[3].append(tabContentDetailsRow2Col2H[0]);
-  tabContentDetails.children().children()[5].append(tabContentDetailsRow3Col2H[0]);
-  tabContentDetails.children().children()[7].append(tabContentDetailsRow4Col2H[0]);
+  children.each(function () {
+    children[0].appendChild(tabContentDetailsRow1Col1H[0], tabContentDetailsRow1Col1Ha[0])
+    children[2].appendChild(tabContentDetailsRow2Col1H[0]);
+    children[4].appendChild(tabContentDetailsRow3Col1H[0]);
+    children[6].appendChild(tabContentDetailsRow4Col1H[0]);
+    children[1].appendChild(tabContentDetailsRow1Col2H[0]);
+    children[3].appendChild(tabContentDetailsRow2Col2H[0]);
+    children[5].appendChild(tabContentDetailsRow3Col2H[0]);
+    children[7].appendChild(tabContentDetailsRow4Col2H[0])
+  });
 
   tabContentEvidence.append(addEvidencesToTheList(numberOfChildMainPanel, j));
 

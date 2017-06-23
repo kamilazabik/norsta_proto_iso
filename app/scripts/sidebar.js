@@ -29,8 +29,6 @@ function loadSidebar() {
   $(' .wrapper-sidebar').append(ul);
   ul.append(createSidebar('A', isoObject['A'].name));
 
-  console.log($('.wrapper-sidebar-nav'));
-
   $('.wrapper-sidebar-nav ul').first().addClass('wrapper-sidebar-nav--padding');
 
   collapseSidebar();

@@ -17,7 +17,6 @@ function createPage(numberClass, isNextLoad) {
   row.remove();
   content.prepend(makeMainPanel());
 
-
   $('.sliderRightPanel').empty();
 
   if (numberClass == 'A') {

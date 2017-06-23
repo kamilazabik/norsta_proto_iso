@@ -1,31 +1,6 @@
 @import "mixins";
 
-.active-input {
-  background-color: $buttonsAdd !important;
-}
 
-//Pie
-svg {
-  background-color: #313547;
-  @include border-radius (50%);
-  transform: rotate( -90deg );
-}
-
-.pie {
-  display: inline-block;
-  margin-right: 10px;
-  transform: rotate(-90deg );
-}
-
-circle {
-  fill: #aeaeae;
-  stroke-width: 32;
-}
-
-.circle {
-  fill: #e2282b !important;
-  stroke: #45d666 !important;
-}
 
 // Main panel
 .panel-header {

@@ -31,7 +31,7 @@
     }
   }
 
-  .clicked-tr{
+  .clicked-tr {
     background-color: #ededed;
   }
 
@@ -43,6 +43,11 @@
 
 //Modal window My Profile and Preferences
 #myProfile, #preferences {
+
+  .modal-button-close__arrow {
+    font-size: 20px;
+  }
+
   .modal-body{
     padding-bottom: 0;
     .form-horizontal .control-label {

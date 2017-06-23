@@ -40,7 +40,7 @@ gulp.task('scripts', function() {
       .pipe($.babel({compact: false}))
       .pipe($.sourcemaps.write('.'))
       .pipe(gulp.dest('.tmp/scripts'))
-      .pipe(reload({stream: true}));
+  // .pipe(reload({stream: true}));
 });
 
 gulp.task('concat', function() {
