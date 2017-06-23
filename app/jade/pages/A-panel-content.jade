@@ -70,8 +70,8 @@
   .modal-dialog(role='document')
     .modal-content
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') ×
+        button.close.modal-button-close(type='button', data-dismiss='modal', aria-label='Close')
+          span.modal-button-close__arrow(aria-hidden='true') ×
         h4#myProfileLabel.modal-title Profile
       .modal-body
         .row

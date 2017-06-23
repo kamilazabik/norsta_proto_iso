@@ -68,6 +68,7 @@ $.fn.rangeslider = function (options) {
     '</span><span class=\'bar-btn\'>' +
     // "<span>0</span>" +
     '</span></span>');
+  obj.attr('onchange', 'OnInputSlider(this)');
   obj.attr('oninput', 'OnInputSlider(this)');
   updateSlider(this, slidersMemo);
 
@@ -201,7 +202,7 @@ function updateSlider(passObj, memo, isInit) {
         pie.appendChild(svg);
 
         if(value > 0 ){
-          circle.classList.add('circle')
+          circle.setAttribute('class', 'circle')
         }
       }
     }

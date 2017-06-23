@@ -153,7 +153,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4row = $('<div class=\'row\'></div>')
     , col4rowCol1 = $('<div class=\'panel-block__assess-icon\'></div>')
     , col4rowCol2 = $('<div class=\'panel-block__assess-value \'></div>')
-    , col4rowCol2pie = $('<div class=\' pie panel-block__pie pull-left\'></div>').attr('data-name',numberOfChild)
+    , col4rowCol2pie = $('<div class=\'pie panel-block__pie pull-left\'></div>').attr('data-name', numberOfChild)
     , col4rowCol2h6 = $('<p class=\'numberValue' + numberOfChild + '\' ></p>')
     , col4rowCol2h6per = $('<p class=\'numberValue-per' + numberOfChild + '\' ></p>')
     , col5 = $('<div class=\'panel-block__bar-slider\'></div>')
@@ -378,14 +378,26 @@ function makeRightPanel(){
     , secondPanelWrapOneBodyRow4C2H5 = $('<h5 class="right-panel-body__title--description"></h5>');
 
 
-  secondPanelWrapOneBody.children().children()[0].append(secondPanelWrapOneBodyRow1C1H5[0]);
-  secondPanelWrapOneBody.children().children()[2].append(secondPanelWrapOneBodyRow2C1H5[0]);
-  secondPanelWrapOneBody.children().children()[4].append(secondPanelWrapOneBodyRow3C1H5[0]);
-  secondPanelWrapOneBody.children().children()[6].append(secondPanelWrapOneBodyRow4C1H5[0]);
+  // secondPanelWrapOneBody.children().children()[0].append(secondPanelWrapOneBodyRow1C1H5[0]);
+  // secondPanelWrapOneBody.children().children()[2].append(secondPanelWrapOneBodyRow2C1H5[0]);
+  // secondPanelWrapOneBody.children().children()[4].append(secondPanelWrapOneBodyRow3C1H5[0]);
+  // secondPanelWrapOneBody.children().children()[6].append(secondPanelWrapOneBodyRow4C1H5[0]);
+  //
+  // secondPanelWrapOneBody.children().children()[1].append(secondPanelWrapOneBodyRow1C2H5[0]);
+  // secondPanelWrapOneBody.children().children()[3].append(secondPanelWrapOneBodyRow2C2H5[0]);
+  // secondPanelWrapOneBody.children().children()[7].append(secondPanelWrapOneBodyRow4C2H5[0]);
 
-  secondPanelWrapOneBody.children().children()[1].append(secondPanelWrapOneBodyRow1C2H5[0]);
-  secondPanelWrapOneBody.children().children()[3].append(secondPanelWrapOneBodyRow2C2H5[0]);
-  secondPanelWrapOneBody.children().children()[7].append(secondPanelWrapOneBodyRow4C2H5[0]);
+  var children = secondPanelWrapOneBody.children().children()
+
+  children.each(function () {
+    children[0].appendChild(secondPanelWrapOneBodyRow1C1H5[0]);
+    children[2].appendChild(secondPanelWrapOneBodyRow2C1H5[0]);
+    children[4].appendChild(secondPanelWrapOneBodyRow3C1H5[0]);
+    children[6].appendChild(secondPanelWrapOneBodyRow4C1H5[0]);
+    children[1].appendChild(secondPanelWrapOneBodyRow1C2H5[0]);
+    children[3].appendChild(secondPanelWrapOneBodyRow2C2H5[0]);
+    children[7].appendChild(secondPanelWrapOneBodyRow4C2H5[0]);
+  });
 
   secondPanelWrapOne.append(secondPanelWrapOneBody);
 
