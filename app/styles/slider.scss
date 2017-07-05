@@ -1,5 +1,6 @@
 @import "mixins";
 
+
 .active-input {
   background-color: $buttonsAdd !important;
 }
@@ -35,6 +36,7 @@ circle {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   position: relative;
+  height: 30px;
   //padding-bottom: 15px;
   > {
     input {
@@ -42,7 +44,7 @@ circle {
       width: 100%;
       position: relative;
       z-index: 5;
-      margin-top: 0px;
+      margin-top: 0;
       -webkit-appearance: none;
       cursor: pointer;
       -webkit-appearance: none;

@@ -46,6 +46,10 @@
     right: 125px;
   }
 
+  .btn-up {
+    margin: 5px 0 5px auto;
+  }
+
   h3, h4 {
     font-size: 16px;
     @include font(400, 1.4);
@@ -59,7 +63,7 @@
 
   h3 {
     line-height: 1.3;
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   p, h5 {
@@ -70,6 +74,8 @@
 
   .panel-header {
     min-height: 85px;
+    display: flex;
+    flex-direction: row;
 
     &__assessment,
     &__filter,
@@ -96,89 +102,114 @@
     }
   }
 
-  .panel-title {
+  .triangle, .no-triangle {
 
-    &__title,
-    &__assessment,
-    &__assess-icon,
-    &__assess-value,
-    &__assess-body,
-    &__bar-slider,
-    &__button-expand {
-      height: 75px;
-    }
-    &__number {
-      height: 75px;
-    }
+    .panel-title {
 
-    &__title {
-      background-color: $panels-content;
-      border-radius: 0;
-      &--font-color  {
-        color: $panels-head;
+      &-title,
+      &-assessment,
+      &__assess-icon,
+      &__assess-value,
+      &__assess-body,
+      &__bar-slider,
+      &__button-expand {
+        min-height: 75px;
+      }
+      &-number {
+        min-height: 75px;
+      }
+
+      &-title {
+        background-color: $panels-content;
+        border-radius: 0;
+        &__font-color {
+          color: $panels-head;
+        }
+      }
+
+      &__pie, svg {
+        @include width-height($pie-size-md, $pie-size-md);
+      }
+
+      &__assess-value {
+        padding-top: 5px;
+      }
+
+      &__button-expand {
+        @include border-right(0, 3px);
+      }
+
+      &:hover {
+        .panel-title-title {
+          background-color: $panels-hover;
+        }
       }
     }
 
-    &__pie, svg {
-      @include width-height($pie-size-md, $pie-size-md);
+    .panel-block {
+      //min-height: 70px;
+
+      &-number,
+      &-title {
+        //height: 70px;
+      }
+
+      &-number {
+        @include border-radius (3px 0 0 3px);
+      }
+
+      &-title {
+        background-color: $panels-content;
+        @include border-top-bottom($panels-border);
+        @include border-radius (0 0 0 0);
+        &__font-color {
+          color: $panels-head;
+        }
+      }
+      &-assessment {
+        border-left: 0;
+        @include border-top-bottom($panels-border);
+        @include border-radius (0 0 0 0);
+      }
+
+      &__assess-value {
+        padding-top: 5px;
+        border: none;
+      }
+
+      &__assess-icon {
+        border: none;
+      }
+
+      &__triangle {
+        @include border-top-bottom($panels-border);
+      }
+
+      &__bar-slider {
+        border-top: $panels-border;
+      }
+
+      &__button-expand {
+        border-top-right-radius: 3px;
+        border-top: $panels-border;
+      }
     }
 
-    &__button-expand {
-      border-bottom-right-radius: 0;
+    .allPanels {
+      &--clicked-blue-title {
+        background-color: $panels-hover !important;
+        .panel-block__title--font-color {
+          color: #3387c8;
+        }
+      }
     }
 
-    &:hover {
-      .panel-title__title {
+    .panel-block:hover {
+      .panel-block-title {
         background-color: $panels-hover;
       }
     }
-  }
 
-  .panel-block{
-
-    &__number,
-    &__title {
-      height: 70px;
-    }
-
-    &__number{
-      @include border-radius (3px 0 0 3px);
-    }
-
-    &__title {
-      background-color: $panels-content;
-      @include border-top-bottom($panels-border);
-      @include border-radius (0 0 0 0);
-      &--font-color  {
-        color: $panels-head;
-      }
-    }
-    &__assessment {
-      border-left: 0;
-      @include border-radius (0 0 0 0);
-    }
-
-    &__assess-value {
-      padding-top: 5px;
-    }
-    &__button-expand {
-      border-top-right-radius: 3px;
-    }
-  }
-
-  .allPanels {
-    &--clicked-blue-title {
-      background-color: $panels-hover !important;
-      .panel-block__title--font-color {
-        color: #3387c8;
-      }
-    }
-  }
-
-  .panel-block:hover {
-    .panel-block__title {
-      background-color: $panels-hover;
-    }
   }
 }//768px -992px
 
@@ -237,7 +268,7 @@
 @media all and (min-width: 1200px){
   h3 {
     font-size: 20px;
-    margin-top: 0;
+    //margin-top: 0;
   }
 
   .search {

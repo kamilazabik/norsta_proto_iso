@@ -10,6 +10,7 @@
   min-height: 120px;
   margin-left: 15px;
   margin-right: 15px;
+  //min-height: 100vh;
 
   &__title,
   &__assessment,
@@ -74,17 +75,11 @@
   &--clicked-blue {
     @include border-top-bottom($label);
     background-color: $label !important;
-    h4 {
-      color: white;
-    }
   }
 
   &--clicked-blue-title {
     @include border-top-bottom($label);
     background-color: $label !important;
-    h4 {
-      color: white;
-    }
   }
 
   &--clicked-yellow {
@@ -92,277 +87,327 @@
   }
 }
 
-.allPanels__panel-content {
+.allPanels-panel-content {
   padding: 15px 15px 0 15px;
 }
 
-.allPanels__panel-heading {
+.allPanels-panel-heading {
   padding: 0 15px 0 15px;
   margin-left: 0;
   margin-right: 0;
 }
 
-.panel-title {
-  &__assess-icon,
-  &__assess-value,
-  &__assess-body,
-  &__bar-slider,
-  &__button-expand {
-    height: 70px;
-    background-color: $panels-content;
-  }
+.triangle, .no-triangle {
 
-  &__number,
-  &__title,
-  &__assessment,
-  &__filter,
-  &__bar-slider {
+  .panel-title {
+    flex-wrap: wrap;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
 
-  &__number {
-    @include height-background($xs-panel-height, $panels-head);
-    @include border-radius (3px 0 0 0);
-    align-items: center;
-    background: $panels-head;
-    color: #fff;
-  }
+    &__bar-slider,
+    &__button-expand {
+      min-height: 70px;
+      background-color: $panels-content;
+    }
 
-  &__title {
-    @include height-background($xs-panel-height, $panels-head);
-    @include border-radius (0 3px 0 0);
-    &--font-color  {
+    &__assess-icon,
+    &__assess-value,
+    &__assess-body {
+      min-height: 70px;
+    }
+
+    &-number,
+    &-title,
+    &-assessment,
+    &__filter,
+    &__bar-slider {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &-number {
+      @include height-background($xs-panel-height, $panels-head);
+      @include border-radius (3px 0 0 0);
+      align-items: center;
+      background: $panels-head;
       color: #fff;
+    }
+
+    &-title {
+      @include height-background($xs-panel-height, $panels-head);
+      @include border-radius (0 3px 0 0);
+      &__font-color {
+        color: #fff;
+      }
+    }
+
+    &-assessment {
+      @include border-radius (0 0 0 3px);
+      background-color: $panels-content;
+    }
+
+    &__pie {
+      margin-top: 15px;
+    }
+
+    &__pie, svg {
+      @include width-height($pie-size-xs, $pie-size-xs);
+    }
+
+    &__assess-icon {
+      padding-left: 10px;
+    }
+
+    &__assess-value {
+      padding-left: 10px;
+    }
+
+    &__bar-slider {
+      &-triangle {
+        //height: 50px;
+        width: 70px;
+        margin: 10px;
+      }
+    }
+
+    &__triangle {
+      background-color: $panels-content;
+      &-img {
+        width: 70px;
+        margin: 5px 10px;
+      }
+    }
+
+    &__button-expand {
+      @include border-right($panels-border, 3px);
+      padding-left: 0;
+    }
+
+    &__buttons-title {
+      padding-left: 0;
+      padding-right: 2px;
     }
   }
 
-  &__assessment {
-    @include border-radius (0 0 0 3px);
-    background-color: $panels-content;
-  }
-
-  &__pie {
-    margin-top: 15px;
-  }
-
-  &__pie, svg {
-    @include width-height($pie-size-xs, $pie-size-xs);
-  }
-
-  &__assess-icon {
-    padding-left: 10px;
-  }
-
-  &__assess-value {
-    padding-left: 10px;
-  }
-
-  &__button-expand {
-    @include border-right($panels-border, 3px);
-    padding-left: 0;
-  }
-
-  &__buttons-title {
-    padding-left: 0;
-    padding-right: 2px;
-  }
-}
-
-.panel-title:hover {
-  .panel-title__assess-icon,
-  .panel-title__assess-value,
-  .panel-title__assess-body,
-  .panel-title__filter,
-  .panel-title__bar-slider,
-  .panel-title__button-expand{
-    background-color: $panels-hover;
-  }
-}
-
-.panel-block{
-  margin: 0 0 15px 0;
-  cursor: pointer;
-
-  &__assess-icon,
-  &__assess-value,
-  &__assess-body,
-  &__bar-slider,
-  &__button-expand {
-    height: 70px;
-    background-color: $panels-content;
-    border-bottom:$panels-border;
-    @include border-top-bottom($panels-border);
-  }
-
-  &__number,
-  &__title,
-  &__assessment,
-  &__filter,
-  &__bar-slider {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &__number {
-    @include height-background($xs-panel-height, $panels-head);
-    @include border-radius (3px 0 0 0);
-    align-items: center;
-    background: $panels-head;
-    color: #fff;
-  }
-
-  &__title {
-    @include height-background($xs-panel-height, $panels-head);
-    @include border-radius (0 3px 0 0);
-    &--font-color  {
-      color: #fff;
-    }
-  }
-
-  &__assessment {
-    border-left: $panels-border;
-    @include border-radius (0 0 0 3px);
-  }
-
-  &__pie {
-    margin-top: 15px;
-  }
-
-  &__pie, svg {
-    @include width-height($pie-size-xs, $pie-size-xs);
-  }
-
-  &__assess-icon {
-    padding-left: 10px;
-  }
-
-  &__assess-value {
-    padding-left: 5px;
-  }
-
-  &__button-expand {
-    border-bottom-right-radius: 3px;
-    border-right: $panels-border;
-    padding-left: 0;
-  }
-
-  &__button-expand--xs {
-    padding: 17px 15px 17px 0;
-  }
-
-  &__number--not-collapsed {
-    @include border-radius (3px 0px 0px 0);
-  }
-
-  &__assessment--not-collapsed {
-    @include border-radius (0px 0px 0px 0);
-  }
-
-  &__button-expand--not-collapsed {
-    @include border-radius (0px 0px 0px 0);
-  }
-
-  .collapse, .collapsing {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-      //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-
-  &__evidences-details {
-    padding: 15px 0;
-    margin: 0;
-    width: 100%;
-    background-color: #fff;
-    border: 1px solid $panels-border-color;
-    border-radius: 3px;
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
-    border-top: 0;
-    @include border-radius (0px 0px 3px 3px);
-  }
-  li.active a {
-    background-color: $label !important;
-  }
-  .nav-pills > li > a {
-    border-radius: 3px;
-  }
-
-  &:hover {
-    .panel-block__assess-icon,
-    .panel-block__assess-value,
-    .panel-block__assess-body,
-    .panel-block__filter,
-    .panel-block__bar-slider,
-    .panel-block__button-expand {
+  .panel-title:hover {
+    .panel-title-assessment,
+    .panel-title__filter,
+    .panel-title__bar-slider,
+    .panel-title__triangle,
+    .panel-title__button-expand {
       background-color: $panels-hover;
     }
   }
-}
 
-//Details panel - evidences
-.well {
-  margin-top: 0;
-  border: 0;
-  margin-bottom: 0;
-  width: 100%;
-  font-size: 1.3em;
-  padding: 5px 0;
-  background-color: #fff;
-  @include border-radius (0px 0px 3px 3px);
-  box-shadow: none;
-}
+  .panel-block {
+    margin: 0 0 15px 0;
+    cursor: pointer;
+    flex-wrap: wrap;
+    display: flex;
 
-.evidences-table {
+    &__bar-slider,
+    &__button-expand,
+    &-assessment {
+      min-height: 70px;
+      background-color: $panels-content;
+      border-bottom: $panels-border;
+    }
+
+    &__assess-icon,
+    &__assess-value {
+      min-height: 70px;
+    }
+
+    &-number,
+    &-title,
+    &-assessment,
+    &__filter,
+    &__bar-slider {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &-number {
+      @include height-background($xs-panel-height, $panels-head);
+      @include border-radius (3px 0 0 0);
+      align-items: center;
+      color: #fff;
+    }
+
+    &-title {
+      @include height-background($xs-panel-height, $panels-head);
+      @include border-radius (0 3px 0 0);
+      &__font-color {
+        color: #fff;
+      }
+    }
+
+    &-assessment {
+      border-left: $panels-border;
+      background-color: $panels-content;
+      @include border-radius (0 0 0 3px);
+    }
+
+    &__pie {
+      margin-top: 15px;
+    }
+
+    &__pie, svg {
+      @include width-height($pie-size-xs, $pie-size-xs);
+    }
+
+    &__assess-icon {
+      padding-left: 10px;
+    }
+
+    &__assess-value {
+      padding-left: 5px;
+
+      .assess-value {
+        &__number, &__percent {
+          margin-bottom: 8px;
+          margin-top: 8px;
+        }
+      }
+
+    }
+
+    &__bar-slider {
+      &-triangle {
+        //height: 50px;
+        width: 70px;
+        margin: 10px;
+      }
+
+    }
+    &__triangle {
+      background-color: $panels-content;
+      &-img {
+        width: 70px;
+        margin: 5px 10px;
+      }
+    }
+
+    &__button-expand {
+      border-bottom-right-radius: 3px;
+      border-right: $panels-border;
+      padding-left: 0;
+    }
+
+    &__button-expand--xs {
+      padding: 17px 15px 17px 0;
+    }
+
+    &__number--not-collapsed {
+      @include border-radius (3px 0px 0px 0);
+    }
+
+    &__assessment--not-collapsed {
+      @include border-radius (0px 0px 0px 0);
+    }
+
+    &__button-expand--not-collapsed {
+      @include border-radius (0px 0px 0px 0);
+    }
+
+    .collapse, .collapsing {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+    //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+
+    &__evidences-details {
+      padding: 15px 0;
+      margin: 0;
+      width: 100%;
+      background-color: #fff;
+      border: 1px solid $panels-border-color;
+      border-radius: 3px;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+      border-top: 0;
+      @include border-radius (0px 0px 3px 3px);
+    }
+    li.active a {
+      background-color: $label !important;
+    }
+    .nav-pills > li > a {
+      border-radius: 3px;
+    }
+
+    &:hover {
+      .panel-block-assessment,
+      .panel-block__filter,
+      .panel-block__bar-slider,
+      .panel-block__button-expand,
+      .panel-block__triangle {
+        background-color: $panels-hover;
+      }
+    }
+  }
+
+  //Details panel - evidences
+  .well {
+    margin-top: 0;
+    border: 0;
+    margin-bottom: 0;
+    width: 100%;
+    font-size: 1.3em;
+    padding: 5px 0;
+    background-color: #fff;
+    @include border-radius (0px 0px 3px 3px);
+    box-shadow: none;
+  }
+
+  .evidences-table {
     margin-bottom: 0;
 
-  &__thead {
-    @include tr-size(5%, 35%, 25%, 25%, 10%);
-    color: $menu-color-icon;
+    &__thead {
+      @include tr-size(5%, 35%, 25%, 25%, 10%);
+      color: $menu-color-icon;
+    }
+
+    &__thead-th {
+      display: table-cell;
+      border-bottom: 0;
+      border-top: 0;
+      font-weight: normal;
+      vertical-align: middle;
+    }
+
+    &__tbody {
+      @include td-size(5%, 35%, 25%, 30%, 5%);
+    }
+
+    &__tbody-th {
+      display: table-cell;
+      color: $menu-color-icon;
+    }
+
+    &__tbody-td {
+      display: table-cell;
+    }
+
+    &__tbody-td--buttons {
+      padding-right: 0;
+    }
   }
 
-  &__thead-th {
-    display: table-cell;
-    border-bottom: 0;
-    border-top: 0;
-    font-weight: normal;
-    vertical-align: middle;
+  .evidences-content-assess {
+    &__added-comment, &__editable-text {
+      border: 1px solid rgb(185, 185, 185);
+      min-height: 50px;
+      padding: 5px;
+      margin-bottom: 5px;
+    }
+    &__added-comment {
+      word-wrap: break-word;
+    }
+    &__edit-comment {
+      width: 100%;
+      overflow: visible;
+    }
   }
 
-  &__tbody {
-    @include td-size(5%, 35%, 25%, 30%, 5%);
-  }
-
-  &__tbody-th {
-    display: table-cell;
-    color: $menu-color-icon;
-  }
-
-  &__tbody-td {
-    display: table-cell;
-  }
-
-  &__tbody-td--buttons {
-    padding-right: 0 ;
-  }
 }
-
-.evidences-content-assess {
-  &__added-comment, &__editable-text {
-    border: 1px solid rgb(185, 185, 185);
-    min-height: 50px;
-    padding: 5px;
-    margin-bottom: 5px;
-  }
-  &__added-comment {
-    word-wrap: break-word;
-  }
-  &__edit-comment{
-    width: 100%;
-    overflow: visible;
-  }
-}
-
-
 

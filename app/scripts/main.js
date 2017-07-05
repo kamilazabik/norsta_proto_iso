@@ -14,8 +14,10 @@ $(document).ready( function(){
   changeViewOfFolderList();
   eventsOnRightPanels();
   loadSidebar();
-  createPageAfterClickSidebar()
-  addColorForSidebar()
+  createPageAfterClickSidebar();
+  addColorForSidebar();
+  showTriangle();
+
 });//END of document.READY
 
 

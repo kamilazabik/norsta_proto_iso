@@ -53,7 +53,7 @@ p {
 .btn-add {
   border-color: $buttonsAdd;
   background-color: $buttonsAdd;
-  margin: 0 3px;
+  margin: 0 3px 0 4px;
   padding: 4px 10px;
 }
 
@@ -69,11 +69,12 @@ p {
 .btn-up {
   margin: 4px 0 3px auto;
   display: block !important;
+  min-width: $button-width;
 }
 
 .btn-arrow {
   float: right;
-  margin-left: 3px;
+  margin-left: 4px;
 }
 
 .btn-arrow--disabled {
@@ -85,6 +86,7 @@ p {
   float: right;
   margin: 3px;
   padding: 5px 13px;
+  min-width: $button-width;
 }
 
 .btn {

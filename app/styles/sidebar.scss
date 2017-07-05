@@ -4,6 +4,18 @@
 /* Toggle Styles */
 @import "mixins";
 
+.wrapper-sidebar {
+  //color:black;
+  background-color: #a0a0a0;
+  scrollbar-face-color: $sidebar-scroll-bar;
+  scrollbar-arrow-color: #34495E;
+  scrollbar-track-color: #34495E;
+  scrollbar-shadow-color: rgb(0, 0, 0);
+  scrollbar-highlight-color: rgb(0, 0, 0);
+  scrollbar-3dlight-color: #34495E;
+  scrollbar-darkshadow-Color: #34495E;
+}
+
 #logo {
   padding-top: 10px;
 

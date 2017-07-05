@@ -171,8 +171,11 @@ function updateSlider(passObj, memo, isInit) {
     }
   }
 
-  $('.numberValue'+nn).text(Math.round(percentage / t) + '/' + max);
-  $('.numberValue-per'+nn).text(percentage + '%' );
+  $('[data-number = \'' + nn + '\']').text(Math.round(percentage / t) + '/' + max);
+  $('[data-percent = \'' + nn + '\']').text(percentage + '%');
+
+  // $('.numberValue'+nn).text(Math.round(percentage / t) + '/' + max);
+  // $('.numberValue-per'+nn).text(percentage + '%' );
 
   function $$(selector, context) {
     context = context || document;

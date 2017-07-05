@@ -13,8 +13,8 @@ function makeMainPanel(){
     , col1rowAssess = $('<div class="panel-header__assessment"></div>')
     , col1rowAssessPie = $('<div class="pie panel-header__pie pull-left" data-name="A"></div>')
     , col1rowAssess1 = $('<div class="panel-header__assessment"></div>')
-    , col1rowAssess1numVal = $('<h3 class="text-left numberValueA"></h3>')
-    , col1rowAssess1numValPer = $('<h3 class="text-left numberValue-perA"></h3>')
+    , col1rowAssess1numVal = $('<h3 class="panel-header__value" data-number ="A"></h3>')
+    , col1rowAssess1numValPer = $('<h3 class="panel-header__percent" data-percent ="A"></h3>')
     , col1rowBar = $('<div class="panel-header__bar-slider"></div>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
     , col1rowButtons = $('<div class="panel-header__filter"></div>')
@@ -49,20 +49,23 @@ function makePanelsTitle(numberClass, oneTitle){
   var numberClassWithDots = addDotsForLabels(numberClass)
     , paddingContent = $('.panels-list')
     , panelTitle= $('<div class="panel panel-default allPanels"></div>')
-    , panelHeading = $('<div class="panel-heading allPanels__panel-heading"></div>')
+    , panelHeading = $('<div class="panel-heading allPanels-panel-heading"></div>')
     , rowPanel = $('<div class="panel-title" data-panel="' + numberClass + '"></div>')
-    , colNumber = $('<div class="panel-title__number"></div>')
+    , colNumber = $('<div class="panel-title-number"></div>')
     , colNumberH4 = $('<h4 class="lab-hseq"></h4>')
-    , colTitle = $('<div class="panel-title__title"></div>')
-    , colTitleH4 = $('<h4 class="panel-title__title--font-color"></h4>').attr('data-title', numberClass).text(oneTitle)
-    , colAssess = $('<div class="panel-title__assessment"></div>')
+    , colTitle = $('<div class="panel-title-title"></div>')
+    , colTitleH4 = $('<h4 class="panel-title-title__font-color"></h4>').attr('data-title', numberClass).text(oneTitle)
+    , colAssess = $('<div class="panel-title-assessment"></div>')
     , colAssesstRow = $('<div class="row"></div>')
-    , colAssessRowCol1 = $('<div class="panel-title__assess-icon"></div>')
-    , colAssessRowCol2 = $('<div class="panel-title__assess-value"></div>')
+    , colAssessRowCol1 = $('<div class="panel-title-assessment-icon"></div>')
+    , colAssessRowCol2 = $('<div class="panel-title-assessment-value"></div>')
     , colAssessRowColPie = $('<div class="pie panel-title__pie pull-left"></div>').attr('data-name',numberClass)
-    , colAssessRowColNumValue = $('<p class="text-left numberValue'+numberClass+'"></p>')
-    , colAssessRowColNumValuePer = $('<p class="text-left numberValue-per'+numberClass+'"></p>')
+    , colAssessRowColNumValue = $('<p class="text-left assess-value__number" data-number ="' + numberClass + '"></p>')
+    , colAssessRowColNumValuePer = $('<p class="text-left assess-value__percent" data-percent ="' + numberClass + '"></p>')
     , colBar = $('<div class="panel-title__bar-slider"></div>')
+    , colBarTriangle = $('<img class="panel-title__bar-slider-triangle" src="images/triangle.png">')
+    , colTriangle = $('<div class="panel-title__triangle"></div>')
+    , colTriangleImg = $('<img class="panel-title__triangle-img" src="images/triangle.png">')
 
 
     , max = isoObject[numberClass].maxDegree
@@ -76,9 +79,11 @@ function makePanelsTitle(numberClass, oneTitle){
     , colButtonRow1Col1 = $('<div class="panel-title__buttons-title">')
     , colButtonRow2 = $('<div class="row"></div>')
     , colButtonRow2Col1 = $('<div class="panel-title__buttons-title"></div>')
-    , panelBody = $('<div class="panel-body panel-content allPanels__panel-content panels"></div>')
+    , panelBody = $('<div class="panel-body allPanels-panel-content"></div>')
     // , colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
 
+  colTriangle.append(colTriangleImg)
+  colBar.append(colBarTriangle)
   colButtonRow1.append(colButtonRow1Col1);
   colButtonRow2.append(colButtonRow2Col1);
   colAssessRowCol2.append(colAssessRowColNumValue, colAssessRowColNumValuePer);
@@ -88,7 +93,7 @@ function makePanelsTitle(numberClass, oneTitle){
   colNumber.append(colNumberH4);
   colTitle.append(colTitleH4);
   // panelBody.append(colFilterGroup);
-  rowPanel.append(colNumber, colTitle,colAssess,colBar, colButton);
+  rowPanel.append(colNumber, colTitle, colAssess, colTriangle, colBar, colButton);
   panelHeading.append(rowPanel);
   panelTitle.append(panelHeading).append(panelBody);
   paddingContent.append(panelTitle);
@@ -121,6 +126,7 @@ function makePanelsTitle(numberClass, oneTitle){
     $('.panel-title__bar-slider').append(colBarSlider);
   }
 
+
   colButtonRow1Col1.append(buttonUp);
   colButtonRow2Col1.append(buttonRight, buttonLeft);
   colButton.append(colButtonRow1, colButtonRow2);
@@ -142,21 +148,24 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   var numberOfChild = numberOfChildren[i - 1]
     , numberOfChildrenWithDots = numberOfChildren.map(addDotsForLabels)
     , row = $('<div class=\'panel-block\' data-panel=\'' + numberOfChild + '\'></div>')
-    , col1 = $('<div class=\'panel-block__number\'></div>')
+    , col1 = $('<div class=\'panel-block-number\'></div>')
     , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
-    , col2 = $('<div class=\'panel-block__title\'></div>')
-    , col2a = $('<a class="panel-block__title--font-color"></a>').attr('href', '#').attr('data-title', numberOfChild )
+    , col2 = $('<div class=\'panel-block-title\'></div>')
+    , col2a = $('<a class="panel-block-title__font-color"></a>').attr('href', '#').attr('data-title', numberOfChild)
 // class="title-hseq'+numberClass+' panel-title__title--font-color"
 
-    , col2h5 = $('<h5 class="panel-block__title--font-color"></h5>').text(nameOfChildren[i - 1])
-    , col4 = $('<div class=\'panel-block__assessment\'></div>')
+    , col2h5 = $('<h5 class="panel-block-title__font-color"></h5>').text(nameOfChildren[i - 1])
+    , col4 = $('<div class=\'panel-block-assessment\'></div>')
     , col4row = $('<div class=\'row\'></div>')
     , col4rowCol1 = $('<div class=\'panel-block__assess-icon\'></div>')
     , col4rowCol2 = $('<div class=\'panel-block__assess-value \'></div>')
     , col4rowCol2pie = $('<div class=\'pie panel-block__pie pull-left\'></div>').attr('data-name', numberOfChild)
-    , col4rowCol2h6 = $('<p class=\'numberValue' + numberOfChild + '\' ></p>')
-    , col4rowCol2h6per = $('<p class=\'numberValue-per' + numberOfChild + '\' ></p>')
+    , col4rowCol2h6 = $('<p class=\'assess-value__number\' data-number =\'' + numberOfChild + '\'></p>')
+    , col4rowCol2h6per = $('<p class=\'assess-value__percent\' data-percent =\'' + numberOfChild + '\'></p>')
     , col5 = $('<div class=\'panel-block__bar-slider\'></div>')
+    , colBarTriangle = $('<img class="panel-block__bar-slider-triangle" src="images/triangle.png">')
+    , colTriangle = $('<div class="panel-block__triangle"></div>')
+    , colTriangleImg = $('<img class="panel-block__triangle-img" src="images/triangle.png">')
     , col5input
     , max = childrenDegree[i-1]
     , col6
@@ -181,6 +190,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     col6.append(makeButtonsOpenDetailsAddEvid(numberOfChildren, i,numberOfChild, true));
   }
 
+
+  colTriangle.append(colTriangleImg)
   col1.append(col1h5);
   col2a.append(col2h5);
   col2.append(col2a);
@@ -188,8 +199,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   col4rowCol2.append(col4rowCol2h6, col4rowCol2h6per);
   col4row.append(col4rowCol1, col4rowCol2, col4rowCol2);
   col4.append(col4row);
-  col5.append(col5input);
-  row.append(col1, col2, col4, col5, col6, col7);
+  col5.append(colBarTriangle, col5input);
+  row.append(col1, col2, col4, colTriangle, col5, col6, col7);
 
   return row;
 
@@ -232,7 +243,7 @@ function addEvidencesToTheList(numberOfChildren,i){
 
 function makeFirstPartOfMainPage(){
   var panelDefault = $('<div class="panel panel-default allPanels"></div>')
-    , panelContent = $('<div class="panel-body panel-content allPanels__panel-content "></div>')
+    , panelContent = $('<div class="panel-body panel-content allPanels-panel-content "></div>')
     // , panelCol = $('<div id="panels" class="col-sx-12 col-sm-12 col-md-12"></div>');
 
   // panelContent.append(panelCol);
@@ -245,20 +256,25 @@ function makeFirstPartOfMainPage(){
 function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j ){
   var numberOfChildMainPan=  numberOfChildMainPanel[j - 1]
     , panelRow = $('<div class=\'panel-block\' data-panel=\'' + numberOfChildMainPan + '\'></div>')
-    , panelRowCol1 = $('<div class="panel-block__number"></div>')
+    , panelRowCol1 = $('<div class="panel-block-number"></div>')
     , panelRowCol1H4 = $('<h4></h4>').text(numberOfChildMainPanel[j-1])
-    , panelRowCol2 = $('<div class="panel-block__title"></div>')
+    , panelRowCol2 = $('<div class="panel-block-title"></div>')
     , panelRowCol2A = $('<a></a>').attr('href', '#').attr('data-title', numberOfChildMainPan)
-    , panelRowCol2AH4 = $('<h4 class="panel-block__title--font-color"></h4>').text(nameOfChildMainPanel[j])
-    , panelRowCol4 = $('<div class="panel-block__assessment"></div>')
+    , panelRowCol2AH4 = $('<h4 class="panel-block-title__font-color"></h4>').text(nameOfChildMainPanel[j])
+    , panelRowCol4 = $('<div class="panel-block-assessment"></div>')
     , panelRowCol4Row = $('<div class="row"></div>')
     , panelRowCol4RowC1 = $('<div class="panel-block__assess-icon"></div>')
     , panelRowCol4RowC1Pie = $('<div class=\'pie panel-block__pie pull-left\'></div>').attr('data-name',numberOfChildMainPan)
     , maxPanel = childDegreeMainPanel[j-1]
     , panelRowCol4RowC2 = $('<div class="panel-block__assess-value"></div>')
-    , panelRowCol4RowC2H6 = $('<p class=\'numberValue' + numberOfChildMainPan + '\' ></p>').text('0/' + maxPanel)
-    , panelRowCol4RowC2H6Per = $('<p class=\'numberValue-per' +  numberOfChildMainPan + '\' ></p>').text('0%')
+    , panelRowCol4RowC2H6 = $('<p class=\'assess-value__number\' data-number=\'' + numberOfChildMainPan + '\'></p>').text('0/' + maxPanel)
+    , panelRowCol4RowC2H6Per = $('<p class=\'assess-value__percent\' data-percent =\'' + numberOfChildMainPan + '\'></p>').text('0%')
     , panelRowCol5 = $('<div class="panel-block__bar-slider"></div>')
+    , panelRowCol5Triangle = $('<img class="panel-block__bar-slider-triangle" src="images/triangle.png">')
+
+    , panelRowColTriangle = $('<div class="panel-block__triangle"></div>')
+    , panelRowColTriangleImg = $('<img class="panel-block__triangle-img" src="images/triangle.png">')
+
     , panelRowCol5Span = $('<span class=\'numberValueBig' + numberOfChildMainPan + ' numberValue\' ></span>')
     , panelChildren = isoObject[numberOfChildMainPan].children
     , panelRowCol5Input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + maxPanel + ' name=\'' + numberOfChildMainPan + '\' data-parent=\'A\' data-children=\'' + panelChildren + '\' disabled >')
@@ -273,7 +289,9 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
   panelRowCol4RowC2.append(panelRowCol4RowC2H6, panelRowCol4RowC2H6Per);
   panelRowCol4Row.append(panelRowCol4RowC1, panelRowCol4RowC2);
   panelRowCol4.append(panelRowCol4Row);
-  panelRowCol5.append(panelRowCol5Span,panelRowCol5Input );
+  panelRowCol5.append(panelRowCol5Triangle, panelRowCol5Span, panelRowCol5Input);
+
+  panelRowColTriangle.append(panelRowColTriangleImg)
 
  if(isoObject[numberOfChildMainPan]['numberOfEvidence'] != undefined) {
  panelRowCol7 = $('<div id=\'collapsePanelDetails' + numberOfChildMainPan + '\' class=\'col-xs-12 collapse panel-block__evidences\'></div>').append(makeDetailsPanel(numberOfChildMainPanel, j));
@@ -283,7 +301,7 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
    panelRowCol6.append(makeButtonExpand(numberOfChildMainPanel, j), makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j, numberOfChildMainPan, true));
  }
 
-  panelRow.append(panelRowCol1, panelRowCol2,panelRowCol4,panelRowCol5,panelRowCol6, panelRowCol7);
+  panelRow.append(panelRowCol1, panelRowCol2, panelRowCol4, panelRowColTriangle, panelRowCol5, panelRowCol6, panelRowCol7);
   return panelRow;
 }//makeSecondPartOfMainPage
 

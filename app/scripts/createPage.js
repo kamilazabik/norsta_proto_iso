@@ -9,7 +9,7 @@ function createPage(numberClass, isNextLoad) {
     // , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
-    , panelContent = $('<div class="row content-panels"></div>')
+    , panelContent = $('<div class="row content-panels no-triangle"></div>')
     , paddingContent = $('<div class="panels-list"></div>');
 
   mainPanel.remove();
@@ -40,6 +40,7 @@ function createPage(numberClass, isNextLoad) {
     onLoadPage();
 
 
+
   }else{
 
     var oneTitle = panelTitle[numberClass]
@@ -54,10 +55,9 @@ function createPage(numberClass, isNextLoad) {
         , numberClassWithDots = addDotsForLabels(numberClass);
 
       for (var i = 1; i <= numberOfChildren.length; i++) {
-        $('.allPanels__panel-content').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
+        $('.allPanels-panel-content').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
       }
     }
-
 
     titlePanel.text(isoObject[numberClass].name);
     label.text(numberClassWithDots);
@@ -67,8 +67,9 @@ function createPage(numberClass, isNextLoad) {
     loadPage(isNextLoad);
     onLoadPage();
     searchText();
-
   }
+
+  // showTriangle();
 }//createPage
 
 function loadPage(isNextLoad){
@@ -154,6 +155,7 @@ function onLoadPage() {
   loadRightPanel();
   setFilter();
   markClickedSidebar();
+  // showTriangle();
   $('.slider').rangeslider();
 
 }//onLoadPage
@@ -278,4 +280,20 @@ function changeViewOfFolderList(){
   })
 }//changeViewOfFolderList
 
+
+function showTriangle() {
+  var linkAdm = $('[data-link = adm]')
+    , allPanels = $('.row.content-panels')
+
+  console.log(linkAdm)
+  console.log(allPanels)
+
+  linkAdm.on('click', function () {
+    if (allPanels.hasClass('no-triangle')) {
+      allPanels.removeClass('no-triangle').addClass('triangle');
+    } else if (allPanels.hasClass('triangle')) {
+      allPanels.removeClass('triangle').addClass('no-triangle');
+    }
+  })
+}
 

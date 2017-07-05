@@ -34,6 +34,7 @@ $sidebar-md: 350px;
 $color-black: #000;
 $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow1, 0px 1px 5px 0px $color-shadow3;
 $xs-panel-height: 40px;
+$button-width: 70px;
 
 
 @mixin font-size ($font-size){
@@ -41,7 +42,7 @@ $xs-panel-height: 40px;
 }
 
 @mixin height-background ($height, $background){
-  height: $height;
+  min-height: $height;
   background-color: $background;
 }
 
