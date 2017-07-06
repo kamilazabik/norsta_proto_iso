@@ -1,6 +1,6 @@
 function makeButtonExpand(numberOfChildMainPanel, j){
   var panelRowCol6Row1 = $('<div class="row"></div>')
-    , panelRowCol6Row1Col = $('<div class="allPanels__buttons-body"></div>')
+    , panelRowCol6Row1Col = $('<div class="panel-block-buttons-body"></div>')
     ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\' btn btn-sm custom-btn expand-main-page btn-expand-panel\' data-label=\'' + numberOfChildMainPanel[j - 1] + '\'>Rozwiń</button>');
 
   panelRowCol6Row1Col.append(panelRowCol6Button);
@@ -12,7 +12,7 @@ function makeButtonExpand(numberOfChildMainPanel, j){
 function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hiddenClass){
   var numberOfChild = numberOfChildMainPanel[j - 1]
     , panelRowCol6Row2 = $('<div class="row"></div>')
-    , panelRowCol6Row2Col = $('<div class="allPanels__buttons-body"></div>')
+    , panelRowCol6Row2Col = $('<div class="panel-block-buttons-body"></div>')
     , buttonIcon = $('<i class="fa fa-arrow-down" aria-hidden="true"></i>')
     , buttonExpandPanelHidden = $('<button type=\'button\' class=\' hidden-lg hidden-xl btn btn-expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\' data-expand=\''+ numberOfChild+'\'></button>')
     , buttonExpandPanelNotHidden = $('<button type=\'button\' class=\'btn btn-expand ' + numberOfChild + '\' data-toggle=\'collapse\' aria-expanded=\'false\'  name=\'openPanelDetails\' data-target=\'#collapsePanelDetails' + numberOfChild + '\' aria-controls=\'collapsePanelDetails' + numberOfChild + '\' title=\'Pokaż panel szczegółów\'  data-expand=\''+ numberOfChild+'\'></button>')
@@ -40,7 +40,7 @@ function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hidd
 
 
 function makeDetailsPanel(numberOfChildMainPanel, j){
-  var tabPanels = $('<div id =\'tabsPanels' +numberOfChildMainPanel[j - 1]+ '\' class=\'panel-block__evidences-details\'></div>')
+  var tabPanels = $('<div id =\'tabsPanels' + numberOfChildMainPanel[j - 1] + '\' class=\'panel-block-evidences-details\'></div>')
     , tabPanelsCol = $('<div class=\'col-sm-12\'></div>')
     , tabPanelsColUl = $('<ul id =\'tabs' +numberOfChildMainPanel[j - 1]+ '\' data-tabs=\'tabs\' class=\'nav nav-pills evidences-tab\'></ul>')
     , tabPanelsColUlLi1 = $('<li class=\'hidden-lg\'></li>')

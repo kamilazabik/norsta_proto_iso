@@ -55,7 +55,7 @@ function createPage(numberClass, isNextLoad) {
         , numberClassWithDots = addDotsForLabels(numberClass);
 
       for (var i = 1; i <= numberOfChildren.length; i++) {
-        $('.allPanels-panel-content').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
+        $('.allPanels-panel-body').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
       }
     }
 

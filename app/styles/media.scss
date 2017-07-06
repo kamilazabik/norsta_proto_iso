@@ -108,11 +108,11 @@
 
       &-title,
       &-assessment,
-      &__assess-icon,
-      &__assess-value,
-      &__assess-body,
-      &__bar-slider,
-      &__button-expand {
+      &-assessment-icon,
+      &-assessment-value,
+      &-assessment-body,
+      &-bar-slider,
+      &-buttons {
         min-height: 75px;
       }
       &-number {
@@ -127,15 +127,15 @@
         }
       }
 
-      &__pie, svg {
+      &-assessment-icon__pie, svg {
         @include width-height($pie-size-md, $pie-size-md);
       }
 
-      &__assess-value {
+      &-assessment-value {
         padding-top: 5px;
       }
 
-      &__button-expand {
+      &-buttons {
         @include border-right(0, 3px);
       }
 
@@ -172,24 +172,24 @@
         @include border-radius (0 0 0 0);
       }
 
-      &__assess-value {
+      &-assessment-value {
         padding-top: 5px;
         border: none;
       }
 
-      &__assess-icon {
+      &-assessment-icon {
         border: none;
       }
 
-      &__triangle {
+      &-triangle {
         @include border-top-bottom($panels-border);
       }
 
-      &__bar-slider {
+      &-bar-slider {
         border-top: $panels-border;
       }
 
-      &__button-expand {
+      &-buttons {
         border-top-right-radius: 3px;
         border-top: $panels-border;
       }
@@ -198,7 +198,7 @@
     .allPanels {
       &--clicked-blue-title {
         background-color: $panels-hover !important;
-        .panel-block__title--font-color {
+        .panel-block-title__font-color {
           color: #3387c8;
         }
       }

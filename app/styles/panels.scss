@@ -87,7 +87,7 @@
   }
 }
 
-.allPanels-panel-content {
+.allPanels-panel-body {
   padding: 15px 15px 0 15px;
 }
 
@@ -103,23 +103,22 @@
     flex-wrap: wrap;
     display: flex;
 
-    &__bar-slider,
-    &__button-expand {
+    &-bar-slider,
+    &-buttons {
       min-height: 70px;
       background-color: $panels-content;
     }
 
-    &__assess-icon,
-    &__assess-value,
-    &__assess-body {
+    &-assessment-icon,
+    &-assessment-value,
+    &-assessment-body {
       min-height: 70px;
     }
 
     &-number,
     &-title,
     &-assessment,
-    &__filter,
-    &__bar-slider {
+    &-bar-slider {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -146,44 +145,43 @@
       background-color: $panels-content;
     }
 
-    &__pie {
+    &-assessment-icon__pie {
       margin-top: 15px;
     }
 
-    &__pie, svg {
+    &-assessment-icon__pie, svg {
       @include width-height($pie-size-xs, $pie-size-xs);
     }
 
-    &__assess-icon {
+    &-assessment-icon {
       padding-left: 10px;
     }
 
-    &__assess-value {
+    &-assessment-value {
       padding-left: 10px;
     }
 
-    &__bar-slider {
-      &-triangle {
-        //height: 50px;
+    &-bar-slider {
+      &__triangle {
         width: 70px;
         margin: 10px;
       }
     }
 
-    &__triangle {
+    &-triangle {
       background-color: $panels-content;
-      &-img {
+      &__img {
         width: 70px;
         margin: 5px 10px;
       }
     }
 
-    &__button-expand {
+    &-buttons {
       @include border-right($panels-border, 3px);
       padding-left: 0;
     }
 
-    &__buttons-title {
+    &-buttons-body {
       padding-left: 0;
       padding-right: 2px;
     }
@@ -191,10 +189,9 @@
 
   .panel-title:hover {
     .panel-title-assessment,
-    .panel-title__filter,
-    .panel-title__bar-slider,
-    .panel-title__triangle,
-    .panel-title__button-expand {
+    .panel-title-bar-slider,
+    .panel-title-triangle,
+    .panel-title-buttons {
       background-color: $panels-hover;
     }
   }
@@ -205,24 +202,23 @@
     flex-wrap: wrap;
     display: flex;
 
-    &__bar-slider,
-    &__button-expand,
+    &-bar-slider,
+    &-buttons,
     &-assessment {
       min-height: 70px;
       background-color: $panels-content;
       border-bottom: $panels-border;
     }
 
-    &__assess-icon,
-    &__assess-value {
+    &-assessment-icon,
+    &-assessment-value {
       min-height: 70px;
     }
 
     &-number,
     &-title,
     &-assessment,
-    &__filter,
-    &__bar-slider {
+    &-bar-slider {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -249,53 +245,50 @@
       @include border-radius (0 0 0 3px);
     }
 
-    &__pie {
+    &-assessment-icon__pie {
       margin-top: 15px;
     }
 
-    &__pie, svg {
+    &-assessment-icon__pie, svg {
       @include width-height($pie-size-xs, $pie-size-xs);
     }
 
-    &__assess-icon {
+    &-assessment-icon {
       padding-left: 10px;
     }
 
-    &__assess-value {
+    &-assessment-value {
       padding-left: 5px;
 
-      .assess-value {
         &__number, &__percent {
           margin-bottom: 8px;
           margin-top: 8px;
-        }
       }
-
     }
 
-    &__bar-slider {
-      &-triangle {
+    &-bar-slider {
+      &__triangle {
         //height: 50px;
         width: 70px;
         margin: 10px;
       }
 
     }
-    &__triangle {
+    &-triangle {
       background-color: $panels-content;
-      &-img {
+      &__img {
         width: 70px;
         margin: 5px 10px;
       }
     }
 
-    &__button-expand {
+    &-buttons {
       border-bottom-right-radius: 3px;
       border-right: $panels-border;
       padding-left: 0;
     }
 
-    &__button-expand--xs {
+    &-buttons--xs {
       padding: 17px 15px 17px 0;
     }
 
@@ -317,7 +310,7 @@
     }
     //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 
-    &__evidences-details {
+    &-evidences-details {
       padding: 15px 0;
       margin: 0;
       width: 100%;
@@ -337,10 +330,9 @@
 
     &:hover {
       .panel-block-assessment,
-      .panel-block__filter,
-      .panel-block__bar-slider,
-      .panel-block__button-expand,
-      .panel-block__triangle {
+      .panel-block-bar-slider,
+      .panel-block-buttons,
+      .panel-block-triangle {
         background-color: $panels-hover;
       }
     }

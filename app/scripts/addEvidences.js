@@ -73,8 +73,8 @@ function saveEvidence(evidenceFromList, dataEvidence){
     , rowCountInEvidenceWindow = rowInEvidenceWindow.find('tr').length + 1
     , nameOfEvidenceFromList
     , nameOfFileFromList
-    , clickedPanelNumber = $('[data-panel=\'' + className + '\']' + ' .panel-block__number')
-    , clickedPanelButton = $('[data-panel=\'' + className + '\']' + ' .panel-block__button-expand')
+    , clickedPanelNumber = $('[data-panel=\'' + className + '\']' + ' .panel-block-number')
+    , clickedPanelButton = $('[data-panel=\'' + className + '\']' + ' .panel-block-buttons')
     // , buttonOpenDetails = $('button.btn-expand.'+ className)
     , buttonOpenDetails = $('[data-expand=\'' + className + '\']')
     , collapsePanelClass = $('#collapsePanelDetails' + className);
