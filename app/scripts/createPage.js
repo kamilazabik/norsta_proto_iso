@@ -4,13 +4,13 @@ function createPage(numberClass, isNextLoad) {
     , childDegreeMainPanel = (isoObject['A'].childrenMaxDegree).split(',')
     , content = $('#content')
     , mainPanel = $('.content-main-panel')
-    , panels = $('.panel.panel-default.allPanels')
+    , panels = $('.panel-list')
     , row = $('.row.mainPagePanels')
     // , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
     , panelContent = $('<div class="content-panels no-triangle"></div>')
-    , paddingContent = $('<div class="panels-list"></div>');
+    , paddingContent = $('<div class="panels"></div>');
 
   mainPanel.remove();
   panels.remove();
@@ -21,7 +21,7 @@ function createPage(numberClass, isNextLoad) {
 
   if (numberClass == 'A') {
 
-    var paddingContentExisted = $('.panels-list')
+    var paddingContentExisted = $('.panels')
       , panelContentExisted = $('.content-panels');
 
   if(paddingContentExisted.length == 0 || panelContentExisted == 0){
@@ -30,10 +30,10 @@ function createPage(numberClass, isNextLoad) {
     content.append(panelContent);
   }
 
-    $('.panels-list').append(makeFirstPartOfMainPage());
+    $('.panels').append(makeFirstPartOfMainPage());
 
     for (var j = 1; j <= numberOfChildMainPanel.length; j++) {
-      $('.panel-content').append(makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,childDegreeMainPanel,j))
+      $('.panel-list-panel-body').append(makeBodyPanel(numberOfChildMainPanel, nameOfChildMainPanel, childDegreeMainPanel, j))
     }
 
     loadPage(isNextLoad);
@@ -55,7 +55,7 @@ function createPage(numberClass, isNextLoad) {
         , numberClassWithDots = addDotsForLabels(numberClass);
 
       for (var i = 1; i <= numberOfChildren.length; i++) {
-        $('.allPanels-panel-body').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
+        $('.panel-list-panel-body').append(makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree, i, numberClass))
       }
     }
 
@@ -209,8 +209,8 @@ function searchTextTags() {
 }//searchTextTags
 
 function searchText() {
-  var allTextH4 = $('.allPanels .title h4')
-    , allTextH5 = $('.allPanels .title h5')
+  var allTextH4 = $('.panel-list .title h4')
+    , allTextH5 = $('.panel-list .title h5')
     , pageText
     , searchedText
     , theRegEx
@@ -236,7 +236,7 @@ function moveRightPanel() {
 
   $(window).scroll(function() {
     var windowScroll = $(window).scrollTop()
-      , paddingContent = $('.panels-list').offset();
+      , paddingContent = $('.panels').offset();
 
     if (windowScroll > 20) {
       $('.right-panel--fixed-panel').css('top', '60px')
@@ -283,7 +283,7 @@ function changeViewOfFolderList(){
 
 function showTriangle() {
   var linkAdm = $('[data-link = adm]')
-    , allPanels = $('.row.content-panels')
+    , allPanels = $('.content-panels')
 
   console.log(linkAdm)
   console.log(allPanels)

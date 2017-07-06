@@ -79,8 +79,7 @@
   @include make-row();
 }
 
-
-.panels-list {
+.panels {
   @include make-row();
   @include make-xs-column(12);
   @include make-lg-column(9);
@@ -136,6 +135,11 @@
       @include make-md-column(2.2);
       @include make-lg-column(2);
       @include make-xl-column(2);
+
+      &-row {
+        @include make-row();
+      }
+
     }
     &-bar-slider {
       @include make-xs-column(5);
@@ -164,6 +168,10 @@
       @include make-md-column(1.6);
       @include make-lg-column(1.4);
       @include make-xl-column(1.2);
+      &-row {
+        @include make-row();
+      }
+
     }
     &__button-expand-three {
       @include make-xs-column(3);
@@ -298,6 +306,9 @@
   }
 
   &-body {
+    &-row {
+      @include make-row();
+    }
     &-buttons {
       @include make-row();
       @include make-md-column(12);

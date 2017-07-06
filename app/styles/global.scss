@@ -105,7 +105,14 @@ p {
   &-expand-panel:focus,
   &-open:focus {
     color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
   }
+  &-add:hover {
+    background-color: #7fb9e5;
+    border-color: #7FB9E5;
+  }
+
 }
 
 .btn-panel-search {
