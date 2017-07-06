@@ -1,6 +1,43 @@
 @import "mixins";
 
+// After clicked to panel
+.clicked-blue {
+  @include border-top-bottom($label);
+  background-color: $label !important;
+}
 
+.clicked-blue-title {
+  @include border-top-bottom($label);
+  background-color: $label !important;
+}
+
+.clicked-yellow {
+  background-color: $panels-hover !important;
+}
+
+.collapse, .collapsing {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+//Textarea in right panel and panel details
+
+.added-comment, .editable-text {
+  border: 1px solid rgb(185, 185, 185);
+  min-height: 50px;
+  margin-bottom: 5px;
+  padding: 2px;
+  font-size: 1.4em;
+}
+
+.added-comment {
+  word-wrap: break-word;
+}
+
+.edit-comment {
+  width: 100%;
+  overflow: visible;
+}
 
 // Main panel
 .panel-header {
@@ -12,46 +49,44 @@
   margin-right: 15px;
   //min-height: 100vh;
 
-  &__title,
-  &__assessment,
-  &__filter,
-  &__bar-slider,
-  &__filter{
+  &-title,
+  &-assessment,
+  &-filter,
+  &-bar-slider {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 
-  &__assessment,
-  &__filter,
-  &__bar-slider,
-  &__filter{
+  &-assessment,
+  &-filter,
+  &-bar-slider {
     height: 60px;
   }
 
-  &__title {
+  &-title {
     min-height: 60px !important;
   }
 
-  &__assessment{
+  &-assessment {
     padding-left: 10px;
+
+    &__pie, svg {
+      @include width-height($pie-size-md, $pie-size-md);
+      margin-top: 0;
+    }
   }
 
-  &__pie, svg {
-    @include width-height($pie-size-md, $pie-size-md);
-    margin-top: 0;
-  }
-
-  &__bar-slider {
+  &-bar-slider {
     @include padding-left-right(15px, 5px);
   }
 
-  &__filter {
+  &-filter {
     align-items: center;
     @include padding-left-right(5px, 5px);
   }
 
-  &__form-control {
+  &-form-control {
     @include padding-left-right(2px, 3px);
     #fastAsses {
       margin-top: 5px;
@@ -72,29 +107,15 @@
   border: 0 !important;
   margin-bottom: 16px;
 
-  &--clicked-blue {
-    @include border-top-bottom($label);
-    background-color: $label !important;
+  &-panel-body {
+    padding: 15px 15px 0 15px;
   }
 
-  &--clicked-blue-title {
-    @include border-top-bottom($label);
-    background-color: $label !important;
+  &-panel-heading {
+    padding: 0 15px 0 15px;
+    margin-left: 0;
+    margin-right: 0;
   }
-
-  &--clicked-yellow {
-    background-color: $panels-hover !important;
-  }
-}
-
-.allPanels-panel-body {
-  padding: 15px 15px 0 15px;
-}
-
-.allPanels-panel-heading {
-  padding: 0 15px 0 15px;
-  margin-left: 0;
-  margin-right: 0;
 }
 
 .triangle, .no-triangle {
@@ -107,12 +128,6 @@
     &-buttons {
       min-height: 70px;
       background-color: $panels-content;
-    }
-
-    &-assessment-icon,
-    &-assessment-value,
-    &-assessment-body {
-      min-height: 70px;
     }
 
     &-number,
@@ -143,22 +158,24 @@
     &-assessment {
       @include border-radius (0 0 0 3px);
       background-color: $panels-content;
-    }
 
-    &-assessment-icon__pie {
-      margin-top: 15px;
-    }
-
-    &-assessment-icon__pie, svg {
-      @include width-height($pie-size-xs, $pie-size-xs);
-    }
-
-    &-assessment-icon {
-      padding-left: 10px;
-    }
-
-    &-assessment-value {
-      padding-left: 10px;
+      &-icon,
+      &-value,
+      &-body {
+        min-height: 70px;
+      }
+      &-icon {
+        padding-left: 10px;
+        &__pie {
+          margin-top: 15px;
+        }
+        &__pie, svg {
+          @include width-height($pie-size-xs, $pie-size-xs);
+        }
+      }
+      &-value {
+        padding-left: 10px;
+      }
     }
 
     &-bar-slider {
@@ -179,20 +196,19 @@
     &-buttons {
       @include border-right($panels-border, 3px);
       padding-left: 0;
-    }
 
-    &-buttons-body {
-      padding-left: 0;
-      padding-right: 2px;
+      &-body {
+        padding-left: 0;
+        padding-right: 2px;
+      }
     }
-  }
-
-  .panel-title:hover {
-    .panel-title-assessment,
-    .panel-title-bar-slider,
-    .panel-title-triangle,
-    .panel-title-buttons {
-      background-color: $panels-hover;
+    &:hover {
+      .panel-title-assessment,
+      .panel-title-bar-slider,
+      .panel-title-triangle,
+      .panel-title-buttons {
+        background-color: $panels-hover;
+      }
     }
   }
 
@@ -208,11 +224,6 @@
       min-height: 70px;
       background-color: $panels-content;
       border-bottom: $panels-border;
-    }
-
-    &-assessment-icon,
-    &-assessment-value {
-      min-height: 70px;
     }
 
     &-number,
@@ -243,32 +254,33 @@
       border-left: $panels-border;
       background-color: $panels-content;
       @include border-radius (0 0 0 3px);
-    }
 
-    &-assessment-icon__pie {
-      margin-top: 15px;
-    }
+      &-icon,
+      &-value {
+        min-height: 70px;
+      }
 
-    &-assessment-icon__pie, svg {
-      @include width-height($pie-size-xs, $pie-size-xs);
-    }
+      &-icon {
+        padding-left: 10px;
+        &__pie {
+          margin-top: 15px;
+        }
+        &__pie, svg {
+          @include width-height($pie-size-xs, $pie-size-xs);
+        }
+      }
 
-    &-assessment-icon {
-      padding-left: 10px;
-    }
-
-    &-assessment-value {
-      padding-left: 5px;
-
+      &-value {
+        padding-left: 5px;
         &__number, &__percent {
           margin-bottom: 8px;
           margin-top: 8px;
+        }
       }
     }
 
     &-bar-slider {
       &__triangle {
-        //height: 50px;
         width: 70px;
         margin: 10px;
       }
@@ -292,26 +304,20 @@
       padding: 17px 15px 17px 0;
     }
 
-    &__number--not-collapsed {
+    &-number--not-collapsed {
       @include border-radius (3px 0px 0px 0);
     }
 
-    &__assessment--not-collapsed {
+    &-assessment--not-collapsed {
       @include border-radius (0px 0px 0px 0);
     }
 
-    &__button-expand--not-collapsed {
+    &-buttons--not-collapsed {
       @include border-radius (0px 0px 0px 0);
     }
 
-    .collapse, .collapsing {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-    //box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
-
-    &-evidences-details {
-      padding: 15px 0;
+    .panel-details {
+      padding: 15px;
       margin: 0;
       width: 100%;
       background-color: #fff;
@@ -320,12 +326,18 @@
       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
       border-top: 0;
       @include border-radius (0px 0px 3px 3px);
-    }
-    li.active a {
-      background-color: $label !important;
-    }
-    .nav-pills > li > a {
-      border-radius: 3px;
+
+      &-tabs {
+        &__link {
+          border-radius: 3px;
+        }
+      }
+
+      .active .panel-details-tabs {
+        &__link {
+          background-color: $label !important;
+        }
+      }
     }
 
     &:hover {
@@ -339,7 +351,7 @@
   }
 
   //Details panel - evidences
-  .well {
+  .evidences-panel {
     margin-top: 0;
     border: 0;
     margin-bottom: 0;
@@ -384,22 +396,5 @@
       padding-right: 0;
     }
   }
-
-  .evidences-content-assess {
-    &__added-comment, &__editable-text {
-      border: 1px solid rgb(185, 185, 185);
-      min-height: 50px;
-      padding: 5px;
-      margin-bottom: 5px;
-    }
-    &__added-comment {
-      word-wrap: break-word;
-    }
-    &__edit-comment {
-      width: 100%;
-      overflow: visible;
-    }
-  }
-
 }
 

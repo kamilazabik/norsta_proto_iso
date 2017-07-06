@@ -75,6 +75,11 @@
   }
 }
 
+.content-main-panel, .content-panels {
+  @include make-row();
+}
+
+
 .panels-list {
   @include make-row();
   @include make-xs-column(12);
@@ -84,24 +89,24 @@
 .panel-header {
   @include make-row();
 
-  &__title {
+  &-title {
     @include make-xs-column(12);
     @include make-sm-column(5);
     @include make-lg-column(6);
   }
 
-  &__assessment{
+  &-assessment {
     @include make-xs-column(2);
     @include make-sm-column(1);
   }
 
-  &__bar-slider {
+  &-bar-slider {
     @include make-xs-column(4);
     @include make-sm-column(3);
     @include make-lg-column(2);
   }
 
-  &__filter{
+  &-filter {
     @include make-xs-column(4);
     @include make-sm-column(2);
   }
@@ -180,7 +185,7 @@
     &-assessment-body {
       @include make-xs-column(6);
     }
-    &-evidences-details {
+    .panel-details {
       @include make-xs-column(12)
     }
   }
@@ -260,7 +265,7 @@
     &-assessment-body {
       @include make-xs-column(6);
     }
-    &__evidences-details {
+    .panel-details {
       @include make-xs-column(12)
     }
   }
@@ -275,36 +280,40 @@
   }
 }
 
-.right-panel-heading__row {
-  @include make-row();
-}
+.right-panel {
+  @include make-lg-column(3);
 
-.right-panel-heading__icon {
-  @include make-row();
-  @include make-xs-column(2);
-}
+  &-heading {
+    &-row {
+      @include make-row();
+    }
+    &-icon {
+      @include make-row();
+      @include make-xs-column(2);
+    }
+    &-title {
+      @include make-row();
+      @include make-xs-column(10);
+    }
+  }
 
-.right-panel-heading__title {
-  @include make-row();
-  @include make-xs-column(10);
-}
-
-.right-panel-body__buttons {
-  @include make-row();
-  @include make-md-column(12);
-}
-
-.right-panel-body__label {
-  @include make-row();
-  @include make-xs-column(3);
-  @include make-lg-column(4);
-  @include make-xl-column(4);
-}
-
-.right-panel-body__title {
-  @include make-row();
-  @include make-xs-column(9);
-  @include make-lg-column(8);
-  @include make-xl-column(8);
+  &-body {
+    &-buttons {
+      @include make-row();
+      @include make-md-column(12);
+    }
+    &-label {
+      @include make-row();
+      @include make-xs-column(3);
+      @include make-lg-column(4);
+      @include make-xl-column(4);
+    }
+    &-title {
+      @include make-row();
+      @include make-xs-column(9);
+      @include make-lg-column(8);
+      @include make-xl-column(8);
+    }
+  }
 }
 

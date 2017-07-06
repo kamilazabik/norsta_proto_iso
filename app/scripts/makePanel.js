@@ -4,21 +4,21 @@
  */
 
 function makeMainPanel(){
-  var mainPanel = $('<div class="row content-main-panel"></div>')
+  var mainPanel = $('<div class="content-main-panel"></div>')
     // , col = $('<div class="col-xs-12"></div>')
     // , col1 = $('<div class="col-xs-12"></div>')
     , col1row = $('<div class="panel-header"></div>')
-    , col1rowTitleMain = $('<div class="panel-header__title"></div>')
+    , col1rowTitleMain = $('<div class="panel-header-title"></div>')
     , col1rowTitleMainH3 = $('<h3></h3>').attr('data-title', 'A0').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
-    , col1rowAssess = $('<div class="panel-header__assessment"></div>')
-    , col1rowAssessPie = $('<div class="pie panel-header__pie pull-left" data-name="A"></div>')
-    , col1rowAssess1 = $('<div class="panel-header__assessment"></div>')
-    , col1rowAssess1numVal = $('<h3 class="panel-header__value" data-number ="A"></h3>')
-    , col1rowAssess1numValPer = $('<h3 class="panel-header__percent" data-percent ="A"></h3>')
-    , col1rowBar = $('<div class="panel-header__bar-slider"></div>')
+    , col1rowAssess = $('<div class="panel-header-assessment"></div>')
+    , col1rowAssessPie = $('<div class="pie panel-header-assessment__pie" data-name="A"></div>')
+    , col1rowAssess1 = $('<div class="panel-header-assessment"></div>')
+    , col1rowAssess1numVal = $('<h3 class="panel-header-assessment__value" data-number ="A"></h3>')
+    , col1rowAssess1numValPer = $('<h3 class="panel-header-assessment__percent" data-percent ="A"></h3>')
+    , col1rowBar = $('<div class="panel-header-bar-slider"></div>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
-    , col1rowButtons = $('<div class="panel-header__filter"></div>')
-    , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control panel-header__form-control" ></select>')
+    , col1rowButtons = $('<div class="panel-header-filter"></div>')
+    , col1rowButtonsSelect = $('<select id="selectAssessment" class="form-control panel-header-form-control" ></select>')
     , col1rowButtonsSelectOption1 = $('<option id="fastAssess">Szybka ocena</option>')
     , col1rowButtonsSelectOption2 = $('<option id="normalAssess">Normalna ocena</option>')
     , col1rowButtonsSelectOption3 = $('<option id="noAssessment">Brak oceny</option>');
@@ -83,8 +83,8 @@ function makePanelsTitle(numberClass, oneTitle){
     , panelBody = $('<div class="panel-body allPanels-panel-body"></div>')
     // , colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
 
-  colTriangle.append(colTriangleImg)
-  colBar.append(colBarTriangle)
+  colTriangle.append(colTriangleImg);
+  colBar.append(colBarTriangle);
   colButtonRow1.append(colButtonRow1Col1);
   colButtonRow2.append(colButtonRow2Col1);
   colAssessRowCol2.append(colAssessRowColNumValue, colAssessRowColNumValuePer);
@@ -183,15 +183,15 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   }
 
   if(isoObject[numberOfChild]['numberOfEvidence'] != undefined) {
-    col7 = $('<div id=\'collapsePanelDetails' + numberOfChild + '\' class=\'col-xs-12 collapse panel-block-evidences\'></div>').append(makeDetailsPanel(numberOfChildren, i));
+    col7 = $('<div id=\'collapsePanelDetails' + numberOfChild + '\' class=\'col-xs-12 collapse panel-block-details\'></div>').append(makeDetailsPanel(numberOfChildren, i));
     col6.append(makeButtonsOpenDetailsAddEvid(numberOfChildren, i,numberOfChild, false));
   }else{
-    col7 = $('<div id=\'collapsePanelDetails' + numberOfChild + '\' class=\'hidden-xl hidden-lg col-xs-12 collapse panel-block-evidences\'></div>').append(makeDetailsPanel(numberOfChildren, i));
+    col7 = $('<div id=\'collapsePanelDetails' + numberOfChild + '\' class=\'hidden-xl hidden-lg col-xs-12 collapse panel-block-details\'></div>').append(makeDetailsPanel(numberOfChildren, i));
     col6.append(makeButtonsOpenDetailsAddEvid(numberOfChildren, i,numberOfChild, true));
   }
 
 
-  colTriangle.append(colTriangleImg)
+  colTriangle.append(colTriangleImg);
   col1.append(col1h5);
   col2a.append(col2h5);
   col2.append(col2a);
@@ -216,7 +216,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
 function addEvidencesToTheList(numberOfChildren,i){
   var numberOfChilderEvid = numberOfChildren[i - 1]
-    , evidence = $('<div class="col-xs-12 well"></div>')
+    , evidence = $('<div class="col-xs-12 evidences-panel"></div>')
     , evidenceTable = $('<table id=\'' +  numberOfChilderEvid + '\' class=\'table evidences-table\'></table>')
     , evidenceTableHead = $('<thead class="evidences-table__thead"></thead>')
     , evidenceTableBody = $('<tbody class="evidences-table__tbody"></tbody>')
@@ -243,10 +243,8 @@ function addEvidencesToTheList(numberOfChildren,i){
 
 function makeFirstPartOfMainPage(){
   var panelDefault = $('<div class="panel panel-default allPanels"></div>')
-    , panelContent = $('<div class="panel-body panel-content allPanels-panel-content "></div>')
-    // , panelCol = $('<div id="panels" class="col-sx-12 col-sm-12 col-md-12"></div>');
+    , panelContent = $('<div class="panel-body panel-content allPanels-panel-body "></div>')
 
-  // panelContent.append(panelCol);
   panelDefault.append(panelContent);
 
   return panelDefault;
@@ -294,10 +292,10 @@ function makeSecondPartOfMainPage(numberOfChildMainPanel,nameOfChildMainPanel,ch
   panelRowColTriangle.append(panelRowColTriangleImg)
 
  if(isoObject[numberOfChildMainPan]['numberOfEvidence'] != undefined) {
-   panelRowCol7 = $('<div id=\'collapsePanelDetails' + numberOfChildMainPan + '\' class=\'col-xs-12 collapse panel-block-evidences\'></div>').append(makeDetailsPanel(numberOfChildMainPanel, j));
+   panelRowCol7 = $('<div id=\'collapsePanelDetails' + numberOfChildMainPan + '\' class=\'col-xs-12 collapse panel-block-details\'></div>').append(makeDetailsPanel(numberOfChildMainPanel, j));
    panelRowCol6.append(makeButtonExpand(numberOfChildMainPanel, j), makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j, numberOfChildMainPan, false));
  }else{
-   panelRowCol7 = $('<div id=\'collapsePanelDetails' + numberOfChildMainPan + '\' class=\'hidden-xl hidden-lg col-xs-12 collapse panel-block-evidences\'></div>').append(makeDetailsPanel(numberOfChildMainPanel, j));
+   panelRowCol7 = $('<div id=\'collapsePanelDetails' + numberOfChildMainPan + '\' class=\'hidden-xl hidden-lg col-xs-12 collapse panel-block-details\'></div>').append(makeDetailsPanel(numberOfChildMainPanel, j));
    panelRowCol6.append(makeButtonExpand(numberOfChildMainPanel, j), makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j, numberOfChildMainPan, true));
  }
 
@@ -323,27 +321,27 @@ function addDotsForLabels(label){
 
 
 function makeRightPanel(){
-  var rightPanel = $('<div class="col-lg-3 right-panel"></div>')
+  var rightPanel = $('<div class="right-panel"></div>')
     , bsCollapse = $('<div id="bs-collapse" class="panel-group right-panel--fixed-panel"></div>')
     , rightPanelWidth = $('<div class="right-panel-block"></div>')
-    , firstPanel = $('<div class="right-first-panel right-panel-first--margin"></div>')
-    , firstPanelWrap = $('<div class="panel right-panel-first__panel"></div>')
+    , firstPanel = $('<div class="right-panel-first right-panel-first--margin"></div>')
+    , firstPanelWrap = $('<div class="panel right-panel-first-panel"></div>')
     , firstPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
-    , firstPanelWrapHeadRow = $('<div class="right-panel-heading__row"></div>')
+    , firstPanelWrapHeadRow = $('<div class="right-panel-heading-row"></div>')
 
-    , firstPanelWrapHeadRowCol1 = $('<div class="right-panel-heading__icon"></div>')
+    , firstPanelWrapHeadRowCol1 = $('<div class="right-panel-heading-icon"></div>')
     , firstPanelWrapHeadRowCol1Icon = $('<i class="fa fa-pie-chart" aria-hidden="true"></i>')
 
-    , firstPanelWrapHeadRowCol2 = $('<div class="right-panel-heading__title"></div>')
-    , firstPanelWrapHeadRowCol2H4 = $('<h4 class="right-panel-heading__title--title"></h4>')
-    , firstPanelWrapHeadRowCol2H4a = $('<a class="right-panel-heading__title--link" data-toggle="collapse" data-parent="" href="#two"></a>').text('Ocena')
+    , firstPanelWrapHeadRowCol2 = $('<div class="right-panel-heading-title"></div>')
+    , firstPanelWrapHeadRowCol2H4 = $('<h4 class="right-panel-heading-title__title"></h4>')
+    , firstPanelWrapHeadRowCol2H4a = $('<a class="right-panel-heading-title__link" data-toggle="collapse" data-parent="" href="#two"></a>').text('Ocena')
 
     , firstPanelWrapOne = $('<div  id="two"  class="panel-collapse collapse in right-panel-two" aria-expanded="true"></div>')
     , firstPanelWrapOneBody = $('<div class="panel-body right-panel-body right-panel-body--comment" data-comment="comment"></div>')
     , firstPanelWrapOneBodyRow1 = $('<div class="row"></div>')
-    , firstPanelWrapOneBodyRow1Col1 = $('<div class="right-panel-body__label"></div>')
+    , firstPanelWrapOneBodyRow1Col1 = $('<div class="right-panel-body-label"></div>')
     , firstPanelWrapOneBodyRow1Col1H5 = $('<h5 class="comment"></h5>').text('Opis')
-    , firstPanelWrapOneBodyRow2 = $('<div class="evidences-content-assess__editable-text right-panel-body__editable-text" data-name="editable-text"></div>')
+    , firstPanelWrapOneBodyRow2 = $('<div class="editable-text" data-name="editable-text"></div>')
     , firstPanelWrapOneBodyRow3 = $('<div class="row"></div>')
     , firstPanelWrapOneBodyRow3Col = $('<div class="right-panel-body__buttons"></div>')
     , firstPanelWrapOneBodyRow3ColButton = $('<button class="btn btn-primary btn-sm pull-right" type="button" id="removeAssess"></button>').text('Anuluj ocenę')
@@ -368,22 +366,22 @@ function makeRightPanel(){
 
 
   var secondPanel = $('<div class="right-panel-second"></div>')
-    , secondPanelWrap = $('<div class="panel right-panel-second__panel"></div>')
+    , secondPanelWrap = $('<div class="panel right-panel-second-panel"></div>')
     , secondPanelWrapHead = $('<div class="panel-heading right-panel-heading"></div>')
-    , secondPanelWrapHeadRow = $('<div class="right-panel-heading__row"></div>')
-    , secondPanelWrapHeadRowCol1 = $('<div class="right-panel-heading__icon"></div>')
+    , secondPanelWrapHeadRow = $('<div class="right-panel-heading-row"></div>')
+    , secondPanelWrapHeadRowCol1 = $('<div class="right-panel-heading-icon"></div>')
     , secondPanelWrapHeadRowCol1Icon = $('<i class="fa fa-file-text-o" aria-hidden="true"></i>')
 
-    , secondPanelWrapHeadRowCol2 = $('<div class="right-panel-heading__title"></div>')
-    , secondPanelWrapHeadRowCol2H4 = $('<h4 class="right-panel-heading__title--title"></h4>')
-    , secondPanelWrapHeadRowCol2H4a = $('<a class="right-panel-heading__title--link" data-toggle="collapse" data-parent="" href="#one" aria-expanded="true"></a>').text('Szczegóły')
+    , secondPanelWrapHeadRowCol2 = $('<div class="right-panel-heading-title"></div>')
+    , secondPanelWrapHeadRowCol2H4 = $('<h4 class="right-panel-heading-title__title"></h4>')
+    , secondPanelWrapHeadRowCol2H4a = $('<a class="right-panel-heading-title__link" data-toggle="collapse" data-parent="" href="#one" aria-expanded="true"></a>').text('Szczegóły')
     , secondPanelWrapOne = $('<div id="one" class="panel-collapse collapse in right-panel-one" aria-expanded="true"></div>')
     , secondPanelWrapOneBody = $('<div class="panel-body right-panel-body"></div>');
 
 
   for (var i = 0; i < 4; i++) {
     secondPanelWrapOneBody.append(($('<div class="row"></div>'))
-      .append($('<div class="right-panel-body__label"></div>'), $('<div class="right-panel-body__title"></div>')))
+      .append($('<div class="right-panel-body-label"></div>'), $('<div class="right-panel-body-title"></div>')))
   }
 
   var secondPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa:')

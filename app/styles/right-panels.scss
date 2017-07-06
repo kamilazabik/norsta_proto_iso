@@ -19,8 +19,8 @@
     margin: 15px 0 15px 0;
   }
 
-  &-first__panel,
-  &-second__panel {
+  &-first-panel,
+  &-second-panel {
     @include border-radius(4px);
     box-shadow: $right-panels-shadow;
     background: none;
@@ -39,22 +39,23 @@
     color: #fff;
     padding: 0;
 
-    &__row {
+    &-row {
       margin-right: 0;
       margin-left: 0;
       display: flex;
       align-items: center;
     }
 
-    &__icon {
+    &-icon {
       margin-left: 0;
       margin-right: 10px;
       padding-left: 0;
     }
-    &__title {
+
+    &-title {
       padding-left: 0;
 
-      &--title {
+      &__title {
         @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
         margin-top: 0;
         margin-bottom: 0;
@@ -62,7 +63,7 @@
         align-items: center;
         width: 100%;
       }
-      &--link {
+      &__link {
         display: block;
         color: #fff;
         //padding: 15px;
@@ -86,7 +87,7 @@
     background: #fff;
     min-height: 200px !important;
 
-    &__label {
+    &-label {
       padding: 0 15px;
       margin-left: 0;
     }

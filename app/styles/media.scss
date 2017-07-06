@@ -72,32 +72,38 @@
     font-size: 14px;
   }
 
+  .clicked-blue-title {
+    background-color: $panels-hover !important;
+    .panel-block-title__font-color {
+      color: #3387c8;
+    }
+  }
+
   .panel-header {
     min-height: 85px;
     display: flex;
     flex-direction: row;
 
-    &__assessment,
-    &__filter,
-    &__bar-slider,
-    &__filter{
+    &-assessment,
+    &-filter,
+    &-bar-slider {
       height: 80px;
     }
 
-    &__title {
+    &-title {
       min-height: 80px !important;
     }
 
-    &__assessment{
+    &-assessment {
       padding: 5px 15px 0 5px;
+
+      &__pie, svg {
+        @include width-height($pie-size-big, $pie-size-big);
+        margin-top: 0;
+      }
     }
 
-    &__pie, svg {
-      @include width-height($pie-size-big,$pie-size-big);
-      margin-top: 0;
-    }
-
-    &__bar-slider {
+    &-bar-slider {
       padding-left: 40px;
     }
   }
@@ -105,7 +111,6 @@
   .triangle, .no-triangle {
 
     .panel-title {
-
       &-title,
       &-assessment,
       &-assessment-icon,
@@ -127,12 +132,16 @@
         }
       }
 
-      &-assessment-icon__pie, svg {
-        @include width-height($pie-size-md, $pie-size-md);
-      }
+      &-assessment {
+        &-icon {
+          &__pie, svg {
+            @include width-height($pie-size-md, $pie-size-md);
+          }
+        }
 
-      &-assessment-value {
-        padding-top: 5px;
+        &-value {
+          padding-top: 5px;
+        }
       }
 
       &-buttons {
@@ -147,12 +156,6 @@
     }
 
     .panel-block {
-      //min-height: 70px;
-
-      &-number,
-      &-title {
-        //height: 70px;
-      }
 
       &-number {
         @include border-radius (3px 0 0 3px);
@@ -193,23 +196,17 @@
         border-top-right-radius: 3px;
         border-top: $panels-border;
       }
-    }
 
-    .allPanels {
-      &--clicked-blue-title {
-        background-color: $panels-hover !important;
-        .panel-block-title__font-color {
-          color: #3387c8;
+      &-number--not-collapsed {
+        @include border-radius (3px 0px 0px 0px);
+      }
+
+      &:hover {
+        .panel-block-title {
+          background-color: $panels-hover;
         }
       }
     }
-
-    .panel-block:hover {
-      .panel-block-title {
-        background-color: $panels-hover;
-      }
-    }
-
   }
 }//768px -992px
 
@@ -225,11 +222,11 @@
   }
 
   .panel-header {
-    &__bar-slider {
+    &-bar-slider {
       @include padding-left-right(15px, 15px);
     }
 
-    &__filter {
+    &-filter {
       align-items: center;
       @include padding-left-right(15px, 15px);
     }
@@ -268,7 +265,6 @@
 @media all and (min-width: 1200px){
   h3 {
     font-size: 20px;
-    //margin-top: 0;
   }
 
   .search {

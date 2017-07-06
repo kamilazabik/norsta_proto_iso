@@ -55,19 +55,19 @@ function changeBackgroundToRightPanel(numberClass,classNameText) {
   $('.editable_text').on('click', divClicked);
   // $('.panel-title').removeClass('panel-block__number--clicked');
 
-  allElement.children().removeClass('allPanels--clicked-blue').removeClass('allPanels--clicked-yellow').removeClass('allPanels--clicked-blue-title');
-  allElement.children('.panel-block__assessment').children().children().removeClass('allPanels--clicked-yellow');
-  allElement.children('.panel-title__assessment').children().children().removeClass('allPanels--clicked-yellow');
+  allElement.children().removeClass('clicked-blue').removeClass('clicked-yellow').removeClass('clicked-blue-title');
+  allElement.children('.panel-block-assessment').children().children().removeClass('.clicked-yellow');
+  allElement.children('.panel-title-assessment').children().children().removeClass('.clicked-yellow');
 
-  panel.children(':first').addClass('allPanels--clicked-blue');
-  panel.children().slice(1, -3).addClass('allPanels--clicked-blue-title');
-  panel.children().slice(2).addClass('allPanels--clicked-yellow');
-  panel.children('.panel-block__assessment').children().children().addClass('allPanels--clicked-yellow');
-  panel.children('.panel-title__assessment').children().children().addClass('allPanels--clicked-yellow');
+  panel.children(':first').addClass('clicked-blue');
+  panel.children().slice(1, -3).addClass('clicked-blue-title');
+  panel.children().slice(2).addClass('clicked-yellow');
+  panel.children('panel-block-assessment').children().children().addClass('clicked-yellow');
+  panel.children('panel-title-assessment').children().children().addClass('clicked-yellow');
 
   title.text(link);
   label.text(numberClassWithDots);
-  rightPanel.addClass('allPanels--clicked-blue');
+  rightPanel.addClass('.clicked-blue');
 }
 
 
@@ -179,26 +179,27 @@ function CancelAssessment() {
 }//CancelAssessment
 
 function addClassNotCollapsed(classNameText){
-  var clickedPanelNumber = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block__number')
-    , clickedPanelButton = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block__button-expand')
-    // , clickedButton =$('.panel-hseq' + classNameText+' div.panel-content__button-expand button.btn.btn-primary.expand')
-    , clickedButton =$('[data-panel=\'' + classNameText + '\']' + ' .panel-block__button-expand .btn-expand')
-    // , clickedButtonIcon =$('.panel-hseq' + classNameText+' div.button-expand button i')
-    , clickedButtonIcon =$('[data-panel=\'' + classNameText + '\']' + ' .panel-block__button-expand .btn-expand i')
+  var clickedPanelNumber = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block-number')
+    , clickedPanelButton = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block-buttons')
+    , clickedPanelAssessment = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block-assessment')
+    , clickedButton = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block-buttons .btn-expand')
+    , clickedButtonIcon = $('[data-panel=\'' + classNameText + '\']' + ' .panel-block-buttons .btn-expand i')
     , collapseElement = $('#collapsePanelDetails' + classNameText).attr('aria-expanded');
 
 
   console.log(clickedPanelNumber);
   console.log(clickedPanelButton);
 
-  clickedPanelButton.removeClass('panel-block__number--not-collapsed');
-  clickedPanelButton.removeClass('panel-block__button-expand--not-collapsed');
+  clickedPanelNumber.removeClass('panel-block-number--not-collapsed');
+  clickedPanelButton.removeClass('panel-block-buttons--not-collapsed');
+  clickedPanelAssessment.removeClass('panel-block-assessment--not-collapsed');
 
   $('.panel-body').off('click');
 
     if(collapseElement == 'false' || collapseElement == undefined){
-      clickedPanelNumber.addClass('panel-block__number--not-collapsed');
-      clickedPanelButton.addClass('panel-block__button-expand--not-collapsed');
+      clickedPanelNumber.addClass('panel-block-number--not-collapsed');
+      clickedPanelButton.addClass('panel-block-buttons--not-collapsed');
+      clickedPanelAssessment.addClass('panel-block-assessment--not-collapsed');
       clickedButtonIcon.removeClass('fa-arrow-down');
       clickedButtonIcon.addClass('fa-arrow-up');
       clickedButton.attr('title','Zwiń dowody');

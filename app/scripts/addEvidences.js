@@ -96,7 +96,7 @@ function saveEvidence(evidenceFromList, dataEvidence){
       isoObject[className]['nameDocument' + rowCount]= nameOfFileFromList;
       isoObject[className]['nameEvidence' + rowCount]= nameOfEvidenceFromList;
       isoObject[className]['numberOfEvidence']= rowCount - 1;
-      $('#collapsePanelDetails'+ className +' .well table tbody').append(makeTr(className,rowCount));
+      $('#collapsePanelDetails' + className + ' .evidences-panel table tbody').append(makeTr(className, rowCount));
       existingEvidence = false;
 
     }else if(!existingEvidence && nameOfFile){
@@ -104,13 +104,13 @@ function saveEvidence(evidenceFromList, dataEvidence){
       isoObject[className]['nameEvidence' + rowCount]= nameOfEvidence;
       isoObject[className]['numberOfEvidence']= rowCount - 1;
 
-      $('#collapsePanelDetails'+ className +' .well table tbody').append(makeTr(className,rowCount));
+      $('#collapsePanelDetails' + className + ' .evidences-panel table tbody').append(makeTr(className, rowCount));
       rowInEvidenceWindow.append(makeTrInEvidencesWidnow(className,rowCount, rowCountInEvidenceWindow));
     }
 
-  }else if($('#collapsePanelDetails'+ className +' .well table tbody').find('tr.' + dataEvidence))
+  } else if ($('#collapsePanelDetails' + className + ' .evidences-panel table tbody').find('tr.' + dataEvidence))
   {
-    var replacedTr = $('#collapsePanelDetails'+ className +' .well table tbody').find('tr.' + dataEvidence);
+    var replacedTr = $('#collapsePanelDetails' + className + ' .evidences-panel table tbody').find('tr.' + dataEvidence);
 
     if(existingEvidence){
       isoObject[className]['nameDocument' + dataEvidence]= nameOfFileFromList;
@@ -130,8 +130,8 @@ function saveEvidence(evidenceFromList, dataEvidence){
   collapsePanelClass.removeClass('hidden-xl hidden-lg');
   $('.button-expand i').removeClass('fa-arrow-down').addClass('fa-arrow-up');
   buttonOpenDetails.attr('aria-expanded', true).removeClass('collapsed').removeClass('hidden-lg').removeClass('hidden-xl');
-  clickedPanelNumber.addClass('panel-block__number--not-collapsed');
-  clickedPanelButton.addClass('panel-block__button-expand--not-collapsed');
+  clickedPanelNumber.addClass('panel-block-number--not-collapsed');
+  clickedPanelButton.addClass('panel-block-buttons--not-collapsed');
   collapsePanelClass.attr('aria-expanded', true).addClass('in').addClass('collapse').css('height', '100%');
 
 }

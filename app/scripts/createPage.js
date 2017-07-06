@@ -9,7 +9,7 @@ function createPage(numberClass, isNextLoad) {
     // , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
-    , panelContent = $('<div class="row content-panels no-triangle"></div>')
+    , panelContent = $('<div class="content-panels no-triangle"></div>')
     , paddingContent = $('<div class="panels-list"></div>');
 
   mainPanel.remove();

@@ -40,24 +40,24 @@ function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hidd
 
 
 function makeDetailsPanel(numberOfChildMainPanel, j){
-  var tabPanels = $('<div id =\'tabsPanels' + numberOfChildMainPanel[j - 1] + '\' class=\'panel-block-evidences-details\'></div>')
-    , tabPanelsCol = $('<div class=\'col-sm-12\'></div>')
-    , tabPanelsColUl = $('<ul id =\'tabs' +numberOfChildMainPanel[j - 1]+ '\' data-tabs=\'tabs\' class=\'nav nav-pills evidences-tab\'></ul>')
+  var tabPanels = $('<div id =\'tabsPanels' + numberOfChildMainPanel[j - 1] + '\' class=\'panel-details\'></div>')
+    , tabPanelsCol = $('<div class=\'\'></div>')
+    , tabPanelsColUl = $('<ul id =\'tabs' + numberOfChildMainPanel[j - 1] + '\' data-tabs=\'tabs\' class=\'nav nav-pills panel-details-tabs\'></ul>')
     , tabPanelsColUlLi1 = $('<li class=\'hidden-lg\'></li>')
-    , tabPanelsColUlLi1a = $('<a href=\'#assessment' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Ocena</a>')
+    , tabPanelsColUlLi1a = $('<a class=\'panel-details-tabs__link\' href=\'#assessment' + numberOfChildMainPanel[j - 1] + '\' data-toggle=\'tab\'>Ocena</a>')
     , tabPanelsColUlLi2 = $('<li class=\'hidden-lg\'></li>')
-    , tabPanelsColUlLi2a = $('<a href=\'#details' +numberOfChildMainPanel[j - 1]+ '\' data-toggle=\'tab\'>Szczegóły</a>')
+    , tabPanelsColUlLi2a = $('<a class=\'panel-details-tabs__link\' href=\'#details' + numberOfChildMainPanel[j - 1] + '\' data-toggle=\'tab\'>Szczegóły</a>')
     , tabPanelsColUlLi3 = $('<li class=\'active\'></li>')
-    , tabPanelsColUlLi3a = $('<a href=\'#evidences' + numberOfChildMainPanel[j - 1] + '\' data-toggle=\'tab\' aria-expanded=\'true\'>Dowody</a>')
-    , tabContent = $('<div id =\'my-tab-content' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-content evidences-content\'></div>')
-    , tabContentAssess = $('<div id =\'assessment' + numberOfChildMainPanel[j - 1] + '\' class=\'tab-pane hidden-lg evidences-content-assess\'></div>')
+    , tabPanelsColUlLi3a = $('<a class=\'panel-details-tabs__link\' href=\'#evidences' + numberOfChildMainPanel[j - 1] + '\' data-toggle=\'tab\' aria-expanded=\'true\'>Dowody</a>')
+    , tabContent = $('<div id =\'my-tab-content' + numberOfChildMainPanel[j - 1] + '\' class=\'tab-content panel-details-content\'></div>')
+    , tabContentAssess = $('<div id =\'assessment' + numberOfChildMainPanel[j - 1] + '\' class=\'tab-pane hidden-lg panel-details-content-assess\'></div>')
     , tabContentDetails = $('<div id =\'details' +numberOfChildMainPanel[j - 1]+ '\' class=\'tab-pane hidden-lg\'></div>')
-    , tabContentEvidence = $('<div id =\'evidences' + numberOfChildMainPanel[j - 1] + '\' class=\'active tab-pane addedComment\'></div>')
+    , tabContentEvidence = $('<div id =\'evidences' + numberOfChildMainPanel[j - 1] + '\' class=\'active tab-pane\'></div>')
 
     , tabContentAssessRow = $('<div class=\'row\'></div>')
     , tabContentAssessRowCol = $('<div class=\'col-md-12\'></div>')
     , tabContentAssessRowColH = $('<p class=\'comment\'></p>').text('Opis')
-    , tabContentAssessRowEditText = $('<div class=\'evidences-content-assess__editable-text\'></div>')
+    , tabContentAssessRowEditText = $('<div class=\'editable-text\'></div>')
 
   for (var i = 0; i < 4; i++) {
     tabContentDetails.append(($('<div class=\'row\'></div>')).append($('<div class=\'col-md-1 col-sm-2 col-xs-3\'></div>'), $('<div class=\'col-md-11 col-sm-10 col-xs-9\'></div>')))

@@ -1,6 +1,6 @@
 function divClicked() {
   var divHtml = $(this).html();
-  var editableText = $('<textarea class="evidences-content-assess__edit-comment" data-name="textarea"/>');
+  var editableText = $('<textarea class="edit-comment" data-name="textarea"/>');
   editableText.val(divHtml);
   $(this).replaceWith(editableText);
   editableText.focus();
@@ -21,7 +21,7 @@ function divClicked() {
 function editableTextBlurred() {
   var numberClass = $('[data-comment]').attr('data-name');
   var html = $(this).val();
-  var viewableText = $('<div class="evidences-content-assess__added-comment" data-name="added-comment">');
+  var viewableText = $('<div class="added-comment" data-name="added-comment">');
   viewableText.html(html);
 
   // setup the click event for this new div
