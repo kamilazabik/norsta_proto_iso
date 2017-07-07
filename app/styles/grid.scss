@@ -79,6 +79,7 @@
   @include make-row();
 }
 
+
 .panels {
   @include make-row();
   @include make-xs-column(12);
@@ -147,13 +148,6 @@
       @include make-md-column(3);
       @include make-lg-column(2.6);
       @include make-xl-column(2.8);
-
-      &__triangle {
-        @extend .hidden-xs;
-        @extend .hidden-sm;
-        @extend .hidden-md;
-        @extend .hidden-lg;
-      }
     }
     &-triangle {
       @extend .hidden-xs;
@@ -168,6 +162,7 @@
       @include make-md-column(1.6);
       @include make-lg-column(1.4);
       @include make-xl-column(1.2);
+
       &-row {
         @include make-row();
       }
@@ -214,36 +209,34 @@
       @include make-xs-column(10);
       @include make-sm-column(4);
       @include make-md-column(4);
-      @include make-lg-column(4.2);
-      @include make-xl-column(4.2);
+      @include make-lg-column(5);
+      @include make-xl-column(5.2);
     }
     &-assessment {
       @include make-xs-column(4);
       @include make-sm-column(2.6);
       @include make-md-column(2.2);
-      @include make-lg-column(1.6);
-      @include make-xl-column(1.6);
+      @include make-lg-column(2);
+      @include make-xl-column(2);
     }
     &-bar-slider {
+      //@include make-xs-column(5);
+      //@include make-sm-column(2.8);
+      //@include make-md-column(3);
+      //@include make-lg-column(2.6);
+      //@include make-xl-column(2.8);
+      @extend .hidden-xs;
+      @extend .hidden-sm;
+      @extend .hidden-md;
+      @extend .hidden-lg;
+    }
+
+    &-triangle {
       @include make-xs-column(5);
       @include make-sm-column(2.8);
       @include make-md-column(3);
       @include make-lg-column(2.6);
       @include make-xl-column(2.8);
-
-      &__triangle {
-        @extend .visible-md;
-        @extend .visible-sm;
-        @extend .visible-xs;
-      }
-    }
-
-    &-triangle {
-      @extend .hidden-xs;
-      @extend .hidden-sm;
-      @extend .hidden-md;
-      @include make-lg-column(1.4);
-      @include make-xl-column(1.4);
     }
 
     &-buttons {
@@ -252,6 +245,10 @@
       @include make-md-column(1.6);
       @include make-lg-column(1.2);
       @include make-xl-column(1.2);
+
+      &-row {
+        @include make-row();
+      }
     }
     &__button-expand-three {
       @include make-xs-column(3);
@@ -259,6 +256,10 @@
       @include make-md-column(1.6);
       @include make-lg-column(1.2);
       @include make-xl-column(1.2);
+
+      &-row {
+        @include make-row();
+      }
     }
 
     &-assessment-icon {
@@ -306,9 +307,6 @@
   }
 
   &-body {
-    &-row {
-      @include make-row();
-    }
     &-buttons {
       @include make-row();
       @include make-md-column(12);

@@ -63,7 +63,7 @@ function makePanelsTitle(numberClass, oneTitle){
     , colAssessRowColNumValue = $('<p class="text-left panel-title-assessment-value__number" data-number ="' + numberClass + '"></p>')
     , colAssessRowColNumValuePer = $('<p class="text-left panel-title-assessment-value__percent" data-percent ="' + numberClass + '"></p>')
     , colBar = $('<div class="panel-title-bar-slider"></div>')
-    , colBarTriangle = $('<img class="panel-title-bar-slider__triangle" src="images/triangle.png">')
+    // , colBarTriangle = $('<img class="panel-title-bar-slider__triangle" src="images/triangle.png">')
     , colTriangle = $('<div class="panel-title-triangle"></div>')
     , colTriangleImg = $('<img class="panel-title-triangle__img" src="images/triangle.png">')
 
@@ -84,7 +84,7 @@ function makePanelsTitle(numberClass, oneTitle){
     // , colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
 
   colTriangle.append(colTriangleImg);
-  colBar.append(colBarTriangle);
+  // colBar.append(colBarTriangle);
   colButtonRow1.append(colButtonRow1Col1);
   colButtonRow2.append(colButtonRow2Col1);
   colAssessRowCol2.append(colAssessRowColNumValue, colAssessRowColNumValuePer);
@@ -169,6 +169,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col2 = $('<div class=\'panel-block-title\'></div>')
     , col2a = $('<a class="panel-block-title__font-color"></a>').attr('href', '#').attr('data-title', numberOfChild)
 // class="title-hseq'+numberClass+' panel-title__title--font-color"
+    , maxPanel = childrenDegree[i - 1]
 
     , col2h5 = $('<h5 class="panel-block-title__font-color"></h5>').text(nameOfChildren[i - 1])
     , col4 = $('<div class=\'panel-block-assessment\'></div>')
@@ -176,10 +177,10 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4rowCol1 = $('<div class=\'panel-block-assessment-icon\'></div>')
     , col4rowCol2 = $('<div class=\'panel-block-assessment-value \'></div>')
     , col4rowCol2pie = $('<div class=\'pie panel-block-assessment-icon__pie pull-left\'></div>').attr('data-name', numberOfChild)
-    , col4rowCol2h6 = $('<p class=\'panel-block-assessment-value__number\' data-number =\'' + numberOfChild + '\'></p>')
-    , col4rowCol2h6per = $('<p class=\'panel-block-assessment-value__percent\' data-percent =\'' + numberOfChild + '\'></p>')
+    , col4rowCol2h6 = $('<p class=\'panel-block-assessment-value__number\' data-number =\'' + numberOfChild + '\'></p>').text('0/' + maxPanel)
+    , col4rowCol2h6per = $('<p class=\'panel-block-assessment-value__percent\' data-percent =\'' + numberOfChild + '\'></p>').text('0%')
     , col5 = $('<div class=\'panel-block-bar-slider\'></div>')
-    , colBarTriangle = $('<img class="panel-block-bar-slider__triangle" src="images/triangle.png">')
+    // , colBarTriangle = $('<img class="panel-block-bar-slider__triangle" src="images/triangle.png">')
     , colTriangle = $('<div class="panel-block-triangle"></div>')
     , colTriangleImg = $('<img class="panel-block-triangle__img" src="images/triangle.png">')
     , col5input
@@ -215,7 +216,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   col4rowCol2.append(col4rowCol2h6, col4rowCol2h6per);
   col4row.append(col4rowCol1, col4rowCol2, col4rowCol2);
   col4.append(col4row);
-  col5.append(colBarTriangle, col5input);
+  col5.append(col5input);
   row.append(col1, col2, col4, colTriangle, col5, col6, col7);
 
   return row;

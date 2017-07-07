@@ -108,7 +108,7 @@ function updateSlider(passObj, memo, isInit) {
     , max = obj.attr('max')
     , t = 100/max
     , range = Math.round(max - min)
-    , percentage = ((value - min) * 100 / range).toFixed(2)
+    , percentage = ((value - min) * 100 / range).toFixed(1)
     , nextObj = obj.next();
 
   nextObj.find('span.bar-btn').css('left', percentage + '%');
@@ -173,6 +173,7 @@ function updateSlider(passObj, memo, isInit) {
 
   $('[data-number = \'' + nn + '\']').text(Math.round(percentage / t) + '/' + max);
   $('[data-percent = \'' + nn + '\']').text(percentage + '%');
+
 
   // $('.numberValue'+nn).text(Math.round(percentage / t) + '/' + max);
   // $('.numberValue-per'+nn).text(percentage + '%' );
