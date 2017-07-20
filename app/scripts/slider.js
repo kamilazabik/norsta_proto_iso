@@ -63,8 +63,13 @@ $.fn.rangeslider = function (options) {
   obj.wrap('<span class=\'range-slider\'></span>');
   obj.after('<span class=\'slider-container\'>' +
     '<span class=\'bar\'>' +
+    '<span class =\'parting\'></span>' +
+    '<span class =\'parting\'></span>' +
+    '<span class =\'parting\'></span>' +
+    '<span class =\'parting\'></span>' +
+    '<span class =\'parting\'></span>' +
     '<span class=\'pasek1\'></span>' +
-    '<span class =\'pasek\'></span>' +
+    '<span class=\'pasek\'></span>' +
     '</span><span class=\'bar-btn\'>' +
     // "<span>0</span>" +
     '</span></span>');
@@ -132,6 +137,9 @@ function updateSlider(passObj, memo, isInit) {
         initVal = memo[obj[idx].name];
 
         nextObj.parent().parent().parent().children('.panel-block-bar-slider').children().children('.slider-container').children('.bar').children('.pasek').addClass('active-input')
+
+        nextObj.parent().parent().parent().children('.panel-block-bar-slider').children().children('.slider-container').children('.bar').children('.parting').css('width', '2px').css('background', '#f7fafd');
+
       }
       if(!initVal) {
         initVal=0;

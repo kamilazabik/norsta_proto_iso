@@ -1,151 +1,29 @@
 .content-main-panel
-  .panel-header
-    .panel-header-title
-      h3(data-title='A0')
-        | Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014
-    .panel-header-assessment
-      .pie.panel-header-assessment__pie(data-name='A')
-        svg(viewbox='0 0 32 32')
-          title
-          circle(r='16', cx='16', cy='16', stroke-dasharray='0.0 100')
-    .panel-header-assessment
-      h3.panel-header-assessment__value(data-number='A') 0/1500
-      h3.panel-header-assessment__percent(data-percent='A') 0.0%
-    .panel-header-bar-slider
-      span.range-slider
-        input.slider(value='0', min='0', max='1500', step='1', name='A', data-children='A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18', type='range', disabled='', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')
-        span.slider-container
-          span.bar
-            span.pasek1(style='width: 0%;')
-            span.pasek(style='width: 100%;')
-          span.bar-btn(style='left: 0%;')
-    .panel-header-filter
-      select#selectAssessment.form-control.panel-header-form-control
-        option#fastAssess Szybka ocena
-        option#normalAssess Normalna ocena
-        option#noAssessment Brak oceny
-.content-panels.assessment-raiting
-  .panels
-    .panel-list
-      .panel-list-panel-heading
-        .panel-title(data-panel='A9')
-          .panel-title-number
-            h4.lab-hseq A9
-          .panel-title-title
-            h4.panel-title-title__font-color(data-title='A9') Kontrola dostępu
-          .panel-title-assessment
-            .panel-title-assessment-row
-              .panel-title-assessment-icon
-                .pie.panel-title-assessment-icon__pie.pull-left(data-name='A9')
-                  svg(viewbox='0 0 32 32')
-                    title
-                    circle(r='16', cx='16', cy='16', stroke-dasharray='0.0 100')
-              .panel-title-assessment-value
-                p.text-left.panel-title-assessment-value__number(data-number='A9') 0/200
-                p.text-left.panel-title-assessment-value__percent(data-percent='A9') 0.0%
-          .panel-title-triangle
-            img.panel-title-triangle__img(src='images/triangle.png')
-          .panel-title-bar-slider
-            span.range-slider
-              input.slider(type='range', value='0', min='0', max='200', name='A9', data-parent='undefined', data-children='A91,A92,A93,A94', disabled='', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')
-              span.slider-container
-                span.bar
-                  span.pasek1(style='width: 0%;')
-                  span.pasek(style='width: 100%;')
-                span.bar-btn(style='left: 0%;')
-          .panel-title-buttons
-            .panel-title-buttons-row
-              .panel-title-buttons-body
-                button.btn.btn-sm.btn-up(type='button', data-label='A', name='A') Do góry
-            .panel-title-buttons-row
-              .panel-title-buttons-body
-                button.btn.btn-sm.btn-arrow(type='button', data-label='A10')
-                  i.fa.fa-angle-double-right(aria-hidden='true')
-                button.btn.btn-sm.btn-arrow(type='button', data-label='A8')
-                  i.fa.fa-angle-double-left(aria-hidden='true')
-      .panel-list-panel-body
-        .panel-block(data-panel='A91')
-          .panel-block-number
-            h5 A9.1.
-          .panel-block-title
-            a.panel-block-title__font-color(href='#', data-title='A91')
-              h5.panel-block-title__font-color Wymagania biznesowe
-          .panel-block-assessment
-            .panel-block-assessment-row
-              .panel-block-assessment-icon
-                .pie.panel-block-assessment-icon__pie.pull-left(data-name='A91')
-                  svg(viewbox='0 0 32 32')
-                    title
-                    circle(r='16', cx='16', cy='16', stroke-dasharray='0.0 100')
-              .panel-block-assessment-value
-                p.panel-block-assessment-value__number(data-number='A91') 0/45
-                p.panel-block-assessment-value__percent(data-percent='A91') 0.0%
-          .panel-block-bar-slider
-            span.range-slider
-              input.slider(type='range', value='0', min='0', max='45', name='A91', data-parent='A9', data-children='A911,A912', disabled='', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')
-              span.slider-container
-                span.bar
-                  span.pasek1(style='width: 0%;')
-                  span.pasek(style='width: 100%;')
-                span.bar-btn(style='left: 0%;')
-          .panel-block-buttons.panel-block-buttons--xsA91
-            .row
-              .panel-block-buttons-body
-                button.btn.btn-sm.custom-btn.expand-main-page.btn-expand-panel(type='button', name='expand', data-label='A91') Rozwiń
-            .panel-block-buttons-row
-              .panel-block-buttons-body
-                button.btn.btn-add.A91.pull-right(type='button', data-toggle='tooltip', data-placement='top', title='Dodaj nowy dowód', name='A91', data-add='A91')
-                  i.fa.fa-plus(aria-hidden='true')
-                button.hidden-lg.hidden-xl.btn.btn-expand.A91(type='button', data-toggle='collapse', aria-expanded='false', name='openPanelDetails', data-target='#collapsePanelDetailsA91', aria-controls='collapsePanelDetailsA91', title='Pokaż panel szczegółów', data-expand='A91')
-                  i.fa.fa-arrow-down(aria-hidden='true')
-          #collapsePanelDetailsA91.hidden-xl.hidden-lg.col-xs-12.collapse.panel-block-details
-            #tabsPanelsA91.panel-details
-              div
-                ul#tabsA91.nav.nav-pills.panel-details-tabs(data-tabs='tabs')
-                  li.hidden-lg
-                    a.panel-details-tabs__link(href='#assessmentA91', data-toggle='tab') Ocena
-                  li.hidden-lg
-                    a.panel-details-tabs__link(href='#detailsA91', data-toggle='tab') Szczegóły
-                  li.active
-                    a.panel-details-tabs__link(href='#evidencesA91', data-toggle='tab', aria-expanded='true') Dowody
-                #my-tab-contentA91.tab-content.panel-details-content
-                  #assessmentA91.tab-pane.hidden-lg.panel-details-content-assess
-                    .row
-                      .col-md-12
-                        p.comment Opis
-                    .editable-text
-                  #detailsA91.tab-pane.hidden-lg
-                    .row
-                      .col-md-1.col-sm-2.col-xs-3
-                        h5.hidden-xs Nazwa
-                      .col-md-11.col-sm-10.col-xs-9
-                        p.title-claim
-                    .row
-                      .col-md-1.col-sm-2.col-xs-3
-                        h5 Etykieta
-                      .col-md-11.col-sm-10.col-xs-9
-                        p.label-claim
-                    .row
-                      .col-md-1.col-sm-2.col-xs-3
-                        h5 Tagi
-                      .col-md-11.col-sm-10.col-xs-9
-                        p
-                    .row
-                      .col-md-1.col-sm-2.col-xs-3
-                        h5 Opis
-                      .col-md-11.col-sm-10.col-xs-9
-                        p.description
-                  #evidencesA91.active.tab-pane
-                    .col-xs-12.evidences-panel
-                      table#A91.table.evidences-table
-                        thead.evidences-table__thead
-                          tr
-                            th.evidences-table__thead-th
-                            th.evidences-table__thead-th Nazwa
-                            th.evidences-table__thead-th Repozytorium
-                            th.evidences-table__thead-th Nazwa dokumentu
-                            th.evidences-table__thead-th
-                        tbody.evidences-table__tbody
+  //.panel-header
+  //  .panel-header-title
+  //    h3(data-title='A0')
+  //      | Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014
+  //  .panel-header-assessment
+  //    .pie.panel-header-assessment__pie(data-name='A')
+  //      svg(viewbox='0 0 32 32')
+  //        title
+  //        circle(r='16', cx='16', cy='16', stroke-dasharray='0.0 100')
+  //  .panel-header-assessment
+  //    h3.panel-header-assessment__value(data-number='A') 0/1500
+  //    h3.panel-header-assessment__percent(data-percent='A') 0.0%
+  //  .panel-header-bar-slider
+  //    span.range-slider
+  //      input.slider(value='0', min='0', max='1500', step='1', name='A', data-children='A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18', type='range', disabled='', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')
+  //      span.slider-container
+  //        span.bar
+  //          span.pasek1(style='width: 0%;')
+  //          span.pasek(style='width: 100%;')
+  //        span.bar-btn(style='left: 0%;')
+  //  .panel-header-filter
+  //    select#selectAssessment.form-control.panel-header-form-control
+  //      option#fastAssess Szybka ocena
+  //      option#normalAssess Normalna ocena
+  //      option#noAssessment Brak oceny
 .content-panels.assessment-dampster-shafer
   .panels
     .panel-list
@@ -155,14 +33,14 @@
             h4.lab-hseq A6
           .panel-title-title
             h4.panel-title-title__font-color(data-title='A6') Organizacja bezpieczeństwa informacji
-          .panel-title-assessment
+          .panel-title-assessment-icon
             .pie.panel-title-assessment-icon__pie.pull-left(data-name='A6')
               svg(viewbox='0 0 32 32')
                 title
                 circle(r='16', cx='16', cy='16', stroke-dasharray='0.0 100')
           .panel-title-assessment-text
-            p.panel-title-assessment-text-value__text(data-number='A6') z bardzo dużą pewnością
-            p.panel-title-assessment-text-value__text(data-percent='A6') akceptowalne
+            p.panel-title-assessment-text__text(data-number='A6') z bardzo dużą pewnością
+            p.panel-title-assessment-text__text(data-percent='A6') akceptowalne
           .panel-title-bar-slider
             span.range-slider
               input.slider(type='range', value='0', min='0', max='145', name='A6', data-parent='undefined', data-children='A61,A62', disabled='', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')
@@ -195,14 +73,14 @@
           .panel-block-title
             a.panel-block-title__font-color(href='#', data-title='A61')
               h5.panel-block-title__font-color Organizacja wewnętrzna bezpieczeństwa informacji
-          .panel-block-assessment
+          .panel-block-assessment-icon
             .pie.panel-block-assessment-icon__pie.pull-left(data-name='A61')
               svg(viewbox='0 0 32 32')
                 title
                 circle(r='16', cx='16', cy='16', stroke-dasharray='0.0 100')
           .panel-block-assessment-text
-            p.panel-block-assessment-text-value__text(data-number='A61') z bardzo dużą pewnością
-            p.panel-block-assessment-text-value__text(data-percent='A61') akceptowalne
+            p.panel-block-assessment-text__text(data-number='A61') z bardzo dużą pewnością
+            p.panel-block-assessment-text__text(data-percent='A61') akceptowalne
           .panel-block-bar-slider
             span.range-slider
               input.slider(type='range', value='0', min='0', max='75', name='A61', data-parent='A6', data-children='A611,A612,A613,A614,A615', disabled='', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')

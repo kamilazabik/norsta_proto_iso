@@ -84,7 +84,8 @@
     display: flex;
     flex-direction: row;
 
-    &-assessment,
+    &-assessment-icon,
+    &-assessment-text,
     &-filter,
     &-bar-slider {
       height: 80px;
@@ -94,7 +95,8 @@
       min-height: 80px !important;
     }
 
-    &-assessment {
+    &-assessment-icon,
+    &-assessment-text {
       padding: 5px 15px 0 5px;
 
       &__pie, svg {
@@ -109,15 +111,13 @@
   }
 
   .assessment-dampster-shafer,
-  .assessment-raiting,
-  .assessment-dampster-shafer-v2 {
+  .assessment-raiting {
 
     .panel-title {
       &-title,
       &-assessment,
       &-assessment-icon,
-      &-assessment-value,
-      &-assessment-body,
+      &-assessment-text,
       &-bar-slider,
       &-buttons {
         min-height: 75px;
@@ -134,15 +134,11 @@
         }
       }
 
-      &-assessment {
+      &-assessment-icon {
         &-icon {
           &__pie, svg {
             @include width-height($pie-size-md, $pie-size-md);
           }
-        }
-
-        &-value {
-          padding-top: 5px;
         }
       }
 
@@ -171,7 +167,7 @@
           color: $panels-head;
         }
       }
-      &-assessment {
+      &-assessment-icon, &-assessment-text {
         border-left: 0;
         @include border-top-bottom($panels-border);
         @include border-radius (0 0 0 0);
@@ -179,30 +175,6 @@
         padding-right: 15px;
       }
 
-      &-assessment-value {
-        padding-top: 5px;
-        border: none;
-      }
-
-      &-assessment-icon {
-        border: none;
-      }
-
-      &-triangle {
-        @include border-top-bottom($panels-border);
-        padding-left: 15px;
-        padding-right: 15px;
-
-        &-col {
-          padding-left: 15px;
-          padding-right: 15px;
-        }
-
-        &__img {
-          width: 70px;
-          margin: 5px 10px;
-        }
-      }
 
       &-bar-slider {
         border-top: $panels-border;

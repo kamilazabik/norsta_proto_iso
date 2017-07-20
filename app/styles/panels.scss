@@ -43,14 +43,14 @@
 .panel-header {
   @include back-color(#fff, $color-black, hidden);
   @include border-radius (2px);
+  @include margin-left-right(15px, 15px);
   box-shadow: $panels-shadow;
   min-height: 120px;
-  margin-left: 15px;
-  margin-right: 15px;
   //min-height: 100vh;
 
   &-title,
-  &-assessment,
+  &-assessment-icon,
+  &-assessment-text,
   &-filter,
   &-bar-slider {
     display: flex;
@@ -58,7 +58,8 @@
     justify-content: center;
   }
 
-  &-assessment,
+  &-assessment-icon,
+  &-assessment-text,
   &-filter,
   &-bar-slider {
     height: 60px;
@@ -68,7 +69,7 @@
     min-height: 60px !important;
   }
 
-  &-assessment {
+  &-assessment-icon {
     padding-left: 10px;
 
     &__pie, svg {
@@ -96,8 +97,7 @@
 
 //Panels
 .panels {
-  margin-left: 0;
-  margin-right: 0;
+  @include margin-left-right(0, 0);
   padding-right: 65px;
 }
 
@@ -113,9 +113,8 @@
   }
 
   &-panel-heading {
+    @include margin-left-right(0, 0);
     padding: 0 15px 0 15px;
-    margin-left: 0;
-    margin-right: 0;
     color: #333333;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
@@ -125,14 +124,15 @@
 }
 
 .assessment-raiting,
-.assessment-dampster-shafer,
-.assessment-dampster-shafer-v2 {
+.assessment-dampster-shafer {
 
   .panel-title {
     flex-wrap: wrap;
     display: flex;
 
     &-bar-slider,
+    &-assessment-icon,
+    &-assessment-text,
     &-buttons {
       min-height: 70px;
       background-color: $panels-content;
@@ -140,9 +140,9 @@
 
     &-number,
     &-title,
-    &-assessment,
-    &-bar-slider,
-    &-triangle {
+    &-assessment-icon,
+    &-assessment-text,
+    &-bar-slider {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -164,55 +164,36 @@
       }
     }
 
-    &-assessment {
-      @include border-radius (0 0 0 3px);
-      background-color: $panels-content;
+    &-assessment-icon,
+    &-assessment-text {
+      @include padding-left-right(5px, 5px);
 
-      &-icon,
-      &-value,
-      &-body {
-        min-height: 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
+      &__pie, svg {
+        @include width-height($pie-size-xs, $pie-size-xs);
       }
-      &-icon {
-        &__pie, svg {
-          @include width-height($pie-size-xs, $pie-size-xs);
-        }
-      }
-      &-value {
-        padding-left: 10px;
+
+      &__number {
+        @include padding-left-right(5px, 5px);
       }
     }
 
     &-bar-slider {
-      &__triangle {
-        width: 70px;
-        margin: 10px;
-      }
+      @include padding-left-right(5px, 5px);
     }
 
-    &-triangle {
-      background-color: $panels-content;
-      &__img {
-        width: 70px;
-        margin: 5px 10px;
-      }
-    }
 
     &-buttons {
       @include border-right($panels-border, 3px);
       padding-left: 0;
-      //padding-right: 0;
 
       &-body {
-        padding-left: 0;
-        padding-right: 2px;
+        @include padding-left-right(0, 2px);
       }
     }
+
     &:hover {
-      .panel-title-assessment,
+      .panel-title-assessment-icon,
+      .panel-title-assessment-text,
       .panel-title-bar-slider,
       .panel-title-triangle,
       .panel-title-buttons {
@@ -229,7 +210,8 @@
 
     &-bar-slider,
     &-buttons,
-    &-assessment {
+    &-assessment-icon,
+    &-assessment-text {
       min-height: 70px;
       background-color: $panels-content;
       border-bottom: $panels-border;
@@ -237,9 +219,9 @@
 
     &-number,
     &-title,
-    &-assessment,
-    &-bar-slider,
-    &-triangle {
+    &-assessment-icon,
+    &-assessment-text,
+    &-bar-slider {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -260,78 +242,23 @@
       }
     }
 
-    &-assessment {
-      border-left: $panels-border;
-      background-color: $panels-content;
+    &-assessment-icon {
       @include border-radius (0 0 0 3px);
-      padding-left: 5px;
-      padding-right: 5px;
+      @include padding-left-right(5px, 5px);
+      border-left: $panels-border;
 
-      &-icon,
-      &-value {
-        min-height: 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-      }
-
-      &-icon {
-        //padding-left: 10px;
-        &__pie {
-          //margin-top: 15px;
-        }
         &__pie, svg {
           @include width-height($pie-size-xs, $pie-size-xs);
         }
-      }
-
-      &-value {
-        padding-left: 5px;
-        &__number, &__percent {
-          margin-bottom: 8px;
-          margin-top: 8px;
-        }
-      }
     }
 
-    .triangle-buttons {
-      margin: 0;
-      width: 65px;
-      //height: 70px;
+    &-assessment-text {
+      @include padding-left-right(5px, 5px);
 
-      td {
-        padding: 0;
-        border: 0;
-        line-height: 0;
-
-        .glyphicon {
-          line-height: 0.75;
-          color: $panels-head;
-          font-size: 30px;
-          //background-color: white;
-
-          &-triangle {
-            &-top, &-bottom {
-              font-size: 30px;
-              //height:20px;
-            }
-            &-left, &-right {
-              font-size: 30px;
-              width: 22px;
-            }
-
-            &-right {
-              margin-left: -8px;
-            }
-          }
-        }
-
+      &__number {
+        margin-bottom: 5px;
+        margin-top: 5px;
       }
-
-      td:first-child {
-        width: 20px;
-      }
-
     }
 
     &-buttons {
@@ -357,6 +284,7 @@
     }
 
     .panel-details {
+      @include border-radius (0px 0px 3px 3px);
       padding: 15px;
       margin: 0;
       width: 100%;
@@ -365,7 +293,6 @@
       border-radius: 3px;
       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
       border-top: 0;
-      @include border-radius (0px 0px 3px 3px);
 
       &-tabs {
         &__link {
@@ -381,7 +308,8 @@
     }
 
     &:hover {
-      .panel-block-assessment,
+      .panel-block-assessment-icon,
+      .panel-block-assessment-text,
       .panel-block-bar-slider,
       .panel-block-buttons,
       .panel-block-triangle {

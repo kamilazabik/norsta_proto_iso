@@ -95,7 +95,12 @@
     @include make-lg-column(6);
   }
 
-  &-assessment {
+  &-assessment-icon {
+    @include make-xs-column(2);
+    @include make-sm-column(1);
+  }
+
+  &-assessment-text {
     @include make-xs-column(2);
     @include make-sm-column(1);
   }
@@ -130,162 +135,56 @@
       @include make-lg-column(5);
       @include make-xl-column(5.2);
     }
-    &-assessment {
-      @include make-xs-column(4);
-      @include make-sm-column(2.6);
-      @include make-md-column(2.2);
-      @include make-lg-column(2);
-      @include make-xl-column(2);
-
-      &-row {
-        @include make-row();
-      }
-
-    }
-    &-bar-slider {
-      @include make-xs-column(5);
-      @include make-sm-column(2.8);
-      @include make-md-column(3);
-      @include make-lg-column(2.6);
-      @include make-xl-column(2.8);
-    }
-    &-triangle {
-      @extend .hidden-xs;
-      @extend .hidden-sm;
-      @extend .hidden-md;
-      @extend .hidden-lg;
-    }
-
-    &-buttons {
-      @include make-xs-column(3);
-      @include make-sm-column(1.6);
-      @include make-md-column(1.6);
-      @include make-lg-column(1.4);
-      @include make-xl-column(1.2);
-
-      &-row {
-        @include make-row();
-      }
-    }
-
-    &__button-expand-three {
-      @include make-xs-column(3);
-      @include make-sm-column(1.6);
-      @include make-md-column(1.6);
-      @include make-lg-column(1.4);
-      @include make-xl-column(1.2);
-    }
-
     &-assessment-icon {
-      @include make-xs-column(7);
-      @include make-sm-column(6);
-    }
-
-    &-assessment-value {
-      @include make-xs-column(5);
-      @include make-sm-column(6);
-    }
-    &-assessment-body {
-      @include make-xs-column(6);
-    }
-    .panel-details {
-      @include make-xs-column(12)
-    }
-  }
-}
-
-.assessment-dampster-shafer-v2 {
-  .panel-block, .panel-title {
-    @include make-row();
-
-    &-number {
       @include make-xs-column(2);
       @include make-sm-column(1);
+      @include make-md-column(1);
+      @include make-lg-column(1);
+      @include make-xl-column(1);
+    }
+
+    &-assessment-text {
+      @include make-xs-column(2);
+      @include make-sm-column(1.6);
       @include make-md-column(1.2);
       @include make-lg-column(1);
-      @include make-xl-column(0.8);
+      @include make-xl-column(1);
     }
-    &-title {
-      @include make-xs-column(10);
-      @include make-sm-column(4);
-      @include make-md-column(4);
-      @include make-lg-column(5);
-      @include make-xl-column(5.2);
-    }
-    &-assessment {
-      @include make-xs-column(4);
-      @include make-sm-column(2.6);
-      @include make-md-column(2.2);
-      @include make-lg-column(2);
-      @include make-xl-column(2);
-    }
+
     &-bar-slider {
-      //@include make-xs-column(5);
-      //@include make-sm-column(2.8);
-      //@include make-md-column(3);
-      //@include make-lg-column(2.6);
-      //@include make-xl-column(2.8);
+      @include make-xs-column(4.8);
+      @include make-sm-column(2.8);
+      @include make-md-column(3);
+      @include make-lg-column(2.6);
+      @include make-xl-column(2.8);
+    }
+    &-triangle {
       @extend .hidden-xs;
       @extend .hidden-sm;
       @extend .hidden-md;
       @extend .hidden-lg;
     }
 
-    &-triangle {
-      @include make-xs-column(5);
-      @include make-sm-column(2.8);
-      @include make-md-column(3);
-      @include make-lg-column(2.6);
-      @include make-xl-column(2.8);
-
-      &-row {
-        @include make-row();
-      }
-
-      &-col {
-        @include make-xs-column(6);
-        @include make-sm-column(6);
-        @include make-md-column(6);
-        @include make-lg-column(6);
-        @include make-xl-column(6);
-      }
-    }
-
     &-buttons {
-      @include make-xs-column(3);
+      @include make-xs-column(3.2);
       @include make-sm-column(1.6);
       @include make-md-column(1.6);
-      @include make-lg-column(1.2);
+      @include make-lg-column(1.4);
       @include make-xl-column(1.2);
 
       &-row {
         @include make-row();
       }
     }
+
     &__button-expand-three {
       @include make-xs-column(3);
       @include make-sm-column(1.6);
       @include make-md-column(1.6);
-      @include make-lg-column(1.2);
+      @include make-lg-column(1.4);
       @include make-xl-column(1.2);
-
-      &-row {
-        @include make-row();
-      }
     }
 
-    &-assessment-icon {
-      @include make-xs-column(7);
-      @include make-sm-column(6);
-    }
-
-    &-assessment-value {
-      @include make-xs-column(5);
-      @include make-sm-column(6);
-    }
-    &-assessment-body {
-      @include make-xs-column(6);
-    }
     .panel-details {
       @include make-xs-column(12)
     }
@@ -305,12 +204,12 @@
     }
     &-title {
       @include make-xs-column(8);
-      @include make-sm-column(3.6);
+      @include make-sm-column(3.4);
       @include make-md-column(4);
-      @include make-lg-column(4.4);
+      @include make-lg-column(4.2);
       @include make-xl-column(4.4);
     }
-    &-assessment {
+    &-assessment-icon {
       @include make-xs-column(2);
       @include make-sm-column(0.8);
       @include make-md-column(0.6);
@@ -335,26 +234,13 @@
 
     &-triangle {
       @include make-xs-column(3);
-      @include make-sm-column(1);
+      @include make-sm-column(1.2);
       @include make-md-column(1);
       @include make-lg-column(1);
       @include make-xl-column(1.2);
-
-      &-row {
-        @include make-row();
-      }
-
-      &-col {
-        @include make-xs-column(6);
-        @include make-sm-column(6);
-        @include make-md-column(6);
-        @include make-lg-column(6);
-        @include make-xl-column(6);
-      }
     }
 
     &-buttons {
-      //@include make-xs-column(2.4);
       @include make-xs-column(12);
       @include make-sm-column(1.6);
       @include make-md-column(1.2);
@@ -363,10 +249,6 @@
 
       &-row {
         @include make-row();
-      }
-
-      &-body {
-        //@include make-xs-column(6)
       }
     }
     &__button-expand-three {

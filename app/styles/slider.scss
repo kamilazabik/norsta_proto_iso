@@ -103,6 +103,30 @@ circle {
             width: 0%;
 
           }
+          > span.parting {
+            position: absolute;
+            left: 20%;
+            //z-index: 3000;
+            //background: #f3f3f3;
+            background: #dbdbdb;
+            display: inline-block;
+            float: left;
+            height: 11px;
+            width: 1px;
+          }
+
+          > span.parting:nth-child(2) {
+            left: 40%;
+          }
+
+          > span.parting:nth-child(3) {
+            left: 60%;
+          }
+
+          > span.parting:nth-child(4) {
+            left: 80%;
+          }
+
         }
         &.bar-btn {
           display: inline-block;
