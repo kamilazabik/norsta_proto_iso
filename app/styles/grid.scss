@@ -112,7 +112,7 @@
   }
 }
 
-.no-triangle {
+.assessment-raiting {
   .panel-block, .panel-title {
     @include make-row();
 
@@ -166,8 +166,8 @@
       &-row {
         @include make-row();
       }
-
     }
+
     &__button-expand-three {
       @include make-xs-column(3);
       @include make-sm-column(1.6);
@@ -194,7 +194,7 @@
   }
 }
 
-.triangle {
+.assessment-dampster-shafer-v2 {
   .panel-block, .panel-title {
     @include make-row();
 
@@ -237,6 +237,18 @@
       @include make-md-column(3);
       @include make-lg-column(2.6);
       @include make-xl-column(2.8);
+
+      &-row {
+        @include make-row();
+      }
+
+      &-col {
+        @include make-xs-column(6);
+        @include make-sm-column(6);
+        @include make-md-column(6);
+        @include make-lg-column(6);
+        @include make-xl-column(6);
+      }
     }
 
     &-buttons {
@@ -274,6 +286,101 @@
     &-assessment-body {
       @include make-xs-column(6);
     }
+    .panel-details {
+      @include make-xs-column(12)
+    }
+  }
+}
+
+.assessment-dampster-shafer {
+  .panel-block, .panel-title {
+    @include make-row();
+
+    &-number {
+      @include make-xs-column(2);
+      @include make-sm-column(1);
+      @include make-md-column(1.2);
+      @include make-lg-column(1);
+      @include make-xl-column(0.8);
+    }
+    &-title {
+      @include make-xs-column(8);
+      @include make-sm-column(3.6);
+      @include make-md-column(4);
+      @include make-lg-column(4.4);
+      @include make-xl-column(4.4);
+    }
+    &-assessment {
+      @include make-xs-column(2);
+      @include make-sm-column(0.8);
+      @include make-md-column(0.6);
+      @include make-lg-column(0.6);
+      @include make-xl-column(0.6);
+    }
+
+    &-assessment-text {
+      @include make-xs-column(4);
+      @include make-sm-column(1.6);
+      @include make-md-column(1.6);
+      @include make-lg-column(1.6);
+    }
+
+    &-bar-slider {
+      @include make-xs-column(5);
+      @include make-sm-column(2.4);
+      @include make-md-column(2.4);
+      @include make-lg-column(2.4);
+      @include make-xl-column(2.4);
+    }
+
+    &-triangle {
+      @include make-xs-column(3);
+      @include make-sm-column(1);
+      @include make-md-column(1);
+      @include make-lg-column(1);
+      @include make-xl-column(1.2);
+
+      &-row {
+        @include make-row();
+      }
+
+      &-col {
+        @include make-xs-column(6);
+        @include make-sm-column(6);
+        @include make-md-column(6);
+        @include make-lg-column(6);
+        @include make-xl-column(6);
+      }
+    }
+
+    &-buttons {
+      //@include make-xs-column(2.4);
+      @include make-xs-column(12);
+      @include make-sm-column(1.6);
+      @include make-md-column(1.2);
+      @include make-lg-column(1.2);
+      @include make-xl-column(1);
+
+      &-row {
+        @include make-row();
+      }
+
+      &-body {
+        //@include make-xs-column(6)
+      }
+    }
+    &__button-expand-three {
+      @include make-xs-column(3);
+      @include make-sm-column(1.6);
+      @include make-md-column(1.6);
+      @include make-lg-column(1.2);
+      @include make-xl-column(1);
+
+      &-row {
+        @include make-row();
+      }
+    }
+
     .panel-details {
       @include make-xs-column(12)
     }

@@ -17,6 +17,7 @@ $(document).ready( function(){
   createPageAfterClickSidebar();
   addColorForSidebar();
   showTriangle();
+  goToAssessmentExamples();
 
 });//END of document.READY
 

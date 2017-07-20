@@ -124,7 +124,9 @@
   }
 }
 
-.triangle, .no-triangle {
+.assessment-raiting,
+.assessment-dampster-shafer,
+.assessment-dampster-shafer-v2 {
 
   .panel-title {
     flex-wrap: wrap;
@@ -170,12 +172,11 @@
       &-value,
       &-body {
         min-height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
       &-icon {
-        padding-left: 10px;
-        &__pie {
-          margin-top: 15px;
-        }
         &__pie, svg {
           @include width-height($pie-size-xs, $pie-size-xs);
         }
@@ -237,7 +238,8 @@
     &-number,
     &-title,
     &-assessment,
-    &-bar-slider {
+    &-bar-slider,
+    &-triangle {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -262,16 +264,21 @@
       border-left: $panels-border;
       background-color: $panels-content;
       @include border-radius (0 0 0 3px);
+      padding-left: 5px;
+      padding-right: 5px;
 
       &-icon,
       &-value {
         min-height: 70px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
       &-icon {
-        padding-left: 10px;
+        //padding-left: 10px;
         &__pie {
-          margin-top: 15px;
+          //margin-top: 15px;
         }
         &__pie, svg {
           @include width-height($pie-size-xs, $pie-size-xs);
@@ -287,19 +294,44 @@
       }
     }
 
-    &-bar-slider {
-      &__triangle {
-        width: 70px;
-        margin: 10px;
+    .triangle-buttons {
+      margin: 0;
+      width: 65px;
+      //height: 70px;
+
+      td {
+        padding: 0;
+        border: 0;
+        line-height: 0;
+
+        .glyphicon {
+          line-height: 0.75;
+          color: $panels-head;
+          font-size: 30px;
+          //background-color: white;
+
+          &-triangle {
+            &-top, &-bottom {
+              font-size: 30px;
+              //height:20px;
+            }
+            &-left, &-right {
+              font-size: 30px;
+              width: 22px;
+            }
+
+            &-right {
+              margin-left: -8px;
+            }
+          }
+        }
+
       }
 
-    }
-    &-triangle {
-      background-color: $panels-content;
-      &__img {
-        width: 70px;
-        margin: 5px 10px;
+      td:first-child {
+        width: 20px;
       }
+
     }
 
     &-buttons {
@@ -409,4 +441,13 @@
     }
   }
 }
+
+.button-arrow {
+  position: relative;
+  padding: 80px;
+  height: 100px;
+  width: 100px;
+}
+
+
 

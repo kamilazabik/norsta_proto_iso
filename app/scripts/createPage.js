@@ -9,7 +9,7 @@ function createPage(numberClass, isNextLoad) {
     // , titleClaim = $('[data-title = \'' + numberClass + '\']')
     , titlePanel = $('.title-claim')
     , label = $('.label-claim')
-    , panelContent = $('<div class="content-panels no-triangle"></div>')
+    , panelContent = $('<div class="content-panels assessment-raiting"></div>')
     , paddingContent = $('<div class="panels"></div>');
 
   mainPanel.remove();
@@ -84,7 +84,9 @@ function loadPage(isNextLoad){
         , allRangeSlider = $('.slider')
         , clickedButton = $('[data-label = \'' + numberClass + '\']')
         , clickedPanel = $('[data-panel = \'' + numberClass + '\']')
-        , clickedPanelNotAllChildren = clickedPanel.children().slice(0, -2)
+        , clickedPanelNotAllChildren = clickedPanel.children().slice(0, -4);
+
+      console.log(clickedPanelNotAllChildren)
 
       allTitles.each(function (index, value) {
         if (!panelTitle) {
@@ -289,11 +291,29 @@ function showTriangle() {
   console.log(allPanels)
 
   linkAdm.on('click', function () {
-    if (allPanels.hasClass('no-triangle')) {
-      allPanels.removeClass('no-triangle').addClass('triangle');
-    } else if (allPanels.hasClass('triangle')) {
-      allPanels.removeClass('triangle').addClass('no-triangle');
+    if (allPanels.hasClass('assessment-raiting')) {
+      allPanels.removeClass('assessment-raiting').addClass('assessment-dampster-shafer');
+    } else if (allPanels.hasClass('assessment-dampster-shafer')) {
+      allPanels.removeClass('triangle').addClass('assessment-raiting');
     }
   })
 }
 
+
+function goToAssessmentExamples() {
+  var closeProjectMenu = $('.properties')
+  // , nav = $('nav');
+
+  closeProjectMenu.on('click', function () {
+
+    // nav.load('./jade/includes/nav-top-folders.html');
+
+    $('#content').load('./jade/pages/assessment.html', function () {
+      // $('#content').append('<div id="panel-content" />');
+      $('#scriptAdded').append('<script type="text/javascript" src="scripts/tree.js"></script>');
+      changeViewOfFolderList();
+      moveSidebar();
+      openProject();
+    })
+  })
+}//goToProjectList

@@ -182,7 +182,28 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col5 = $('<div class=\'panel-block-bar-slider\'></div>')
     // , colBarTriangle = $('<img class="panel-block-bar-slider__triangle" src="images/triangle.png">')
     , colTriangle = $('<div class="panel-block-triangle"></div>')
+    , colTriangleRow = $('<div class="panel-block-triangle-row"></div>')
+    , colTriangleRowCol1 = $('<div class="panel-block-triangle-col"></div>')
+    , colTriangleRowCol2 = $('<div class="panel-block-triangle-col"></div>')
     , colTriangleImg = $('<img class="panel-block-triangle__img" src="images/triangle.png">')
+    , colTriangleTable = $('<table class="table triangle-buttons"><tbody>' +
+      '<tr>' +
+      '<td></td>' +
+      '<td><a><span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span></a></td>' +
+      '<td></td>' +
+      '</tr>' +
+      '<tr>' +
+      '<td><span class="glyphicon glyphicon-triangle-left" aria-hidden="true"></span></td>' +
+      '<td></td>' +
+      '<td><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></td>' +
+      '</tr>' +
+      '<tr>' +
+      '<td></td>' +
+      '<td><span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></td>' +
+      '<td></td>' +
+      '</tr>' +
+      '</tbody>' +
+      '</table>')
     , col5input
     , max = childrenDegree[i-1]
     , col6
@@ -207,8 +228,10 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     col6.append(makeButtonsOpenDetailsAddEvid(numberOfChildren, i,numberOfChild, true));
   }
 
-
-  colTriangle.append(colTriangleImg);
+  colTriangleRowCol2.append(colTriangleTable)
+  colTriangleRowCol1.append(colTriangleImg)
+  colTriangleRow.append(colTriangleRowCol1, colTriangleRowCol2)
+  colTriangle.append(colTriangleRow);
   col1.append(col1h5);
   col2a.append(col2h5);
   col2.append(col2a);

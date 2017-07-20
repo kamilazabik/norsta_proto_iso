@@ -108,7 +108,9 @@
     }
   }
 
-  .triangle, .no-triangle {
+  .assessment-dampster-shafer,
+  .assessment-raiting,
+  .assessment-dampster-shafer-v2 {
 
     .panel-title {
       &-title,
@@ -173,6 +175,8 @@
         border-left: 0;
         @include border-top-bottom($panels-border);
         @include border-radius (0 0 0 0);
+        padding-left: 15px;
+        padding-right: 15px;
       }
 
       &-assessment-value {
@@ -186,6 +190,18 @@
 
       &-triangle {
         @include border-top-bottom($panels-border);
+        padding-left: 15px;
+        padding-right: 15px;
+
+        &-col {
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+
+        &__img {
+          width: 70px;
+          margin: 5px 10px;
+        }
       }
 
       &-bar-slider {
