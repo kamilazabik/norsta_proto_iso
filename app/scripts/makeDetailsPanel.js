@@ -1,5 +1,5 @@
 function makeButtonExpand(numberOfChildMainPanel, j){
-  var panelRowCol6Row1 = $('<div class="row"></div>')
+  var panelRowCol6Row1 = $('<div class="panel-block-buttons-row"></div>')
     , panelRowCol6Row1Col = $('<div class="panel-block-buttons-body"></div>')
     ,panelRowCol6Button = $('<button type=\'button\' name=\'expand\' class=\' btn btn-sm custom-btn expand-main-page btn-expand-panel\' data-label=\'' + numberOfChildMainPanel[j - 1] + '\'>Rozwiń</button>');
 
@@ -9,8 +9,10 @@ function makeButtonExpand(numberOfChildMainPanel, j){
  return panelRowCol6Row1;
 }
 
+
 function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hiddenClass){
   var numberOfChild = numberOfChildMainPanel[j - 1]
+    , buttonsBlock = $('.panel-block-buttons--xs')
     , panelRowCol6Row2 = $('<div class="panel-block-buttons-row"></div>')
     , panelRowCol6Row2Col = $('<div class="panel-block-buttons-body"></div>')
     , buttonIcon = $('<i class="fa fa-arrow-down" aria-hidden="true"></i>')
@@ -33,9 +35,18 @@ function makeButtonsOpenDetailsAddEvid(numberOfChildMainPanel, j,className, hidd
     });
   }
 
-  panelRowCol6Row2.append(panelRowCol6Row2Col);
+  if (isoObject[numberOfChild].children) {
+    panelRowCol6Row2.append(panelRowCol6Row2Col);
+    return panelRowCol6Row2;
+  } else {
+    panelRowCol6Row2Col.append(panelRowCol6Row2Col);
+    return panelRowCol6Row2Col;
+  }
 
-  return panelRowCol6Row2;
+
+  // panelRowCol6Row2.append(panelRowCol6Row2Col);
+  //
+  // return panelRowCol6Row2;
 }
 
 

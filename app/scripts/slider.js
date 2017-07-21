@@ -116,6 +116,8 @@ function updateSlider(passObj, memo, isInit) {
     , percentage = ((value - min) * 100 / range).toFixed(1)
     , nextObj = obj.next();
 
+  console.log(percentage)
+
   nextObj.find('span.bar-btn').css('left', percentage + '%');
   nextObj.find('span.bar > span.pasek1').css('width', percentage + '%');
   nextObj.find('span.bar > span.pasek').css('width', max * t - percentage + '%' );

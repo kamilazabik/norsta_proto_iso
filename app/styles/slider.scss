@@ -28,7 +28,6 @@ circle {
   stroke: #45d666 !important;
 }
 
-
 .range-slider {
   display: inline-block;
   width: 110%;
@@ -73,10 +72,10 @@ circle {
           //background-color: #000;
           /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ed3107+0,fcf52d+50,6bcc04+100 */
           background: #ed3107; /* Old browsers */
-          background: -moz-linear-gradient(left,  #ed3107 0%, #fcf52d 50%, #2cc10a 100%); /* FF3.6-15 */
-          background: -webkit-linear-gradient(left,  #ed3107 0%,#fcf52d 50%,#2cc10a 100%); /* Chrome10-25,Safari5.1-6 */
-          background: linear-gradient(to right,  #ed3107 0%,#fcf52d 50%,#2cc10a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ed3107', endColorstr='#2cc10a',GradientType=1 ); /* IE6-9 */
+          background: -moz-linear-gradient(left, #ed3107 0%, #fcf52d 50%, #2cc10a 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(left, #ed3107 0%, #fcf52d 50%, #2cc10a 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(to right, #ed3107 0%, #fcf52d 50%, #2cc10a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed3107', endColorstr='#2cc10a', GradientType=1); /* IE6-9 */
           display: inline-block;
           position: absolute;
           z-index: 1;
@@ -178,6 +177,70 @@ circle {
               content: "%";
             }
           }
+        }
+      }
+    }
+  }
+}
+
+.assessment-spice {
+  .range-slider {
+    > {
+      span.slider-container {
+        > span {
+          &.bar {
+            background: transparent;
+
+            > span.parting {
+              position: absolute;
+              left: 25%;
+              background: #dbdbdb;
+              display: inline-block;
+              float: left;
+              height: 11px;
+              width: 1px;
+            }
+
+            > span.parting:nth-child(2) {
+              left: 50%;
+            }
+
+            > span.parting:nth-child(3) {
+              left: 75%;
+            }
+          }
+
+          &.bar-spice {
+            background: #fc0000;
+            display: inline-block;
+            position: absolute;
+            z-index: 1;
+            top: 12px;
+            left: 10px;
+            right: -28px;
+            height: 11px;
+            border-radius: 10px 0 0 10px;
+            width: calc((100% - 10px + 28px) / 4);
+          }
+
+          &.bar-spice:nth-child(2) {
+            background: #f1b315;
+            left: calc(((100% - 10px + 28px) / 4) + 10px);
+            border-radius: 0;
+          }
+
+          &.bar-spice:nth-child(3) {
+            background: #ffff33;
+            left: calc((((100% - 10px + 28px) / 4) * 2) + 10px);
+            border-radius: 0;
+          }
+
+          &.bar-spice:nth-child(4) {
+            background: #23d100;
+            left: calc((((100% - 10px + 28px) / 4) * 3) + 10px);
+            border-radius: 0 10px 10px 0;
+          }
+
         }
       }
     }
