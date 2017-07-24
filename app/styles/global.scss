@@ -1,6 +1,6 @@
 @import "mixins";
 
-//Fonts
+/***** Fonts *****/
 h4, h3 {
   font-size: 14px;
   margin-top: 5px;
@@ -33,7 +33,7 @@ p {
   margin-top: 10px;
 }
 
-//Buttons
+/***** Buttons *****/
 .btn {
   background-color: $panels-head;
   border-color: $panels-head;
@@ -130,13 +130,13 @@ p {
   }
 }
 
-//Content
+/***** Content *****/
 
 #main-page {
   padding: 0;
 }
 
-//Panel search
+/***** Panel search *****/
 .search {
   margin-bottom: 0;
   border: {
@@ -185,8 +185,7 @@ p {
   background-color:yellow;
 }
 
-
-//Footer
+/***** Footer *****/
 footer {
   padding: 0 15px;
   background: #dfe2e8;

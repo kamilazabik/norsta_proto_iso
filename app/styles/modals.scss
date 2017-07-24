@@ -3,7 +3,6 @@
 //Modal window Add evidence
 #modalEvidence{
   .modal-table {
-    //table-layout:fixed;
     margin-bottom: 0;
     @include tr-size(10%, 45%, 30%, 15%, 0);
   }

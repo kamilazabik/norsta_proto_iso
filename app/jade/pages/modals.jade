@@ -2,8 +2,8 @@
   .modal-dialog.modal-sm(role='document')
     .modal-content
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') ×
+        button.close.modal-button-close(type='button', data-dismiss='modal', aria-label='Close')
+          span.modal-button-close__arrow(aria-hidden='true') ×
         h4#myModalLabel.modal-title Potwierdzenie
       .modal-body
         span Czy chcesz zapisać zmiany?
@@ -165,8 +165,8 @@
   .modal-dialog(role='document')
     .modal-content
       .modal-header
-        button.close(type='button', data-dismiss='modal', aria-label='Close')
-          span(aria-hidden='true') ×
+        button.close.modal-button-close(type='button', data-dismiss='modal', aria-label='Close')
+          span.modal-button-close__arrow(aria-hidden='true') ×
         h4#myPreferencesLabel.modal-title Profil
       .modal-body
         .row

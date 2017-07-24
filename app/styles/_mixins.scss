@@ -1,14 +1,9 @@
-//$panels-color: #2d689f;
-//$panels-head: #1A6D9C;
-//$sidebar-color: #002132;
-//$content: #D1D4D5;
-//$panels-content: #f5f8ff;
-//$panels-head: #497EB1;
-//$label: #F8C957;
-//$sidebar-color: #2E3440;
+/***** Pie *****/
 $pie-size-big: 60px;
 $pie-size-md: 40px;
 $pie-size-xs: 35px;
+
+/***** Colors *****/
 $login-page: #2e69a1;
 $panels-head: #3387c8;
 $panels-hover: #ffff99;
@@ -28,15 +23,24 @@ $panels-border-color: #dedede;
 $color-shadow1: rgba(0,0,0,.2);
 $color-shadow2: rgba(0,0,0,.14);
 $color-shadow3: rgba(0,0,0,.12);
+$color-black: #000;
+
+/***** Panels shadow *****/
 $panels-shadow: 0 1px 3px 0 $color-shadow1,0 1px 1px 0 $color-shadow2,0 2px 1px -1px $color-shadow3, 0 -1px 1px 0 $color-shadow3;
+
+/***** Sidebar *****/
 $sidebar-max: 400px;
 $sidebar-md: 350px;
-$color-black: #000;
+
+/***** Right panel *****/
 $right-panels-shadow: 0 2px 2px 0 $color-shadow2, 0px 3px 1px -2px $color-shadow1, 0px 1px 5px 0px $color-shadow3;
-$xs-panel-height: 40px;
+
+/***** Buttons *****/
 $button-width: 70px;
 
+$xs-panel-height: 40px;
 
+/***** Mixins *****/
 @mixin font-size ($font-size){
   font-size: $font-size;
 }

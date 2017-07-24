@@ -1,7 +1,8 @@
 @import "mixins";
 
-.content-folders {
+/***** Project list *****/
 
+.content-folders {
   .panel {
     &-list {
       box-shadow: $right-panels-shadow;
@@ -15,14 +16,11 @@
         .list-group-item:first-child {
           border-top-width: 1px;
         }
-        ul, li {
-          padding: 0;
-        }
 
         .list-group {
           margin-bottom: 10px;
 
-          &-item {
+          &-item, &-sublist {
             padding: 0;
           }
 

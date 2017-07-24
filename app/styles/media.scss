@@ -1,6 +1,6 @@
 @import "mixins";
 
-//Panels Media
+/***** Panels Media *****/
 
 @media all and (min-width: 460px) {
     h4, h3 {
@@ -23,6 +23,27 @@
     }
   }
 }
+
+@media all and (min-width: 590px) {
+
+  .assessment-rating,
+  .assessment-dampster-shafer,
+  .assessment-spice {
+    .panel-block {
+
+      &-buttons--xs {
+        .btn-add {
+          margin: 0 0 0 4px;
+        }
+
+        .btn-expand {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
 @media all and (min-width: 768px) {
   .nav-list {
     height: 56px;
@@ -186,6 +207,10 @@
         border-top: $panels-border;
       }
 
+      &-buttons--xs {
+        //padding: 17px 5px 17px 0;
+      }
+
       &-number--not-collapsed {
         @include border-radius (3px 0px 0px 0px);
       }
@@ -221,27 +246,6 @@
     }
   }
 
-
-//TODO
-  .mainPagePanels {
-    &.row {
-      margin-right: -15px;
-    }
-  }
-  .mainPagePanels {
-    .tree {
-      li {
-        span{
-          a{
-            width: 46%;
-          }
-          h4 {
-            width: 23%;
-          }
-        }
-      }
-    }
-  }
   .evidences-table {
     &__tbody {
       @include td-size(5%, 35%, 25%, 25%, 10%);
@@ -263,21 +267,7 @@
       }
     }
   }
-//TODO
-  .mainPagePanels {
-    .tree {
-      li {
-        span{
-          a{
-            width: 47%;
-          }
-          h4 {
-            width: 23%;
-          }
-        }
-      }
-    }
-  }
+
   .panels {
     margin-left: 0;
     margin-right: 0;
@@ -296,7 +286,7 @@
   }
 }
 
-//Right Panel Media
+/***** Right Panel Media *****/
 
 @media all and (max-width: 768px) {
   .right-panel--fixed-panel {
@@ -401,11 +391,11 @@
   }
 }
 
-//Sidebar Media
+/***** Sidebar Media *****/
 
 @media all and (min-width:768px) {
   .wrapper {
-    padding-left: 35px;
+    padding-left: 34px;
 
     &--toggled-mobile {
       padding-left: 0;
@@ -422,7 +412,7 @@
     &--toggled-desk{
 
       .wrapper-sidebar {
-        width: 35px;
+        width: 34px;
       }
       .wrapper-sidebar:hover {
         width: $sidebar-max;
@@ -481,7 +471,7 @@
     }
     &--toggled-desk{
       .wrapper-sidebar {
-        width: 35px;
+        width: 34px;
       }
       .wrapper-sidebar:hover {
         width: $sidebar-max;
@@ -489,7 +479,7 @@
       .wrapper-page-content {
         position: relative;
         margin-right: 0;
-        margin-left: -365px;
+        margin-left: -366px;
         -webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
         -o-transition: all 0.5s ease;

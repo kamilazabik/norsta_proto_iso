@@ -157,6 +157,15 @@
       @include make-md-column(3);
       @include make-lg-column(2.6);
       @include make-xl-column(2.8);
+
+      &--xs {
+        @include make-xs-column(5.8);
+        @include make-sm-column(2.8);
+        @include make-md-column(3);
+        @include make-lg-column(2.6);
+        @include make-xl-column(2.8);
+      }
+
     }
     &-triangle {
       @extend .hidden-xs;
@@ -175,6 +184,14 @@
       &-row {
         @include make-row();
       }
+
+      &--xs {
+        @include make-xs-column(2.2);
+        @include make-sm-column(1.6);
+        @include make-md-column(1.6);
+        @include make-lg-column(1.4);
+        @include make-xl-column(1.2);
+      }
     }
 
     &__button-expand-three {
@@ -189,6 +206,10 @@
       @include make-xs-column(12)
     }
   }
+}
+
+.assessment-spice {
+
 }
 
 .assessment-dampster-shafer {
@@ -313,5 +334,9 @@
       @include make-xl-column(8);
     }
   }
+}
+
+.right-panel--project-list {
+  @include make-lg-column(4);
 }
 

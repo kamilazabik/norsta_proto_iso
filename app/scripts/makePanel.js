@@ -171,12 +171,13 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
 
   if (isoObject[numberOfChild].children) {
     var children = isoObject[numberOfChild].children;
-    col6 = $('<div class=\'panel-block-buttons panel-block-buttons--xs' + numberOfChild + '\'></div>')
+    col6 = $('<div class=\'panel-block-buttons ' + numberOfChild + '\'></div>')
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChild + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
     col6.append(makeButtonExpand(numberOfChildren, i));
   }else{
     col6 = $('<div class=\'panel-block-buttons panel-block-buttons--xs ' + numberOfChild + '\'></div>')
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChild + '\' data-parent=\'' + numberClass + '\'  >');
+    col5.addClass('panel-block-bar-slider--xs')
   }
 
   if(isoObject[numberOfChild]['numberOfEvidence'] != undefined) {
