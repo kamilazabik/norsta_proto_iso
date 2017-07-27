@@ -69,6 +69,7 @@
       flex-direction: row-reverse;
       border: 0;
       padding-right: 0;
+      justify-content: inherit;
 
       &-body {
         float: right;
@@ -143,6 +144,7 @@
 
       &-buttons {
         flex-direction: column-reverse;
+        justify-content: center;
         &-body:last-child {
           margin-bottom: 0;
         }

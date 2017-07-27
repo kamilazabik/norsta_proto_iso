@@ -7,11 +7,13 @@
             .input-group
               .input-group-btn.search-form-dropdown
                 button.btn.btn-default.dropdown-toggle.btn-panel-search(type='button', data-toggle='dropdown')
-                  span#search_concept tekst
+                  span#search_concept.btn-panel-search__text tekst
                   span.caret.btn-panel-search__caret
                 ul.dropdown-menu(role='menu')
                   li
                     a(href='#tagi') tagi
+                  li
+                    a(href='#tagi') text
               input#search_param(type='hidden', name='search_param', value='all')
               input#searchfor.form-control(type='text', name='x', placeholder='Szukaj...')
               span.input-group-btn
@@ -25,13 +27,13 @@
                 .checkboxes-group-all
                   .checkbox
                     label
-                      input(type='checkbox')
+                      input(type='checkbox' checked)
                       |  wszystkie
                 .checkboxes-group-no-assess
                   .checkbox
                     label
                       input(type='checkbox')
-                      span.checkboxes-group-no-assess__result  nieocenione
+                      |  nieocenione
                 .checkboxes-group-assess
                   .checkbox
                     label

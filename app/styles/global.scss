@@ -18,7 +18,6 @@ h5 {
 
 p,
 label,
-a,
 .form-control,
 table {
   font-size: 13px;
@@ -114,19 +113,88 @@ p {
     background-color: #7fb9e5;
     border-color: #7FB9E5;
   }
-
 }
 
 .btn-panel-search {
-  background-color: #fff;
-  border-color: $content;
-  color: #000;
-  &:hover {
-    background-color: $content;
+  &:focus, &:hover {
+    color: #fff !important;
+    background-color: #286090 !important;
+    border-color: #204d74 !important;
   }
-
   &__caret {
     margin-left: 5px !important;
+  }
+}
+
+.btn {
+  &-toggle,
+  &-toggle-2 {
+    @include width-height(40px, 40px);
+    @include padding-left-right (13px, 13px);
+    color: #fff;
+    font-size: 18px;
+
+    &:focus,
+    &:hover {
+      @include background-border($menu-color-hover, 1px, $menu-color-hover);
+    }
+    &:focus {
+      span {
+        color: $menu-color-icon;
+      }
+    }
+  }
+  &-toggle {
+    float: none;
+  }
+}
+
+.btn-search {
+  padding: 7px 14px 5px 10px;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  margin: 8px 7px 10px 0;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  &:focus {
+    @include background-border($menu-color-hover, 1px, $menu-color-hover);
+    outline: none;
+    span {
+      color: $menu-color-icon;
+    }
+  }
+  &:hover {
+    @include background-border($menu-color-hover, 1px, $menu-color-hover);
+    outline: none;
+  }
+  &:active {
+    box-shadow: none;
+  }
+  &:focus {
+    &:focus {
+      @include background-border($menu-color-hover, 1px, $menu-color-hover);
+      outline: none;
+    }
+  }
+}
+
+.btn-main-menu {
+  @include background-border(transparent, 1px, #fff);
+  @include padding-left-right (8px, 8px);
+  @include width-height(40px, 40px);
+  .icon-bar {
+    background-color: #fff;
+  }
+  &:hover, &:focus {
+    @include background-border($menu-color-hover, 1px, $menu-color-hover);
+  }
+  &:focus {
+    .icon-bar {
+      background-color: $menu-color-icon;
+    }
   }
 }
 
@@ -136,54 +204,11 @@ p {
   padding: 0;
 }
 
-/***** Panel search *****/
-.search {
-  margin-bottom: 0;
-  border: {
-    radius: 0;
-    left: 0;
-    right: 0;
-  }
-
-  .checkbox {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-
-  &-form {
-    &-buttons, &-checkboxes {
-      margin-top: 10px;
-    }
-
-    &-dropdown {
-      width: 1% !important;
-    }
-
-    &-buttons {
-      &__result {
-        padding-right: 5px;
-        padding-left: 5px;
-      }
-    }
-
-    &-checkboxes {
-      .checkboxes-group {
-        padding: 0;
-        width: 100%;
-
-        &__text {
-          margin-top: 10px;
-        }
-      }
-    }
-  }
-}
-
-.allPanels .title h4 span,.allPanels .title h5 span {
-  text-decoration:underline;
-  background-color:yellow;
-}
+//
+//.allPanels .title h4 span,.allPanels .title h5 span {
+//  text-decoration:underline;
+//  background-color:yellow;
+//}
 
 /***** Footer *****/
 footer {

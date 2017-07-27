@@ -16,6 +16,31 @@
       font-size: 14px;
     }
 
+  .search {
+    &-form {
+
+      .btn-panel-search__text {
+        font-size: 14px;
+      }
+
+      &-input, &-checkboxes, &-buttons {
+        padding: 5px 15px 5px 15px;
+      }
+      &-buttons {
+        &__result {
+          font-size: 14px;
+        }
+      }
+      &-checkboxes {
+        .checkboxes-group {
+          &-label {
+            padding-left: 15px;
+          }
+        }
+      }
+    }
+  }
+
 
   #myProfile, #preferences {
     span {
@@ -90,13 +115,25 @@
   p, h5 {
     line-height: 1;
     margin-top: 10px;
-    font-size: 14px;
   }
 
   .clicked-blue-title {
     background-color: $panels-hover !important;
     .panel-block-title__font-color {
       color: #3387c8;
+    }
+  }
+
+  .search {
+    &-form {
+      &-checkboxes {
+        .checkboxes-group {
+          &-all, &-assess, &-no-assess {
+            padding-left: 0px;
+            padding-right: 0px;
+          }
+        }
+      }
     }
   }
 
@@ -128,6 +165,7 @@
 
     &-bar-slider {
       padding-left: 40px;
+
     }
   }
 
@@ -162,6 +200,10 @@
             @include width-height($pie-size-md, $pie-size-md);
           }
         }
+      }
+      &-bar-slider {
+        padding-right: 15px;
+        padding-left: 15px;
       }
 
       &-buttons {
@@ -228,11 +270,19 @@
 @media all and (min-width: 992px) {
 
   h3 {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .btn-open {
     margin: 0 0 5px 5px;
+  }
+
+  .search {
+    &-form {
+      &-buttons {
+        text-align: center;
+      }
+    }
   }
 
   .panel-header {
@@ -257,7 +307,7 @@
 
 @media all and (min-width: 1200px){
   h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .search {

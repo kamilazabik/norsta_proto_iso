@@ -72,7 +72,7 @@
                 span.bar-btn(style='left: 0%;')
           .panel-block-triangle
             img.panel-block-triangle__img(src='images/triangle.png')
-          .panel-block-buttons.panel-block-buttons--xsA61
+          .panel-block-buttons
             .panel-block-buttons-body
               button.btn.btn-add.A61.pull-right(type='button', data-toggle='tooltip', data-placement='top', title='Dodaj nowy dowód', name='A61', data-add='A61')
                 i.fa.fa-plus(aria-hidden='true')
@@ -144,8 +144,8 @@
                 title
                 circle(r='16', cx='16', cy='16', stroke-dasharray='0.0 100')
           .panel-title-assessment-text
-            p.text-left.panel-title-assessment-text__number(data-number='A833') 0/8
-            p.text-left.panel-title-assessment-text__number(data-percent='A833') 0.0%
+            p.text-left.panel-title-assessment-text__number(data-number='A833') 41-P
+            p.text-left.panel-title-assessment-text__number(data-percent='A833') częściowo spełnione
           .panel-title-bar-slider
             span.range-slider
               input.slider(type='range', value='0', min='0', max='8', name='A833', data-parent='A83', data-children='A833a,A833b', disabled='', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')
@@ -186,7 +186,7 @@
           .panel-block-assessment-text
             p.panel-block-assessment-text__number(data-number='') 41-P
             p.panel-block-assessment-text__number(data-percent='') częściowo spełnione
-          .panel-block-bar-slider
+          .panel-block-bar-slider.panel-block-bar-slider--xs
             span.range-slider
               input.slider(type='range', value='0', min='0', max='4', name='A833a', data-parent='A833', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')
               span.slider-container
@@ -202,12 +202,11 @@
                   span.pasek.active-input(style='width: 100%;')
                 span.bar-btn(style='left: 0%;')
           .panel-block-buttons.panel-block-buttons--xs.A833a
-            .panel-block-buttons-row
-              .panel-block-buttons-body
-                button.btn.btn-add.A833a.pull-right(type='button', data-toggle='tooltip', data-placement='top', title='Dodaj nowy dowód', name='A833a', data-add='A833a')
-                  i.fa.fa-plus(aria-hidden='true')
-                button.hidden-lg.hidden-xl.btn.btn-expand.A833a(type='button', data-toggle='collapse', aria-expanded='false', name='openPanelDetails', data-target='#collapsePanelDetailsA833a', aria-controls='collapsePanelDetailsA833a', title='Pokaż panel szczegółów', data-expand='A833a')
-                  i.fa.fa-arrow-down(aria-hidden='true')
+            .panel-block-buttons-body
+              button.btn.btn-add.A833a.pull-right(type='button', data-toggle='tooltip', data-placement='top', title='Dodaj nowy dowód', name='A833a', data-add='A833a')
+                i.fa.fa-plus(aria-hidden='true')
+              button.hidden-lg.hidden-xl.btn.btn-expand.A833a(type='button', data-toggle='collapse', aria-expanded='false', name='openPanelDetails', data-target='#collapsePanelDetailsA833a', aria-controls='collapsePanelDetailsA833a', title='Pokaż panel szczegółów', data-expand='A833a')
+                i.fa.fa-arrow-down(aria-hidden='true')
           #collapsePanelDetailsA833a.hidden-xl.hidden-lg.col-xs-12.collapse.panel-block-details
             #tabsPanelsA833a.panel-details
               div
@@ -268,9 +267,9 @@
                 title
                 circle(r='16', cx='16', cy='16', stroke-dasharray='0.0 100')
           .panel-block-assessment-text
-            p.panel-block-assessment-text__number(data-number='A833b') 0/5
-            p.panel-block-assessment-text__number(data-percent='A833b') 0.0%
-          .panel-block-bar-slider
+            p.panel-block-assessment-text__number(data-number='A833b') 43-P
+            p.panel-block-assessment-text__number(data-percent='A833b') częściowo spełnione
+          .panel-block-bar-slider.panel-block-bar-slider--xs
             span.range-slider
               input.slider(type='range', value='0', min='0', max='4', name='A833b', data-parent='A833', onchange='OnInputSlider(this)', oninput='OnInputSlider(this)')
               span.slider-container
@@ -286,12 +285,11 @@
                   span.pasek.active-input(style='width: 100%;')
                 span.bar-btn(style='left: 0%;')
           .panel-block-buttons.panel-block-buttons--xs.A833b
-            .panel-block-buttons-row
-              .panel-block-buttons-body
-                button.btn.btn-add.A833b.pull-right(type='button', data-toggle='tooltip', data-placement='top', title='Dodaj nowy dowód', name='A833b', data-add='A833b')
-                  i.fa.fa-plus(aria-hidden='true')
-                button.hidden-lg.hidden-xl.btn.btn-expand.A833b(type='button', data-toggle='collapse', aria-expanded='false', name='openPanelDetails', data-target='#collapsePanelDetailsA833b', aria-controls='collapsePanelDetailsA833b', title='Pokaż panel szczegółów', data-expand='A833b')
-                  i.fa.fa-arrow-down(aria-hidden='true')
+            .panel-block-buttons-body
+              button.btn.btn-add.A833b.pull-right(type='button', data-toggle='tooltip', data-placement='top', title='Dodaj nowy dowód', name='A833b', data-add='A833b')
+                i.fa.fa-plus(aria-hidden='true')
+              button.hidden-lg.hidden-xl.btn.btn-expand.A833b(type='button', data-toggle='collapse', aria-expanded='false', name='openPanelDetails', data-target='#collapsePanelDetailsA833b', aria-controls='collapsePanelDetailsA833b', title='Pokaż panel szczegółów', data-expand='A833b')
+                i.fa.fa-arrow-down(aria-hidden='true')
           #collapsePanelDetailsA833b.hidden-xl.hidden-lg.col-xs-12.collapse.panel-block-details
             #tabsPanelsA833b.panel-details
               div

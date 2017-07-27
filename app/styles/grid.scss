@@ -12,8 +12,16 @@
   &-input {
     @include make-xs-column(12);
     @include make-sm-column(7);
-    @include make-md-column(8);
+    @include make-md-column(7);
     @include make-lg-column(4);
+  }
+
+  &-checkboxes {
+    @include make-xs-column(7);
+    @include make-sm-column(8);
+    @include make-md-column(7);
+    @include make-lg-column(6);
+    @include make-xl-column(5);
   }
 
   &-buttons {
@@ -21,14 +29,7 @@
     @include make-sm-column(3);
     @include make-md-column(3);
     @include make-lg-column(2);
-  }
-
-  &-checkboxes {
-    @include make-xs-column(7);
-    @include make-sm-column(9);
-    @include make-md-column(9);
-    @include make-lg-column(6);
-    @include make-xl-column(5);
+    @include make-xl-column(3);
   }
 }
 
@@ -39,16 +40,15 @@
 
   &-label {
     @include make-xs-column(3);
+    @include make-md-column(3);
   }
 
-  &-all, &-no-assess {
+  &-all, &-no-assess, &-assess {
     @include make-xs-column(9);
     @include make-sm-column(3);
   }
 
   &-assess {
-    @include make-xs-column(9);
-    @include make-sm-column(3);
     @include make-sm-column-offset(0);
     @include make-xs-column-offset(3);
   }
@@ -67,11 +67,14 @@
   @include make-row();
 
   .login-page-block {
+    @include make-xs-column(12);
     @include make-sm-column(8);
     @include make-md-column(6);
-    @include make-lg-column(4);
-    @include make-sm-column-offset(4);
+    @include make-lg-column(6);
+    @include make-xl-column(5);
+    @include make-sm-column-offset(2);
     @include make-md-column-offset(4);
+    @include make-xl-column-offset(3.5);
   }
 }
 
@@ -144,7 +147,7 @@
     }
 
     &-assessment-text {
-      @include make-xs-column(2);
+      @include make-xs-column(2.2);
       @include make-sm-column(1.6);
       @include make-md-column(1.2);
       @include make-lg-column(1);
@@ -152,26 +155,19 @@
     }
 
     &-bar-slider {
-      @include make-xs-column(4.8);
+      @include make-xs-column(4.6);
       @include make-sm-column(2.8);
       @include make-md-column(3);
       @include make-lg-column(2.6);
       @include make-xl-column(2.8);
 
       &--xs {
-        @include make-xs-column(5.8);
+        @include make-xs-column(5.6);
         @include make-sm-column(2.8);
         @include make-md-column(3);
         @include make-lg-column(2.6);
         @include make-xl-column(2.8);
       }
-
-    }
-    &-triangle {
-      @extend .hidden-xs;
-      @extend .hidden-sm;
-      @extend .hidden-md;
-      @extend .hidden-lg;
     }
 
     &-buttons {
@@ -209,7 +205,41 @@
 }
 
 .assessment-spice {
+  .panel-block, .panel-title {
+    @include make-row();
 
+    &-assessment-icon {
+      @include make-xs-column(2);
+      @include make-sm-column(1);
+      @include make-md-column(1);
+      @include make-lg-column(1);
+      @include make-xl-column(1);
+    }
+
+    &-assessment-text {
+      @include make-xs-column(3);
+      @include make-sm-column(1.6);
+      @include make-md-column(1.2);
+      @include make-lg-column(1);
+      @include make-xl-column(1);
+    }
+
+    &-bar-slider {
+      @include make-xs-column(3.8);
+      @include make-sm-column(2.8);
+      @include make-md-column(3);
+      @include make-lg-column(2.6);
+      @include make-xl-column(2.8);
+
+      &--xs {
+        @include make-xs-column(4.8);
+        @include make-sm-column(2.8);
+        @include make-md-column(3);
+        @include make-lg-column(2.6);
+        @include make-xl-column(2.8);
+      }
+    }
+  }
 }
 
 .assessment-dampster-shafer {
