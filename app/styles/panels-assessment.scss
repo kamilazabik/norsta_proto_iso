@@ -27,11 +27,11 @@
     }
 
     &-assessment-icon {
-      padding: 0 10px 0 0;
       background-color: $panels-head;
       border: 0;
       border-radius: 0 3px 0 0;
       min-height: 40px;
+      padding: 0 10px 0 0;
     }
 
     &-assessment-text {
@@ -53,23 +53,24 @@
 
     &-triangle {
       @include padding-left-right(5px, 5px);
+      background-color: $panels-content;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: $panels-content;
+
       &__img {
-        width: 50px;
         margin: 0 auto;
+        width: 50px;
       }
     }
 
     &-buttons {
-      display: flex;
-      min-height: 20px;
-      flex-direction: row-reverse;
       border: 0;
-      padding-right: 0;
+      display: flex;
+      flex-direction: row-reverse;
       justify-content: inherit;
+      min-height: 20px;
+      padding-right: 0;
 
       &-body {
         float: right;
@@ -227,9 +228,9 @@
     .panel-block {
       &-triangle {
         &__img {
-          width: 80px;
           margin-top: 5px;
           margin-bottom: 5px;
+          width: 80px;
         }
       }
     }

@@ -1,6 +1,7 @@
 @import "mixins";
 
 /***** After clicked to panel *****/
+
 .clicked-blue {
   @include border-top-bottom($label);
   background-color: $label !important;
@@ -20,14 +21,14 @@
   padding-right: 0 !important;
 }
 
-/***** Textarea in right panel and panel details *****/
+/***** Textarea in the right panel and panel details *****/
 
 .added-comment, .editable-text {
   border: 1px solid rgb(185, 185, 185);
-  min-height: 50px;
-  margin-bottom: 5px;
-  padding: 2px;
   font-size: 1.4em;
+  margin-bottom: 5px;
+  min-height: 50px;
+  padding: 2px;
 }
 
 .added-comment {
@@ -35,11 +36,12 @@
 }
 
 .edit-comment {
-  width: 100%;
   overflow: visible;
+  width: 100%;
 }
 
 /***** Main panel *****/
+
 .panel-header {
   @include back-color(#fff, $color-black, hidden);
   @include border-radius (2px);
@@ -95,6 +97,7 @@
 }
 
 /***** Panels *****/
+
 .panels {
   @include margin-left-right(0, 0);
   padding-right: 65px;
@@ -102,10 +105,11 @@
 
 .panel-list {
   @include border-radius (3px);
+  background-color: #fff;
   box-shadow: $panels-shadow !important;
   border: 0 !important;
   margin-bottom: 16px;
-  background-color: #fff;
+
 
   &-panel-body {
     padding: 15px;
@@ -113,12 +117,12 @@
 
   &-panel-heading {
     @include margin-left-right(0, 0);
-    padding: 0 15px 0 15px;
-    color: #333333;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
+    color: #333333;
+    padding: 0 15px 0 15px;
   }
 }
 
@@ -127,15 +131,15 @@
 .assessment-spice {
 
   .panel-title {
-    flex-wrap: wrap;
     display: flex;
+    flex-wrap: wrap;
 
     &-bar-slider,
     &-assessment-icon,
     &-assessment-text,
     &-buttons {
-      min-height: 70px;
       background-color: $panels-content;
+      min-height: 70px;
     }
 
     &-number,
@@ -186,7 +190,6 @@
 
 
     &-buttons {
-      @include border-right($panels-border, 3px);
       padding-left: 0;
 
       &-body {
@@ -206,18 +209,19 @@
   }
 
   .panel-block {
-    margin: 0 0 15px 0;
     cursor: pointer;
-    flex-wrap: wrap;
     display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 15px 0;
 
     &-bar-slider,
     &-buttons,
     &-assessment-icon,
     &-assessment-text {
-      min-height: 70px;
       background-color: $panels-content;
       border-bottom: $panels-border;
+      min-height: 70px;
+
     }
 
     &-number,
@@ -277,7 +281,6 @@
     }
 
     &-buttons--xs {
-      //padding: 0 5px 5px 0;
       padding-right: 5px;
 
       .btn-add {
@@ -306,14 +309,13 @@
 
     .panel-details {
       @include border-radius (0px 0px 3px 3px);
-      padding: 15px;
-      margin: 0;
-      width: 100%;
       background-color: #fff;
       border: 1px solid $panels-border-color;
-      border-radius: 3px;
-      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
       border-top: 0;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+      margin: 0;
+      padding: 15px;
+      width: 100%;
 
       &-tabs {
         &__link {
@@ -344,16 +346,17 @@
   }
 
   /***** Details panel - evidences *****/
+
   .evidences-panel {
-    margin-top: 0;
-    border: 0;
-    margin-bottom: 0;
-    width: 100%;
-    font-size: 1.3em;
-    padding: 5px 0;
-    background-color: #fff;
     @include border-radius (0px 0px 3px 3px);
+    background-color: #fff;
+    border: 0;
     box-shadow: none;
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 5px 0;
+    width: 100%;
   }
 
   .evidences-table {
@@ -365,9 +368,9 @@
     }
 
     &__thead-th {
-      display: table-cell;
       border-bottom: 0;
       border-top: 0;
+      display: table-cell;
       font-weight: normal;
       vertical-align: middle;
     }
@@ -377,8 +380,8 @@
     }
 
     &__tbody-th {
-      display: table-cell;
       color: $menu-color-icon;
+      display: table-cell;
     }
 
     &__tbody-td {

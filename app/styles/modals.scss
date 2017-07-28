@@ -1,6 +1,6 @@
 @import "mixins";
 
-//Modal window Add evidence
+/***** Modal window Add evidence *****/
 
 .modal-evidence {
 
@@ -24,15 +24,15 @@
 
       &-th {
         &-link {
-          padding-left: 5px;
           color: #000;
+          padding-left: 5px;
         }
       }
     }
 
     &-content {
-      overflow-y: auto;
       max-height: calc(75vh - 152px);
+      overflow-y: auto;
     }
 
     &-body__tr {
@@ -55,12 +55,12 @@
   }
 
   .file {
-    visibility: hidden;
     position: absolute;
+    visibility: hidden;
   }
 }
 
-//Modal window My Profile and Preferences
+/***** Modal window My Profile and Preferences *****/
 .my-profile, .preferences {
 
   .modal-button-close__arrow {

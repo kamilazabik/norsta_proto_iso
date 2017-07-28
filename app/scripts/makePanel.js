@@ -7,12 +7,12 @@ function makeMainPanel(){
   var mainPanel = $('<div class="content-main-panel"></div>')
     , col1row = $('<div class="panel-header"></div>')
     , col1rowTitleMain = $('<div class="panel-header-title"></div>')
-    , col1rowTitleMainH3 = $('<h3></h3>').attr('data-title', 'A0').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
+    , col1rowTitleMainH3 = $('<h1></h1>').attr('data-title', 'A0').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
     , col1rowAssessIcon = $('<div class="panel-header-assessment-icon"></div>')
     , col1rowAssessIconPie = $('<div class="pie panel-header-assessment-icon__pie" data-name="A"></div>')
     , col1rowAssessText = $('<div class="panel-header-assessment-text"></div>')
-    , col1rowAssessTextVal = $('<h3 class="panel-header-assessment__value" data-number ="A"></h3>')
-    , col1rowAssessTextValPer = $('<h3 class="panel-header-assessment__percent" data-percent ="A"></h3>')
+    , col1rowAssessTextVal = $('<h1 class="panel-header-assessment__value" data-number ="A"></h1>')
+    , col1rowAssessTextValPer = $('<h1 class="panel-header-assessment__percent" data-percent ="A"></h1>')
     , col1rowBar = $('<div class="panel-header-bar-slider"></div>')
     , col1rowBarInput = $('<input class="slider" value="0" min="0" max="1500" step="1" name="A" data-children="A5,A6,A7,A8,A9,A10,A11,A12,A13,A14,A15,A16,A17,A18" type="range" disabled>')
     , col1rowButtons = $('<div class="panel-header-filter"></div>')
@@ -50,9 +50,9 @@ function makePanelsTitle(numberClass, oneTitle){
     , panelHeading = $('<div class="panel-list-panel-heading"></div>')
     , rowPanel = $('<div class="panel-title" data-panel="' + numberClass + '"></div>')
     , colNumber = $('<div class="panel-title-number"></div>')
-    , colNumberH4 = $('<h4 class="lab-hseq"></h4>')
+    , colNumberH4 = $('<h2 class="lab-hseq"></h2>')
     , colTitle = $('<div class="panel-title-title"></div>')
-    , colTitleH4 = $('<h4 class="panel-title-title__font-color"></h4>').attr('data-title', numberClass).text(oneTitle)
+    , colTitleH4 = $('<h2 class="panel-title-title__font-color"></h2>').attr('data-title', numberClass).text(oneTitle)
     , colAssessIcon = $('<div class="panel-title-assessment-icon"></div>')
     , colAssessRowColPie = $('<div class="pie panel-title-assessment-icon__pie pull-left"></div>').attr('data-name', numberClass)
     , colAssessText = $('<div class="panel-title-assessment-text"></div>')
@@ -152,11 +152,11 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , numberOfChildrenWithDots = numberOfChildren.map(addDotsForLabels)
     , row = $('<div class=\'panel-block\' data-panel=\'' + numberOfChild + '\'></div>')
     , col1 = $('<div class=\'panel-block-number\'></div>')
-    , col1h5 = $('<h5> </h5>').text(numberOfChildrenWithDots[i - 1])
+    , col1h5 = $('<h2> </h2>').text(numberOfChildrenWithDots[i - 1])
     , col2 = $('<div class=\'panel-block-title\'></div>')
     , col2a = $('<a class="panel-block-title__font-color"></a>').attr('href', '#').attr('data-title', numberOfChild)
     , maxPanel = childrenDegree[i - 1]
-    , col2h5 = $('<h5 class="panel-block-title__font-color"></h5>').text(nameOfChildren[i - 1])
+    , col2h5 = $('<h2 class="panel-block-title__font-color"></h2>').text(nameOfChildren[i - 1])
     , col4 = $('<div class=\'panel-block-assessment-icon\'></div>')
     , col4rowCol2pie = $('<div class=\'pie panel-block-assessment-icon__pie pull-left\'></div>').attr('data-name', numberOfChild)
     , colAssessText = $('<div class=\'panel-block-assessment-text\'></div>')
@@ -256,8 +256,8 @@ function makeRightPanel(){
     , firstPanelWrapHeadRowCol1Icon = $('<i class="fa fa-pie-chart" aria-hidden="true"></i>')
 
     , firstPanelWrapHeadRowCol2 = $('<div class="right-panel-heading-title"></div>')
-    , firstPanelWrapHeadRowCol2H4 = $('<h4 class="right-panel-heading-title__title"></h4>')
-    , firstPanelWrapHeadRowCol2H4a = $('<a class="right-panel-heading-title__link" data-toggle="collapse" data-parent="" href="#two"></a>').text('Ocena')
+    , firstPanelWrapHeadRowCol2H4 = $('<h2 class="right-panel-heading-title__title"></h2>').text('Ocena')
+    , firstPanelWrapHeadRowCol2AH4 = $('<a class="right-panel-heading-title__link" data-toggle="collapse" data-parent="" href="#two"></a>')
 
     , firstPanelWrapOne = $('<div  id="two"  class="panel-collapse collapse in right-panel-two" aria-expanded="true"></div>')
     , firstPanelWrapOneBody = $('<div class="panel-body right-panel-body right-panel-body--comment" data-comment="comment"></div>')
@@ -271,8 +271,8 @@ function makeRightPanel(){
     , firstPanelWrapOneBodyRow3ColButton2 = $('<button class="btn btn-sm pull-right" type="button" id="saveAssess"></button>').text('Zapisz ocenę');
 
 
-  firstPanelWrapHeadRowCol2H4.append(firstPanelWrapHeadRowCol2H4a);
-  firstPanelWrapHeadRowCol2.append(firstPanelWrapHeadRowCol2H4);
+  firstPanelWrapHeadRowCol2AH4.append(firstPanelWrapHeadRowCol2H4);
+  firstPanelWrapHeadRowCol2.append(firstPanelWrapHeadRowCol2AH4);
   firstPanelWrapHeadRowCol1.append(firstPanelWrapHeadRowCol1Icon);
   firstPanelWrapHeadRow.append(firstPanelWrapHeadRowCol1, firstPanelWrapHeadRowCol2);
   firstPanelWrapHead.append(firstPanelWrapHeadRow);
@@ -294,10 +294,9 @@ function makeRightPanel(){
     , secondPanelWrapHeadRow = $('<div class="right-panel-heading-row"></div>')
     , secondPanelWrapHeadRowCol1 = $('<div class="right-panel-heading-icon"></div>')
     , secondPanelWrapHeadRowCol1Icon = $('<i class="fa fa-file-text-o" aria-hidden="true"></i>')
-
     , secondPanelWrapHeadRowCol2 = $('<div class="right-panel-heading-title"></div>')
-    , secondPanelWrapHeadRowCol2H4 = $('<h4 class="right-panel-heading-title__title"></h4>')
-    , secondPanelWrapHeadRowCol2H4a = $('<a class="right-panel-heading-title__link" data-toggle="collapse" data-parent="" href="#one" aria-expanded="true"></a>').text('Szczegóły')
+    , secondPanelWrapHeadRowCol2H4 = $('<h2 class="right-panel-heading-title__title"></h2>').text('Szczegóły')
+    , secondPanelWrapHeadRowCol2AH4 = $('<a class="right-panel-heading-title__link" data-toggle="collapse" data-parent="" href="#one" aria-expanded="true"></a>')
     , secondPanelWrapOne = $('<div id="one" class="panel-collapse collapse in right-panel-one" aria-expanded="true"></div>')
     , secondPanelWrapOneBody = $('<div class="panel-body right-panel-body"></div>');
 
@@ -307,13 +306,13 @@ function makeRightPanel(){
       .append($('<div class="right-panel-body-label"></div>'), $('<div class="right-panel-body-title"></div>')))
   }
 
-  var secondPanelWrapOneBodyRow1C1H5 = $('<h5></h5>').text('Nazwa:')
-    , secondPanelWrapOneBodyRow1C2H5 = $('<h5 class="title-claim"></h5>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
-    , secondPanelWrapOneBodyRow2C1H5 = $('<h5></h5>').text('Etykieta:')
-    , secondPanelWrapOneBodyRow2C2H5 = $('<h5 class="label-claim"></h5>')
-    , secondPanelWrapOneBodyRow3C1H5 = $('<h5></h5>').text('Tagi:')
-    , secondPanelWrapOneBodyRow4C1H5 = $('<h5></h5>').text('Opis:')
-    , secondPanelWrapOneBodyRow4C2H5 = $('<h5 class="right-panel-body__title--description"></h5>');
+  var secondPanelWrapOneBodyRow1C1H5 = $('<h3></h3>').text('Nazwa:')
+    , secondPanelWrapOneBodyRow1C2H5 = $('<p class="title-claim"></p>').text('Ocena zgodności Systemu Zarządzania Bezpieczeństwem Informacji z wymaganiami ISO 27001:2014')
+    , secondPanelWrapOneBodyRow2C1H5 = $('<h3></h3>').text('Etykieta:')
+    , secondPanelWrapOneBodyRow2C2H5 = $('<p class="label-claim"></p>')
+    , secondPanelWrapOneBodyRow3C1H5 = $('<h3></h3>').text('Tagi:')
+    , secondPanelWrapOneBodyRow4C1H5 = $('<h3></h3>').text('Opis:')
+    , secondPanelWrapOneBodyRow4C2H5 = $('<p class="right-panel-body__title--description"></p>');
 
   var children = secondPanelWrapOneBody.children().children()
 
@@ -329,8 +328,8 @@ function makeRightPanel(){
 
   secondPanelWrapOne.append(secondPanelWrapOneBody);
 
-  secondPanelWrapHeadRowCol2H4.append(secondPanelWrapHeadRowCol2H4a);
-  secondPanelWrapHeadRowCol2.append(secondPanelWrapHeadRowCol2H4);
+  secondPanelWrapHeadRowCol2AH4.append(secondPanelWrapHeadRowCol2H4);
+  secondPanelWrapHeadRowCol2.append(secondPanelWrapHeadRowCol2AH4);
   secondPanelWrapHeadRowCol1.append(secondPanelWrapHeadRowCol1Icon);
   secondPanelWrapHeadRow.append(secondPanelWrapHeadRowCol1, secondPanelWrapHeadRowCol2);
   secondPanelWrapHead.append(secondPanelWrapHeadRow);

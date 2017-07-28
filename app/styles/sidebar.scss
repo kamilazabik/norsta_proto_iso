@@ -26,8 +26,8 @@
 
 /***** Navigation *****/
 nav {
-  border: 0;
   background: $panels-head !important;
+  border: 0;
 }
 
 .nav-list {
@@ -69,9 +69,9 @@ nav {
 .wrapper {
   @include transition;
   @include width-height(100%, 100%);
-  padding-left: 0;
-  overflow: hidden;
   background-color: #fcfcfc;
+  overflow: hidden;
+  padding-left: 0;
 
   &--toggled-mobile {
     padding-left: 360px;
@@ -80,8 +80,8 @@ nav {
       width: 360px;
     }
     .wrapper-page-content {
-      position: relative;
       margin-right: 0;
+      position: relative;
     }
   }
 
@@ -89,11 +89,11 @@ nav {
     @include transition();
     @include width-height(0, 100%);
     @include  back-color($sidebar-color, rgba(255,255,255,.7), hidden );
-    margin: 57px 0 57px -400px;
-    z-index: 1000;
-    position: fixed;
     left: 400px;
+    margin: 57px 0 57px -400px;
     overflow-y: scroll;
+    position: fixed;
+    z-index: 1000;
 
     &::-webkit-scrollbar-track {
       //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -101,8 +101,8 @@ nav {
     }
     &::-webkit-scrollbar {
       @include background-border($sidebar-color, 1px, $sidebar-color);
-      width: 10px;
       left: 400px;
+      width: 10px;
     }
     &::-webkit-scrollbar-thumb {
       @include background-border($sidebar-color,2px, $sidebar-color);
@@ -118,19 +118,18 @@ nav {
 
   &-page-content {
     margin-top: 55px;
-    //position: relative;
+    overflow-x: hidden;
     position: absolute;
     width: 100%;
-    overflow-x: hidden;
   }
 
   .content{
-    min-width: 360px;
     background-color: $content;
-    padding: 15px 15px 0;
     border-top: 1px solid $content-border;
-    min-height: 91vh;
     margin-bottom: 30px;
+    min-width: 360px;
+    min-height: 91vh;
+    padding: 15px 15px 0;
 
     &-panels {
       padding-top: 15px;
@@ -142,18 +141,18 @@ nav {
   /* Sidebar Styles */
 
   &-sidebar-nav {
-    position: absolute;
-    top: 0;
-    width: $sidebar-md;
-    padding: 0;
     list-style: none;
     margin-top: 2px;
     margin-bottom: 100px;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: $sidebar-md;
 
     &__ul {
-      margin-left: 0;
       font-size: 14px;
       font-weight: 500;
+      margin-left: 0;
       padding-left: 13px;
     }
 
@@ -161,13 +160,12 @@ nav {
       list-style-type:none;
       margin:0;
       padding: 10px 5px 0 0;
-      //position:relative;
-
     }
+
     &__span {
-      width: 350px*  0.65;
-      padding: 3px 0 !important;
       display: inline-block;
+      padding: 3px 0 !important;
+      width: 350px*  0.65;
     }
 
     &__link {
@@ -175,9 +173,9 @@ nav {
 
 
       &:hover {
-        text-decoration: none;
+        background: rgba(255, 255, 255, 0.2);
         outline: 0;
-        background: rgba(255,255,255,0.2);
+        text-decoration: none;
       }
 
       &:active,  &:focus {
@@ -186,12 +184,13 @@ nav {
     }
 
     &__icon{
+      border-radius: 5px;
       -moz-border-radius:5px;
       -webkit-border-radius:5px;
       display:inline-block;
+      float: left;
       padding:3px 8px;
       text-decoration:none;
-      float: left;
     }
 
     &__title {

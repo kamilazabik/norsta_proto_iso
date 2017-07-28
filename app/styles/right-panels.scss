@@ -7,15 +7,15 @@
 }
 
 .fa.fa-pie-chart, .fa.fa-file-text-o{
-  padding: 10px;
   font-size: 28px;
+  padding: 10px;
 }
 
 .right-panel {
-  right: 0;
   margin-left: 0;
   margin-right: 0;
   padding-left: 0;
+  right: 0;
 
   &-second {
     margin: 15px 0 15px 0;
@@ -24,28 +24,28 @@
   &-first-panel,
   &-second-panel {
     @include border-radius(4px);
-    box-shadow: $right-panels-shadow;
     background: none;
     border-bottom: none;
     border: {
       width: 0 0 1px 0;
       color: #fff;
     }
+    box-shadow: $right-panels-shadow;
   }
 
   &-heading {
     @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
-    transition: border-radius 0.3s linear 0.2s;
     background-color: $panels-head;
     border: none;
     color: #fff;
     padding: 0;
+    transition: border-radius 0.3s linear 0.2s;
 
     &-row {
+      align-items: center;
+      display: flex;
       margin-right: 0;
       margin-left: 0;
-      display: flex;
-      align-items: center;
     }
 
     &-icon {
@@ -59,26 +59,24 @@
 
       &__title {
         @include vendor-prefixes(border-radius, 3px 3px 0px 0px);
+        align-items: center;
+        display: inline-block;
         margin-top: 0;
         margin-bottom: 0;
-        display: inline-block;
-        align-items: center;
         width: 100%;
       }
       &__link {
-        display: block;
         color: #fff;
-        //padding: 15px;
-        position: relative;
-        font-size: 16px;
+        display: block;
         font-weight: 400;
+        position: relative;
 
         &:focus,
         &:hover,
         &:active {
+          color: #fff;
           outline: 0;
           text-decoration: none;
-          color: #fff;
         }
       }
     }

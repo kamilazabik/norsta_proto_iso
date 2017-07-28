@@ -26,24 +26,24 @@
 
           &-span {
             display: inline-block;
-            width: 100%;
             min-height: 40px;
-            text-decoration: none;
             padding-top: 8px;
             padding-bottom: 8px;
+            text-decoration: none;
+            width: 100%;
 
             &__icon {
+              color: #3387c8;
               font-size: 16px;
               padding-right: 5px;
-              color: #3387c8;
             }
 
             &__link {
               color: black;
-              width: 44%;
               display: inline-block;
               margin-top: 5px;
               margin-bottom: 5px;
+              width: 44%;
               &:hover, &:focus {
                 text-decoration: none;
               }
@@ -65,10 +65,10 @@
       }
     }
     &-head {
-      background-color: $panels-head;
-      padding: 0;
-      border-color: transparent;
       @include tr-td-size(50%, 20%, 25%, 5%);
+      background-color: $panels-head;
+      border-color: transparent;
+      padding: 0;
 
       &-table {
         margin-bottom: 0;

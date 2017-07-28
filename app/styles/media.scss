@@ -3,11 +3,11 @@
 /***** Panels Media *****/
 
 @media all and (min-width: 460px) {
-    h4, h3 {
-      font-size: 16px;
+  h1 {
+    font-size: 16px !important;
     }
 
-    h5 {
+  h3 {
       @include font(400, 1.4);
       font-size: 14px;
     }
@@ -80,8 +80,8 @@
 
   .modal-evidence {
     .modal-table {
-      margin-bottom: 0;
       @include tr-size(5%, 55%, 30%, 10%, 0);
+      margin-bottom: 0;
     }
     .modal-table-content {
       .modal-table-body__tr {
@@ -91,8 +91,8 @@
   }
 
   .modal-evidence-window {
-    width: 700px;
     margin: 30px auto;
+    width: 700px;
   }
 
   .nav-list {
@@ -104,8 +104,8 @@
       margin-right: 0;
     }
     & .nav-list__link {
-      height: 100%;
       color: $main-color-font;
+      height: 100%;
 
       &--top {
         color: #fff;
@@ -121,23 +121,12 @@
     margin: 5px 0 5px auto;
   }
 
-  h3, h4 {
-    font-size: 16px;
+  h1, h2 {
     @include font(400, 1.4);
     margin: 5px;
   }
 
-  h2 {
-    float: left;
-    padding: 10px 0;
-  }
-
-  h3 {
-    line-height: 1.3;
-    margin-top: 5px;
-  }
-
-  p, h5 {
+  p, h3 {
     line-height: 1;
     margin-top: 10px;
   }
@@ -154,8 +143,8 @@
       &-checkboxes {
         .checkboxes-group {
           &-all, &-assess, &-no-assess {
-            padding-left: 0px;
-            padding-right: 0px;
+            padding-left: 0;
+            padding-right: 0;
           }
         }
       }
@@ -163,9 +152,9 @@
   }
 
   .panel-header {
-    min-height: 85px;
     display: flex;
     flex-direction: row;
+    min-height: 85px;
 
     &-assessment-icon,
     &-assessment-text,
@@ -249,17 +238,17 @@
       }
 
       &-title {
-        background-color: $panels-content;
         @include border-top-bottom($panels-border);
         @include border-radius (0 0 0 0);
+        background-color: $panels-content;
         &__font-color {
           color: $panels-head;
         }
       }
       &-assessment-icon, &-assessment-text {
-        border-left: 0;
         @include border-top-bottom($panels-border);
         @include border-radius (0 0 0 0);
+        border-left: 0;
         padding-left: 15px;
         padding-right: 15px;
       }
@@ -272,10 +261,6 @@
       &-buttons {
         border-top-right-radius: 3px;
         border-top: $panels-border;
-      }
-
-      &-buttons--xs {
-        //padding: 17px 5px 17px 0;
       }
 
       &-number--not-collapsed {
@@ -293,10 +278,6 @@
 
 
 @media all and (min-width: 992px) {
-
-  h3 {
-    font-size: 16px;
-  }
 
   .btn-open {
     margin: 0 0 5px 5px;
@@ -316,8 +297,8 @@
     }
 
     &-filter {
-      align-items: center;
       @include padding-left-right(15px, 15px);
+      align-items: center;
     }
   }
 
@@ -331,11 +312,11 @@
 
 
 @media all and (min-width: 1200px){
-  h3 {
-    font-size: 18px;
+  h1 {
+    font-size: 18px !important;
   }
 
-  h5 {
+  h2 {
     font-size: 16px;
   }
 
@@ -426,13 +407,13 @@
   }
 
   .right-panel--fixed-panel {
-    position: fixed;
-    width: 50px;
-    overflow: hidden;
-    z-index: 1000;
     @include transition();
-    right: 0;
     border-right: 1px solid #e7e7e7;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    width: 50px;
+    z-index: 1000;
 
     &:hover{
       .right-panel-two, .right-panel-one {
@@ -448,16 +429,16 @@
     }
 
   .right-panel-two, .right-panel-one {
-      position: fixed;
-      transition: all 0.5s ease;
-      overflow: hidden;
-      z-index: 1000;
-      @include transition();
-      @include width-height(0, 0);
-      right: 0;
-      border-right: 1px solid #e7e7e7;
-      margin-bottom: 200px;
-    }
+    @include transition();
+    @include width-height(0, 0);
+    border-right: 1px solid #e7e7e7;
+    margin-bottom: 200px;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    transition: all 0.5s ease;
+    z-index: 1000;
+  }
   .right-panel-first--margin {
       margin-bottom: 15px;
       transition: margin-bottom 0.5s ease;
@@ -483,8 +464,8 @@
         width: $sidebar-max;
       }
       .wrapper-page-content {
-        position: relative;
         margin-right: 0;
+        position: relative;
       }
     }
 
@@ -497,10 +478,8 @@
         width: $sidebar-max;
       }
       .wrapper-page-content {
-        position: relative;
         margin-right: 0;
-        //margin-left: -365px;
-        //transition: all 0.5s ease;
+        position: relative;
         width: auto;
       }
     }
@@ -544,8 +523,8 @@
         width: $sidebar-max;
       }
       .wrapper-page-content {
-        position: relative;
         margin-right: 0;
+        position: relative;
       }
     }
     &--toggled-desk{
@@ -556,9 +535,9 @@
         width: $sidebar-max;
       }
       .wrapper-page-content {
-        position: relative;
         margin-right: 0;
         margin-left: -366px;
+        position: relative;
         -webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
         -o-transition: all 0.5s ease;

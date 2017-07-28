@@ -1,14 +1,21 @@
 @import "mixins";
 
 /***** Fonts *****/
-h4, h3 {
-  font-size: 14px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+body {
   font-family: sans-serif !important;
 }
 
-h5 {
+h1 {
+  margin: 5px !important;
+  font-size: 14px !important;
+}
+
+h2 {
+  margin: 5px;
+  font-size: 14px;
+}
+
+h3 {
   @include font(400, 1);
   font-size: 13px;
   font-family: sans-serif !important;
@@ -19,7 +26,8 @@ h5 {
 p,
 label,
 .form-control,
-table {
+table,
+a {
   font-size: 13px;
   font-family: sans-serif !important;
 }
@@ -203,12 +211,6 @@ p {
 #main-page {
   padding: 0;
 }
-
-//
-//.allPanels .title h4 span,.allPanels .title h5 span {
-//  text-decoration:underline;
-//  background-color:yellow;
-//}
 
 /***** Footer *****/
 footer {
