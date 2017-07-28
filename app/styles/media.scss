@@ -41,8 +41,15 @@
     }
   }
 
+  .modal-evidence {
+    &-body {
+      &__tab {
+        padding: 10px 15px !important;
+      }
+    }
+  }
 
-  #myProfile, #preferences {
+  .my-profile, .preferences {
     span {
       font-size: 13px;
     }
@@ -70,6 +77,24 @@
 }
 
 @media all and (min-width: 768px) {
+
+  .modal-evidence {
+    .modal-table {
+      margin-bottom: 0;
+      @include tr-size(5%, 55%, 30%, 10%, 0);
+    }
+    .modal-table-content {
+      .modal-table-body__tr {
+        @include td-size(5%, 55%, 0, 30%, 10%);
+      }
+    }
+  }
+
+  .modal-evidence-window {
+    width: 700px;
+    margin: 30px auto;
+  }
+
   .nav-list {
     height: 56px;
     &__li {
@@ -308,6 +333,10 @@
 @media all and (min-width: 1200px){
   h3 {
     font-size: 18px;
+  }
+
+  h5 {
+    font-size: 16px;
   }
 
   .search {

@@ -1,6 +1,10 @@
 @import "mixins";
 
 /***** Panel search *****/
+#search-panel {
+  min-width: 360px;
+}
+
 .search {
   margin-bottom: 0;
   border: {
@@ -27,6 +31,9 @@
 
     &-dropdown {
       width: 1% !important;
+      &-menu {
+        min-width: 100px;
+      }
     }
 
     &-checkboxes {

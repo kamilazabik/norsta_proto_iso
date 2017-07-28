@@ -12,59 +12,69 @@
         button(type="button" id="saveAssessAlert" class="btn btn-primary btn-sm pull-right") Zapisz ocenę
 
 
-#modalEvidence.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
-  .modal-dialog(role='document')
+#modalEvidence.modal.fade.modal-evidence(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+  .modal-dialog.modal-evidence-window(role='document')
     .modal-content
       .modal-header
         button.close(type='button', data-dismiss='modal', aria-label='Close')
           span(aria-hidden='true') ×
         h3#modalEvidenceLabel.modal-title Załączanie dowodu
-      .modal-body
-        p.title Wybierz nowy dowód
-        .form-group
-          label(for='textareaNameEvid') Nazwa
-          textarea#textareaNameEvid.form-control(rows='1' placeholder='Wpisz nazwę')
-        .form-group
-          input.file(type='file', name='')
-          .input-group.col-xs-12
-            input.form-control.name-evid(type='text', disabled='', placeholder='Dodaj dokument')
-            span.input-group-btn
-              button.browse.btn.btn-primary(type='button')
-                i.glyphicon.glyphicon-search
-                |  Przeglądaj
-        hr
-        p.title Wybierz istniejący dowód
-        .modal-table-row
-          .modal-table
-            table.table.modal-table-head
-              thead
-                tr
-                  th
-                  th Nazwa pliku
-                  th Data przesłania
-                  th
-            .modal-table-content
-              table.table.modal-table-body
-                tbody
-                  tr.modal-table-body__tr.modal-table-body__tr--no-border
-                    td 1
-                    td Dowód 1
-                    td.hidden
-                    td 2011-11-17 20:35:08
-                    td
-                      button.btn.btn-primary.btn-sm(type='button') Podgląd
-                  tr.modal-table-body__tr
-                    td 2
-                    td Dowód 2
-                    td.hidden
-                    td 2011-11-17 20:35:08
-                    td
-                      button.btn.btn-primary.btn-sm(type='button') Podgląd
+      .modal-body.modal-evidence-body
+        ul.nav.nav-tabs(role='tablist')
+          li.active(role='presentation')
+            a.modal-evidence-body__tab(href='#new-evidence', aria-controls='new-evidence', role='tab', data-toggle='tab') Nowy dowód
+          li(role='presentation')
+            a.modal-evidence-body__tab(href='#existed-evidence', aria-controls='existed-evidence', role='tab', data-toggle='tab') Istniejący dowód
+        // Tab panes
+        .tab-content.modal-evidence-tab-content
+          #new-evidence.active.tab-pane(role='tabpanel')
+            .form-group
+              label(for='textareaNameEvid') Nazwa
+              textarea#textareaNameEvid.form-control(rows='1' placeholder='Wpisz nazwę')
+            .form-group
+              input.file(type='file', name='')
+              .input-group.col-xs-12
+                input.form-control.name-evid(type='text', disabled='', placeholder='Dodaj dokument')
+                span.input-group-btn
+                  button.browse.btn.btn-primary(type='button')
+                    i.glyphicon.glyphicon-search
+                    |  Przeglądaj
+          #existed-evidence.tab-pane(role='tabpanel')
+            .modal-table-row
+              .modal-table
+                table.table.modal-table-head
+                  thead
+                    tr
+                      th
+                      th.modal-table-head-th Nazwa pliku
+                        a.modal-table-head-th-link(href="#")
+                          span.glyphicon.glyphicon-triangle-bottom(aria-hidden='true' data-evidenceName="name")
+                      th.modal-table-head-th Data przesłania
+                        a.modal-table-head-th-link(href="#")
+                          span.glyphicon.glyphicon-triangle-bottom(aria-hidden='true', data-evidenceDate="date")
+                      th
+                .modal-table-content
+                  table.table.modal-table-body
+                    tbody
+                      tr.modal-table-body__tr.modal-table-body__tr--no-border
+                        td 1
+                        td Dowód 1
+                        td.hidden
+                        td 2011-11-17 20:35:08
+                        td
+                          button.btn.btn-primary.btn-sm(type='button') Podgląd
+                      tr.modal-table-body__tr
+                        td 2
+                        td Dowód 2
+                        td.hidden
+                        td 2011-11-17 20:35:08
+                        td
+                          button.btn.btn-primary.btn-sm(type='button') Podgląd
       .modal-footer
         button.save-new-evid.btn.btn-primary.btn-sm(type='submit') Zapisz
         button.btn.btn-primary.btn-sm.pull-right(type="button" id="saveEvidence" data-dismiss="modal") Anuluj
 
-#myProfile.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+#myProfile.modal.fade.my-profile(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
   .modal-dialog(role='document')
     .modal-content
       .modal-header
@@ -161,13 +171,13 @@
         button.btn.btn-primary(type='submit') Zastosuj
         button.btn.btn-primary(type='submit') Anuluj
 
-#preferences.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
+#preferences.modal.fade.preferences(tabindex='-1', role='dialog', aria-labelledby='myModalLabel')
   .modal-dialog(role='document')
     .modal-content
       .modal-header
         button.close.modal-button-close(type='button', data-dismiss='modal', aria-label='Close')
           span.modal-button-close__arrow(aria-hidden='true') ×
-        h4#myPreferencesLabel.modal-title Profil
+        h4#myPreferencesLabel.modal-title Preferencje
       .modal-body
         .row
           .col-xs-12

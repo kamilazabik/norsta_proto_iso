@@ -69,6 +69,11 @@ function createPage(numberClass, isNextLoad) {
     searchText();
   }
 
+  // $('#myTabs a').click(function (e) {
+  //   e.preventDefault()
+  //   $(this).tab('show')
+  // })
+
   // showTriangle();
 }//createPage
 
@@ -317,3 +322,19 @@ function goToAssessmentExamples() {
     })
   })
 }//goToProjectList
+
+function sortEvidence() {
+  // var icon = $('.modal-table-head-th-link__arrow')
+  var arrowName = $("[data-evidenceName=name]")
+    , arrowDate = $("[data-evidenceDate=date]");
+
+  arrowName.on('click', function () {
+    arrowName.toggleClass('glyphicon-triangle-bottom');
+    arrowName.toggleClass('glyphicon-triangle-top');
+  });
+
+  arrowDate.on('click', function () {
+    arrowDate.toggleClass('glyphicon-triangle-bottom');
+    arrowDate.toggleClass('glyphicon-triangle-top');
+  })
+}

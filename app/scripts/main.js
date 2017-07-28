@@ -18,6 +18,7 @@ $(document).ready( function(){
   addColorForSidebar();
   showTriangle();
   goToAssessmentExamples();
+  sortEvidence()
 
 });//END of document.READY
 
