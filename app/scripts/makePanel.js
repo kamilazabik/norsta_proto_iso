@@ -212,14 +212,14 @@ function addEvidencesToTheList(numberOfChildren,i){
   var numberOfChilderEvid = numberOfChildren[i - 1]
     , evidence = $('<div class="col-xs-12 evidences-panel"></div>')
     , evidenceTable = $('<table id=\'' +  numberOfChilderEvid + '\' class=\'table evidences-table\'></table>')
-    , evidenceTableHead = $('<thead class="evidences-table__thead"></thead>')
-    , evidenceTableBody = $('<tbody class="evidences-table__tbody"></tbody>')
+    , evidenceTableHead = $('<thead class="evidences-table-thead"></thead>')
+    , evidenceTableBody = $('<tbody class="evidences-table-tbody"></tbody>')
     , evidenceTableTr = $('<tr></tr>')
-    , evidenceTableTh1 = $('<th class="evidences-table__thead-th"></th>')
-    , evidenceTableTh2 = $('<th class="evidences-table__thead-th">Nazwa</th>')
-    , evidenceTableTh3 = $('<th class="evidences-table__thead-th">Repozytorium</th>')
-    , evidenceTableTh4 = $('<th class="evidences-table__thead-th">Nazwa dokumentu</th>')
-    , evidenceTableTh5 = $('<th class="evidences-table__thead-th"></th>');
+    , evidenceTableTh1 = $('<th class="evidences-table-thead__th"></th>')
+    , evidenceTableTh2 = $('<th class="evidences-table-thead__th">Nazwa</th>')
+    , evidenceTableTh3 = $('<th class="evidences-table-thead__th">Repozytorium</th>')
+    , evidenceTableTh4 = $('<th class="evidences-table-thead__th">Nazwa dokumentu</th>')
+    , evidenceTableTh5 = $('<th class="evidences-table-thead__th"></th>');
 
   // evidenceTableTh5.append(evidenceTableTh5AddEvidence );
   evidenceTableTr.append(evidenceTableTh1,evidenceTableTh2,evidenceTableTh3,evidenceTableTh4, evidenceTableTh5);

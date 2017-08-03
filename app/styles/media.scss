@@ -1,7 +1,6 @@
 @import "mixins";
 
 /***** Panels Media *****/
-
 @media all and (min-width: 460px) {
   h1 {
     font-size: 16px !important;
@@ -75,6 +74,61 @@
     }
   }
 }
+
+@media all and (min-width: 600px) {
+
+  .btn-open {
+    margin: 0 0 5px 5px;
+  }
+
+  .assessment-rating,
+  .assessment-dampster-shafer,
+  .assessment-spice {
+
+    .evidences-table {
+      display: table;
+
+      &-thead {
+        @include tr-size(5%, 30%, 25%, 25%, 15%);
+        tr {
+          display: table-row;
+
+          th:first-child {
+            display: table-cell;
+          }
+        }
+      }
+
+      &-thead__th {
+        border-bottom: 0;
+        border-top: 0;
+        display: table-cell;
+        font-weight: normal;
+        vertical-align: middle;
+      }
+
+      &-tbody {
+        @include td-size(5%, 30%, 25%, 25%, 15%);
+        tr {
+          display: table-row;
+        }
+      }
+
+      &-tbody__th {
+        color: $menu-color-icon;
+        display: table-cell;
+      }
+
+      &-tbody__td {
+        display: table-cell;
+      }
+
+      &-tbody__td--buttons {
+      }
+    }
+  }
+}
+
 
 @media all and (min-width: 768px) {
 

@@ -361,35 +361,51 @@
 
   .evidences-table {
     margin-bottom: 0;
+    display: flex;
 
-    &__thead {
-      @include tr-size(5%, 35%, 25%, 25%, 10%);
+    &-thead {
+      @include tr-size-flex(0%, 100%, 100%, 100%, 0%);
       color: $menu-color-icon;
+      tr {
+        display: flex;
+        flex-direction: column;
+
+        th:first-child {
+          display: none;
+        }
+      }
+
+      &__th {
+        min-height: 40px;
+        border-bottom: 0;
+        border-top: 0;
+        display: table-cell;
+        font-weight: normal;
+        vertical-align: middle;
+      }
     }
 
-    &__thead-th {
-      border-bottom: 0;
-      border-top: 0;
-      display: table-cell;
-      font-weight: normal;
-      vertical-align: middle;
-    }
+    &-tbody {
+      width: 100%;
+      @include td-size-flex(0%, 100%, 100%, 100%, 100%);
+      tr {
+        display: flex;
+        flex-direction: column;
+      }
 
-    &__tbody {
-      @include td-size(5%, 35%, 25%, 30%, 5%);
-    }
+      &__th {
+        color: $menu-color-icon;
+        display: none;
+      }
 
-    &__tbody-th {
-      color: $menu-color-icon;
-      display: table-cell;
-    }
+      &__td {
+        display: table-cell;
+        min-height: 40px;
+      }
 
-    &__tbody-td {
-      display: table-cell;
-    }
-
-    &__tbody-td--buttons {
-      padding-right: 0;
+      &__td--buttons {
+        padding-right: 0;
+      }
     }
   }
 }
