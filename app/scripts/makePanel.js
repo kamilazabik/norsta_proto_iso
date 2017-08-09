@@ -63,18 +63,17 @@ function makePanelsTitle(numberClass, oneTitle){
     , children = isoObject[numberClass].children
     , parent = isoObject[numberClass].parent
     , colBarSlider = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberClass + '\' data-parent=\'' + parent + '\' data-children=\'' + children + '\' disabled >')
-
+    , colBarArrowLeft = $('<button type=\'button\' class=\'btn btn-arrow-slider\' disabled><i class=\'glyphicon glyphicon-chevron-left\' aria-hidden=\'true\'></i></button>')
+    , colBarArrowRight = $('<button type=\'button\' class=\'btn btn-arrow-slider\' disabled><i class=\'glyphicon glyphicon-chevron-right\' aria-hidden=\'true\'></i></button>')
 
     , colButton = $('<div class="panel-title-buttons"></div>')
     , colButtonRow1 = $('<div class="panel-title-buttons-row"></div>')
     , colButtonRow1Col1 = $('<div class="panel-title-buttons-body">')
     , colButtonRow2 = $('<div class="panel-title-buttons-row"></div>')
     , colButtonRow2Col1 = $('<div class="panel-title-buttons-body"></div>')
-
     , panelBody = $('<div class="panel-list-panel-body"></div>')
-    // , colFilterGroup = $('<div class="col-md-12 filter-group"></div>');
 
-  // colBar.append(colBarTriangle);
+  colBar.append(colBarArrowLeft)
   colButtonRow1.append(colButtonRow1Col1);
   colButtonRow2.append(colButtonRow2Col1);
   colAssessText.append(colAssessTextValue, colAssessTextValuePer);
@@ -109,11 +108,12 @@ function makePanelsTitle(numberClass, oneTitle){
 
 
   if(sliderTitle[numberClass]){
-    $('.panel-title-bar-slider').append(sliderTitle[numberClass]);
+    colBar.append(sliderTitle[numberClass]);
   }else {
-    $('.panel-title-bar-slider').append(colBarSlider);
+    colBar.append(colBarSlider);
   }
 
+  colBar.append(colBarArrowRight)
   colButtonRow1Col1.append(buttonUp);
   colButtonRow2Col1.append(buttonRight, buttonLeft);
   colButton.append(colButtonRow1, colButtonRow2);
@@ -163,6 +163,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     , col4rowCol2h6 = $('<p class=\'panel-block-assessment-text__number\' data-number =\'' + numberOfChild + '\'></p>').text('0/' + maxPanel)
     , col4rowCol2h6per = $('<p class=\'panel-block-assessment-text__number\' data-percent =\'' + numberOfChild + '\'></p>').text('0%')
     , col5 = $('<div class=\'panel-block-bar-slider\'></div>')
+    , col5BarArrowLeft = $('<button type=\'button\' class=\'btn btn-arrow-slider\'><i class=\'glyphicon glyphicon-chevron-left\' aria-hidden=\'true\'></i></button>')
+    , col5BarArrowRight = $('<button type=\'button\' class=\'btn btn-arrow-slider\'><i class=\'glyphicon glyphicon-chevron-right\' aria-hidden=\'true\'></i></button>')
     , col5input
     , max = childrenDegree[i-1]
     , col6
@@ -174,6 +176,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     col6 = $('<div class=\'panel-block-buttons ' + numberOfChild + '\'></div>')
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChild + '\' data-parent=\'' + numberClass + '\' data-children=\'' + children + '\' disabled >');
     col6.append(makeButtonExpand(numberOfChildren, i));
+    col5BarArrowLeft.attr('disabled', 'disabled')
+    col5BarArrowRight.attr('disabled', 'disabled')
   }else{
     col6 = $('<div class=\'panel-block-buttons panel-block-buttons--xs ' + numberOfChild + '\'></div>')
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChild + '\' data-parent=\'' + numberClass + '\'  >');
@@ -193,7 +197,7 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
   col2.append(col2a);
   colAssessText.append(col4rowCol2h6, col4rowCol2h6per);
   col4.append(col4rowCol2pie);
-  col5.append(col5input);
+  col5.append(col5BarArrowLeft, col5input, col5BarArrowRight);
   row.append(col1, col2, col4, colAssessText, col5, col6, col7);
 
   return row;

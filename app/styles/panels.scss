@@ -145,8 +145,7 @@
     &-number,
     &-title,
     &-assessment-icon,
-    &-assessment-text,
-    &-bar-slider {
+    &-assessment-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -185,6 +184,8 @@
     }
 
     &-bar-slider {
+      display: flex;
+      align-items: center;
       @include padding-left-right(5px, 5px);
     }
 
@@ -228,7 +229,6 @@
     &-title,
     &-assessment-icon,
     &-assessment-text,
-    &-bar-slider,
     &-buttons {
       display: flex;
       flex-direction: column;
@@ -270,8 +270,10 @@
     }
 
     &-bar-slider {
-      padding-right: 5px;
-      padding-left: 10px;
+      display: flex;
+      align-items: center;
+      padding-right: 10px;
+      padding-left: 0;
     }
 
     &-buttons {

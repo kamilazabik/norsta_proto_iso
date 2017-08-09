@@ -232,3 +232,107 @@ $xs-panel-height: 40px;
   background-color: $background;
   border-color: $border;
 }
+
+@mixin make-sm-column-number($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-sm-min) {
+    float: left;
+    --widthA: percentage(($columns / $grid-columns));
+    width: calc(var(--widthA) + 15px);
+  }
+}
+
+@mixin make-md-column-number($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-md-min) {
+    float: left;
+    --widthA: percentage(($columns / $grid-columns));
+    width: calc(var(--widthA) + 12px);
+  }
+}
+
+@mixin make-lg-column-number($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-lg-min) {
+    float: left;
+    --widthA: percentage(($columns / $grid-columns));
+    width: calc(var(--widthA) + 12px);
+  }
+}
+
+@mixin make-xl-column-number($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-xl-min) {
+    float: left;
+    --widthA: percentage(($columns / $grid-columns));
+    width: calc(var(--widthA) + 12px);
+  }
+}
+
+@mixin make-sm-column-assessment-text($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-sm-min) {
+    float: left;
+    --widthA: percentage(($columns / $grid-columns));
+    width: calc(var(--widthA) - 15px);
+  }
+}
+
+@mixin make-md-column-assessment-text($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-md-min) {
+    float: left;
+    --widthA: percentage(($columns / $grid-columns));
+    width: calc(var(--widthA) - 12px);
+  }
+}
+
+@mixin make-lg-column-assessment-text($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-lg-min) {
+    float: left;
+    --widthA: percentage(($columns / $grid-columns));
+    width: calc(var(--widthA) - 12px);
+  }
+}
+
+@mixin make-xl-column-assessment-text($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left: ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $screen-xl-min) {
+    float: left;
+    --widthA: percentage(($columns / $grid-columns));
+    width: calc(var(--widthA) - 12px);
+  }
+}

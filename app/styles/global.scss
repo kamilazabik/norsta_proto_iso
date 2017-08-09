@@ -98,6 +98,22 @@ p {
   min-width: $button-width;
 }
 
+.btn-arrow-slider {
+  border-color: #86bfea;
+  background-color: #86bfea;
+  float: right;
+  font-size: 10px;
+  margin-top: 5px;
+  padding: 1px 3px;
+  width: 20px;
+  z-index: 100;
+
+  &--edit {
+    border-color: #86bfea;
+    background-color: #86bfea;
+  }
+}
+
 .btn {
   &:hover,
   &-add:hover,

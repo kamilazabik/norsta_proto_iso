@@ -204,6 +204,25 @@
   }
 }
 
+.assessment-rating {
+  .panel-title {
+    &-number {
+      @include make-xs-column(2);
+      @include make-sm-column-number(1);
+      @include make-md-column-number(1.2);
+      @include make-lg-column-number(1);
+      @include make-xl-column-number(0.8);
+    }
+    &-assessment-text {
+      @include make-xs-column(2.2);
+      @include make-sm-column-assessment-text(1.6);
+      @include make-md-column-assessment-text(1.2);
+      @include make-lg-column-assessment-text(1);
+      @include make-xl-column-assessment-text(1);
+    }
+  }
+}
+
 .assessment-spice {
   .panel-block, .panel-title {
     @include make-row();
@@ -353,15 +372,15 @@
     }
     &-label {
       @include make-row();
-      @include make-xs-column(3);
-      @include make-lg-column(4);
-      @include make-xl-column(4);
+      //@include make-xs-column(3);
+      //@include make-lg-column(4);
+      //@include make-xl-column(4);
     }
     &-title {
       @include make-row();
-      @include make-xs-column(9);
-      @include make-lg-column(8);
-      @include make-xl-column(8);
+      @include make-xs-column(10);
+      @include make-lg-column(9);
+      @include make-xl-column(10);
     }
   }
 }
