@@ -113,7 +113,7 @@ function makePanelsTitle(numberClass, oneTitle){
     colBar.append(colBarSlider);
   }
 
-  colBar.append(colBarArrowRight)
+  colBar.append(colBarArrowRight);
   colButtonRow1Col1.append(buttonUp);
   colButtonRow2Col1.append(buttonRight, buttonLeft);
   colButton.append(colButtonRow1, colButtonRow2);
@@ -182,6 +182,8 @@ function makeBodyPanel(numberOfChildren, nameOfChildren, childrenDegree,i,number
     col6 = $('<div class=\'panel-block-buttons panel-block-buttons--xs ' + numberOfChild + '\'></div>')
     col5input = $('<input class=\'slider\' type=\'range\' value=\'0\' min=\'0\' max=' + max + ' name=\'' + numberOfChild + '\' data-parent=\'' + numberClass + '\'  >');
     col5.addClass('panel-block-bar-slider--xs')
+    col5BarArrowLeft.addClass('btn-arrow-slider--edit')
+    col5BarArrowRight.addClass('btn-arrow-slider--edit')
   }
 
   if(isoObject[numberOfChild]['numberOfEvidence'] != undefined) {

@@ -1,10 +1,5 @@
 @import "mixins";
 
-/***** Slider *****/
-
-.active-input {
-  background-color: $buttonsAdd !important;
-}
 
 /***** Pie *****/
 svg {
@@ -27,6 +22,12 @@ circle {
 .circle {
   fill: #e2282b !important;
   stroke: #45d666 !important;
+}
+
+/***** Slider *****/
+
+.active-input {
+  background-color: $buttonsAdd !important;
 }
 
 .range-slider {

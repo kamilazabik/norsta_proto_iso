@@ -496,9 +496,6 @@
     }
     &-label {
       @include make-row();
-      //@include make-xs-column(3);
-      //@include make-lg-column(4);
-      //@include make-xl-column(4);
     }
     &-title {
       @include make-row();
