@@ -125,14 +125,14 @@
     @include make-row();
 
     &-number {
-      @include make-xs-column(2);
+      @include make-xs-column(2.8);
       @include make-sm-column-plus(1);
       @include make-md-column-plus(1.2);
       @include make-lg-column-plus(1);
       @include make-xl-column-plus(0.8);
     }
     &-title {
-      @include make-xs-column(10);
+      @include make-xs-column(9.2);
       @include make-sm-column(4);
       @include make-md-column(4);
       @include make-lg-column(5);
@@ -179,14 +179,14 @@
     @include make-row();
 
     &-number {
-      @include make-xs-column(2);
+      @include make-xs-column(2.8);
       @include make-sm-column(1);
       @include make-md-column(1.2);
       @include make-lg-column(1);
       @include make-xl-column(0.8);
     }
     &-title {
-      @include make-xs-column(10);
+      @include make-xs-column(9.2);
       @include make-sm-column(4);
       @include make-md-column(4);
       @include make-lg-column(5);
@@ -263,14 +263,14 @@
     @include make-row();
 
     &-number {
-      @include make-xs-column(2);
+      @include make-xs-column(2.8);
       @include make-sm-column-plus(1);
       @include make-md-column-plus(1.2);
       @include make-lg-column-plus(1);
       @include make-xl-column-plus(0.8);
     }
     &-title {
-      @include make-xs-column(10);
+      @include make-xs-column(9.2);
       @include make-sm-column-minus(4);
       @include make-md-column-minus(4);
       @include make-lg-column-minus(4.8);
@@ -318,7 +318,7 @@
     @include make-row();
 
     &-number {
-      @include make-xs-column(2);
+      @include make-xs-column(2.8);
       @include make-sm-column(1);
       @include make-md-column(1.2);
       @include make-lg-column(1);
@@ -326,7 +326,7 @@
     }
 
     &-title {
-      @include make-xs-column(10);
+      @include make-xs-column(9.2);
       @include make-sm-column(4);
       @include make-md-column(4);
       @include make-lg-column(4.6);
