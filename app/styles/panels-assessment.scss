@@ -46,6 +46,9 @@
 
     }
     &-bar-slider {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       border: none;
       padding-left: 10px;
       padding-right: 0;

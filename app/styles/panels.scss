@@ -250,22 +250,25 @@
       }
     }
 
-    &-assessment-icon {
-      @include border-radius (0 0 0 3px);
-      @include padding-left-right(5px, 5px);
-      border-left: $panels-border;
+    &-assessment {
+
+      &-icon {
+        @include border-radius (0 0 0 3px);
+        @include padding-left-right(5px, 5px);
+        border-left: $panels-border;
 
         &__pie, svg {
           @include width-height($pie-size-xs, $pie-size-xs);
         }
-    }
+      }
 
-    &-assessment-text {
-      @include padding-left-right(5px, 5px);
+      &-text {
+        @include padding-left-right(5px, 5px);
 
-      &__number {
-        margin-bottom: 5px;
-        margin-top: 5px;
+        &__number {
+          margin-bottom: 5px;
+          margin-top: 5px;
+        }
       }
     }
 

@@ -262,20 +262,31 @@
         }
       }
 
-      &-assessment-icon {
+      &-assessment {
+
         &-icon {
-          &__pie, svg {
-            @include width-height($pie-size-md, $pie-size-md);
+          &-icon {
+            &__pie, svg {
+              @include width-height($pie-size-md, $pie-size-md);
+            }
           }
         }
+
+        &-text {
+          @include padding-left-right(0px, 10px);
+        }
       }
+
       &-bar-slider {
-        padding-right: 15px;
-        padding-left: 15px;
+        padding-right: 10px;
+        padding-left: 3px;
       }
 
       &-buttons {
         @include border-right(0, 3px);
+        &-row {
+          padding-right: 16px;
+        }
       }
 
       &:hover {
@@ -309,6 +320,7 @@
 
 
       &-bar-slider {
+        padding-right: 5px;
         border-top: $panels-border;
       }
 
@@ -387,6 +399,19 @@
     margin-right: 0;
     padding-right: 15px;
   }
+
+  .assessment-dampster-shafer,
+  .assessment-rating,
+  .assessment-spice {
+
+    .panel-title {
+      &-assessment-text {
+        padding-left: 5px;
+      }
+    }
+  }
+
+
 }//1200px - 1440px
 
 
